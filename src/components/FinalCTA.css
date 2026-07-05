@@ -1,0 +1,63 @@
+.cta-section {
+  padding-bottom: var(--space-12);
+  background-color: var(--color-background);
+}
+
+.cta-banner {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-dark));
+  padding: var(--space-8) var(--space-4);
+  position: relative;
+  overflow: hidden;
+  border: none;
+}
+
+[data-theme='dark'] .cta-banner {
+  background: linear-gradient(135deg, #0F172A, #020617);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cta-content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.cta-title {
+  color: white;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  margin-bottom: var(--space-3);
+}
+
+.cta-desc {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.25rem;
+}
+
+.cta-outline {
+  background: transparent;
+  color: white;
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.cta-outline:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: white;
+}
+
+.cta-bg-shape {
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.2) 0%, transparent 70%);
+  border-radius: 50%;
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .cta-actions {
+    flex-direction: column;
+  }
+}

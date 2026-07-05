@@ -1,0 +1,217 @@
+/* PROFILE SPECIFIC STYLES */
+
+.profile-header {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 80px;
+  background: white;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+}
+.profile-cover {
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(135deg, var(--color-primary), #1e3a8a);
+  position: relative;
+}
+.profile-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.6;
+}
+.profile-avatar-container {
+  position: absolute;
+  bottom: -50px;
+  left: 40px;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 6px solid white;
+  background: white;
+  z-index: 10;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.profile-avatar-container:hover {
+  transform: scale(1.02);
+}
+.profile-avatar-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.profile-avatar-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.profile-avatar-container:hover .profile-avatar-overlay {
+  opacity: 1;
+}
+
+/* Settings Layout */
+.profile-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+@media (min-width: 1024px) {
+  .profile-grid {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+.profile-nav {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+}
+@media (min-width: 1024px) {
+  .profile-nav {
+    width: 280px;
+    flex-direction: column;
+    padding-bottom: 0;
+    flex-shrink: 0;
+    position: sticky;
+    top: 24px;
+  }
+}
+.profile-nav-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  border-radius: 12px;
+  font-weight: 700;
+  color: var(--color-muted);
+  transition: all 0.2s;
+  white-space: nowrap;
+  background: transparent;
+  border: 1px solid transparent;
+}
+.profile-nav-btn:hover {
+  background: rgba(11, 87, 208, 0.05);
+  color: var(--color-main);
+}
+.profile-nav-btn.active {
+  background: white;
+  color: var(--color-primary);
+  border-color: var(--color-border);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+}
+
+.profile-content {
+  flex: 1;
+  min-width: 0;
+  background: white;
+  border-radius: 20px;
+  border: 1px solid var(--color-border);
+  padding: 32px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+}
+
+/* Form Groups */
+.form-group {
+  margin-bottom: 24px;
+}
+.form-label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-main);
+  margin-bottom: 8px;
+}
+.form-input {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 10px;
+  border: 1px solid var(--color-border);
+  background: #f8fafc;
+  font-size: 0.95rem;
+  transition: all 0.2s;
+  outline: none;
+  font-family: inherit;
+}
+.form-input:focus {
+  border-color: var(--color-primary);
+  background: white;
+  box-shadow: 0 0 0 3px rgba(11, 87, 208, 0.1);
+}
+.form-textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+/* Toggles */
+.toggle-switch {
+  position: relative;
+  width: 44px;
+  height: 24px;
+  background: var(--color-border);
+  border-radius: 24px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.toggle-switch.active {
+  background: var(--color-primary);
+}
+.toggle-knob {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 20px;
+  height: 20px;
+  background: white;
+  border-radius: 50%;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+.toggle-switch.active .toggle-knob {
+  transform: translateX(20px);
+}
+
+/* Sticky Action Bar */
+.profile-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid var(--color-border);
+}
+
+/* Dark Mode */
+.dark-theme .profile-header, .dark-theme .profile-content, .dark-theme .profile-nav-btn.active {
+  background: #1e293b;
+  border-color: #334155;
+}
+.dark-theme .profile-avatar-container {
+  border-color: #0f172a;
+}
+.dark-theme .form-input {
+  background: #0f172a;
+  border-color: #334155;
+  color: white;
+}
+.dark-theme .form-input:focus {
+  background: #1e293b;
+  border-color: var(--color-primary);
+}
+.dark-theme .form-label {
+  color: white;
+}
+.dark-theme .profile-actions {
+  border-color: #334155;
+}

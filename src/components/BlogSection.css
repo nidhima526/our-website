@@ -1,0 +1,36 @@
+.blog-section {
+  background-color: var(--color-surface);
+}
+
+.blog-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.blog-image {
+  height: 200px;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.blog-img-1 { background: linear-gradient(135deg, #10B981, #047857); }
+.blog-img-2 { background: linear-gradient(135deg, #6366F1, #4338CA); }
+.blog-img-3 { background: linear-gradient(135deg, #F43F5E, #BE123C); }
+
+.blog-title {
+  font-size: 1.25rem;
+  line-height: 1.4;
+  margin-bottom: var(--space-4);
+}
+
+.blog-content {
+  flex-grow: 1;
+}
+
+@media (max-width: 768px) {
+  .blog-grid {
+    grid-template-columns: 1fr;
+  }
+}

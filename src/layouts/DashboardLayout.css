@@ -1,0 +1,202 @@
+.ds-dashboard-wrapper {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background-color: var(--color-surface);
+}
+
+.ds-sidebar {
+  width: 280px;
+  background: var(--color-background);
+  border-right: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 100;
+}
+
+.ds-sidebar-header {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  padding: 0 var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.ds-sidebar-logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--color-text-main);
+  letter-spacing: -0.02em;
+}
+
+.ds-sidebar-nav {
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.ds-nav-section-title {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 8px;
+  margin-top: 16px;
+}
+
+.ds-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  color: var(--color-text-muted);
+  border-radius: var(--radius-sm);
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.ds-nav-item:hover {
+  background: var(--color-surface);
+  color: var(--color-text-main);
+}
+
+.ds-nav-item.active {
+  background: rgba(11, 87, 208, 0.08);
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.ds-sidebar-footer {
+  padding: var(--space-4);
+  border-top: 1px solid var(--color-border);
+}
+
+.ds-user-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-radius: var(--radius-sm);
+  box-shadow: none;
+  background: var(--color-surface);
+}
+
+.ds-user-card:hover {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.ds-user-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.ds-user-name {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text-main);
+}
+
+.ds-user-role {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+.ds-dashboard-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.ds-topbar {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--space-6);
+  z-index: 10;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Overrides glass panel border */
+}
+
+.ds-menu-btn { display: none; color: var(--color-text-main); }
+
+.ds-icon-btn {
+  display: flex; align-items: center; justify-content: center;
+  color: var(--color-text-muted);
+  transition: all 0.2s ease;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.ds-icon-btn:hover { color: var(--color-primary); }
+
+.ds-search-bar {
+  position: relative;
+  width: 320px;
+}
+.ds-search-icon { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: var(--color-text-muted); }
+.ds-search-input {
+  width: 100%;
+  height: 48px;
+  padding-left: 48px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-border);
+  background: var(--color-background);
+  font-family: inherit;
+  font-size: 0.875rem;
+  transition: all 0.2s;
+}
+.ds-search-input:focus { outline: none; border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(11, 87, 208, 0.1); }
+
+.ds-avatar-sm {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: var(--color-border);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+
+.cursor-pointer { cursor: pointer; }
+.hidden { display: none; }
+.md-block { display: none; }
+.md-flex { display: none; }
+
+@media (min-width: 768px) {
+  .md-block { display: block; }
+  .md-flex { display: flex; }
+}
+
+.ds-page-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--space-6) 0;
+}
+
+.ds-sidebar-overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(15, 23, 42, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 90;
+}
+
+@media (max-width: 1024px) {
+  .ds-sidebar {
+    position: fixed;
+    top: 0; bottom: 0; left: 0;
+    transform: translateX(-100%);
+  }
+  .ds-sidebar.open { transform: translateX(0); }
+  .ds-sidebar-overlay.open { display: block; }
+  .ds-menu-btn { display: flex; }
+  .ds-topbar { padding: 0 var(--space-4); height: 70px; }
+  .ds-page-content { padding: var(--space-4) 0; }
+}

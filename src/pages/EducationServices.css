@@ -1,0 +1,87 @@
+.education-page {
+  background-color: var(--color-background);
+}
+
+/* Utilities */
+.text-main { color: var(--color-text-main); }
+.bg-primary-light { background: rgba(11, 87, 208, 0.1); }
+.text-success { color: var(--color-success); }
+.rounded-full { border-radius: 9999px; }
+.px-2 { padding-left: 8px; padding-right: 8px; }
+.py-1 { padding-top: 4px; padding-bottom: 4px; }
+.aspect-square { aspect-ratio: 1 / 1; }
+.max-w-3xl { max-width: 48rem; margin-left: auto; margin-right: auto; }
+.max-w-4xl { max-width: 56rem; margin-left: auto; margin-right: auto; }
+.max-w-5xl { max-width: 64rem; margin-left: auto; margin-right: auto; }
+.border-t-4 { border-top-width: 4px; border-top-style: solid; }
+.border-t-primary { border-top-color: var(--color-primary); }
+
+/* Form Inputs */
+.ds-input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-background);
+  font-family: inherit;
+  font-size: 0.875rem;
+  transition: all 0.2s;
+}
+.ds-input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(11, 87, 208, 0.1);
+}
+
+/* Hero Section */
+.edu-hero {
+  position: relative;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  padding-top: var(--space-12);
+  padding-bottom: var(--space-12);
+}
+.edu-hero-bg {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(135deg, rgba(11, 87, 208, 0.05) 0%, rgba(212, 175, 55, 0.02) 100%);
+  z-index: 0;
+}
+.edu-dashboard {
+  animation: floatEdu 6s ease-in-out infinite;
+  box-shadow: var(--shadow-premium);
+}
+@keyframes floatEdu {
+  0% { transform: translateY(-50%) translateY(0); }
+  50% { transform: translateY(-50%) translateY(-15px); }
+  100% { transform: translateY(-50%) translateY(0); }
+}
+
+/* Action Cards */
+.edu-action-card {
+  transition: transform 0.3s ease;
+}
+.edu-action-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--color-primary);
+}
+.edu-action-card:hover .w-12 {
+  background: var(--color-primary);
+  color: white;
+}
+
+/* Responsive */
+.hidden { display: none; }
+.lg-flex { display: none; }
+.lg-block { display: none; }
+@media (min-width: 1024px) {
+  .lg-flex { display: flex; }
+  .lg-block { display: block; }
+}
+
+@media (max-width: 768px) {
+  .edu-hero { min-height: auto; padding-top: 120px; text-align: center; }
+  .edu-hero-content { display: flex; flex-direction: column; align-items: center; }
+  .edu-hero-illustration { display: none; }
+}

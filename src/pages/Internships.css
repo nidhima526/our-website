@@ -1,0 +1,126 @@
+/* INTERNSHIPS SPECIFIC STYLES */
+
+.job-search-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background: white;
+  padding: 24px;
+  border-radius: 16px;
+  border: 1px solid var(--color-border);
+  margin-bottom: 32px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+}
+@media (min-width: 768px) {
+  .job-search-container {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+.job-search-input-group {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  background: #f8fafc;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 0 16px;
+  transition: all 0.2s;
+}
+.job-search-input-group:focus-within {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(11, 87, 208, 0.1);
+  background: white;
+}
+.job-search-input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 16px 12px;
+  font-size: 0.95rem;
+  outline: none;
+}
+.job-search-divider {
+  width: 1px;
+  height: 24px;
+  background: var(--color-border);
+  margin: 0 8px;
+}
+
+/* Job Cards */
+.job-card {
+  background: white;
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  padding: 24px;
+  transition: all 0.2s;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.job-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.05);
+  border-color: var(--color-primary);
+}
+.job-company-logo {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: #f8fafc;
+  border: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+.job-company-logo img {
+  width: 70%;
+  height: 70%;
+  object-fit: contain;
+}
+.job-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+.job-tag {
+  background: rgba(11, 87, 208, 0.05);
+  color: var(--color-primary);
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+.job-tag.remote {
+  background: rgba(16, 185, 129, 0.1);
+  color: #059669;
+}
+.job-footer {
+  margin-top: auto;
+  padding-top: 20px;
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Dark Mode Overrides */
+.dark-theme .job-search-container, .dark-theme .job-search-input-group, .dark-theme .job-card, .dark-theme .job-company-logo {
+  background: #1e293b;
+  border-color: #334155;
+}
+.dark-theme .job-search-input-group {
+  background: #0f172a;
+}
+.dark-theme .job-search-input-group:focus-within {
+  background: #1e293b;
+}
+.dark-theme .job-search-divider, .dark-theme .job-footer {
+  border-color: #334155;
+}
+.dark-theme .job-search-input {
+  color: white;
+}

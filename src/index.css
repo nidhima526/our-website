@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-sans text-corporate-dark bg-black antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight text-corporate-dark;
+  }
+}
+
+@layer components {
+  /* Corporate Standard Button */
+  .btn-primary {
+    @apply bg-corporate-primary text-white font-semibold py-3 px-6 rounded-corporate transition-all duration-200 hover:bg-corporate-secondary shadow-corporate hover:shadow-corporate-hover focus:outline-none focus:ring-2 focus:ring-corporate-primary focus:ring-opacity-50 flex items-center justify-center gap-2;
+  }
+  
+  .btn-secondary {
+    @apply bg-corporate-bg text-corporate-dark font-bold py-3 px-6 rounded-corporate border-2 border-corporate-dark transition-all duration-300 hover:bg-corporate-secondary hover:text-white hover:border-corporate-secondary flex items-center justify-center gap-2;
+  }
+  
+  .btn-accent {
+    @apply bg-corporate-accent text-corporate-dark font-extrabold py-3 px-6 rounded-corporate transition-all duration-300 hover:bg-yellow-400 shadow-corporate hover:shadow-corporate-hover flex items-center justify-center gap-2;
+  }
+
+  /* Corporate Standard Card */
+  .corp-card {
+    @apply bg-white border border-corporate-border rounded-corporate p-8 shadow-corporate hover:shadow-corporate-hover transition-all duration-300 relative overflow-hidden;
+  }
+
+  /* Form Elements */
+  .form-input {
+    @apply w-full bg-corporate-bg border border-corporate-border rounded-lg px-4 py-3 text-corporate-dark focus:outline-none focus:ring-2 focus:ring-corporate-primary focus:border-transparent transition-all;
+  }
+  
+  .form-label {
+    @apply block text-sm font-semibold text-corporate-dark mb-2;
+  }
+}
+
+/* Custom Premium Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050b14; 
+  border-left: 1px solid rgba(255,255,255,0.05);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #3b82f6, #f97316);
+  border-radius: 10px;
+  border: 2px solid #050b14;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #60a5fa, #fb923c);
+}

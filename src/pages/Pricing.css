@@ -1,0 +1,57 @@
+.pricing-page {
+  background-color: var(--color-background);
+}
+
+/* Hero Section */
+.pr-hero {
+  position: relative;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  padding-top: var(--space-12);
+  padding-bottom: var(--space-12);
+}
+.pr-hero-bg {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(135deg, rgba(11, 87, 208, 0.06) 0%, rgba(139, 92, 246, 0.03) 100%);
+  z-index: 0;
+}
+.pr-dashboard {
+  animation: floatPricing 6s ease-in-out infinite;
+  box-shadow: var(--shadow-premium);
+}
+@keyframes floatPricing {
+  0% { transform: translateY(-50%) translateY(0); }
+  50% { transform: translateY(-50%) translateY(-10px); }
+  100% { transform: translateY(-50%) translateY(0); }
+}
+
+/* Hide scrollbar for Tabs on mobile */
+.pr-tabs-scroll::-webkit-scrollbar {
+  display: none;
+}
+.pr-tabs-scroll {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Utilities */
+.text-success { color: var(--color-success); }
+.border-b-primary { border-bottom-color: var(--color-primary); }
+
+/* Responsive */
+.hidden { display: none; }
+.lg-flex { display: none; }
+@media (min-width: 1024px) {
+  .lg-flex { display: flex; }
+}
+
+@media (max-width: 768px) {
+  .pr-hero { min-height: auto; padding-top: 120px; text-align: center; }
+  .pr-hero-content { display: flex; flex-direction: column; align-items: center; }
+  .pr-hero-illustration { display: none; }
+  
+  /* Make table scrollable vertically or horizontally on small screens */
+  table { min-width: 600px; }
+}

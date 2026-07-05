@@ -1,0 +1,102 @@
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { Menu, X, ChevronDown, Shield } from 'lucide-react';
+
+const Header = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const navLinks = [
+    { name: 'Home', path: '/' },
+    { name: 'About Us', path: '/about' },
+    { name: 'Legal Services', path: '/legal' },
+    { name: 'Technology Services', path: '/technology' },
+    { name: 'Courses', path: '/courses' },
+    { name: 'Digital & Creative', path: '/creative' },
+    { name: 'Internships', path: '/internships' },
+    { name: 'Contact', path: '/contact' }
+  ];
+
+  const isActive = (path) => location.pathname === path;
+
+  return (
+    <header 
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled ? 'bg-black/80 backdrop-blur-md shadow-lg py-3 border-b border-white/10' : 'bg-transparent py-5'
+      }`}
+    >
+      <div className="w-full max-w-[1600px] px-4 lg:px-10 2xl:px-16 mx-auto">
+        <div className="flex justify-between items-center gap-8">
+          
+          {/* Logo */}
+          <Link to="/" className="flex items-center gap-3 group shrink-0">
+            <img src="/logo.png" alt="MasterTechwith Nidhima Logo" className="h-10 md:h-12 object-contain rounded-md shadow-sm group-hover:scale-105 transition-transform" />
+            <div className="flex flex-col justify-center">
+              <div className="font-extrabold text-xl md:text-2xl tracking-tight leading-none text-white whitespace-nowrap">
+                MasterTechwith <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-yellow-300">NIDHIMA</span>
+              </div>
+              <div className="text-[10px] md:text-xs text-gray-300 italic tracking-widest mt-1 font-serif whitespace-nowrap">
+                Prosperity meets a priceless treasure
+              </div>
+            </div>
+          </Link>
+
+          {/* Desktop Navigation */}
+          <nav className="hidden xl:flex items-center justify-end gap-2 2xl:gap-4 flex-1">
+            {navLinks.map((link) => (
+              <Link
+                key={link.name}
+                to={link.path}
+                className={`text-[13px] 2xl:text-sm font-bold px-4 py-2 rounded-full transition-all duration-300 whitespace-nowrap ${
+                  isActive(link.path) 
+                    ? 'text-white bg-white/10 border border-white/20 shadow-inner' 
+                    : 'text-gray-300 hover:text-white hover:bg-white/5'
+                }`}
+              >
+                {link.name}
+              </Link>
+            ))}
+          </nav>
+
+          {/* Mobile Menu Button */}
+          <button 
+            className="xl:hidden p-2 text-white hover:bg-white/10 rounded-full transition-colors shrink-0"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Menu */}
+      {mobileMenuOpen && (
+        <div className="xl:hidden absolute top-full left-0 right-0 bg-black/95 backdrop-blur-xl border-b border-white/10 shadow-2xl py-4 px-4 flex flex-col gap-2 max-h-[80vh] overflow-y-auto">
+          {navLinks.map((link) => (
+            <Link
+              key={link.name}
+              to={link.path}
+              onClick={() => setMobileMenuOpen(false)}
+              className={`block px-4 py-3 rounded-xl font-bold transition-colors ${
+                isActive(link.path) ? 'bg-gradient-to-r from-orange-500 to-orange-600 text-white shadow-md' : 'text-gray-300 hover:bg-white/10 hover:text-white'
+              }`}
+            >
+              {link.name}
+            </Link>
+          ))}
+          {/* Mobile CTA removed */}
+        </div>
+      )}
+    </header>
+  );
+};
+
+export default Header;
