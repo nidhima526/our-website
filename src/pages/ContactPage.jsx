@@ -6,6 +6,7 @@ import {
   Monitor, PenTool, GraduationCap, Briefcase, CheckCircle2,
   Cpu, Building, Globe
 } from 'lucide-react';
+import FadingVideo from '../components/FadingVideo';
 
 const divisions = [
   { id: 'tech', label: 'Technology', icon: <Monitor size={16} /> },
@@ -49,13 +50,16 @@ const ContactPage = () => {
     <CorporateLayout>
       <div className="min-h-screen bg-transparent text-white flex flex-col relative overflow-hidden pt-28 pb-20">
         
-        {/* Dark Glass Overlay for the whole page */}
-        <div className="absolute inset-0 bg-black/50"></div>
-
-        {/* Animated Background Elements */}
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-600/20 rounded-full blur-[150px] pointer-events-none animate-pulse-slow"></div>
-        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-orange-600/20 rounded-full blur-[120px] pointer-events-none animate-pulse-slow" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoMjU1LCAyNTUsIDI1NSwgMC4wNSkiLz48L3N2Zz4=')] opacity-20 z-0 pointer-events-none"></div>
+        {/* Dark Glass Overlay and Cinematic Video */}
+        <div className="absolute inset-0 bg-black/40 z-0 pointer-events-none"></div>
+        <div className="absolute inset-0 overflow-hidden z-0 pointer-events-none">
+          <div className="absolute -top-[30%] -bottom-[30%] left-0 right-0">
+            <FadingVideo 
+              src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260328_115001_bcdaa3b4-03de-47e7-ad63-ae3e392c32d4.mp4" 
+              className="w-full h-full object-cover translate-y-[17%]"
+            />
+          </div>
+        </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full flex flex-col lg:flex-row gap-16">
           
@@ -67,7 +71,7 @@ const ContactPage = () => {
                 <span className="uppercase tracking-widest text-xs">Global Headquarters</span>
               </div>
               
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-black tracking-tight mb-6 leading-tight text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-yellow-300">
+              <h1 style={{ fontFamily: "'Instrument Serif', serif" }} className="text-5xl md:text-6xl lg:text-7xl tracking-tight mb-6 leading-tight text-white font-normal whitespace-nowrap">
                 Get in Touch.
               </h1>
               
@@ -81,8 +85,8 @@ const ContactPage = () => {
               className="space-y-6"
             >
               {/* Direct Lines */}
-              <div className="bg-white/5 backdrop-blur-lg border border-white/10 p-6 rounded-2xl hover:bg-white/10 hover:border-orange-500/50 transition-all duration-300 group">
-                <div className="flex items-start gap-4">
+              <div className="liquid-glass p-6 rounded-[1.25rem] group relative z-10 transition-all duration-300">
+                <div className="flex items-start gap-4 relative z-10">
                   <div className="w-12 h-12 bg-orange-500/20 text-orange-400 rounded-xl flex items-center justify-center shrink-0 group-hover:bg-orange-500 group-hover:text-white transition-colors">
                     <Phone size={24} />
                   </div>
@@ -95,8 +99,8 @@ const ContactPage = () => {
               </div>
 
               {/* Email */}
-              <div className="bg-white/5 backdrop-blur-lg border border-white/10 p-6 rounded-2xl hover:bg-white/10 hover:border-blue-500/50 transition-all duration-300 group">
-                <div className="flex items-start gap-4">
+              <div className="liquid-glass p-6 rounded-[1.25rem] group relative z-10 transition-all duration-300">
+                <div className="flex items-start gap-4 relative z-10">
                   <div className="w-12 h-12 bg-blue-500/20 text-blue-400 rounded-xl flex items-center justify-center shrink-0 group-hover:bg-blue-500 group-hover:text-white transition-colors">
                     <Mail size={24} />
                   </div>
@@ -108,8 +112,8 @@ const ContactPage = () => {
               </div>
 
               {/* Location */}
-              <div className="bg-white/5 backdrop-blur-lg border border-white/10 p-6 rounded-2xl hover:bg-white/10 hover:border-green-500/50 transition-all duration-300 group">
-                <div className="flex items-start gap-4">
+              <div className="liquid-glass p-6 rounded-[1.25rem] group relative z-10 transition-all duration-300">
+                <div className="flex items-start gap-4 relative z-10">
                   <div className="w-12 h-12 bg-green-500/20 text-green-400 rounded-xl flex items-center justify-center shrink-0 group-hover:bg-green-500 group-hover:text-white transition-colors">
                     <MapPin size={24} />
                   </div>
@@ -129,9 +133,8 @@ const ContactPage = () => {
           <div className="w-full lg:w-7/12 flex flex-col justify-center">
             <motion.div 
               initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6, delay: 0.3 }}
-              className="bg-white/10 backdrop-blur-2xl border border-white/20 p-8 md:p-12 rounded-[32px] shadow-[0_30px_60px_rgba(0,0,0,0.5)] relative overflow-hidden"
+              className="liquid-glass p-8 md:p-12 rounded-[32px] relative overflow-hidden"
             >
-              <div className="absolute top-0 right-0 w-32 h-32 bg-orange-500/30 rounded-full blur-[60px] pointer-events-none"></div>
               
               <h2 className="text-3xl font-extrabold text-white mb-2 relative z-10">Send an Inquiry</h2>
               <p className="text-gray-300 mb-8 font-medium relative z-10">Select a division and tell us how we can help you today.</p>

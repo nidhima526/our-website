@@ -19,6 +19,8 @@ export default {
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
+        heading: ['Instrument Serif', 'serif'],
+        body: ['Barlow', 'sans-serif'],
       },
       borderRadius: {
         'corporate': '18px',

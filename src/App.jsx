@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
+import Lenis from 'lenis';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaWhatsapp } from 'react-icons/fa';
 import Home from './pages/Home';
@@ -71,6 +72,31 @@ const SplashScreen = () => (
 function App() {
   const [loading, setLoading] = useState(true);
 
+  // Initialize Lenis for smooth scrolling
+  useEffect(() => {
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      direction: 'vertical',
+      gestureDirection: 'vertical',
+      smooth: true,
+      mouseMultiplier: 1,
+      smoothTouch: false,
+      touchMultiplier: 2,
+      infinite: false,
+    });
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+
+    return () => {
+      lenis.destroy();
+    };
+  }, []);
+
   useEffect(() => {
     // Simulate loading time for splash screen
     const timer = setTimeout(() => {
@@ -106,18 +132,7 @@ function App() {
         </Routes>
       )}
 
-      {/* Global Fixed Video Background */}
-      <div className="fixed inset-0 w-full h-full z-[-1] bg-black">
-        <video 
-          autoPlay 
-          loop 
-          muted 
-          playsInline 
-          className="absolute inset-0 w-full h-full object-cover opacity-60"
-        >
-          <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260328_105406_16f4600d-7a92-4292-b96e-b19156c7830a.mp4" type="video/mp4" />
-        </video>
-      </div>
+      {/* Background is now handled by individual cinematic sections */}
 
       {/* Global WhatsApp Floating Button */}
       <a 
