@@ -14,6 +14,7 @@ import ContactPage from './pages/ContactPage';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsConditions from './pages/TermsConditions';
 import RefundPolicy from './pages/RefundPolicy';
+import InteriorDesign from './pages/InteriorDesign';
 // Wrapper to handle dynamic SEO titles
 const PageWrapper = ({ title, children }) => {
   useEffect(() => {
@@ -119,6 +120,7 @@ function App() {
           <Route path="/courses" element={<PageWrapper title="Professional Academy"><Courses /></PageWrapper>} />
           <Route path="/creative" element={<PageWrapper title="Digital & Creative"><DigitalCreative /></PageWrapper>} />
           <Route path="/internships" element={<PageWrapper title="Corporate Internships"><Internships /></PageWrapper>} />
+          <Route path="/interior-design" element={<PageWrapper title="Interior & Architectural Design"><InteriorDesign /></PageWrapper>} />
           
           {/* Auxiliary Pages */}
           <Route path="/about" element={<PageWrapper title="About Us"><AboutUs /></PageWrapper>} />

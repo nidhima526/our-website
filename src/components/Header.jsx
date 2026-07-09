@@ -17,11 +17,12 @@ const Header = () => {
 
   const navLinks = [
     { name: 'Home', path: '/' },
-    { name: 'About Us', path: '/about' },
-    { name: 'Legal Services', path: '/legal' },
-    { name: 'Technology Services', path: '/technology' },
+    { name: 'About', path: '/about' },
+    { name: 'Legal', path: '/legal' },
+    { name: 'Tech', path: '/technology' },
     { name: 'Courses', path: '/courses' },
-    { name: 'Digital & Creative', path: '/creative' },
+    { name: 'Creative', path: '/creative' },
+    { name: 'Interior Design', path: '/interior-design' },
     { name: 'Internships', path: '/internships' },
     { name: 'Contact', path: '/contact' }
   ];
@@ -51,15 +52,17 @@ const Header = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden xl:flex items-center justify-end gap-2 2xl:gap-4 flex-1">
+          <nav className="hidden xl:flex items-center justify-end gap-1 2xl:gap-3 flex-1 flex-wrap">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 to={link.path}
-                className={`text-[13px] 2xl:text-sm font-bold px-4 py-2 rounded-full transition-all duration-300 whitespace-nowrap ${
-                  isActive(link.path) 
-                    ? 'text-white bg-white/10 border border-white/20 shadow-inner' 
-                    : 'text-gray-300 hover:text-white hover:bg-white/5'
+                className={`text-[13px] 2xl:text-sm font-bold px-3 py-2 rounded-full transition-all duration-300 whitespace-nowrap ${
+                  link.name === 'Contact'
+                    ? 'bg-orange-500 text-white hover:bg-orange-600 shadow-md ml-2'
+                    : isActive(link.path) 
+                      ? 'text-white bg-white/10 border border-white/20 shadow-inner' 
+                      : 'text-gray-300 hover:text-white hover:bg-white/5'
                 }`}
               >
                 {link.name}

@@ -5,7 +5,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { 
   ArrowRight, Monitor, Scale, Zap, GraduationCap, Briefcase, 
-  Globe, Cpu, Award, CheckCircle 
+  Globe, Cpu, Award, CheckCircle, Box 
 } from 'lucide-react';
 import ShinyText from '../components/ShinyText';
 import HlsVideo from '../components/HlsVideo';
@@ -143,6 +143,22 @@ const Home = () => {
                 <Link to="/contact" className="text-white border-b-2 border-orange-500 pb-2 text-lg font-bold hover:text-orange-500 transition-colors">Grow Your Brand</Link>
               </div>
             </div>
+
+            {/* Pillar 4 */}
+            <div ref={el => sectionRefs.current[4] = el} className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+              <div className="order-2 md:order-1">
+                <Box size={48} className="text-purple-500 mb-8" />
+                <h3 className="text-5xl font-black mb-6 tracking-tight">Interior & 3D Design</h3>
+                <p className="text-gray-300 text-xl font-light leading-relaxed mb-10">Premium 3D interior design, architectural planning, and turnkey execution services that visually shape your dream space.</p>
+                <Link to="/interior-design" className="text-white border-b-2 border-orange-500 pb-2 text-lg font-bold hover:text-orange-500 transition-colors">Design Your Space</Link>
+              </div>
+              <div className="order-1 md:order-2 h-[60vh] rounded-3xl overflow-hidden bg-white/5 backdrop-blur-md border border-white/10 relative group flex items-center justify-center">
+                <div className="absolute inset-0 bg-purple-900/20 group-hover:bg-transparent transition-colors duration-1000 z-10"></div>
+                <div className="w-full h-full bg-gradient-to-br from-gray-900 to-black flex items-center justify-center text-gray-400 group-hover:scale-105 transition-transform duration-[2s] ease-out">
+                   <span className="text-2xl font-bold tracking-widest uppercase">3D Interior</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -151,19 +167,19 @@ const Home = () => {
       <section className="py-40 bg-black/40 backdrop-blur-sm text-white relative overflow-hidden border-y border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-16 text-center">
-            <div ref={el => sectionRefs.current[4] = el}>
+            <div ref={el => sectionRefs.current[5] = el}>
               <div className="text-6xl md:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-500 mb-4">500+</div>
               <div className="text-sm font-bold tracking-[0.3em] uppercase text-gray-400">Clients</div>
             </div>
-            <div ref={el => sectionRefs.current[5] = el}>
+            <div ref={el => sectionRefs.current[6] = el}>
               <div className="text-6xl md:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-500 mb-4">10K+</div>
               <div className="text-sm font-bold tracking-[0.3em] uppercase text-gray-400">Students</div>
             </div>
-            <div ref={el => sectionRefs.current[6] = el}>
+            <div ref={el => sectionRefs.current[7] = el}>
               <div className="text-6xl md:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-b from-orange-400 to-orange-800 mb-4">120+</div>
               <div className="text-sm font-bold tracking-[0.3em] uppercase text-gray-400">Projects</div>
             </div>
-            <div ref={el => sectionRefs.current[7] = el}>
+            <div ref={el => sectionRefs.current[8] = el}>
               <div className="text-6xl md:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-500 mb-4">4.9</div>
               <div className="text-sm font-bold tracking-[0.3em] uppercase text-gray-400">Rating</div>
             </div>
@@ -172,7 +188,7 @@ const Home = () => {
       </section>
 
       {/* 4. FINAL CTA SECTION */}
-      <section ref={el => sectionRefs.current[8] = el} className="py-40 bg-transparent relative overflow-hidden flex flex-col items-center text-center">
+      <section ref={el => sectionRefs.current[9] = el} className="py-40 bg-transparent relative overflow-hidden flex flex-col items-center text-center">
         <div className="w-24 h-24 bg-white/5 rounded-full flex items-center justify-center mb-12 border border-white/10 backdrop-blur-md">
           <Award size={48} className="text-white" strokeWidth={1} />
         </div>

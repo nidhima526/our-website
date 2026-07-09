@@ -1,166 +1,234 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import CorporateLayout from './CorporateLayout';
 import { motion } from 'framer-motion';
-import { Megaphone, PenTool, Image, Search, MousePointer, Share2, MonitorPlay, Video, Hash, Mic, Palette, Smartphone, TrendingUp, Briefcase, LineChart, CheckCircle2 } from 'lucide-react';
-import { FaInstagram, FaYoutube } from 'react-icons/fa';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { ArrowRight } from 'lucide-react';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const servicesData = [
   {
     title: "Video Editing",
-    icon: <Video className="text-corporate-primary" size={28} />,
+    subtitle: "Cinematic Precision",
     services: [
-      "YouTube Video Editing", "Podcast Video Editing", "Instagram Reel Editing", "Facebook Video Editing", "Shorts Editing", "Corporate Video Editing", "Promotional Videos", "Advertisement Videos", "Educational Video Editing", "Online Course Video Editing", "Wedding Video Editing", "Event Video Editing", "Vlog Editing", "Documentary Editing", "Cinematic Video Editing", "Motion Graphics", "Intro & Outro Creation", "Subtitle & Caption Editing", "Green Screen Editing", "Color Correction & Color Grading"
+      "YouTube Editing", "Podcast Video", "Reels & Shorts", "Corporate Video", "Promotional Ads", "Color Grading", "Motion Graphics", "Documentaries"
     ]
   },
   {
-    title: "Podcast Services",
-    icon: <Mic className="text-corporate-primary" size={28} />,
+    title: "Podcast",
+    subtitle: "Studio Quality",
     services: [
-      "Podcast Audio Editing", "Podcast Video Editing", "Noise Removal", "Audio Enhancement", "Intro & Outro Music", "Podcast Branding", "Podcast Cover Design", "Multi-Camera Podcast Editing", "Podcast Publishing Support", "Podcast Clips for Social Media"
+      "Audio Editing", "Noise Removal", "Intro & Outro", "Multi-Camera", "Publishing", "Social Clips"
     ]
   },
   {
     title: "Graphic Design",
-    icon: <Palette className="text-corporate-primary" size={28} />,
+    subtitle: "Visual Excellence",
     services: [
-      "Logo Design", "Brand Identity", "Business Card Design", "Letterhead Design", "Invoice Design", "Brochure Design", "Flyer Design", "Poster Design", "Banner Design", "Certificate Design", "Invitation Design", "Social Media Posts", "Carousel Designs", "Infographics", "Menu Card Design", "Packaging Design", "Presentation Design (PPT)", "Resume Design", "CV Design", "Portfolio Design"
+      "Brand Identity", "Logo Design", "Print Media", "Social Media Graphics", "Packaging", "Presentations"
     ]
   },
   {
-    title: "Social Media Management",
-    icon: <Smartphone className="text-corporate-primary" size={28} />,
+    title: "Social Media",
+    subtitle: "Digital Dominance",
     services: [
-      "Instagram Management", "Facebook Management", "LinkedIn Management", "X (Twitter) Management", "Content Calendar", "Daily Posting", "Story Design", "Caption Writing", "Hashtag Research", "Community Management", "Profile Optimization", "Engagement Strategy"
+      "Account Management", "Content Calendar", "Engagement Strategy", "Daily Posting", "Community Growth"
     ]
   },
   {
     title: "Digital Marketing",
-    icon: <TrendingUp className="text-corporate-primary" size={28} />,
+    subtitle: "Data-Driven Growth",
     services: [
-      "Search Engine Optimization (SEO)", "Local SEO", "Technical SEO", "Google Business Profile Optimization", "Google Ads", "Meta Ads (Facebook & Instagram)", "LinkedIn Ads", "YouTube Ads", "Email Marketing", "WhatsApp Marketing", "SMS Marketing", "Content Marketing", "Affiliate Marketing", "Influencer Marketing", "Lead Generation", "Marketing Automation"
+      "SEO Strategy", "Google Ads", "Meta Ads", "Email Campaigns", "Lead Generation", "Automation"
     ]
   },
   {
-    title: "YouTube Services",
-    icon: <FaYoutube className="text-red-600" size={28} />,
+    title: "YouTube Growth",
+    subtitle: "Algorithmic Success",
     services: [
-      "YouTube Channel Setup", "Channel Branding", "Banner Design", "Logo Design", "Thumbnail Design", "SEO Optimization", "Video Upload & Optimization", "Playlist Management", "Monetization Guidance", "Analytics Reports", "Channel Growth Strategy"
+      "Channel Branding", "Thumbnail Design", "SEO Optimization", "Monetization Strategy", "Analytics"
     ]
   },
   {
-    title: "Instagram Services",
-    icon: <FaInstagram className="text-pink-600" size={28} />,
+    title: "Instagram",
+    subtitle: "Viral Engagement",
     services: [
-      "Account Setup", "Profile Optimization", "Reel Strategy", "Story Design", "Highlight Covers", "Feed Planning", "Organic Growth", "Engagement Strategy", "Content Creation", "Monthly Management"
+      "Profile Optimization", "Reel Strategy", "Feed Planning", "Organic Growth", "Content Creation"
     ]
   },
   {
-    title: "Branding Services",
-    icon: <Briefcase className="text-corporate-primary" size={28} />,
+    title: "Brand Strategy",
+    subtitle: "Market Positioning",
     services: [
-      "Brand Strategy", "Brand Identity", "Visual Identity", "Brand Guidelines", "Business Naming", "Tagline Creation", "Brand Positioning", "Marketing Materials", "Corporate Profile Design"
+      "Brand Guidelines", "Naming & Taglines", "Market Research", "Positioning", "Corporate Identity"
     ]
   },
   {
     title: "Content Creation",
-    icon: <PenTool className="text-corporate-primary" size={28} />,
+    subtitle: "Compelling Narrative",
     services: [
-      "Blog Writing", "Website Content Writing", "Product Descriptions", "Copywriting", "Ad Copy", "Social Media Content", "Script Writing", "Newsletter Content", "Press Releases"
+      "Copywriting", "Blog Writing", "Script Writing", "Ad Copy", "Newsletters", "Press Releases"
     ]
   },
   {
-    title: "Business Growth Services",
-    icon: <LineChart className="text-corporate-primary" size={28} />,
+    title: "Business Growth",
+    subtitle: "Scalable Solutions",
     services: [
-      "Business Consultation", "Startup Branding", "Marketing Strategy", "Personal Branding", "Sales Funnel Design", "Landing Page Optimization", "Lead Generation Strategy", "Online Presence Development"
+      "Consultation", "Sales Funnels", "Landing Pages", "Conversion Optimization", "Online Presence"
     ]
   }
 ];
 
 const DigitalCreative = () => {
+  const containerRef = useRef(null);
+  const panelsRef = useRef([]);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      panelsRef.current.forEach((panel, i) => {
+        if (i === 0) return; // Skip hero section for pinning
+
+        ScrollTrigger.create({
+          trigger: panel,
+          start: "top top",
+          pin: true,
+          pinSpacing: false,
+          end: "bottom top",
+          snap: {
+            snapTo: 1,
+            duration: 0.8,
+            ease: "power2.inOut"
+          }
+        });
+
+        // Fade and slide text content block
+        gsap.fromTo(
+          panel.querySelector('.text-content'),
+          { opacity: 0, y: 100 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            scrollTrigger: {
+              trigger: panel,
+              start: "top center",
+              end: "center center",
+              scrub: 1,
+            }
+          }
+        );
+        
+        // Animate the image scale/pan as you scroll to simulate video movement
+        gsap.fromTo(
+          panel.querySelector('.bg-image'),
+          { scale: 1.1, y: 0 },
+          {
+            scale: 1,
+            y: -50,
+            duration: 1,
+            scrollTrigger: {
+              trigger: panel,
+              start: "top bottom",
+              end: "bottom top",
+              scrub: true,
+            }
+          }
+        );
+      });
+    }, containerRef);
+
+    return () => ctx.revert();
+  }, []);
+
+  const setPanelRef = (el, index) => {
+    if (el && !panelsRef.current.includes(el)) {
+      panelsRef.current[index] = el;
+    }
+  };
+
   return (
     <CorporateLayout>
-      {/* Full Page Background Wrapper */}
-      <div 
-        className="w-full min-h-screen relative pt-20"
-      >
-        {/* Dark Glass Overlay for the whole page */}
-        <div className="absolute inset-0 bg-black/50"></div>
-
-        {/* Content Wrapper */}
-        <div className="relative z-10">
-          
-          {/* Page Header */}
-          <div className="text-white pt-20 pb-16 flex flex-col items-center text-center px-4">
-            <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="inline-flex items-center justify-center gap-3 mb-6 text-white px-5 py-2.5 rounded-full border border-white/20 bg-white/10 backdrop-blur-md shadow-xl">
-              <Megaphone size={20} strokeWidth={2} className="text-purple-400" />
-              <span className="font-bold tracking-widest uppercase text-sm">Digital Marketing & Creative</span>
-            </motion.div>
-            <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.1 }} className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-tight mb-6 leading-[1.15] drop-shadow-lg">
-              Accelerate Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-orange-400">Business Growth</span>
-            </motion.h1>
-            <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, delay: 0.2 }} className="text-lg sm:text-xl text-gray-200 max-w-3xl mx-auto font-light leading-relaxed drop-shadow-md">
-              Comprehensive brand strategy, high-conversion ad campaigns, and professional creative design to elevate your brand presence.
-            </motion.p>
-          </div>
-
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white drop-shadow-md">Our Complete Service Catalog</h2>
-              <p className="text-lg text-gray-300 max-w-2xl mx-auto drop-shadow-md">
-                From ideation to execution, explore our comprehensive suite of digital and creative services.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {servicesData.map((category, idx) => (
-                <motion.div 
-                  key={idx}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: idx * 0.1, duration: 0.5 }}
-                  className="bg-white/10 backdrop-blur-xl rounded-[24px] shadow-2xl border border-white/20 overflow-hidden hover:border-purple-400/50 hover:bg-white/20 hover:-translate-y-2 transition-all duration-300 group"
-                >
-                  <div className="p-6 bg-black/20 border-b border-white/10 flex items-center gap-4 group-hover:bg-black/30 transition-colors">
-                    <div className="w-14 h-14 bg-black/40 text-white rounded-xl shadow-inner border border-white/10 flex items-center justify-center shrink-0 group-hover:bg-purple-500/30 group-hover:text-purple-300 transition-colors">
-                      {category.icon}
-                    </div>
-                    <h3 className="text-2xl font-bold text-white group-hover:text-purple-300 transition-colors">{category.title}</h3>
-                  </div>
-                  <div className="p-6 h-[320px] overflow-y-auto custom-scrollbar">
-                    <ul className="space-y-4">
-                      {category.services.map((service, sIdx) => (
-                        <li key={sIdx} className="flex items-start gap-3 text-sm text-gray-200 hover:text-white transition-colors">
-                          <CheckCircle2 size={18} className="text-orange-400 shrink-0 mt-0.5" />
-                          <span className="leading-snug">{service}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+      <div ref={containerRef} className="w-full bg-[#050505] relative selection:bg-white selection:text-black">
+        
+        {/* 0. Hero Section */}
+        <section ref={(el) => setPanelRef(el, 0)} className="relative h-screen w-full flex items-center overflow-hidden z-10 pt-20">
+          <div className="absolute inset-0 z-0">
+            <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center opacity-30 animate-pulse-slow mix-blend-luminosity"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent"></div>
           </div>
           
-        </div>
+          <div className="relative z-20 w-full px-6 md:px-16 max-w-7xl mx-auto flex flex-col justify-center h-full">
+            <span className="text-gray-400 tracking-[0.4em] uppercase text-xs font-bold mb-6 block border-l-2 border-white pl-4">Digital Marketing & Creative</span>
+            <h1 className="text-6xl md:text-[8rem] font-black text-white uppercase tracking-tighter leading-[0.85] mb-8">
+              Creative <br/> <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-100 to-gray-500">Dominance</span>
+            </h1>
+            <p className="text-gray-400 max-w-xl text-lg md:text-xl font-medium mb-12 border-l-2 border-gray-700 pl-4">
+              Premium content, elite branding, and data-driven marketing to scale your enterprise.
+            </p>
+          </div>
+        </section>
+
+        {/* 1-10. Service Sections */}
+        {servicesData.map((category, idx) => {
+          return (
+            <section key={idx} ref={(el) => setPanelRef(el, idx + 1)} className="relative h-screen w-full flex items-center overflow-hidden" style={{ zIndex: (idx + 1) * 10 }}>
+              
+              {/* Background Image with CSS Animation to simulate video */}
+              <div className="absolute inset-0 z-0 overflow-hidden">
+                <img 
+                  src={`/bg_${idx}.png`} 
+                  alt={category.title}
+                  className="bg-image w-full h-[120%] object-cover animate-slow-pan" 
+                />
+              </div>
+              
+              {/* Heavy Dark Overlay for stark text contrast */}
+              <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/70 to-transparent z-10"></div>
+              
+              <div className="relative z-20 w-full max-w-7xl mx-auto px-6 md:px-16 text-content flex justify-start">
+                <div className="max-w-4xl w-full">
+                  
+                  <span className="text-gray-400 tracking-[0.4em] uppercase text-xs font-bold block mb-4 border-l-2 border-white pl-4">0{idx + 1} / {category.subtitle}</span>
+                  
+                  {/* MASSIVE BOLD TYPOGRAPHY */}
+                  <h2 className="text-5xl md:text-[6rem] lg:text-[7rem] text-white font-black uppercase tracking-tighter leading-[0.85] mb-12">
+                    {category.title}
+                  </h2>
+                  
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-4">
+                    {category.services.map((service, sIdx) => (
+                      <div key={sIdx} className="flex items-center gap-4 group cursor-default">
+                        <div className="w-8 h-[1px] bg-gray-600 group-hover:bg-white transition-colors duration-500"></div>
+                        <span className="text-gray-300 text-sm md:text-base font-bold uppercase tracking-wider group-hover:text-white transition-colors duration-500">{service}</span>
+                      </div>
+                    ))}
+                  </div>
+                  
+                </div>
+              </div>
+              
+            </section>
+          );
+        })}
+
       </div>
-      
-      {/* Custom Scrollbar CSS */}
+
       <style dangerouslySetInnerHTML={{__html: `
-        .custom-scrollbar::-webkit-scrollbar {
-          width: 6px;
+        @keyframes slowPan {
+          0% { transform: scale(1.05) translate(0, 0); }
+          50% { transform: scale(1.15) translate(-2%, -2%); }
+          100% { transform: scale(1.05) translate(0, 0); }
         }
-        .custom-scrollbar::-webkit-scrollbar-track {
-          background: #f1f1f1; 
-          border-radius: 4px;
+        .animate-slow-pan {
+          animation: slowPan 12s ease-in-out infinite;
         }
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-          background: #c1c1c1; 
-          border-radius: 4px;
+        @keyframes pulseSlow {
+          0%, 100% { opacity: 0.2; }
+          50% { opacity: 0.5; }
         }
-        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-          background: #a8a8a8; 
+        .animate-pulse-slow {
+          animation: pulseSlow 3s ease-in-out infinite;
         }
       `}} />
     </CorporateLayout>
