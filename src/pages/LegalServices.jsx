@@ -230,11 +230,15 @@ const LegalServices = () => {
         </section>
 
         {/* SECTION 4: WHY CHOOSE US */}
-        <section className="py-24 bg-[#0a0a0a]">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="relative py-24 bg-[#0a0a0a] overflow-hidden border-y border-white/5">
+          <div className="absolute inset-0 z-0">
+            <img src="/why_choose_bg.png" alt="Lady Justice Background" className="w-full h-full object-cover opacity-[0.15]" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/80 to-[#050505]"></div>
+          </div>
+          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Why Choose ASHERVISION</h2>
-              <div className="w-16 h-1 bg-gradient-to-r from-orange-500 to-[#D4AF37] mx-auto"></div>
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 drop-shadow-lg">Why Choose ASHERVISION</h2>
+              <div className="w-16 h-1 bg-gradient-to-r from-orange-500 to-[#D4AF37] mx-auto shadow-[0_0_10px_rgba(249,115,22,0.5)]"></div>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -245,10 +249,10 @@ const LegalServices = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: idx * 0.05 }}
-                  className="bg-white/[0.03] p-6 rounded border border-white/5 flex items-center gap-4 hover:border-orange-500/50 hover:bg-white/[0.05] transition-all duration-300"
+                  className="bg-[#050505]/60 backdrop-blur-sm p-6 rounded border border-white/10 flex items-center gap-4 hover:border-orange-500/50 hover:bg-[#050505]/80 hover:shadow-[0_8px_30px_rgba(249,115,22,0.1)] transition-all duration-300"
                 >
-                  <CheckCircle className="text-orange-500 shrink-0" size={20} />
-                  <span className="text-gray-200 font-medium text-sm">{feature}</span>
+                  <CheckCircle className="text-orange-500 shrink-0 drop-shadow-md" size={20} />
+                  <span className="text-gray-100 font-medium text-sm drop-shadow-sm">{feature}</span>
                 </motion.div>
               ))}
             </div>
