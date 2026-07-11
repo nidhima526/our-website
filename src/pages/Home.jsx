@@ -45,7 +45,7 @@ const Home = () => {
       title: "Creative & Marketing",
       subtitle: "BRAND STRATEGIES THAT PAUSE",
       desc: "SEO, Google Ads, UI/UX design, and premium media services that command absolute attention.",
-      bgImage: "/digitalmarketing.jpg",
+      bgImage: "/creative_hero.png",
       link: "/contact",
       color: "from-yellow-500"
     }

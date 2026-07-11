@@ -142,24 +142,21 @@ const Courses = () => {
     <CorporateLayout>
       <div className="w-full min-h-screen bg-[#0a0a0a] relative selection:bg-yellow-600 selection:text-white font-sans overflow-hidden">
         
-        {/* Subtle Background Pattern */}
-        <div className="absolute inset-0 opacity-[0.02] bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none"></div>
+        {/* Removed subtle background pattern as it causes moire/pixelation on videos */}
 
         {/* 1. Hero Section */}
         <div className="relative w-full min-h-[90vh] flex flex-col items-center justify-center text-center px-4 overflow-hidden mb-16 rounded-b-[4rem] shadow-[0_20px_50px_rgba(0,0,0,0.8)]">
           <div className="absolute inset-0 z-0">
             <video 
-              src="https://assets.mixkit.co/videos/preview/mixkit-software-developer-working-on-code-216-large.mp4" 
+              src="https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-a-data-network-13009-large.mp4" 
               autoPlay 
               loop 
               muted 
               playsInline 
               className="w-full h-full object-cover" 
             />
-            {/* Minimal overlay just to blend the bottom edge with the next section */}
+            {/* Minimal overlay just to blend the bottom edge with the next section without dulling the video */}
             <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#0a0a0a] to-transparent z-10"></div>
-            {/* Very light overall tint so white text stays readable without dulling the video */}
-            <div className="absolute inset-0 bg-black/20 z-10"></div>
           </div>
           
           <div className="relative z-10 max-w-6xl mx-auto pt-32 pb-12 mt-16">
