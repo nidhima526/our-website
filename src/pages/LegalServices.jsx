@@ -43,6 +43,7 @@ const practiceAreas = [
   {
     icon: <ShoppingCart className="text-[#D4AF37]" size={32} />,
     title: 'Consumer Law',
+    img: '/consumer_law_card.png',
     items: ['Consumer Complaints', 'Refund Claims', 'Product Disputes', 'Service Disputes']
   },
   {
