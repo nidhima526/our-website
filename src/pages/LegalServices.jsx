@@ -232,8 +232,9 @@ const LegalServices = () => {
         {/* SECTION 4: WHY CHOOSE US */}
         <section className="relative py-24 bg-[#0a0a0a] overflow-hidden border-y border-white/5">
           <div className="absolute inset-0 z-0">
-            <img src="/why_choose_bg.png" alt="Lady Justice Background" className="w-full h-full object-cover opacity-[0.15]" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/80 to-[#050505]"></div>
+            <img src="/why_choose_bg.png" alt="Lady Justice Background" className="w-full h-full object-cover opacity-60" />
+            <div className="absolute inset-0 bg-[#050505]/70"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-[#050505]"></div>
           </div>
           <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
