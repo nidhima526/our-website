@@ -31,6 +31,7 @@ const practiceAreas = [
   {
     icon: <Home className="text-[#D4AF37]" size={32} />,
     title: 'Property Law',
+    img: '/property_law_card.png',
     items: ['Property Verification', 'Sale Agreements', 'Property Documentation', 'Registration Guidance', 'Title Verification']
   },
   {
