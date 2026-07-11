@@ -19,6 +19,7 @@ const practiceAreas = [
   {
     icon: <Building2 className="text-[#D4AF37]" size={32} />,
     title: 'Civil Law',
+    img: '/civil_law_card.png',
     items: ['Civil Disputes', 'Property Disputes', 'Contract Matters', 'Recovery Matters', 'Civil Litigation Support']
   },
   {
