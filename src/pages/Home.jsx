@@ -271,7 +271,7 @@ const Home = () => {
                   { num: "500+", label: "Clients" },
                   { num: "10K+", label: "Students" },
                   { num: "120+", label: "Projects" },
-                  { num: "4.9", label: "Rating" }
+                  { num: "5.0", label: "Rating" }
                 ].map((stat, i) => (
                   <motion.div 
                     key={i}

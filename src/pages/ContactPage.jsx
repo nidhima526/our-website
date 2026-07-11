@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { 
   Mail, Phone, MapPin, ArrowRight, Shield, 
   Monitor, PenTool, GraduationCap, Briefcase, CheckCircle2,
-  Cpu, Building, Globe
+  Cpu, Building, Globe, Star
 } from 'lucide-react';
 import FadingVideo from '../components/FadingVideo';
 
@@ -195,6 +195,74 @@ const ContactPage = () => {
           </div>
 
         </div>
+
+        {/* Testimonials Section */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full mt-32 mb-16">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-black text-white tracking-tighter mb-4">Trusted by Industry Leaders</h2>
+            <p className="text-gray-400 text-lg max-w-2xl mx-auto">See what our clients say about our unwavering commitment to excellence.</p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Testimonial 1 */}
+            <div className="liquid-glass p-8 rounded-3xl relative border border-white/5 hover:-translate-y-2 transition-all duration-300 shadow-xl shadow-black/20">
+              <div className="flex text-yellow-500 mb-6 gap-1">
+                <Star size={20} fill="currentColor" />
+                <Star size={20} fill="currentColor" />
+                <Star size={20} fill="currentColor" />
+                <Star size={20} fill="currentColor" />
+                <Star size={20} fill="currentColor" />
+              </div>
+              <p className="text-gray-300 italic mb-8 leading-relaxed">"ASHERVISION transformed our digital infrastructure. Their technology solutions are robust, highly scalable, and their team is exceptionally professional."</p>
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-full bg-blue-900/50 border border-blue-500/30 flex items-center justify-center text-blue-400 font-bold text-lg">RJ</div>
+                <div>
+                  <h4 className="text-white font-bold">Rajesh J.</h4>
+                  <p className="text-sm text-gray-500">Tech Director</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Testimonial 2 */}
+            <div className="liquid-glass p-8 rounded-3xl relative border border-white/5 hover:-translate-y-2 transition-all duration-300 shadow-xl shadow-black/20">
+              <div className="flex text-yellow-500 mb-6 gap-1">
+                <Star size={20} fill="currentColor" />
+                <Star size={20} fill="currentColor" />
+                <Star size={20} fill="currentColor" />
+                <Star size={20} fill="currentColor" />
+                <Star size={20} fill="currentColor" />
+              </div>
+              <p className="text-gray-300 italic mb-8 leading-relaxed">"The legal counsel provided by ASHERVISION was nothing short of brilliant. They defended our enterprise with absolute precision and clarity."</p>
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-full bg-orange-900/50 border border-orange-500/30 flex items-center justify-center text-orange-400 font-bold text-lg">SK</div>
+                <div>
+                  <h4 className="text-white font-bold">Sunita K.</h4>
+                  <p className="text-sm text-gray-500">Corporate Client</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Testimonial 3 */}
+            <div className="liquid-glass p-8 rounded-3xl relative border border-white/5 hover:-translate-y-2 transition-all duration-300 shadow-xl shadow-black/20">
+              <div className="flex text-yellow-500 mb-6 gap-1">
+                <Star size={20} fill="currentColor" />
+                <Star size={20} fill="currentColor" />
+                <Star size={20} fill="currentColor" />
+                <Star size={20} fill="currentColor" />
+                <Star size={20} fill="currentColor" />
+              </div>
+              <p className="text-gray-300 italic mb-8 leading-relaxed">"Their creative marketing strategies literally doubled our engagement in one quarter. A premium agency that genuinely delivers on their promises."</p>
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-full bg-yellow-900/50 border border-yellow-500/30 flex items-center justify-center text-yellow-400 font-bold text-lg">MV</div>
+                <div>
+                  <h4 className="text-white font-bold">Mohammed V.</h4>
+                  <p className="text-sm text-gray-500">Marketing Head</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </CorporateLayout>
   );
