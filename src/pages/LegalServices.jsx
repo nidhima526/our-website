@@ -49,6 +49,7 @@ const practiceAreas = [
   {
     icon: <Shield className="text-[#D4AF37]" size={32} />,
     title: 'Cyber Law',
+    img: '/cyber_law_card.png',
     items: ['Online Fraud', 'Cyber Crime Guidance', 'Digital Evidence', 'Social Media Issues']
   },
   {
