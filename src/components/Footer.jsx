@@ -40,8 +40,12 @@ const Footer = () => {
               <div className="w-2 h-2 rounded-full bg-blue-500"></div> Quick Links
             </h3>
             <ul className="space-y-4 text-sm font-medium">
-              <li><Link to="/legal" className="text-gray-400 hover:text-blue-400 transition-colors flex items-center gap-2 group"><ArrowRight size={14} className="text-blue-500/0 group-hover:text-blue-500 -ml-2 group-hover:ml-0 transition-all"/> Legal</Link></li>
-              <li><Link to="/contact" className="text-gray-400 hover:text-blue-400 transition-colors flex items-center gap-2 group"><ArrowRight size={14} className="text-blue-500/0 group-hover:text-blue-500 -ml-2 group-hover:ml-0 transition-all"/> Contact</Link></li>
+              <li><Link to="/" className="text-gray-400 hover:text-blue-400 transition-colors flex items-center gap-2 group"><ArrowRight size={14} className="text-blue-500/0 group-hover:text-blue-500 -ml-2 group-hover:ml-0 transition-all"/> Home</Link></li>
+              <li><Link to="/contact" className="text-gray-400 hover:text-blue-400 transition-colors flex items-center gap-2 group"><ArrowRight size={14} className="text-blue-500/0 group-hover:text-blue-500 -ml-2 group-hover:ml-0 transition-all"/> Contact Us</Link></li>
+              <li><Link to="/legal" className="text-gray-400 hover:text-blue-400 transition-colors flex items-center gap-2 group"><ArrowRight size={14} className="text-blue-500/0 group-hover:text-blue-500 -ml-2 group-hover:ml-0 transition-all"/> Legal Services</Link></li>
+              <li><Link to="/privacy" className="text-gray-400 hover:text-blue-400 transition-colors flex items-center gap-2 group"><ArrowRight size={14} className="text-blue-500/0 group-hover:text-blue-500 -ml-2 group-hover:ml-0 transition-all"/> Privacy Policy</Link></li>
+              <li><Link to="/terms" className="text-gray-400 hover:text-blue-400 transition-colors flex items-center gap-2 group"><ArrowRight size={14} className="text-blue-500/0 group-hover:text-blue-500 -ml-2 group-hover:ml-0 transition-all"/> Terms & Conditions</Link></li>
+              <li><Link to="/refund" className="text-gray-400 hover:text-blue-400 transition-colors flex items-center gap-2 group"><ArrowRight size={14} className="text-blue-500/0 group-hover:text-blue-500 -ml-2 group-hover:ml-0 transition-all"/> Refund Policy</Link></li>
             </ul>
           </div>
 
