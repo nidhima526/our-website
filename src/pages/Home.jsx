@@ -37,7 +37,7 @@ const Home = () => {
       title: "Interior Design",
       subtitle: "SHAPING YOUR DREAM SPACE",
       desc: "Premium 3D interior design, architectural planning, and turnkey execution services.",
-      bgImage: "/interior_hero_new.png",
+      bgImage: "/interior_hero_generated.png",
       link: "/interior-design",
       color: "from-purple-500"
     },
