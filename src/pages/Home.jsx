@@ -122,10 +122,10 @@ const Home = () => {
               <img 
                 src={heroSlides[currentSlide].bgImage} 
                 alt={heroSlides[currentSlide].title}
-                className="w-full h-full object-cover opacity-50"
+                className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/60 to-transparent"></div>
-              <div className="absolute inset-0 bg-gradient-to-r from-[#050505] via-[#050505]/40 to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/30 to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent"></div>
             </motion.div>
           </AnimatePresence>
 
@@ -351,7 +351,7 @@ const Home = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.4 }}
-                className="mt-32 w-full flex flex-col lg:flex-row items-stretch justify-center gap-8 lg:gap-12 relative z-10"
+                className="mt-32 w-full flex flex-col lg:flex-row items-stretch justify-center gap-8 lg:gap-16 relative z-10"
               >
                 {/* Our Vision */}
                 <div className="flex-1 bg-white/[0.03] p-10 md:p-12 rounded-3xl border border-white/10 backdrop-blur-md text-center flex flex-col items-center justify-center hover:bg-white/[0.05] transition-colors shadow-2xl">
@@ -360,17 +360,6 @@ const Home = () => {
                   <p className="text-base md:text-lg text-gray-400 leading-relaxed font-light">
                     To become one of India's most trusted multidisciplinary professional service companies, delivering innovative solutions in technology, legal services, education, design, and digital transformation while building lasting relationships with our clients.
                   </p>
-                </div>
-
-                {/* Center CTA Button */}
-                <div className="flex items-center justify-center shrink-0 -my-8 lg:my-0 lg:-mx-8 z-20">
-                  <Link 
-                    to="/contact" 
-                    className="group flex flex-col items-center justify-center gap-2 bg-gradient-to-b from-white to-gray-300 text-black font-black w-40 h-40 md:w-56 md:h-56 rounded-full hover:scale-105 transition-all duration-500 shadow-[0_0_40px_rgba(255,255,255,0.15)] hover:shadow-[0_0_80px_rgba(255,255,255,0.3)] border-[8px] border-[#050505]"
-                  >
-                    <span className="text-lg md:text-2xl text-center leading-none tracking-tight uppercase">Partner<br/>With Us</span>
-                    <ArrowRight size={28} className="group-hover:translate-y-2 transition-transform mt-2" />
-                  </Link>
                 </div>
 
                 {/* Our Mission */}
