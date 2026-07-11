@@ -92,8 +92,8 @@ const ContactPage = () => {
                   </div>
                   <div>
                     <h3 className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-2">Direct Lines</h3>
-                    <a href="tel:+918184801842" className="block text-lg font-medium text-white hover:text-orange-400 transition-colors mb-1">+91 81848 01842 (Kalyan)</a>
-                    <a href="tel:+916281646302" className="block text-lg font-medium text-white hover:text-orange-400 transition-colors">+91 62816 46302 (Nidhima)</a>
+                    <a href="tel:+918184801842" className="block text-lg font-medium text-white hover:text-orange-400 transition-colors mb-1">+91 81848 01842</a>
+                    <a href="tel:+916281646302" className="block text-lg font-medium text-white hover:text-orange-400 transition-colors">+91 62816 46302</a>
                   </div>
                 </div>
               </div>
@@ -111,21 +111,7 @@ const ContactPage = () => {
                 </div>
               </div>
 
-              {/* Location */}
-              <div className="liquid-glass p-6 rounded-[1.25rem] group relative z-10 transition-all duration-300">
-                <div className="flex items-start gap-4 relative z-10">
-                  <div className="w-12 h-12 bg-green-500/20 text-green-400 rounded-xl flex items-center justify-center shrink-0 group-hover:bg-green-500 group-hover:text-white transition-colors">
-                    <MapPin size={24} />
-                  </div>
-                  <div>
-                    <h3 className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-2">Headquarters</h3>
-                    <p className="text-lg font-medium text-white leading-relaxed">
-                      Ongole, Andhra Pradesh<br />
-                      India
-                    </p>
-                  </div>
-                </div>
-              </div>
+
             </motion.div>
           </div>
           
