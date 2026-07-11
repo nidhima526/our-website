@@ -37,6 +37,7 @@ const practiceAreas = [
   {
     icon: <Briefcase className="text-[#D4AF37]" size={32} />,
     title: 'Corporate & Business Law',
+    img: '/business_law_card.png',
     items: ['Business Agreements', 'Partnership Agreements', 'Employment Contracts', 'Startup Legal Documentation', 'Legal Compliance']
   },
   {
