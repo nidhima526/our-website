@@ -13,6 +13,7 @@ const practiceAreas = [
   {
     icon: <Scale className="text-[#D4AF37]" size={32} />,
     title: 'Criminal Law',
+    img: '/criminal_law_card.png',
     items: ['Criminal Consultation', 'Bail Guidance', 'FIR Guidance', 'Cyber Crime', 'Criminal Documentation', 'Criminal Appeals']
   },
   {
@@ -150,17 +151,33 @@ const LegalServices = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="bg-white/[0.02] p-8 rounded-lg shadow-[0_4px_20px_rgba(0,0,0,0.5)] hover:shadow-[0_8px_30px_rgba(212,175,55,0.05)] hover:-translate-y-1 transition-all duration-300 border border-white/5 flex flex-col h-full"
+                className="bg-white/[0.02] rounded-lg overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.5)] hover:shadow-[0_8px_30px_rgba(212,175,55,0.05)] hover:-translate-y-1 transition-all duration-300 border border-white/5 flex flex-col h-full group"
               >
-                <div className="mb-6">{area.icon}</div>
-                <h3 className="text-xl font-bold text-white mb-6 pb-4 border-b border-white/10">{area.title}</h3>
-                <ul className="space-y-3 flex-grow">
-                  {area.items.map((item, i) => (
-                    <li key={i} className="flex items-start text-gray-400 text-sm leading-relaxed">
-                      <span className="text-orange-500 mr-2 mt-1">•</span> {item}
-                    </li>
-                  ))}
-                </ul>
+                {area.img ? (
+                  <div className="w-full h-48 relative overflow-hidden bg-[#050505]">
+                    <img src={area.img} alt={area.title} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] to-transparent"></div>
+                    <div className="absolute bottom-4 left-6 flex items-center gap-3">
+                      {React.cloneElement(area.icon, { size: 24 })}
+                      <h3 className="text-xl font-bold text-white drop-shadow-md">{area.title}</h3>
+                    </div>
+                  </div>
+                ) : (
+                  <div className="p-8 pb-0">
+                    <div className="mb-6">{area.icon}</div>
+                    <h3 className="text-xl font-bold text-white mb-6 pb-4 border-b border-white/10">{area.title}</h3>
+                  </div>
+                )}
+                
+                <div className={`flex-grow flex flex-col ${area.img ? 'p-6' : 'px-8 pb-8'}`}>
+                  <ul className="space-y-3 flex-grow">
+                    {area.items.map((item, i) => (
+                      <li key={i} className="flex items-start text-gray-400 text-sm leading-relaxed">
+                        <span className="text-orange-500 mr-2 mt-1">•</span> {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </motion.div>
             ))}
           </div>
