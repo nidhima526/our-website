@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import CorporateLayout from './CorporateLayout';
 import { motion } from 'framer-motion';
 import gsap from 'gsap';
@@ -41,17 +41,17 @@ const featuredServices = [
 
 // Remaining 11 Services for Premium Bento Grid
 const additionalServices = [
-  { title: "UI / UX Design", image: "/tech_ui_ux.png", items: ["Website UI Design", "Mobile App UI Design", "Dashboard UI Design", "Admin Panel Design", "SaaS Product Design", "Landing Page Design", "Wireframing", "Prototyping", "User Experience Design", "Design Systems", "Responsive UI Design"] },
-  { title: "Database Solutions", image: "/tech_database.png", items: ["MySQL Database Design", "PostgreSQL Database", "MongoDB Database", "Firebase Integration", "SQL Optimization", "Database Migration", "Backup & Recovery", "Performance Optimization"] },
-  { title: "API Development & Integration", image: "/tech_api.png", items: ["REST API Development", "Third-Party API Integration", "Payment Gateway Integration", "WhatsApp API Integration", "SMS API Integration", "Email Integration", "Google Maps API", "Authentication Systems", "Webhooks", "API Documentation"] },
-  { title: "Cloud & Hosting Services", image: "/tech_cloud.png", items: ["Domain Registration", "Web Hosting", "VPS Setup", "Cloud Deployment", "AWS Deployment", "Azure Deployment", "Firebase Hosting", "SSL Certificate Setup", "CDN Configuration", "Backup Solutions", "Server Monitoring"] },
-  { title: "Website Security", image: "/tech_security.png", items: ["SSL Installation", "Malware Removal", "Security Audit", "Website Firewall", "Backup & Restore", "Security Monitoring", "Spam Protection", "User Authentication", "Two-Factor Authentication"] },
-  { title: "Website Optimization", image: "/tech_optimization.png", items: ["Website Speed Optimization", "Core Web Vitals Optimization", "Mobile Optimization", "Performance Audit", "SEO Technical Optimization", "Image Optimization", "Code Optimization", "Database Optimization"] },
-  { title: "E-Commerce Solutions", image: "/tech_ecommerce.png", items: ["Online Store Development", "Product Catalog", "Shopping Cart", "Payment Gateway", "Order Management", "Inventory Integration", "Customer Dashboard", "Admin Dashboard", "Shipping Integration", "GST Invoice System"] },
-  { title: "Student Services", image: "/tech_student.png", items: ["Final Year Projects", "Mini Projects", "Academic Projects", "Research Projects", "Python Projects", "Java Projects", "Web Development Projects", "Mobile App Projects", "AI & ML Projects", "Project Documentation", "Project Deployment", "Viva Preparation Support"] },
-  { title: "Technical Support", image: "/tech_support.png", items: ["Website Maintenance", "Bug Fixing", "Feature Enhancement", "Performance Monitoring", "Server Support", "Database Maintenance", "Technical Consultation", "Annual Maintenance Contract (AMC)"] },
-  { title: "Business Solutions", image: "/tech_business.png", items: ["Digital Transformation", "Business Automation", "IT Consulting", "Startup Technology Consulting", "Software Architecture", "Technology Audit", "Process Optimization", "Enterprise Solutions"] },
-  { title: "Featured Tech Packages", image: "/tech_packages.png", items: ["Startup Website Package", "Business Growth Package", "E-Commerce Package", "Educational Package", "Law Firm Package"] }
+  { title: "UI / UX Design", image: "/tech_ui_ux.png", video: "https://v1.pinimg.com/videos/iht/720p/5d/5e/d4/5d5ed4916cba202f2a027331c81db262.mp4", items: ["Website UI Design", "Mobile App UI Design", "Dashboard UI Design", "Admin Panel Design", "SaaS Product Design", "Landing Page Design", "Wireframing", "Prototyping", "User Experience Design", "Design Systems", "Responsive UI Design"] },
+  { title: "Database Solutions", image: "/tech_database.png", video: "https://v1.pinimg.com/videos/mc/720p/5c/fe/d4/5cfed46a1c04a854217ebdfdd090e91d.mp4", items: ["MySQL Database Design", "PostgreSQL Database", "MongoDB Database", "Firebase Integration", "SQL Optimization", "Database Migration", "Backup & Recovery", "Performance Optimization"] },
+  { title: "API Development & Integration", image: "/tech_api.png", video: "https://v1.pinimg.com/videos/iht/expMp4/b9/9a/68/b99a6859f4d5bb703e9b069f44f0353b_540w.mp4", items: ["REST API Development", "Third-Party API Integration", "Payment Gateway Integration", "WhatsApp API Integration", "SMS API Integration", "Email Integration", "Google Maps API", "Authentication Systems", "Webhooks", "API Documentation"] },
+  { title: "Cloud & Hosting Services", image: "/tech_cloud.png", video: "https://v1.pinimg.com/videos/iht/expMp4/77/91/c1/7791c19c820d7ee2b602375034090edb_540w.mp4", items: ["Domain Registration", "Web Hosting", "VPS Setup", "Cloud Deployment", "AWS Deployment", "Azure Deployment", "Firebase Hosting", "SSL Certificate Setup", "CDN Configuration", "Backup Solutions", "Server Monitoring"] },
+  { title: "Website Security", image: "/tech_security.png", video: "https://v1.pinimg.com/videos/iht/expMp4/e9/b8/4c/e9b84c60fd79179ae722211600a5538b_720w.mp4", items: ["SSL Installation", "Malware Removal", "Security Audit", "Website Firewall", "Backup & Restore", "Security Monitoring", "Spam Protection", "User Authentication", "Two-Factor Authentication"] },
+  { title: "Website Optimization", image: "/tech_optimization.png", video: "https://v1.pinimg.com/videos/iht/720p/a0/07/1b/a0071b8e0f651d778b926e43c588e8f4.mp4", items: ["Website Speed Optimization", "Core Web Vitals Optimization", "Mobile Optimization", "Performance Audit", "SEO Technical Optimization", "Image Optimization", "Code Optimization", "Database Optimization"] },
+  { title: "E-Commerce Solutions", image: "/tech_ecommerce.png", video: "https://v1.pinimg.com/videos/iht/expMp4/5f/bb/74/5fbb74e409ba854f727466cdb5aacfa0_720w.mp4", items: ["Online Store Development", "Product Catalog", "Shopping Cart", "Payment Gateway", "Order Management", "Inventory Integration", "Customer Dashboard", "Admin Dashboard", "Shipping Integration", "GST Invoice System"] },
+  { title: "Student Services", image: "/tech_student_new.jpg", items: ["Final Year Projects", "Mini Projects", "Academic Projects", "Research Projects", "Python Projects", "Java Projects", "Web Development Projects", "Mobile App Projects", "AI & ML Projects", "Project Documentation", "Project Deployment", "Viva Preparation Support"] },
+  { title: "Technical Support", image: "/tech_support_new.png", items: ["Website Maintenance", "Bug Fixing", "Feature Enhancement", "Performance Monitoring", "Server Support", "Database Maintenance", "Technical Consultation", "Annual Maintenance Contract (AMC)"] },
+  { title: "Business Solutions", image: "/tech_business.png", video: "https://v1.pinimg.com/videos/iht/expMp4/aa/78/a8/aa78a8838f4e1247daa1c7c19a905880_720w.mp4", items: ["Digital Transformation", "Business Automation", "IT Consulting", "Startup Technology Consulting", "Software Architecture", "Technology Audit", "Process Optimization", "Enterprise Solutions"] },
+  { title: "Featured Tech Packages", image: "/tech_packages.png", video: "https://v1.pinimg.com/videos/iht/hevcMp4V3/78/b2/85/78b285c37a01da169b21ba2e008f8aa4_540w.mp4", items: ["Startup Website Package", "Business Growth Package", "E-Commerce Package", "Educational Package", "Law Firm Package"] }
 ];
 
 const TechnologyServices = () => {
@@ -202,8 +202,19 @@ const TechnologyServices = () => {
                   
                   {/* Background Image Generated by AI */}
                   <div className="absolute inset-0 z-0">
-                    <img src={category.image} alt={category.title} className="w-full h-full object-cover opacity-15 group-hover:opacity-30 group-hover:scale-105 transition-all duration-700 mix-blend-screen" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/90 to-transparent"></div>
+                    {category.video ? (
+                      <>
+                        <video autoPlay loop muted playsInline className="w-full h-full object-cover opacity-100 group-hover:scale-105 transition-all duration-700">
+                          <source src={category.video} type="video/mp4" />
+                        </video>
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/60 to-transparent"></div>
+                      </>
+                    ) : (
+                      <>
+                        <img src={category.image} alt={category.title} className="w-full h-full object-cover opacity-15 group-hover:opacity-30 group-hover:scale-105 transition-all duration-700 mix-blend-screen" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/90 to-transparent"></div>
+                      </>
+                    )}
                   </div>
                   
                   {/* Subtle Top Border Glow on hover */}

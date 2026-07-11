@@ -103,8 +103,9 @@ const LegalServices = () => {
         <section className="relative w-full min-h-[70vh] flex flex-col items-center justify-center text-center px-4 overflow-hidden pt-20 pb-20">
           <div className="absolute inset-0 z-0">
             {/* Fallback to dark solid if image fails to load, but using hero image */}
-            <img src="/legal_hero_bg.png" alt="Courthouse Architecture" className="w-full h-full object-cover opacity-30" />
-            <div className="absolute inset-0 bg-gradient-to-b from-[#050505]/90 via-[#050505]/70 to-[#050505]"></div>
+            <img src="/legal_hero_bg_new.jpg" alt="High Court Architecture" className="w-full h-full object-cover" />
+            <div className="absolute inset-0 bg-[#050505]/40"></div>
+            <div className="absolute inset-0 bg-gradient-to-b from-[#050505]/80 via-transparent to-[#0a0a0a]"></div>
           </div>
           
           <div className="relative z-10 max-w-4xl mx-auto pt-16">
@@ -144,11 +145,24 @@ const LegalServices = () => {
         </section>
 
         {/* SECTION 2: PRACTICE AREAS */}
-        <section className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-[#0a0a0a]">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Legal Practice Areas</h2>
-            <div className="w-16 h-1 bg-gradient-to-r from-orange-500 to-[#D4AF37] mx-auto"></div>
+        <section className="relative py-24 px-4 sm:px-6 lg:px-8 overflow-hidden border-y border-white/5">
+          <div className="absolute inset-0 z-0">
+            <video 
+              autoPlay 
+              loop 
+              muted 
+              playsInline 
+              className="w-full h-full object-cover"
+            >
+              <source src="https://v1.pinimg.com/videos/iht/expMp4/0e/15/ba/0e15ba096d727c11d929b323f2a23d1e_720w.mp4" type="video/mp4" />
+            </video>
+            <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a]/80 via-transparent to-[#0a0a0a]/80"></div>
           </div>
+          <div className="relative z-10 max-w-7xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 drop-shadow-lg">Legal Practice Areas</h2>
+              <div className="w-16 h-1 bg-gradient-to-r from-orange-500 to-[#D4AF37] mx-auto shadow-[0_0_10px_rgba(249,115,22,0.5)]"></div>
+            </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {practiceAreas.map((area, idx) => (
@@ -158,7 +172,7 @@ const LegalServices = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="bg-white/[0.02] rounded-lg overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.5)] hover:shadow-[0_8px_30px_rgba(212,175,55,0.05)] hover:-translate-y-1 transition-all duration-300 border border-white/5 flex flex-col h-full group"
+                className="bg-[#050505] rounded-lg overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.4)] hover:shadow-[0_15px_40px_rgba(0,0,0,0.6)] hover:-translate-y-1 transition-all duration-300 border border-black/20 flex flex-col h-full group"
               >
                 {area.img ? (
                   <div className="w-full h-48 relative overflow-hidden bg-[#050505]">
@@ -187,6 +201,7 @@ const LegalServices = () => {
                 </div>
               </motion.div>
             ))}
+          </div>
           </div>
         </section>
 
@@ -230,16 +245,11 @@ const LegalServices = () => {
         </section>
 
         {/* SECTION 4: WHY CHOOSE US */}
-        <section className="relative py-24 bg-[#0a0a0a] overflow-hidden border-y border-white/5">
-          <div className="absolute inset-0 z-0">
-            <img src="/why_choose_bg.png" alt="Lady Justice Background" className="w-full h-full object-cover opacity-60" />
-            <div className="absolute inset-0 bg-[#050505]/70"></div>
-            <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-[#050505]"></div>
-          </div>
-          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="py-24 bg-[#f97316] border-y border-white/5">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 drop-shadow-lg">Why Choose ASHERVISION</h2>
-              <div className="w-16 h-1 bg-gradient-to-r from-orange-500 to-[#D4AF37] mx-auto shadow-[0_0_10px_rgba(249,115,22,0.5)]"></div>
+              <h2 className="text-3xl md:text-4xl font-bold text-black mb-4 drop-shadow-sm">Why Choose ASHERVISION</h2>
+              <div className="w-16 h-1 bg-black mx-auto"></div>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -250,10 +260,10 @@ const LegalServices = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: idx * 0.05 }}
-                  className="bg-[#050505]/60 backdrop-blur-sm p-6 rounded border border-white/10 flex items-center gap-4 hover:border-orange-500/50 hover:bg-[#050505]/80 hover:shadow-[0_8px_30px_rgba(249,115,22,0.1)] transition-all duration-300"
+                  className="bg-[#050505] p-6 rounded border border-black/20 flex items-center gap-4 hover:shadow-[0_8px_30px_rgba(0,0,0,0.4)] hover:-translate-y-1 transition-all duration-300"
                 >
-                  <CheckCircle className="text-orange-500 shrink-0 drop-shadow-md" size={20} />
-                  <span className="text-gray-100 font-medium text-sm drop-shadow-sm">{feature}</span>
+                  <CheckCircle className="text-[#D4AF37] shrink-0" size={20} />
+                  <span className="text-white font-medium text-sm">{feature}</span>
                 </motion.div>
               ))}
             </div>
@@ -279,16 +289,21 @@ const LegalServices = () => {
         </section>
 
         {/* SECTION 6: FAQ */}
-        <section className="py-24 bg-[#0a0a0a] border-t border-white/5">
-          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="relative py-24 bg-[#0a0a0a] border-t border-white/5 overflow-hidden">
+          <div className="absolute inset-0 z-0">
+            <img src="/faq_bg.png" alt="FAQ Background" className="w-full h-full object-cover opacity-70" />
+            <div className="absolute inset-0 bg-[#050505]/80"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-[#050505]"></div>
+          </div>
+          <div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Frequently Asked Questions</h2>
-              <div className="w-16 h-1 bg-gradient-to-r from-orange-500 to-[#D4AF37] mx-auto"></div>
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 drop-shadow-lg">Frequently Asked Questions</h2>
+              <div className="w-16 h-1 bg-gradient-to-r from-orange-500 to-[#D4AF37] mx-auto shadow-[0_0_10px_rgba(249,115,22,0.5)]"></div>
             </div>
 
             <div className="space-y-4">
               {faqs.map((faq, idx) => (
-                <div key={idx} className="bg-white/[0.03] border border-white/10 rounded overflow-hidden">
+                <div key={idx} className="bg-[#050505]/70 backdrop-blur-md border border-white/10 rounded overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.5)]">
                   <button 
                     onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
                     className="w-full px-6 py-5 flex justify-between items-center text-left hover:bg-white/[0.05] transition-colors"

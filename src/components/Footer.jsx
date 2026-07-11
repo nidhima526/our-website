@@ -13,7 +13,7 @@ const Footer = () => {
           {/* Company Info */}
           <div className="lg:col-span-2">
             <Link to="/" className="flex items-center group mb-6">
-              <img src="/logo.png" alt="ASHERVISION Logo" className="h-16 md:h-20 object-contain shrink-0" />
+              <img src="/ashervisionlogo.png" alt="ASHERVISION Logo" className="h-16 md:h-20 object-contain shrink-0" />
             </Link>
             <p className="text-sm text-gray-400 mb-8 max-w-sm leading-relaxed">
               ASHERVISION is a multi-service professional firm providing Legal Services, Technology Solutions, Professional Training, Internships, Digital Marketing, and Business Consulting through one trusted platform.
@@ -61,7 +61,7 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-3">
                 <Phone size={18} className="text-blue-400 shrink-0" />
-                <span className="text-gray-400">+91 62816 46302</span>
+                <span className="text-gray-400">+91 81848 01842</span>
               </li>
               <li className="flex items-center gap-3">
                 <Mail size={18} className="text-green-400 shrink-0" />

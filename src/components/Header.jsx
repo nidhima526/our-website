@@ -39,7 +39,7 @@ const Header = () => {
           
           {/* Logo */}
           <Link to="/" className="flex items-center group shrink-0">
-            <img src="/logo.png" alt="ASHERVISION Logo" className="h-10 md:h-14 object-contain mix-blend-screen" />
+            <img src="/ashervisionlogo.png" alt="ASHERVISION Logo" className="h-10 md:h-14 object-contain mix-blend-screen" />
           </Link>
 
           {/* Desktop Navigation */}
