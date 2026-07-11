@@ -122,7 +122,7 @@ const Home = () => {
               <img 
                 src={heroSlides[currentSlide].bgImage} 
                 alt={heroSlides[currentSlide].title}
-                className="w-full h-full object-cover"
+                className={`w-full h-full ${heroSlides[currentSlide].title === 'Interior Design' ? 'object-contain' : 'object-cover'}`}
               />
               <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/30 to-transparent"></div>
               <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent"></div>
