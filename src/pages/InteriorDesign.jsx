@@ -166,12 +166,12 @@ const InteriorDesign = () => {
                   transition={{ delay: idx * 0.1 }}
                   className="bg-[#141414] border border-white/10 rounded-3xl overflow-hidden hover:border-orange-500/50 transition-colors group flex flex-col"
                 >
-                  <div className="w-full h-80 bg-[#1a1a1a] flex items-center justify-center relative overflow-hidden">
+                  <div className="w-full aspect-[4/5] sm:h-[400px] bg-[#1a1a1a] flex items-center justify-center relative overflow-hidden">
                     {service.img ? (
                       <img 
                         src={service.img} 
                         alt={service.title} 
-                        className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700" 
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
                       />
                     ) : (
                       <>
