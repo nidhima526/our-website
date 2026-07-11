@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import CorporateLayout from './CorporateLayout';
 import { motion } from 'framer-motion';
 import { 
@@ -171,7 +171,7 @@ const InteriorDesign = () => {
                       <img 
                         src={service.img} 
                         alt={service.title} 
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
+                        className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700" 
                       />
                     ) : (
                       <>
