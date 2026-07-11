@@ -30,35 +30,29 @@ const RefundPolicy = () => {
             className="bg-[#0a1122] border border-slate-800 rounded-2xl p-8 md:p-12 shadow-2xl backdrop-blur-sm"
           >
             <div className="prose prose-invert prose-lg max-w-none">
-              <h2 className="text-white text-2xl font-bold mb-4">1. General Refund Rules</h2>
+              <h2 className="text-white text-2xl font-bold mb-4">1. Strict No-Refund Policy</h2>
               <p className="mb-6">
-                At ASHERVISION, we strive to ensure absolute satisfaction with our services. If you are not entirely satisfied with your purchase, we're here to help. This policy outlines your rights to a refund based on the type of service or course you have purchased.
+                ASHERVISION operates on a strict <strong className="text-red-400">NO REFUND, NO CANCELLATION</strong> policy to protect the integrity of our professional time and intellectual property. By purchasing any of our services—including Legal Services, Technology Solutions, Professional Training, Interior Design, Digital Marketing, or Business Consulting—you acknowledge and agree that all sales are final and non-refundable under any circumstances.
               </p>
 
-              <h2 className="text-white text-2xl font-bold mb-4">2. Professional Courses</h2>
-              <p className="mb-4">For our educational and professional courses, the following refund conditions apply:</p>
-              <ul className="list-disc pl-6 mb-6 space-y-2">
-                <li><strong>Within 7 Days:</strong> You may request a full refund within 7 days of your purchase if you have not completed more than 20% of the course material.</li>
-                <li><strong>After 7 Days:</strong> No refunds are issued after 7 days from the date of purchase.</li>
-                <li><strong>Live Classes:</strong> Refunds for live classes must be requested at least 48 hours before the scheduled start time.</li>
-              </ul>
-
-              <h2 className="text-white text-2xl font-bold mb-4">3. Technology & Legal Services</h2>
+              <h2 className="text-white text-2xl font-bold mb-4">2. Professional Services & Consultation</h2>
               <p className="mb-6">
-                Refunds for consultation, technology implementations, or legal services are handled on a case-by-case basis. Generally, fees for services already rendered and time already spent are non-refundable. However, any unspent retainer fees or advance payments for unstarted work may be refunded upon mutual agreement.
+                Because our services involve the immediate allocation of highly skilled human resources, intellectual property, and proprietary strategy, once a consultation is booked or a project is initiated, the fee is entirely non-refundable. This applies regardless of whether you choose to utilize the delivered service, attend the scheduled consultation, or complete the project.
               </p>
 
-              <h2 className="text-white text-2xl font-bold mb-4">4. How to Request a Refund</h2>
-              <p className="mb-4">To initiate a refund request, please follow these steps:</p>
-              <ol className="list-decimal pl-6 mb-6 space-y-2">
-                <li>Email our support team at <a href="mailto:support@ASHERVISION.com" className="text-blue-400 hover:text-blue-300">support@ASHERVISION.com</a>.</li>
-                <li>Include your order number and the email address associated with your account.</li>
-                <li>Provide a brief explanation of why you are requesting a refund.</li>
-              </ol>
+              <h2 className="text-white text-2xl font-bold mb-4">3. Educational & Training Programs</h2>
+              <p className="mb-6">
+                Payments made for professional courses, internships, and educational programs are completely non-refundable and non-transferable. Once access is granted to our digital learning environments or a seat is reserved in a live class, you are strictly liable for the full fee, and no partial or full refunds will be entertained for dropouts, non-attendance, or dissatisfaction.
+              </p>
 
-              <h2 className="text-white text-2xl font-bold mb-4">5. Processing Time</h2>
+              <h2 className="text-white text-2xl font-bold mb-4">4. Digital Assets and Products</h2>
+              <p className="mb-6">
+                Any digital products, architectural blueprints, legal drafts, software code, or digital marketing assets delivered to you are strictly exempt from refunds. Due to the easily reproducible nature of digital goods, all deliveries are considered final upon transmission.
+              </p>
+
+              <h2 className="text-white text-2xl font-bold mb-4">5. Dispute Resolution</h2>
               <p>
-                Once your refund request is approved, we will initiate a refund to your original method of payment. You will receive the credit within a certain amount of days, depending on your card issuer's policies (typically 5-10 business days).
+                Any attempt to illegally dispute a charge, initiate a chargeback through your bank, or commit payment fraud to bypass this strict No-Refund Policy will result in immediate termination of all services and will be aggressively prosecuted to the fullest extent of the law in the courts of <strong>Ongole, Andhra Pradesh, India</strong>.
               </p>
             </div>
           </motion.div>

@@ -30,37 +30,49 @@ const PrivacyPolicy = () => {
             className="bg-[#0a1122] border border-slate-800 rounded-2xl p-8 md:p-12 shadow-2xl backdrop-blur-sm"
           >
             <div className="prose prose-invert prose-lg max-w-none">
-              <h2 className="text-white text-2xl font-bold mb-4">1. Introduction</h2>
+              <h2 className="text-white text-2xl font-bold mb-4">1. Introduction & Scope</h2>
               <p className="mb-6">
-                At ASHERVISION, we respect your privacy and are committed to protecting your personal data. This privacy policy will inform you as to how we look after your personal data when you visit our website and tell you about your privacy rights and how the law protects you.
+                ASHERVISION ("we," "our," or "us"), co-founded by Kalyan and Nidhima, is a multi-disciplinary professional services firm offering Legal Services, Technology Solutions, Professional Training, Internships, Digital Marketing, and Business Consulting. This Privacy Policy is formulated in accordance with the Information Technology Act, 2000 (India) and applicable data protection regulations. It dictates how we collect, process, store, and share your personal data when you use our website or engage our services.
               </p>
 
-              <h2 className="text-white text-2xl font-bold mb-4">2. The Data We Collect About You</h2>
-              <p className="mb-4">We may collect, use, store and transfer different kinds of personal data about you which we have grouped together as follows:</p>
+              <h2 className="text-white text-2xl font-bold mb-4">2. Collection of Information</h2>
+              <p className="mb-4">We collect information that you voluntarily provide to us when expressing an interest in obtaining information about us or our products and services. The personal information we collect may include the following:</p>
               <ul className="list-disc pl-6 mb-6 space-y-2">
-                <li><strong>Identity Data</strong> includes first name, last name, username or similar identifier.</li>
-                <li><strong>Contact Data</strong> includes billing address, delivery address, email address and telephone numbers.</li>
-                <li><strong>Technical Data</strong> includes internet protocol (IP) address, your login data, browser type and version, time zone setting and location, browser plug-in types and versions, operating system and platform, and other technology on the devices you use to access this website.</li>
-                <li><strong>Usage Data</strong> includes information about how you use our website, products and services.</li>
+                <li><strong>Personal Identification Data:</strong> Full name, email address, phone number, and residential/business address.</li>
+                <li><strong>Professional Data:</strong> Company name, job title, and industry context required for consulting or B2B services.</li>
+                <li><strong>Financial Data:</strong> Billing details, GST numbers, and payment routing information (processed securely via encrypted third-party gateways).</li>
+                <li><strong>Technical & Usage Data:</strong> IP addresses, browser types, device identifiers, and analytics related to your interaction with our digital platforms.</li>
               </ul>
 
-              <h2 className="text-white text-2xl font-bold mb-4">3. How We Use Your Personal Data</h2>
-              <p className="mb-4">We will only use your personal data when the law allows us to. Most commonly, we will use your personal data in the following circumstances:</p>
+              <h2 className="text-white text-2xl font-bold mb-4">3. Use of Your Information</h2>
+              <p className="mb-4">Your personal data is strictly utilized for the following authorized purposes:</p>
               <ul className="list-disc pl-6 mb-6 space-y-2">
-                <li>Where we need to perform the contract we are about to enter into or have entered into with you.</li>
-                <li>Where it is necessary for our legitimate interests (or those of a third party) and your interests and fundamental rights do not override those interests.</li>
-                <li>Where we need to comply with a legal obligation.</li>
+                <li>To facilitate, process, and deliver the professional services you have requested.</li>
+                <li>To send administrative information, service updates, and legal notices.</li>
+                <li>To comply with regulatory requirements, legal compliance, and statutory audits as mandated by Indian Law.</li>
+                <li>To improve our digital platforms, user experience, and service offerings through anonymized data analysis.</li>
               </ul>
 
-              <h2 className="text-white text-2xl font-bold mb-4">4. Data Security</h2>
+              <h2 className="text-white text-2xl font-bold mb-4">4. Data Sharing and Disclosure</h2>
               <p className="mb-6">
-                We have put in place appropriate security measures to prevent your personal data from being accidentally lost, used or accessed in an unauthorised way, altered or disclosed. In addition, we limit access to your personal data to those employees, agents, contractors and other third parties who have a business need to know.
+                ASHERVISION maintains strict confidentiality. We do not sell, rent, or trade your personal data. We may share your information only under the following circumstances: with trusted third-party service providers bound by strict confidentiality agreements (e.g., cloud hosting, payment processors), during business transfers, or when legally compelled by a court of competent jurisdiction or government authority.
+              </p>
+              
+              <h2 className="text-white text-2xl font-bold mb-4">5. Data Retention & Security</h2>
+              <p className="mb-6">
+                We implement robust, industry-standard administrative, technical, and physical security measures to safeguard your personal information against unauthorized access, alteration, disclosure, or destruction. We retain your personal data only for as long as is necessary to fulfill the purposes outlined in this Privacy Policy, unless a longer retention period is required or permitted by law.
               </p>
 
-              <h2 className="text-white text-2xl font-bold mb-4">5. Contact Us</h2>
+              <h2 className="text-white text-2xl font-bold mb-4">6. Your Privacy Rights</h2>
+              <p className="mb-6">
+                Depending on your jurisdiction, you may have the right to request access to the personal data we collect from you, request corrections to inaccurate data, or request the deletion of your personal data. To exercise any of these rights, please contact our grievance officer.
+              </p>
+
+              <h2 className="text-white text-2xl font-bold mb-4">7. Contact Information</h2>
               <p>
-                If you have any questions about this privacy policy or our privacy practices, please contact us at: <br/>
-                <a href="mailto:privacy@ASHERVISION.com" className="text-blue-400 hover:text-blue-300">privacy@ASHERVISION.com</a>
+                If you have questions, concerns, or grievances regarding this Privacy Policy or the handling of your data, please contact our Data Protection Officer at: <br/>
+                <strong>Email:</strong> <a href="mailto:techwithnidhima@gmail.com" className="text-blue-400 hover:text-blue-300 transition-colors">techwithnidhima@gmail.com</a><br/>
+                <strong>Address:</strong> Ongole, Andhra Pradesh, India
               </p>
             </div>
           </motion.div>
