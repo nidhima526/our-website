@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import SuccessStories from '../components/SuccessStories';
@@ -38,7 +38,7 @@ const Portfolio = () => {
       sol: "Developed a full-stack e-commerce website and launched a targeted local SEO campaign.",
       tech: "React, Node.js, Google Ads", timeline: "3 Months",
       res: "300% increase in online sales and expanded delivery radius to 50km.",
-      feedback: "MasterTech transformed our traditional shop into a modern online business. The transition was seamless."
+      feedback: "ASHERVISION transformed our traditional shop into a modern online business. The transition was seamless."
     },
     { 
       title: "Streamlining Corporate Legal Ops", client: "TechCorp India",
@@ -78,7 +78,7 @@ const Portfolio = () => {
             <div className="pf-hero-content">
               <span className="hero-eyebrow text-accent flex items-center gap-2"><FolderOpen size={16}/> Portfolio & Success Stories</span>
               <h1 className="hero-title mt-4 mb-6">Real Projects. Real Results. <span className="text-primary">Real Success.</span></h1>
-              <p className="hero-subtitle mb-8 text-muted">Discover how MasterTechGlobal has helped students, businesses, startups, professionals, and legal clients through technology, education, creative services, internships, and legal solutions.</p>
+              <p className="hero-subtitle mb-8 text-muted">Discover how ASHERVISION has helped students, businesses, startups, professionals, and legal clients through technology, education, creative services, internships, and legal solutions.</p>
               <div className="flex flex-wrap gap-4">
                 <button className="btn btn-primary">Explore Portfolio</button>
                 <button className="btn btn-outline">Start Your Project</button>
@@ -88,7 +88,7 @@ const Portfolio = () => {
             <div className="pf-hero-illustration hidden lg-flex relative h-[450px]">
               <div className="pf-dashboard premium-card glass-panel flex flex-col p-6 w-full max-w-md absolute right-0 top-1/2 -translate-y-1/2 z-10 overflow-hidden">
                 <div className="flex justify-between items-center mb-6 border-b border-gray-100 pb-4">
-                  <div className="font-bold flex items-center gap-2"><Layout size={20} className="text-primary"/> MasterTech Impact</div>
+                  <div className="font-bold flex items-center gap-2"><Layout size={20} className="text-primary"/> ASHERVISION Impact</div>
                   <div className="flex gap-1">
                     <span className="w-2 h-2 rounded-full bg-red-400"></span>
                     <span className="w-2 h-2 rounded-full bg-amber-400"></span>
@@ -216,7 +216,7 @@ const Portfolio = () => {
           <div className="container">
             <div className="section-header text-center mb-16">
               <h2 className="text-3xl font-bold">Responsive Digital Experiences</h2>
-              <p className="text-slate-400 mt-4 max-w-2xl mx-auto">We build websites and applications that look stunning and perform flawlessly across all devicesâ€”desktop, tablet, and mobile.</p>
+              <p className="text-slate-400 mt-4 max-w-2xl mx-auto">We build websites and applications that look stunning and perform flawlessly across all devices—desktop, tablet, and mobile.</p>
             </div>
             
             <div className="relative max-w-5xl mx-auto h-[400px] md:h-[500px] flex items-end justify-center perspective-1000">
@@ -404,10 +404,10 @@ const Portfolio = () => {
 
                   <select className="pf-input text-muted" required>
                     <option value="" disabled selected>Estimated Budget</option>
-                    <option>Under â‚¹10,000</option>
-                    <option>â‚¹10,000 - â‚¹50,000</option>
-                    <option>â‚¹50,000 - â‚¹2,00,000</option>
-                    <option>â‚¹2,00,000+</option>
+                    <option>Under ₹10,000</option>
+                    <option>₹10,000 - ₹50,000</option>
+                    <option>₹50,000 - ₹2,00,000</option>
+                    <option>₹2,00,000+</option>
                   </select>
                 </div>
 
@@ -433,7 +433,7 @@ const Portfolio = () => {
           <div className="container">
             <div className="cta-banner premium-card text-center py-16">
               <h2 className="text-4xl font-bold mb-4">Ready to Become Our Next Success Story?</h2>
-              <p className="text-muted mb-8 max-w-2xl mx-auto">Join hundreds of satisfied clients, successful students, and thriving businesses who chose MasterTech.</p>
+              <p className="text-muted mb-8 max-w-2xl mx-auto">Join hundreds of satisfied clients, successful students, and thriving businesses who chose ASHERVISION.</p>
               <div className="flex flex-wrap justify-center gap-4">
                 <button className="btn btn-primary" style={{backgroundColor: 'white', color: 'var(--color-primary)'}}>Start Your Project</button>
                 <button className="btn btn-outline" style={{borderColor: 'white', color: 'white'}}>Book Consultation</button>

@@ -2,180 +2,186 @@ import React from 'react';
 import CorporateLayout from './CorporateLayout';
 import { motion } from 'framer-motion';
 import { 
-  Scale, ShieldAlert, Users, Home, Briefcase, 
-  ShoppingBag, HardHat, ShieldCheck, FileSignature, 
-  Globe, CheckCircle2, ArrowRight
+  Scale, Shield, FileText, Briefcase, Users, 
+  CheckCircle2, ArrowRight, Gavel
 } from 'lucide-react';
 
-const serviceWallData = [
+const legalServices = [
   { 
     id: 1, 
-    title: "Family & Divorce Law", 
-    img: "/legal_1.png", 
-    desc: "Compassionate mediation and strategic resolution for sensitive family matters and divorce proceedings." 
+    src: '/criminal_law.jpg',
+    title: 'Criminal Law', 
+    desc: 'Aggressive and strategic defense in complex criminal litigation. Our elite team of attorneys specializes in high-stakes defense, navigating intricate legal labyrinths to protect your rights, liberty, and reputation at every critical stage of the legal process. From pre-indictment investigations to trial representation and appeals, we ensure absolute legal dominance and relentless advocacy when you need it most.',
+    icon: <Shield size={24} className="text-yellow-500" />
   },
   { 
     id: 2, 
-    title: "Courtroom Litigation", 
-    img: "/legal_2.png", 
-    desc: "Fierce, confident, and highly authoritative representation in front of the judge and jury." 
+    src: '/civil_law.jpg',
+    title: 'Civil Law', 
+    desc: 'Resolving disputes with precision. Expert handling of property disputes, breach of contract, and civil liabilities.',
+    icon: <Gavel size={24} className="text-yellow-500" />
   },
   { 
     id: 3, 
-    title: "Corporate Disputes", 
-    img: "/legal_3.png", 
-    desc: "Expert intervention and negotiation to resolve high-stakes corporate and business conflicts." 
+    src: '/family_law.jpg', 
+    title: 'Family Law', 
+    desc: 'Empathetic consultation paired with strong advocacy in matrimonial disputes, custody, and settlements.',
+    icon: <Users size={24} className="text-yellow-500" />
   },
   { 
     id: 4, 
-    title: "Dedicated Consultation", 
-    img: "/legal_4.png", 
-    desc: "Deeply empathetic active listening to fully understand your situation and build a winning legal strategy." 
+    src: '/corporate_law.jpg',
+    title: 'Corporate Law', 
+    desc: 'Comprehensive legal structuring and advisory services for modern businesses. We safeguard your commercial interests through meticulous handling of mergers, acquisitions, and intricate compliance frameworks. Our elite corporate counsel team is dedicated to mitigating risks and navigating complex regulatory environments, ensuring your enterprise is built on an unbreakable legal foundation that accelerates long-term growth and global expansion.',
+    icon: <Briefcase size={24} className="text-yellow-500" />
+  },
+  { 
+    id: 5, 
+    src: '/drafting.png',
+    title: 'Documentation & Drafting', 
+    desc: 'Flawless precision in contracts, agreements, and legal notices to ensure absolute legal immunity.',
+    icon: <FileText size={24} className="text-yellow-500" />
   }
 ];
 
-const legalServicesData = [
-  {
-    title: "Criminal Law",
-    icon: <ShieldAlert className="text-corporate-primary" size={28} />,
-    services: [
-      "Criminal Case Consultation", "Bail Guidance", "Anticipatory Bail Guidance", "FIR Guidance", "Police Complaint Guidance", "Cyber Crime Assistance", "White-Collar Crime Consultation", "Criminal Appeal Guidance"
-    ]
-  },
-  {
-    title: "Civil Law",
-    icon: <Scale className="text-corporate-primary" size={28} />,
-    services: [
-      "Civil Dispute Consultation", "Property Disputes", "Money Recovery Matters", "Contract Disputes", "Injunction Matters", "Specific Performance Matters", "Partition Suits", "Recovery Suits"
-    ]
-  },
-  {
-    title: "Family Law",
-    icon: <Users className="text-corporate-primary" size={28} />,
-    services: [
-      "Divorce Consultation", "Mutual Consent Divorce", "Child Custody", "Maintenance & Alimony", "Domestic Violence Matters", "Restitution of Conjugal Rights", "Adoption Guidance"
-    ]
-  },
-  {
-    title: "Corporate & Business Law",
-    icon: <Briefcase className="text-corporate-primary" size={28} />,
-    services: [
-      "Business Agreements", "Partnership Agreements", "Company Documentation", "Startup Legal Support", "Employment Contracts", "Vendor Agreements", "Legal Compliance", "Contract Review"
-    ]
-  },
-  {
-    title: "Property Law",
-    icon: <Home className="text-corporate-primary" size={28} />,
-    services: [
-      "Property Verification", "Sale Agreement", "Gift Deed", "Partition Deed", "Property Registration Guidance", "Title Verification", "Property Legal Opinion", "Land Documentation"
-    ]
-  },
-  {
-    title: "Documentation & Drafting",
-    icon: <FileSignature className="text-corporate-primary" size={28} />,
-    services: [
-      "Legal Notices", "Affidavits", "Agreements", "Contracts", "MoUs", "Petitions", "Applications", "Replies to Legal Notices"
-    ]
-  }
+const values = [
+  'Absolute Confidentiality', 'Fierce Representation', 
+  'Strategic Legal Dominance', 'Transparent Communication'
 ];
 
 const LegalServices = () => {
   return (
     <CorporateLayout>
-      <div className="w-full min-h-screen relative bg-corporate-dark">
+      <div className="w-full min-h-screen bg-[#0a0a0a] relative selection:bg-yellow-600 selection:text-white pb-24 overflow-x-hidden font-sans">
         
         {/* Subtle Background Pattern */}
-        <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:24px_24px]"></div>
+        <div className="absolute inset-0 opacity-[0.02] bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none"></div>
 
         <div className="relative z-10">
           
-          {/* Page Header */}
-          <div className="relative pt-32 pb-16 flex flex-col items-center text-center px-4">
-            <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="inline-flex items-center justify-center gap-3 mb-6 text-white px-6 py-2.5 rounded-full border border-white/20 bg-white/5 backdrop-blur-md shadow-xl">
-              <Scale size={20} strokeWidth={2} className="text-corporate-accent" />
-              <span className="font-bold tracking-widest uppercase text-sm">Lead Counsel</span>
-            </motion.div>
+          {/* 1. Hero Section */}
+          <div className="relative w-full min-h-[80vh] flex flex-col items-center justify-center text-center px-4 overflow-hidden mb-16 rounded-b-[3rem] shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
             
-            <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.1 }} className="text-5xl sm:text-6xl md:text-7xl font-extrabold text-white tracking-tight mb-8 leading-[1.1]">
-              Advocate <span className="text-transparent bg-clip-text bg-gradient-to-r from-corporate-accent to-yellow-200">Nidhima</span>
-            </motion.h1>
+            {/* 3D Background Image */}
+            <div className="absolute inset-0 z-0">
+              <img src="/legal_hero_bg.png" alt="Premium Law Office" className="w-full h-full object-cover opacity-50" />
+              <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a]/80 via-[#0a0a0a]/40 to-[#0a0a0a]"></div>
+            </div>
             
-            <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, delay: 0.2 }} className="text-xl text-gray-300 max-w-2xl mx-auto font-light leading-relaxed">
-              Fierce representation, empathetic consultation, and strategic legal dominance in every scenario.
-            </motion.p>
+            <div className="relative z-10 max-w-5xl mx-auto pt-32 pb-12">
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: 0.2 }}
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-yellow-500/30 bg-yellow-500/10 text-yellow-500 text-xs font-bold tracking-[0.2em] uppercase mb-8 backdrop-blur-sm"
+              >
+                <Scale size={16} /> Lead Counsel
+              </motion.div>
+              
+              <motion.h1 
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 1, delay: 0.3 }}
+                className="text-5xl sm:text-6xl md:text-8xl font-light text-white leading-[1.1] mb-8 drop-shadow-2xl"
+                style={{ fontFamily: 'Georgia, serif' }}
+              >
+                Advocate <br />
+                <span className="italic font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-600 via-yellow-400 to-yellow-200">Nidhima</span>
+              </motion.h1>
+
+              <motion.p 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1, delay: 0.5 }}
+                className="text-gray-300 max-w-2xl mx-auto text-lg md:text-xl font-light leading-relaxed mb-12 drop-shadow-md"
+              >
+                Fierce representation, empathetic consultation, and strategic legal dominance in every scenario. We protect what matters most to you.
+              </motion.p>
+            </div>
           </div>
 
-          {/* AI SERVICE WALL */}
-          <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl text-white font-bold tracking-widest uppercase mb-2">In Action</h2>
-              <div className="w-24 h-1 bg-corporate-accent mx-auto"></div>
+          {/* 2. Practice Areas Grid */}
+          <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div className="text-center mb-20">
+              <h2 className="text-3xl md:text-5xl text-white font-light mb-6" style={{ fontFamily: 'Georgia, serif' }}>Our <span className="italic text-yellow-500">Practice Areas</span></h2>
+              <div className="w-24 h-1 bg-gradient-to-r from-yellow-600 to-yellow-300 mx-auto rounded-full"></div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {serviceWallData.map((item, idx) => (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {legalServices.map((service, idx) => (
                 <motion.div 
-                  key={item.id}
+                  key={service.id}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: idx * 0.15, duration: 0.6 }}
-                  className="relative group overflow-hidden rounded-2xl h-[400px] md:h-[500px] cursor-pointer shadow-2xl"
+                  transition={{ delay: idx * 0.1 }}
+                  className="bg-[#111] border border-white/5 rounded-3xl overflow-hidden hover:border-yellow-500/50 transition-colors group flex flex-col shadow-xl"
                 >
-                  <img 
-                    src={item.img} 
-                    alt={item.title} 
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  {/* Heavy Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300"></div>
+                  {service.src && (
+                    <div className="w-full bg-[#0a0a0a] overflow-hidden relative">
+                      <img 
+                        src={service.src} 
+                        alt={service.title} 
+                        className="w-full h-auto block group-hover:scale-105 transition-transform duration-700 opacity-90 group-hover:opacity-100" 
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#111] via-transparent to-transparent pointer-events-none"></div>
+                    </div>
+                  )}
                   
-                  {/* Content Container */}
-                  <div className="absolute inset-0 p-8 flex flex-col justify-end transform translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
-                    <h3 className="text-3xl md:text-4xl font-bold text-white mb-3">{item.title}</h3>
-                    <p className="text-gray-300 text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 mb-6 max-w-md">
-                      {item.desc}
+                  <div className={`p-8 flex-1 flex flex-col relative z-10 ${service.src ? '-mt-8' : ''}`}>
+                    <div className="w-14 h-14 bg-[#1a1a1a] rounded-2xl border border-white/10 flex items-center justify-center mb-6 shadow-lg group-hover:bg-yellow-500/10 transition-colors">
+                      {service.icon}
+                    </div>
+                    <h3 className="text-2xl text-white font-bold mb-4 group-hover:text-yellow-400 transition-colors">{service.title}</h3>
+                    <p className="text-gray-400 text-sm leading-relaxed mb-6 flex-1">
+                      {service.desc}
                     </p>
+                    <div className="w-full h-[1px] bg-white/10 mt-auto"></div>
                   </div>
                 </motion.div>
               ))}
             </div>
           </div>
 
-          {/* Detailed Services Grid */}
-          <div className="w-full py-24 relative">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-              <div className="text-center mb-16">
-                <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">Comprehensive Legal Coverage</h2>
-                <p className="text-lg text-gray-400 max-w-2xl mx-auto font-light">
-                  Explore our exhaustive list of practice areas and specific legal capabilities.
-                </p>
-              </div>
+          {/* 3. Core Values Strip */}
+          <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+             <div className="bg-gradient-to-r from-[#1a1a1a] to-[#111] rounded-[2rem] border border-white/5 p-8 md:p-12 shadow-2xl">
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-8 divide-y md:divide-y-0 md:divide-x divide-white/10">
+                  {values.map((val, i) => (
+                    <div key={i} className="flex flex-col items-center text-center pt-6 md:pt-0 px-4 group">
+                      <CheckCircle2 className="text-yellow-600 mb-4 group-hover:scale-110 transition-transform" size={28} />
+                      <span className="text-white font-medium text-sm md:text-base tracking-wide">{val}</span>
+                    </div>
+                  ))}
+                </div>
+             </div>
+          </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {legalServicesData.map((category, idx) => (
-                  <div 
-                    key={idx}
-                    className="bg-white/5 backdrop-blur-md rounded-2xl shadow-xl border border-white/10 overflow-hidden hover:bg-white/10 transition-colors duration-300"
-                  >
-                    <div className="p-6 border-b border-white/10 flex items-center gap-4">
-                      <div className="w-12 h-12 bg-black/50 rounded-xl flex items-center justify-center shrink-0">
-                        {category.icon}
-                      </div>
-                      <h3 className="text-xl font-bold text-white">{category.title}</h3>
-                    </div>
-                    <div className="p-6">
-                      <ul className="space-y-4">
-                        {category.services.map((service, sIdx) => (
-                          <li key={sIdx} className="flex items-start gap-3 text-sm text-gray-300 hover:text-white transition-colors">
-                            <CheckCircle2 size={16} className="text-corporate-accent shrink-0 mt-1" />
-                            <span className="leading-relaxed">{service}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                ))}
+          {/* 4. Action Footer */}
+          <div className="w-full py-32 relative overflow-hidden mt-12 flex items-center justify-center bg-[#050505]">
+            {/* Background Image */}
+            <div className="absolute inset-0 z-0">
+              <img src="/legal_cta_bg.png" alt="Legal Counsel Background" className="w-full h-full object-cover opacity-40" />
+            </div>
+            
+            {/* Gradient Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/70 to-[#0a0a0a] z-10"></div>
+            <div className="absolute inset-0 bg-yellow-600/10 mix-blend-overlay z-10"></div>
+            
+            <div className="relative z-20 max-w-3xl mx-auto px-4 text-center">
+              <Scale size={48} className="text-yellow-600 mx-auto mb-8 opacity-50" />
+              <h2 className="text-4xl md:text-5xl font-light text-white mb-6" style={{ fontFamily: 'Georgia, serif' }}>
+                Require Legal Counsel?
+              </h2>
+              <p className="text-gray-400 text-lg mb-12 max-w-xl mx-auto">
+                Secure your consultation today. We provide immediate strategic advice and aggressive representation.
+              </p>
+              
+              <div className="flex justify-center">
+                <a href="/contact" className="flex items-center justify-center gap-3 bg-gradient-to-r from-yellow-700 to-yellow-600 text-white px-10 py-5 rounded-full font-bold text-sm tracking-widest hover:from-yellow-600 hover:to-yellow-500 hover:scale-105 transition-all shadow-[0_0_30px_rgba(202,138,4,0.3)]">
+                  <FileText size={20} />
+                  SCHEDULE CONSULTATION
+                </a>
               </div>
             </div>
           </div>
@@ -187,3 +193,5 @@ const LegalServices = () => {
 };
 
 export default LegalServices;
+
+

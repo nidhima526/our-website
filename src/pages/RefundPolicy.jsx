@@ -32,7 +32,7 @@ const RefundPolicy = () => {
             <div className="prose prose-invert prose-lg max-w-none">
               <h2 className="text-white text-2xl font-bold mb-4">1. General Refund Rules</h2>
               <p className="mb-6">
-                At MasterTechGlobal, we strive to ensure absolute satisfaction with our services. If you are not entirely satisfied with your purchase, we're here to help. This policy outlines your rights to a refund based on the type of service or course you have purchased.
+                At ASHERVISION, we strive to ensure absolute satisfaction with our services. If you are not entirely satisfied with your purchase, we're here to help. This policy outlines your rights to a refund based on the type of service or course you have purchased.
               </p>
 
               <h2 className="text-white text-2xl font-bold mb-4">2. Professional Courses</h2>
@@ -51,7 +51,7 @@ const RefundPolicy = () => {
               <h2 className="text-white text-2xl font-bold mb-4">4. How to Request a Refund</h2>
               <p className="mb-4">To initiate a refund request, please follow these steps:</p>
               <ol className="list-decimal pl-6 mb-6 space-y-2">
-                <li>Email our support team at <a href="mailto:support@mastertechglobal.com" className="text-blue-400 hover:text-blue-300">support@mastertechglobal.com</a>.</li>
+                <li>Email our support team at <a href="mailto:support@ASHERVISION.com" className="text-blue-400 hover:text-blue-300">support@ASHERVISION.com</a>.</li>
                 <li>Include your order number and the email address associated with your account.</li>
                 <li>Provide a brief explanation of why you are requesting a refund.</li>
               </ol>

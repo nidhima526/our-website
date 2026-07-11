@@ -82,7 +82,7 @@ const Auth = () => {
             <div className="w-8 h-8 rounded bg-primary text-white flex items-center justify-center">
               <span className="font-bold font-serif">M</span>
             </div>
-            MasterTech
+            ASHERVISION
           </Link>
           
           <h2 className="text-4xl font-bold mb-4 leading-tight">Welcome to your secure command center.</h2>
@@ -179,7 +179,7 @@ const Auth = () => {
           {activeView === 'register' && (
             <div className="auth-animate-in">
               <h1 className="text-3xl font-bold mb-2">Create Your Account</h1>
-              <p className="text-muted text-sm mb-8">Join the MasterTech platform to get started.</p>
+              <p className="text-muted text-sm mb-8">Join the ASHERVISION platform to get started.</p>
               
               <form onSubmit={(e) => { e.preventDefault(); simulateLoading('email-verify'); }} className="space-y-4">
                 <div className="grid grid-cols-2 gap-4">
@@ -374,7 +374,7 @@ const Auth = () => {
               <div className="w-24 h-24 bg-emerald-50 text-emerald-500 rounded-full flex items-center justify-center mb-6 auth-success-pop">
                 <CheckCircle2 size={48}/>
               </div>
-              <h1 className="text-3xl font-bold mb-2">Welcome to MasterTech</h1>
+              <h1 className="text-3xl font-bold mb-2">Welcome to ASHERVISION</h1>
               <p className="text-muted text-sm mb-8 max-w-sm mx-auto">Your account has been successfully secured and verified. You are now ready to explore.</p>
               
               <div className="w-full space-y-3">

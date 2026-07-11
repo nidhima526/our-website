@@ -17,7 +17,7 @@ const SuccessStories = () => {
       id: 2,
       name: 'TechFlow Solutions',
       role: 'Business Client',
-      text: "MasterTech developed our ERP software in record time. The quality and post-launch support have been incredible.",
+      text: "ASHERVISION developed our ERP software in record time. The quality and post-launch support have been incredible.",
       rating: 5,
       type: 'business'
     },
@@ -52,7 +52,7 @@ const SuccessStories = () => {
               <button className="play-button"><Play size={32} color="#0B57D0" fill="#0B57D0"/></button>
             </div>
             <div className="video-info p-4">
-              <h3 className="text-lg">How MasterTech Helped Us Scale</h3>
+              <h3 className="text-lg">How ASHERVISION Helped Us Scale</h3>
               <p className="text-muted text-sm mt-1">Watch this case study of a startup scaling from 0 to 10k users.</p>
             </div>
           </motion.div>

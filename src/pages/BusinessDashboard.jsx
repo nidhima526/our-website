@@ -35,7 +35,7 @@ const BusinessDashboard = () => {
       <div className="b2b-sidebar-header">
         <Link to="/" className="flex items-center gap-2 text-xl font-bold">
           <div className="w-8 h-8 rounded bg-primary text-white flex items-center justify-center font-serif font-bold">M</div>
-          <span className="text-slate-900 hidden lg:block">MasterTech B2B</span>
+          <span className="text-slate-900 hidden lg:block">ASHERVISION B2B</span>
         </Link>
         <button className="lg:hidden text-slate-500" onClick={() => setSidebarOpen(false)}><X size={24}/></button>
       </div>
@@ -413,7 +413,7 @@ const BusinessDashboard = () => {
 
             {/* Productivity Tips (Notion Style) */}
             <div>
-              <h3 className="font-bold text-sm uppercase text-slate-400 tracking-wider mb-4">MasterTech Tips</h3>
+              <h3 className="font-bold text-sm uppercase text-slate-400 tracking-wider mb-4">ASHERVISION Tips</h3>
               <div className="bg-amber-50 border border-amber-100 rounded-xl p-4 text-amber-900">
                 <div className="flex items-center gap-2 mb-2 font-bold text-sm">
                   <span className="text-lg">💡</span> Speed up approvals!

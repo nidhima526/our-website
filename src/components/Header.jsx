@@ -17,7 +17,7 @@ const Header = () => {
 
   const navLinks = [
     { name: 'Home', path: '/' },
-    { name: 'About', path: '/about' },
+    { name: 'Services', path: '/services' },
     { name: 'Legal', path: '/legal' },
     { name: 'Tech', path: '/technology' },
     { name: 'Courses', path: '/courses' },
@@ -39,16 +39,8 @@ const Header = () => {
         <div className="flex justify-between items-center gap-8">
           
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3 group shrink-0">
-            <img src="/logo.png" alt="MasterTechwith Nidhima Logo" className="h-10 md:h-12 object-contain rounded-md shadow-sm group-hover:scale-105 transition-transform" />
-            <div className="flex flex-col justify-center">
-              <div className="font-extrabold text-xl md:text-2xl tracking-tight leading-none text-white whitespace-nowrap">
-                MasterTechwith <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-yellow-300">NIDHIMA</span>
-              </div>
-              <div className="text-[10px] md:text-xs text-gray-300 italic tracking-widest mt-1 font-serif whitespace-nowrap">
-                Prosperity meets a priceless treasure
-              </div>
-            </div>
+          <Link to="/" className="flex items-center group shrink-0">
+            <img src="/logo.png" alt="ASHERVISION Logo" className="h-10 md:h-14 object-contain mix-blend-screen" />
           </Link>
 
           {/* Desktop Navigation */}
@@ -103,3 +95,4 @@ const Header = () => {
 };
 
 export default Header;
+

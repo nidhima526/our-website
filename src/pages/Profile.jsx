@@ -35,7 +35,7 @@ const Profile = () => {
       <div className="lms-sidebar-header">
         <Link to="/" className="flex items-center gap-2 text-xl font-bold">
           <div className="w-8 h-8 rounded bg-primary text-white flex items-center justify-center font-serif font-bold">M</div>
-          <span className="text-slate-900 hidden lg:block">MasterTech</span>
+          <span className="text-slate-900 hidden lg:block">ASHERVISION</span>
         </Link>
         <button className="lg:hidden text-slate-500" onClick={() => setSidebarOpen(false)}><X size={24}/></button>
       </div>
@@ -95,7 +95,7 @@ const Profile = () => {
               </div>
               <div className="form-group md:col-span-2">
                 <label className="form-label">Bio</label>
-                <textarea className="form-input form-textarea" defaultValue="Passionate UI/UX designer and frontend developer learning at MasterTech."></textarea>
+                <textarea className="form-input form-textarea" defaultValue="Passionate UI/UX designer and frontend developer learning at ASHERVISION."></textarea>
               </div>
               <div className="form-group">
                 <label className="form-label">LinkedIn Profile (Optional)</label>
@@ -154,7 +154,7 @@ const Profile = () => {
             <div className="bg-gradient-to-r from-slate-900 to-slate-800 text-white p-6 rounded-xl mb-8 flex justify-between items-center">
               <div>
                 <div className="text-sm text-slate-400 font-bold uppercase tracking-wider mb-1">Current Plan</div>
-                <div className="text-2xl font-bold flex items-center gap-2">MasterTech Pro <CheckCircle2 size={20} className="text-emerald-400"/></div>
+                <div className="text-2xl font-bold flex items-center gap-2">ASHERVISION Pro <CheckCircle2 size={20} className="text-emerald-400"/></div>
               </div>
               <button className="bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold py-2 px-4 rounded-lg transition-colors">
                 Manage Plan

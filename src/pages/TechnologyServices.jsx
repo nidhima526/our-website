@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+﻿import React, { useEffect, useRef } from 'react';
 import CorporateLayout from './CorporateLayout';
 import { motion } from 'framer-motion';
 import gsap from 'gsap';
@@ -41,17 +41,17 @@ const featuredServices = [
 
 // Remaining 11 Services for Premium Bento Grid
 const additionalServices = [
-  { title: "UI / UX Design", items: ["Website UI Design", "Mobile App UI Design", "Dashboard UI Design", "Admin Panel Design", "SaaS Product Design", "Landing Page Design", "Wireframing", "Prototyping", "User Experience Design", "Design Systems", "Responsive UI Design"] },
-  { title: "Database Solutions", items: ["MySQL Database Design", "PostgreSQL Database", "MongoDB Database", "Firebase Integration", "SQL Optimization", "Database Migration", "Backup & Recovery", "Performance Optimization"] },
-  { title: "API Development & Integration", items: ["REST API Development", "Third-Party API Integration", "Payment Gateway Integration", "WhatsApp API Integration", "SMS API Integration", "Email Integration", "Google Maps API", "Authentication Systems", "Webhooks", "API Documentation"] },
-  { title: "Cloud & Hosting Services", items: ["Domain Registration", "Web Hosting", "VPS Setup", "Cloud Deployment", "AWS Deployment", "Azure Deployment", "Firebase Hosting", "SSL Certificate Setup", "CDN Configuration", "Backup Solutions", "Server Monitoring"] },
-  { title: "Website Security", items: ["SSL Installation", "Malware Removal", "Security Audit", "Website Firewall", "Backup & Restore", "Security Monitoring", "Spam Protection", "User Authentication", "Two-Factor Authentication"] },
-  { title: "Website Optimization", items: ["Website Speed Optimization", "Core Web Vitals Optimization", "Mobile Optimization", "Performance Audit", "SEO Technical Optimization", "Image Optimization", "Code Optimization", "Database Optimization"] },
-  { title: "E-Commerce Solutions", items: ["Online Store Development", "Product Catalog", "Shopping Cart", "Payment Gateway", "Order Management", "Inventory Integration", "Customer Dashboard", "Admin Dashboard", "Shipping Integration", "GST Invoice System"] },
-  { title: "Student Services", items: ["Final Year Projects", "Mini Projects", "Academic Projects", "Research Projects", "Python Projects", "Java Projects", "Web Development Projects", "Mobile App Projects", "AI & ML Projects", "Project Documentation", "Project Deployment", "Viva Preparation Support"] },
-  { title: "Technical Support", items: ["Website Maintenance", "Bug Fixing", "Feature Enhancement", "Performance Monitoring", "Server Support", "Database Maintenance", "Technical Consultation", "Annual Maintenance Contract (AMC)"] },
-  { title: "Business Solutions", items: ["Digital Transformation", "Business Automation", "IT Consulting", "Startup Technology Consulting", "Software Architecture", "Technology Audit", "Process Optimization", "Enterprise Solutions"] },
-  { title: "Featured Tech Packages", items: ["Startup Website Package", "Business Growth Package", "E-Commerce Package", "Educational Package", "Law Firm Package"] }
+  { title: "UI / UX Design", image: "/tech_ui_ux.png", items: ["Website UI Design", "Mobile App UI Design", "Dashboard UI Design", "Admin Panel Design", "SaaS Product Design", "Landing Page Design", "Wireframing", "Prototyping", "User Experience Design", "Design Systems", "Responsive UI Design"] },
+  { title: "Database Solutions", image: "/tech_database.png", items: ["MySQL Database Design", "PostgreSQL Database", "MongoDB Database", "Firebase Integration", "SQL Optimization", "Database Migration", "Backup & Recovery", "Performance Optimization"] },
+  { title: "API Development & Integration", image: "/tech_api.png", items: ["REST API Development", "Third-Party API Integration", "Payment Gateway Integration", "WhatsApp API Integration", "SMS API Integration", "Email Integration", "Google Maps API", "Authentication Systems", "Webhooks", "API Documentation"] },
+  { title: "Cloud & Hosting Services", image: "/tech_cloud.png", items: ["Domain Registration", "Web Hosting", "VPS Setup", "Cloud Deployment", "AWS Deployment", "Azure Deployment", "Firebase Hosting", "SSL Certificate Setup", "CDN Configuration", "Backup Solutions", "Server Monitoring"] },
+  { title: "Website Security", image: "/tech_security.png", items: ["SSL Installation", "Malware Removal", "Security Audit", "Website Firewall", "Backup & Restore", "Security Monitoring", "Spam Protection", "User Authentication", "Two-Factor Authentication"] },
+  { title: "Website Optimization", image: "/tech_optimization.png", items: ["Website Speed Optimization", "Core Web Vitals Optimization", "Mobile Optimization", "Performance Audit", "SEO Technical Optimization", "Image Optimization", "Code Optimization", "Database Optimization"] },
+  { title: "E-Commerce Solutions", image: "/tech_ecommerce.png", items: ["Online Store Development", "Product Catalog", "Shopping Cart", "Payment Gateway", "Order Management", "Inventory Integration", "Customer Dashboard", "Admin Dashboard", "Shipping Integration", "GST Invoice System"] },
+  { title: "Student Services", image: "/tech_student.png", items: ["Final Year Projects", "Mini Projects", "Academic Projects", "Research Projects", "Python Projects", "Java Projects", "Web Development Projects", "Mobile App Projects", "AI & ML Projects", "Project Documentation", "Project Deployment", "Viva Preparation Support"] },
+  { title: "Technical Support", image: "/tech_support.png", items: ["Website Maintenance", "Bug Fixing", "Feature Enhancement", "Performance Monitoring", "Server Support", "Database Maintenance", "Technical Consultation", "Annual Maintenance Contract (AMC)"] },
+  { title: "Business Solutions", image: "/tech_business.png", items: ["Digital Transformation", "Business Automation", "IT Consulting", "Startup Technology Consulting", "Software Architecture", "Technology Audit", "Process Optimization", "Enterprise Solutions"] },
+  { title: "Featured Tech Packages", image: "/tech_packages.png", items: ["Startup Website Package", "Business Growth Package", "E-Commerce Package", "Educational Package", "Law Firm Package"] }
 ];
 
 const TechnologyServices = () => {
@@ -123,13 +123,13 @@ const TechnologyServices = () => {
 
   return (
     <CorporateLayout>
-      <div ref={containerRef} className="w-full bg-[#020617] relative selection:bg-sky-500 selection:text-white">
+      <div ref={containerRef} className="w-full bg-[#0a0a0a] relative selection:bg-yellow-600 selection:text-white font-sans">
         
         {/* HERO SECTION */}
         <div className="relative min-h-[80vh] flex flex-col items-center justify-center text-center px-4 pt-32 pb-20 overflow-hidden">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-sky-500/10 rounded-full blur-[150px] pointer-events-none"></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-yellow-500/10 rounded-full blur-[150px] pointer-events-none"></div>
           
-          <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="inline-flex items-center justify-center gap-3 mb-6 text-sky-400 px-6 py-2.5 rounded-full border border-sky-400/30 bg-sky-400/10 backdrop-blur-md shadow-xl relative z-10">
+          <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="inline-flex items-center justify-center gap-3 mb-6 text-yellow-500 px-6 py-2.5 rounded-full border border-yellow-500/30 bg-yellow-500/10 backdrop-blur-md shadow-xl relative z-10">
             <Monitor size={20} strokeWidth={2} />
             <span className="font-bold tracking-widest uppercase text-sm">Technology Division</span>
           </motion.div>
@@ -138,38 +138,39 @@ const TechnologyServices = () => {
             initial={{ opacity: 0, y: 30 }} 
             animate={{ opacity: 1, y: 0 }} 
             transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }} 
-            className="text-6xl md:text-[6rem] lg:text-[8rem] font-black text-white tracking-tighter mb-8 leading-[0.9] relative z-10 uppercase"
+            className="text-6xl md:text-[6rem] lg:text-[8rem] font-light text-white tracking-tighter mb-8 leading-[0.9] relative z-10 uppercase"
+            style={{ fontFamily: 'Georgia, serif' }}
           >
             Engineering <br/>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-indigo-500">The Future.</span>
+            <span className="italic font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-600 via-yellow-400 to-yellow-200">The Future.</span>
           </motion.h1>
         </div>
 
         {/* APPLE-STYLE CINEMATIC SCROLL SECTIONS */}
         {featuredServices.map((service, idx) => (
-          <section key={idx} ref={(el) => setPanelRef(el, idx)} className="relative w-full h-screen overflow-hidden bg-black">
+          <section key={idx} ref={(el) => setPanelRef(el, idx)} className="relative w-full h-screen overflow-hidden bg-[#050505]">
             <div className="absolute inset-0 z-0">
               <img 
                 src={service.mediaUrl} 
                 alt={service.title}
-                className="bg-media w-full h-full object-cover origin-center"
+                className="bg-media w-full h-full object-cover origin-center opacity-80"
               />
             </div>
-            <div className="absolute inset-0 z-10 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
+            <div className="absolute inset-0 z-10 bg-gradient-to-t from-[#050505] via-[#050505]/60 to-transparent"></div>
             
             <div className="absolute inset-0 z-20 flex flex-col items-center justify-center px-6 text-center text-group pointer-events-none">
-              <span className="text-sky-400 tracking-[0.4em] uppercase text-sm md:text-base font-bold mb-6 drop-shadow-lg">
+              <span className="text-yellow-500 tracking-[0.4em] uppercase text-sm md:text-base font-bold mb-6 drop-shadow-lg">
                 0{idx + 1} &mdash; {service.subtitle}
               </span>
-              <h2 className="text-5xl md:text-7xl lg:text-[8rem] font-black text-white uppercase tracking-tighter leading-[0.9] mb-8 drop-shadow-2xl max-w-6xl">
+              <h2 className="text-5xl md:text-7xl lg:text-[8rem] font-light text-white uppercase tracking-tighter leading-[0.9] mb-8 drop-shadow-2xl max-w-6xl" style={{ fontFamily: 'Georgia, serif' }}>
                 {service.title}
               </h2>
-              <p className="text-xl md:text-2xl text-gray-200 max-w-3xl font-medium leading-relaxed mb-12 drop-shadow-md">
+              <p className="text-xl md:text-2xl text-gray-300 max-w-3xl font-light leading-relaxed mb-12 drop-shadow-md">
                 {service.desc}
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 {service.services.map((sub, sIdx) => (
-                  <div key={sIdx} className="px-6 py-3 rounded-full border border-white/20 bg-black/40 backdrop-blur-md text-white font-bold tracking-wide">
+                  <div key={sIdx} className="px-6 py-3 rounded-full border border-white/20 bg-black/60 backdrop-blur-md text-white font-medium tracking-wide shadow-[0_0_15px_rgba(202,138,4,0.1)]">
                     {sub}
                   </div>
                 ))}
@@ -178,16 +179,16 @@ const TechnologyServices = () => {
           </section>
         ))}
 
-        {/* PREMIUM BENTO GRID SECTION (Replaces the 3D Tunnel) */}
-        <section className="w-full bg-[#020617] py-32 z-30 relative">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(56,189,248,0.05)_0%,#020617_80%)] pointer-events-none"></div>
+        {/* PREMIUM BENTO GRID SECTION */}
+        <section className="w-full bg-[#0a0a0a] py-32 z-30 relative">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(202,138,4,0.05)_0%,#0a0a0a_80%)] pointer-events-none"></div>
 
           <div className="max-w-[95rem] mx-auto px-6 md:px-12 relative z-10">
             <div className="text-center mb-24">
-              <h2 className="text-4xl md:text-6xl lg:text-7xl font-black text-white uppercase tracking-tighter mb-8">Comprehensive Coverage</h2>
-              <div className="w-32 h-[1px] bg-gradient-to-r from-transparent via-sky-500 to-transparent mx-auto"></div>
+              <h2 className="text-4xl md:text-6xl lg:text-7xl font-light text-white uppercase tracking-tighter mb-8" style={{ fontFamily: 'Georgia, serif' }}>Comprehensive <span className="italic font-bold text-yellow-500">Coverage</span></h2>
+              <div className="w-32 h-[2px] bg-gradient-to-r from-transparent via-yellow-600 to-transparent mx-auto"></div>
               <p className="mt-8 text-gray-400 max-w-2xl mx-auto text-lg md:text-xl font-light">
-                An exhaustive suite of technical capabilities designed to scale your enterprise.
+                An exhaustive suite of technical capabilities designed to scale your enterprise with precision.
               </p>
             </div>
 
@@ -196,33 +197,38 @@ const TechnologyServices = () => {
               {additionalServices.map((category, idx) => (
                 <div 
                   key={idx} 
-                  className="bento-card relative group p-10 lg:p-12 bg-white/[0.02] rounded-[2rem] border border-white/5 hover:border-sky-500/30 transition-all duration-700 overflow-hidden flex flex-col justify-between shadow-2xl hover:shadow-[0_0_50px_rgba(56,189,248,0.1)]"
+                  className="bento-card relative group p-8 lg:p-10 bg-white/[0.02] rounded-[2rem] border border-white/5 hover:border-yellow-500/30 transition-all duration-700 overflow-hidden flex flex-col shadow-2xl hover:shadow-[0_0_50px_rgba(202,138,4,0.15)] min-h-[500px]"
                 >
                   
-                  {/* Massive subtle background number instead of cheap icons */}
-                  <div className="absolute -bottom-10 -right-4 text-[10rem] md:text-[12rem] font-black text-white/[0.02] leading-none pointer-events-none group-hover:text-sky-500/[0.05] group-hover:-translate-y-4 transition-all duration-700">
-                    {(idx + 1).toString().padStart(2, '0')}
+                  {/* Background Image Generated by AI */}
+                  <div className="absolute inset-0 z-0">
+                    <img src={category.image} alt={category.title} className="w-full h-full object-cover opacity-15 group-hover:opacity-30 group-hover:scale-105 transition-all duration-700 mix-blend-screen" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/90 to-transparent"></div>
                   </div>
                   
                   {/* Subtle Top Border Glow on hover */}
-                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-gradient-to-r from-transparent via-sky-500 to-transparent group-hover:w-[80%] transition-all duration-700 opacity-0 group-hover:opacity-100"></div>
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-gradient-to-r from-transparent via-yellow-500 to-transparent group-hover:w-[80%] transition-all duration-700 opacity-0 group-hover:opacity-100 z-20"></div>
 
-                  <div>
+                  <div className="relative z-10 flex flex-col h-full">
                     {/* Minimalist sleek header */}
-                    <div className="flex items-center gap-4 mb-10 relative z-10">
-                      <div className="w-10 h-[2px] bg-sky-500/50 group-hover:bg-sky-400 transition-colors duration-500"></div>
-                      <h3 className="text-2xl md:text-3xl font-black text-white uppercase tracking-wider">{category.title}</h3>
+                    <div className="flex items-center gap-4 mb-8">
+                      <div className="w-10 h-[2px] bg-yellow-600/50 group-hover:bg-yellow-500 transition-colors duration-500 shrink-0"></div>
+                      <h3 className="text-xl md:text-2xl font-black text-white uppercase tracking-wider drop-shadow-xl">{category.title}</h3>
                     </div>
                     
                     {/* Highly legible, beautifully spaced list */}
-                    <ul className="space-y-4 relative z-10">
-                      {category.items.map((item, i) => (
-                        <li key={i} className="flex items-start gap-4 text-gray-400 group-hover:text-gray-200 transition-colors duration-300">
-                          {/* Premium subtle glowing dot */}
-                          <div className="w-1.5 h-1.5 rounded-full bg-sky-500/40 group-hover:bg-sky-400 group-hover:shadow-[0_0_10px_#38bdf8] mt-2.5 shrink-0 transition-all duration-500"></div>
-                          <span className="text-base md:text-lg font-light leading-relaxed">{item}</span>
+                    <ul className="space-y-4 flex-1">
+                      {category.items.slice(0, 6).map((item, i) => (
+                        <li key={i} className="flex items-start gap-3 text-gray-300 group-hover:text-white transition-colors duration-300">
+                          <div className="w-1.5 h-1.5 rounded-full bg-yellow-600/60 mt-2.5 shrink-0 shadow-[0_0_8px_rgba(202,138,4,0.8)]"></div>
+                          <span className="text-sm md:text-base font-medium leading-snug drop-shadow-md">{item}</span>
                         </li>
                       ))}
+                      {category.items.length > 6 && (
+                        <li className="text-yellow-600/80 font-bold text-xs mt-6 tracking-widest uppercase pl-4 border-l-2 border-yellow-600/30">
+                          + Explore {category.items.length - 6} More Capabilities
+                        </li>
+                      )}
                     </ul>
                   </div>
                 </div>

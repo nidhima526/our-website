@@ -23,7 +23,6 @@ const Navbar = () => {
     { name: 'Interior Design', path: '/interior-design' },
     { name: 'Courses', path: '/courses' },
     { name: 'Internships', path: '/internships' },
-    { name: 'About', path: '/about' },
     { name: 'Contact', path: '/contact' }
   ];
 
@@ -33,13 +32,8 @@ const Navbar = () => {
         <div className="flex justify-between items-center">
           
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-orange-500 rounded-lg flex items-center justify-center shadow-lg shadow-orange-500/20 border border-white/20 group-hover:shadow-orange-500/40 transition-all">
-              <span className="text-xl font-black text-white">M</span>
-            </div>
-            <div className="text-2xl font-black tracking-tight text-white flex items-baseline gap-[1px]">
-              MasterTech<span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-yellow-400 text-xl">Global</span>
-            </div>
+          <Link to="/" className="flex items-center group">
+            <img src="/logo.png" alt="ASHERVISION Logo" className="h-10 md:h-12 object-contain mix-blend-screen" />
           </Link>
 
           {/* Desktop Menu */}

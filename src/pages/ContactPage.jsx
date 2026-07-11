@@ -55,7 +55,7 @@ const ContactPage = () => {
         <div className="absolute inset-0 overflow-hidden z-0 pointer-events-none">
           <div className="absolute -top-[30%] -bottom-[30%] left-0 right-0">
             <FadingVideo 
-              src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260328_115001_bcdaa3b4-03de-47e7-ad63-ae3e392c32d4.mp4" 
+              src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260508_064122_c4750c0e-7476-4b44-94a2-a85a65c63bf2.mp4" 
               className="w-full h-full object-cover translate-y-[17%]"
             />
           </div>

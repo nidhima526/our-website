@@ -126,7 +126,7 @@ const MyCourses = () => {
       <div className="lms-sidebar-header">
         <Link to="/" className="flex items-center gap-2 text-xl font-bold">
           <div className="w-8 h-8 rounded bg-primary text-white flex items-center justify-center font-serif font-bold">M</div>
-          <span className="text-slate-900 hidden lg:block">MasterTech</span>
+          <span className="text-slate-900 hidden lg:block">ASHERVISION</span>
         </Link>
         <button className="lg:hidden text-slate-500" onClick={() => setSidebarOpen(false)}><X size={24}/></button>
       </div>

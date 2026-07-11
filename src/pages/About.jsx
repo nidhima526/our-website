@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import SuccessStories from '../components/SuccessStories';
@@ -100,9 +100,9 @@ const About = () => {
           <div className="ab-hero-bg"></div>
           <div className="container grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
             <div className="ab-hero-content">
-              <span className="hero-eyebrow text-accent flex items-center gap-2"><Building2 size={16}/> About MasterTechGlobal</span>
+              <span className="hero-eyebrow text-accent flex items-center gap-2"><Building2 size={16}/> About ASHERVISION</span>
               <h1 className="hero-title mt-4 mb-6">Building a Better Future Through <span className="text-primary">Knowledge, Tech & Law.</span></h1>
-              <p className="hero-subtitle mb-8 text-muted">MasterTechGlobal is a premium multi-service platform dedicated to helping students, businesses, professionals, and individuals through trusted legal services, education, technology, internships, and creative digital solutions.</p>
+              <p className="hero-subtitle mb-8 text-muted">ASHERVISION is a premium multi-service platform dedicated to helping students, businesses, professionals, and individuals through trusted legal services, education, technology, internships, and creative digital solutions.</p>
               <div className="flex flex-wrap gap-4">
                 <button className="btn btn-primary">Explore Services</button>
                 <button className="btn btn-outline">Book Consultation</button>
@@ -113,7 +113,7 @@ const About = () => {
               <div className="ab-ecosystem w-full h-full relative">
                 {/* Center Node */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-primary text-white rounded-full flex flex-col items-center justify-center shadow-2xl z-20 pulse-glow">
-                  <span className="font-bold text-lg">MasterTech</span>
+                  <span className="font-bold text-lg">ASHERVISION</span>
                 </div>
                 
                 {/* Orbit Nodes */}
@@ -183,7 +183,7 @@ const About = () => {
                     <Award size={24}/>
                   </div>
                   <h2 className="text-3xl font-bold mb-4">Leadership Through Expertise</h2>
-                  <p className="text-muted mb-6 leading-relaxed">Advocate Nidhima brings a unique, powerful combination of legal acumen and technological vision to MasterTech. With years of experience consulting for startups, navigating complex legal frameworks, and building scalable digital solutions, she founded MasterTech with a simple goal: to democratize access to premium professional services.</p>
+                  <p className="text-muted mb-6 leading-relaxed">Advocate Nidhima brings a unique, powerful combination of legal acumen and technological vision to ASHERVISION. With years of experience consulting for startups, navigating complex legal frameworks, and building scalable digital solutions, she founded ASHERVISION with a simple goal: to democratize access to premium professional services.</p>
                   <p className="text-muted mb-8 leading-relaxed">Under her leadership, the platform has grown from a specialized consulting practice into a massive, multi-vertical ecosystem empowering thousands of students and businesses daily.</p>
                   <div className="flex gap-4">
                     <button className="btn btn-primary flex items-center gap-2"><LinkedinIcon size={18}/> Connect</button>
@@ -354,7 +354,7 @@ const About = () => {
           <div className="container">
             <div className="cta-banner premium-card text-center py-16">
               <h2 className="text-4xl font-bold mb-4">Let's Build the Future Together.</h2>
-              <p className="text-muted mb-8 max-w-2xl mx-auto">Join thousands of students, professionals, and businesses who trust MasterTechGlobal to drive their success.</p>
+              <p className="text-muted mb-8 max-w-2xl mx-auto">Join thousands of students, professionals, and businesses who trust ASHERVISION to drive their success.</p>
               <div className="flex flex-wrap justify-center gap-4">
                 <button className="btn btn-primary" style={{backgroundColor: 'white', color: 'var(--color-primary)'}}>Explore Services</button>
                 <button className="btn btn-outline" style={{borderColor: 'white', color: 'white'}}>Book Consultation</button>

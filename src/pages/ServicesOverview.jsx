@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import SuccessStories from '../components/SuccessStories';
@@ -25,7 +25,7 @@ const ServicesOverview = () => {
   ];
 
   const educationServices = [
-    "1â€“10 Tuition", "Intermediate", "Degree", "B.Tech", 
+    "1–10 Tuition", "Intermediate", "Degree", "B.Tech", 
     "Programming Languages", "Competitive Exams", "Spoken English", "Career Guidance"
   ];
 
@@ -91,7 +91,7 @@ const ServicesOverview = () => {
             <div className="svc-hero-content">
               <span className="hero-eyebrow">Services Overview</span>
               <h1 className="hero-title mt-4 mb-6">Everything You Need. <br/><span className="text-primary">All in One Platform.</span></h1>
-              <p className="hero-subtitle mb-8 text-muted">From legal solutions and education to technology, internships, and digital services, MasterTechGlobal provides complete professional support under one trusted platform.</p>
+              <p className="hero-subtitle mb-8 text-muted">From legal solutions and education to technology, internships, and digital services, ASHERVISION provides complete professional support under one trusted platform.</p>
               <div className="flex flex-wrap gap-4">
                 <a href="/legal-services" className="btn btn-primary">Explore Legal Services <ArrowRight size={18}/></a>
                 <button className="btn btn-secondary">Talk to an Expert</button>
@@ -132,7 +132,7 @@ const ServicesOverview = () => {
         <section className="section" id="legal">
           <div className="container">
             <div className="section-header text-center mb-12">
-              <h2 className="text-3xl font-bold">âš– Legal Services</h2>
+              <h2 className="text-3xl font-bold">⚖ Legal Services</h2>
               <p className="text-muted mt-2">Expert legal counsel and document drafting.</p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -154,7 +154,7 @@ const ServicesOverview = () => {
         <section className="section bg-surface" id="education">
           <div className="container">
             <div className="section-header text-center mb-12">
-              <h2 className="text-3xl font-bold">ðŸŽ“ Education & Online Tutoring</h2>
+              <h2 className="text-3xl font-bold">🎓 Education & Online Tutoring</h2>
               <p className="text-muted mt-2">1-to-1 mentoring and structured academic tuition.</p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -176,7 +176,7 @@ const ServicesOverview = () => {
         <section className="section" id="tech">
           <div className="container">
             <div className="section-header text-center mb-12">
-              <h2 className="text-3xl font-bold">ðŸ’» Technology Solutions</h2>
+              <h2 className="text-3xl font-bold">💻 Technology Solutions</h2>
               <p className="text-muted mt-2">Custom website, app, and enterprise software development.</p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -203,7 +203,7 @@ const ServicesOverview = () => {
         <section className="section bg-surface" id="digital">
           <div className="container">
             <div className="section-header text-center mb-12">
-              <h2 className="text-3xl font-bold">ðŸŽ¬ Digital Creative Services</h2>
+              <h2 className="text-3xl font-bold">🎬 Digital Creative Services</h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {digitalServices.map((svc, idx) => (
@@ -224,7 +224,7 @@ const ServicesOverview = () => {
         <section className="section" id="courses">
           <div className="container">
             <div className="section-header text-center mb-12">
-              <h2 className="text-3xl font-bold">ðŸ“š Professional Courses</h2>
+              <h2 className="text-3xl font-bold">📚 Professional Courses</h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {courses.map((course, idx) => (
@@ -249,7 +249,7 @@ const ServicesOverview = () => {
         <section className="section bg-surface" id="internships">
           <div className="container">
             <div className="section-header text-center mb-12">
-              <h2 className="text-3xl font-bold">ðŸŽ“ Internship Programs</h2>
+              <h2 className="text-3xl font-bold">🎓 Internship Programs</h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {internships.map((svc, idx) => (

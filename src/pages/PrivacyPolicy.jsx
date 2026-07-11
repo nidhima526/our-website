@@ -32,7 +32,7 @@ const PrivacyPolicy = () => {
             <div className="prose prose-invert prose-lg max-w-none">
               <h2 className="text-white text-2xl font-bold mb-4">1. Introduction</h2>
               <p className="mb-6">
-                At MasterTechGlobal, we respect your privacy and are committed to protecting your personal data. This privacy policy will inform you as to how we look after your personal data when you visit our website and tell you about your privacy rights and how the law protects you.
+                At ASHERVISION, we respect your privacy and are committed to protecting your personal data. This privacy policy will inform you as to how we look after your personal data when you visit our website and tell you about your privacy rights and how the law protects you.
               </p>
 
               <h2 className="text-white text-2xl font-bold mb-4">2. The Data We Collect About You</h2>
@@ -60,7 +60,7 @@ const PrivacyPolicy = () => {
               <h2 className="text-white text-2xl font-bold mb-4">5. Contact Us</h2>
               <p>
                 If you have any questions about this privacy policy or our privacy practices, please contact us at: <br/>
-                <a href="mailto:privacy@mastertechglobal.com" className="text-blue-400 hover:text-blue-300">privacy@mastertechglobal.com</a>
+                <a href="mailto:privacy@ASHERVISION.com" className="text-blue-400 hover:text-blue-300">privacy@ASHERVISION.com</a>
               </p>
             </div>
           </motion.div>

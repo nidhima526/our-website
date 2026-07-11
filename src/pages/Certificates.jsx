@@ -65,7 +65,7 @@ const Certificates = () => {
       <div className="lms-sidebar-header">
         <Link to="/" className="flex items-center gap-2 text-xl font-bold">
           <div className="w-8 h-8 rounded bg-primary text-white flex items-center justify-center font-serif font-bold">M</div>
-          <span className="text-slate-900 hidden lg:block">MasterTech</span>
+          <span className="text-slate-900 hidden lg:block">ASHERVISION</span>
         </Link>
         <button className="lg:hidden text-slate-500" onClick={() => setSidebarOpen(false)}><X size={24}/></button>
       </div>
@@ -285,7 +285,7 @@ const Certificates = () => {
                 <div className="timeline-content">
                   <div className="text-xs font-bold text-slate-400 mb-1">September 28, 2026</div>
                   <h4 className="font-bold text-lg mb-2">Earned 'Code Ninja' Badge</h4>
-                  <p className="text-sm text-slate-600">Completed 50 coding challenges on the MasterTech platform.</p>
+                  <p className="text-sm text-slate-600">Completed 50 coding challenges on the ASHERVISION platform.</p>
                 </div>
               </div>
               <div className="timeline-item">
@@ -305,7 +305,7 @@ const Certificates = () => {
             <div className="lms-card p-8 text-center border-t-4 border-t-primary shadow-lg">
               <ShieldCheck size={64} className="text-primary mx-auto mb-6"/>
               <h2 className="text-2xl font-bold mb-2">Verify a Certificate</h2>
-              <p className="text-slate-500 mb-8">MasterTech certificates are digitally signed and securely tracked. Enter a Credential ID below to verify its authenticity.</p>
+              <p className="text-slate-500 mb-8">ASHERVISION certificates are digitally signed and securely tracked. Enter a Credential ID below to verify its authenticity.</p>
               
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
                 <input 

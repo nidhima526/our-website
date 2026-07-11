@@ -73,7 +73,7 @@ const InternshipSection = () => {
           <div className="certificate-mockup glass-panel">
             <div className="cert-border">
               <div className="cert-header text-center">
-                <h3>MASTERTECH</h3>
+                <h3>ASHERVISION</h3>
                 <p className="text-sm">CERTIFICATE OF COMPLETION</p>
               </div>
               <div className="cert-body text-center mt-4">

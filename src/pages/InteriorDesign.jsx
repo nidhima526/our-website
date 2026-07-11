@@ -1,206 +1,304 @@
-import React, { useEffect, useRef } from 'react';
+﻿import React from 'react';
 import CorporateLayout from './CorporateLayout';
 import { motion } from 'framer-motion';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ArrowRight } from 'lucide-react';
+import { 
+  Home, Building2, Grid, Layers, Compass, 
+  Hammer, MessageSquare, CheckCircle2, ArrowRight,
+  Phone, Calendar, ClipboardList
+} from 'lucide-react';
 
-gsap.registerPlugin(ScrollTrigger);
+const servicesData = [
+  {
+    id: 'residential',
+    title: 'Residential Interiors',
+    img: 'https://i.pinimg.com/originals/2d/ee/76/2dee76f8cce388364323c9ed9d86e297.jpg',
+    icon: <Home size={32} className="text-orange-500 mb-4" />,
+    items: [
+      'Living Room Design', 'Bedroom Design', 'Modular Kitchen Design', 
+      'Dining Room Design', 'Kids Room Design', 'Pooja Room Design', 
+      'Bathroom Design', 'Balcony Design', 'Home Office Design', 'Complete Home Interiors'
+    ]
+  },
+  {
+    id: 'commercial',
+    title: 'Commercial Interiors',
+    img: '/interior_commercial.jpg',
+    icon: <Building2 size={32} className="text-orange-500 mb-4" />,
+    items: [
+      'Office Interior Design', 'Corporate Office Interiors', 'Retail Store Interiors', 
+      'Showroom Interiors', 'Restaurant & Café Interiors', 'Hotel & Resort Interiors', 
+      'Clinic & Hospital Interiors', 'School & College Interiors', 'Salon & Spa Interiors', 'Co-working Space Design'
+    ]
+  },
+  {
+    id: 'modular',
+    title: 'Modular Interior Solutions',
+    img: 'https://i.pinimg.com/originals/9e/b2/37/9eb237155d0d477bf34f9b39820a348a.jpg',
+    icon: <Grid size={32} className="text-orange-500 mb-4" />,
+    items: [
+      'Modular Kitchen', 'Modular Wardrobes', 'TV Unit Design', 
+      'Crockery Unit', 'Study Unit', 'Office Workstations', 
+      'Storage Solutions', 'Custom Furniture Design'
+    ]
+  },
+  {
+    id: 'ceiling',
+    title: 'False Ceiling & Wall Design',
+    img: '/interior_ceiling.jpg',
+    icon: <Layers size={32} className="text-orange-500 mb-4" />,
+    items: [
+      'Gypsum False Ceiling', 'POP Ceiling Design', 'Wooden Ceiling Design', 
+      'Wall Panel Design', 'Wallpaper Design', 'Decorative Wall Finishes', 
+      'Accent Walls', 'Lighting Design'
+    ]
+  },
+  {
+    id: 'planning',
+    title: 'Space Planning & Styling',
+    img: '/interior_planning.jpg',
+    icon: <Compass size={32} className="text-orange-500 mb-4" />,
+    items: [
+      'Space Planning', 'Furniture Layout', 'Color Consultation', 
+      'Material Selection', 'Lighting Planning', 'Interior Styling', 
+      'Home Décor Consultation', 'Vastu-Based Layout'
+    ]
+  },
+  {
+    id: 'renovation',
+    title: 'Renovation & Remodeling',
+    img: '/interior_renovation.jpg',
+    icon: <Hammer size={32} className="text-orange-500 mb-4" />,
+    items: [
+      'Home Renovation', 'Office Renovation', 'Kitchen Remodeling', 
+      'Bathroom Remodeling', 'Living Room Makeover', 'Commercial Space Renovation'
+    ]
+  }
+];
+
+const consultationData = [
+  'Online Design Consultation', 'On-site Consultation', 
+  'Interior Design Planning', 'Budget Planning', 
+  'Material Guidance', 'Design Proposal'
+];
+
+const whyChooseUs = [
+  'Customized Interior Solutions', 'Modern & Functional Designs', 
+  'Space Optimization', 'Quality Material Guidance', 
+  'Transparent Pricing', 'Professional Consultation', 
+  'Timely Project Planning', 'Client-Centric Approach'
+];
 
 const InteriorDesign = () => {
-  const containerRef = useRef(null);
-  const panelsRef = useRef([]);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Pinning the sections
-      panelsRef.current.forEach((panel, i) => {
-        if (i === 0) return; // Skip hero section for pinning
-
-        ScrollTrigger.create({
-          trigger: panel,
-          start: "top top",
-          pin: true,
-          pinSpacing: false,
-          end: "bottom top",
-          snap: {
-            snapTo: 1,
-            duration: 0.8,
-            ease: "power2.inOut"
-          }
-        });
-
-        // Fade in text for the panel
-        gsap.fromTo(
-          panel.querySelector('.text-content'),
-          { opacity: 0, y: 50 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 1,
-            scrollTrigger: {
-              trigger: panel,
-              start: "top center",
-              end: "center center",
-              scrub: 1,
-            }
-          }
-        );
-      });
-    }, containerRef);
-
-    return () => ctx.revert();
-  }, []);
-
-  const setPanelRef = (el, index) => {
-    if (el && !panelsRef.current.includes(el)) {
-      panelsRef.current[index] = el;
-    }
-  };
-
   return (
     <CorporateLayout>
-      <div ref={containerRef} className="w-full bg-[#0F0F0F] relative selection:bg-orange-500 selection:text-white">
+      <div className="w-full min-h-screen bg-[#0a0a0a] relative selection:bg-orange-500 selection:text-white pb-24 overflow-x-hidden">
         
-        {/* Global Film Grain Overlay */}
-        <div className="pointer-events-none fixed inset-0 z-[50] overflow-hidden mix-blend-difference opacity-[0.03]">
-          <div className="absolute -inset-[50%] h-[200%] w-[200%] animate-grain" 
-            style={{
-              backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.8\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3CfeColorMatrix type=\'matrix\' values=\'1 0 0 0 0, 1 0 0 0 0, 1 0 0 0 0, 0 0 0 1 0\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E")',
-              backgroundRepeat: 'repeat',
-              backgroundSize: '150px 150px'
-            }}>
-          </div>
-        </div>
+        {/* Subtle Background Pattern */}
+        <div className="absolute inset-0 opacity-[0.02] bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none"></div>
 
-        {/* 1. Hero Section (vd1) */}
-        <section ref={(el) => setPanelRef(el, 0)} className="relative h-screen w-full flex flex-col items-center justify-center overflow-hidden z-10 pt-20">
-          <div className="absolute inset-0 z-0">
-            <video src="/interior_vd1.mp4" autoPlay loop muted playsInline className="w-full h-full object-cover" />
-          </div>
+        <div className="relative z-10">
           
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0F0F0F]/80 via-[#0F0F0F]/40 to-[#0F0F0F]/90 z-10"></div>
-          
-          <div className="relative z-20 w-full text-center px-4 max-w-5xl mx-auto flex flex-col items-center">
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.2 }}
-              className="text-orange-500 tracking-[0.35em] uppercase text-xs md:text-sm font-semibold mb-8"
-            >
-              Premium Interior & Architectural Design
-            </motion.p>
+          {/* 1. Hero Section */}
+          <div className="relative w-full min-h-[85vh] flex flex-col items-center justify-center text-center px-4 overflow-hidden mb-8 shadow-2xl">
+            {/* 3D Background Image */}
+            <div className="absolute inset-0 z-0">
+              <img src="/interior_hero_bg.png" alt="3D Luxury Interior Design" className="w-full h-full object-cover opacity-60" />
+              <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a]/80 via-[#0a0a0a]/40 to-[#0a0a0a]"></div>
+            </div>
             
-            <motion.h1 
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1.2, delay: 0.4, ease: "easeOut" }}
-              className="text-5xl md:text-7xl lg:text-8xl font-light text-[#F6F4EE] leading-[1.1] mb-8"
-              style={{ fontFamily: 'Georgia, serif' }}
-            >
-              Design Your <br />
-              <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-yellow-400">Dream Space</span>
-            </motion.h1>
+            <div className="relative z-10 max-w-5xl mx-auto pt-24 pb-12 mt-16">
+              <motion.p 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: 0.2 }}
+                className="text-orange-500 tracking-[0.3em] uppercase text-xs md:text-sm font-bold mb-6 drop-shadow-lg"
+              >
+                Premium Interior & Architectural Design
+              </motion.p>
+              
+              <motion.h1 
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 1, delay: 0.3 }}
+                className="text-5xl sm:text-6xl md:text-8xl font-light text-white leading-[1.1] mb-8 drop-shadow-2xl"
+                style={{ fontFamily: 'Georgia, serif' }}
+              >
+                Design Your <br />
+                <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-yellow-300">Dream Space</span>
+              </motion.h1>
 
-            <motion.p 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1, delay: 1 }}
-              className="text-[#F6F4EE]/70 max-w-2xl text-lg md:text-xl font-light leading-relaxed mb-12"
-            >
-              Curated collections of ultra-premium interiors, luxury residential designs, and architectural surfaces for spaces that demand perfection.
-            </motion.p>
+              <motion.p 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1, delay: 0.5 }}
+                className="text-gray-300 max-w-2xl mx-auto text-lg md:text-xl font-light leading-relaxed mb-12 drop-shadow-md"
+              >
+                Curated collections of ultra-premium interiors, luxury residential designs, and architectural surfaces for spaces that demand perfection.
+              </motion.p>
+              
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: 0.7 }}
+              >
+                <a href="#cta" className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-orange-600 text-white rounded-full hover:bg-orange-500 hover:-translate-y-1 transition-all duration-300 uppercase tracking-widest text-xs font-bold shadow-[0_0_20px_rgba(234,88,12,0.4)]">
+                  Start Your Journey
+                  <ArrowRight size={16} />
+                </a>
+              </motion.div>
+            </div>
+          </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 1.2 }}
+          {/* 2. Core Categories Grid (Reverted completely back to the 3-column grid) */}
+          <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl text-white font-light mb-4" style={{ fontFamily: 'Georgia, serif' }}>Our <span className="italic text-orange-400">Services</span></h2>
+              <div className="w-24 h-1 bg-gradient-to-r from-orange-500 to-yellow-500 mx-auto rounded-full"></div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {servicesData.map((service, idx) => (
+                <motion.div 
+                  key={service.id}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.1 }}
+                  className="bg-[#141414] border border-white/10 rounded-3xl overflow-hidden hover:border-orange-500/50 transition-colors group flex flex-col"
+                >
+                  <div className="w-full h-80 bg-[#1a1a1a] flex items-center justify-center relative overflow-hidden">
+                    {service.img ? (
+                      <img 
+                        src={service.img} 
+                        alt={service.title} 
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
+                      />
+                    ) : (
+                      <>
+                        <div className="absolute inset-0 bg-gradient-to-br from-orange-500/10 to-transparent"></div>
+                        <div className="opacity-30 group-hover:scale-110 transition-transform duration-500">
+                          {service.icon}
+                        </div>
+                      </>
+                    )}
+                  </div>
+                  
+                  <div className="p-8 flex-1">
+                    <h3 className="text-2xl text-white font-bold mb-6 group-hover:text-orange-400 transition-colors">{service.title}</h3>
+                    <ul className="space-y-3">
+                      {service.items.map((item, i) => (
+                        <li key={i} className="flex items-start gap-3 text-sm text-gray-400 group-hover:text-gray-300 transition-colors">
+                          <CheckCircle2 size={16} className="text-orange-500 shrink-0 mt-0.5 opacity-70" />
+                          <span className="leading-relaxed">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* 3. Design Consultation & Planning */}
+          <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="relative rounded-3xl overflow-hidden shadow-2xl border border-white/10"
             >
-              <a href="#explore" className="inline-flex items-center gap-3 px-8 py-4 border border-white/20 rounded-full text-white hover:bg-white hover:text-black transition-all duration-500 group uppercase tracking-widest text-xs font-bold">
-                Explore Collections
-                <ArrowRight className="group-hover:translate-x-1 transition-transform" size={16} />
-              </a>
+              {/* Background Video */}
+              <div className="absolute inset-0 z-0">
+                <video src="https://v1.pinimg.com/videos/iht/expMp4/a2/5c/88/a25c88c051d1e6404123b2f7ed5f45be_720w.mp4" autoPlay loop muted playsInline className="w-full h-full object-cover opacity-60" />
+              </div>
+              
+              {/* Gradient Overlay for Text Readability */}
+              <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a]/95 via-[#0a0a0a]/60 to-transparent z-10"></div>
+              
+              <div className="relative z-20 p-8 md:p-16 w-full md:w-2/3">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-500/20 border border-orange-500/30 text-orange-400 text-xs font-bold tracking-widest uppercase mb-6 backdrop-blur-md">
+                  <MessageSquare size={14} /> Expert Advice
+                </div>
+                <h2 className="text-3xl md:text-5xl text-white font-light mb-6" style={{ fontFamily: 'Georgia, serif' }}>
+                  Design <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-yellow-300">Consultation</span>
+                </h2>
+                <p className="text-gray-300 text-lg md:text-xl mb-8 leading-relaxed max-w-xl">
+                  Every great space begins with a conversation. Let our experts guide you through the planning, budgeting, and material selection processes.
+                </p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl">
+                  {consultationData.map((item, i) => (
+                    <div key={i} className="flex items-center gap-3 text-white">
+                      <div className="w-2 h-2 rounded-full bg-orange-500 shadow-[0_0_8px_rgba(249,115,22,0.8)]"></div>
+                      <span className="font-medium text-sm md:text-base drop-shadow-md">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </motion.div>
           </div>
-        </section>
 
-        {/* 2. Residential Section (vd2) */}
-        <section id="explore" ref={(el) => setPanelRef(el, 1)} className="relative h-screen w-full flex items-center overflow-hidden z-20">
-          <div className="absolute inset-0 z-0">
-            <video src="/interior_vd2.mp4" autoPlay loop muted playsInline className="w-full h-full object-cover scale-105" />
-          </div>
-          <div className="absolute inset-0 bg-black/50 backdrop-blur-[2px] z-10"></div>
-          
-          <div className="relative z-20 w-full max-w-7xl mx-auto px-6 md:px-12 text-content flex justify-end">
-            <div className="max-w-2xl w-full bg-[#0F0F0F]/95 backdrop-blur-3xl border border-white/20 p-10 md:p-14 rounded-3xl shadow-[0_0_50px_rgba(0,0,0,0.8)]">
-              <span className="text-orange-500 tracking-[0.2em] uppercase text-xs font-bold mb-4 block">01 / Collection</span>
-              <h2 className="text-4xl md:text-5xl text-white font-light mb-8" style={{ fontFamily: 'Georgia, serif' }}>Residential <span className="italic text-gray-400">Sanctuaries</span></h2>
-              
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-5">
-                {["Living Room Design", "Bedroom Design", "Modular Kitchen", "Dining Room", "Bathroom Design", "Kids Room", "Pooja Room", "Balcony Design", "Home Office", "Complete Home Interior"].map((service, i) => (
-                  <div key={i} className="flex items-center gap-4 text-white text-base md:text-lg font-medium">
-                    <div className="w-2 h-2 rounded-full bg-orange-500 shadow-[0_0_10px_rgba(249,115,22,0.8)] shrink-0"></div>
-                    {service}
+          {/* 4. Why Choose Us */}
+          <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center overflow-hidden">
+            <h2 className="text-3xl md:text-4xl text-white font-light mb-12" style={{ fontFamily: 'Georgia, serif' }}>Why Choose <span className="italic text-orange-400">Us</span></h2>
+            
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              {whyChooseUs.map((reason, idx) => (
+                <motion.div 
+                  key={idx}
+                  initial={{ opacity: 0, x: 80 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.6, delay: idx * 0.1, ease: "easeOut" }}
+                  className="bg-[#141414] border border-white/5 p-6 rounded-2xl hover:bg-[#1a1a1a] transition-colors flex flex-col items-center text-center gap-4"
+                >
+                  <div className="w-12 h-12 rounded-full bg-orange-500/10 flex items-center justify-center text-orange-400">
+                    <CheckCircle2 size={24} />
                   </div>
-                ))}
+                  <span className="text-white font-medium text-sm leading-relaxed">{reason}</span>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* 5. Call To Action Footer */}
+          <div id="cta" className="w-full py-32 relative overflow-hidden mt-12 flex items-center justify-center bg-[#0a0a0a]">
+            {/* Background Image */}
+            <div className="absolute inset-0 z-0">
+              <img src="/cta_bg.png" alt="Blueprint CTA" className="w-full h-full object-cover opacity-40" />
+            </div>
+            
+            {/* Gradient Overlay for Text Readability */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a]/90 via-[#0a0a0a]/70 to-[#0a0a0a]/90 z-10"></div>
+            <div className="absolute inset-0 bg-orange-500/20 mix-blend-overlay z-10"></div>
+            
+            <div className="relative z-20 max-w-4xl mx-auto px-4 text-center">
+              <h2 className="text-4xl md:text-6xl font-extrabold text-white mb-6 tracking-tight">Ready to Transform Your Space?</h2>
+              <p className="text-orange-100 text-lg md:text-xl mb-12 max-w-2xl mx-auto font-medium">
+                Let's turn your vision into reality. Reach out to our design team today.
+              </p>
+              
+              <div className="flex justify-center mt-4">
+                <a href="/contact" className="flex items-center justify-center gap-3 bg-orange-600 text-white px-10 py-5 rounded-full font-bold text-sm tracking-widest hover:bg-orange-500 hover:scale-105 transition-all shadow-[0_0_20px_rgba(234,88,12,0.4)]">
+                  <ClipboardList size={20} />
+                  GO TO CONTACT FORM
+                </a>
               </div>
             </div>
           </div>
-        </section>
 
-        {/* 3. Commercial Section (v3) */}
-        <section ref={(el) => setPanelRef(el, 2)} className="relative h-screen w-full flex items-center overflow-hidden z-30">
-          <div className="absolute inset-0 z-0">
-            <video src="/interior_v3.mp4" autoPlay loop muted playsInline className="w-full h-full object-cover scale-105" />
-          </div>
-          <div className="absolute inset-0 bg-black/50 backdrop-blur-[2px] z-10"></div>
-          
-          <div className="relative z-20 w-full max-w-7xl mx-auto px-6 md:px-12 text-content flex justify-start">
-            <div className="max-w-2xl w-full bg-[#0F0F0F]/95 backdrop-blur-3xl border border-white/20 p-10 md:p-14 rounded-3xl shadow-[0_0_50px_rgba(0,0,0,0.8)]">
-              <span className="text-orange-500 tracking-[0.2em] uppercase text-xs font-bold mb-4 block">02 / Collection</span>
-              <h2 className="text-4xl md:text-5xl text-white font-light mb-8" style={{ fontFamily: 'Georgia, serif' }}>Commercial <span className="italic text-gray-400">Excellence</span></h2>
-              
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-5">
-                {["Office Interior", "Corporate Office", "Retail Store", "Showroom Design", "Restaurant Interior", "Café Interior", "Hotel Interior", "Clinic & Hospital", "School & College", "Co-working Space"].map((service, i) => (
-                  <div key={i} className="flex items-center gap-4 text-white text-base md:text-lg font-medium">
-                    <div className="w-2 h-2 rounded-full bg-orange-500 shadow-[0_0_10px_rgba(249,115,22,0.8)] shrink-0"></div>
-                    {service}
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* 4. Architectural Section (vd4) */}
-        <section ref={(el) => setPanelRef(el, 3)} className="relative h-screen w-full flex flex-col items-center justify-center overflow-hidden z-40">
-          <div className="absolute inset-0 z-0">
-            <video src="/interior_vd4.mp4" autoPlay loop muted playsInline className="w-full h-full object-cover scale-105" />
-          </div>
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0F0F0F] via-black/40 to-black/60 z-10"></div>
-          
-          <div className="relative z-20 w-full max-w-5xl mx-auto px-6 text-center text-content mt-24">
-            <div className="w-full bg-[#0F0F0F]/95 backdrop-blur-3xl border border-white/20 p-10 md:p-14 rounded-3xl shadow-[0_0_50px_rgba(0,0,0,0.8)] text-left">
-              <span className="text-orange-500 tracking-[0.2em] uppercase text-xs font-bold mb-4 block">03 / Architecture</span>
-              <h2 className="text-4xl md:text-5xl text-white font-light mb-10" style={{ fontFamily: 'Georgia, serif' }}>
-                Architectural & <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-yellow-300">3D Planning</span>
-              </h2>
-              
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-6">
-                {["House Planning", "Villa Design", "Duplex Design", "Apartment Planning", "Elevation Design", "2D Floor Plans", "3D Floor Plans", "Site Planning", "Space Planning", "Landscape Planning", "3D Visualization", "Civil Engineering"].map((service, i) => (
-                  <div key={i} className="flex items-center gap-4 text-white text-base md:text-lg font-medium">
-                    <div className="w-2 h-2 rounded-full bg-orange-500 shadow-[0_0_10px_rgba(249,115,22,0.8)] shrink-0"></div>
-                    {service}
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
+        </div>
       </div>
     </CorporateLayout>
   );
 };
 
 export default InteriorDesign;
+
+
+
+
+
+
+
+
+

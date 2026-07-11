@@ -9,7 +9,6 @@ import TechnologyServices from './pages/TechnologyServices';
 import Courses from './pages/Courses';
 import DigitalCreative from './pages/DigitalCreative';
 import Internships from './pages/Internships';
-import AboutUs from './pages/AboutUs';
 import ContactPage from './pages/ContactPage';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsConditions from './pages/TermsConditions';
@@ -18,7 +17,7 @@ import InteriorDesign from './pages/InteriorDesign';
 // Wrapper to handle dynamic SEO titles
 const PageWrapper = ({ title, children }) => {
   useEffect(() => {
-    document.title = `${title} | MasterTechGlobal`;
+    document.title = `${title} | ASHERVISION`;
   }, [title]);
   
   // Scroll to top on route change
@@ -44,22 +43,12 @@ const SplashScreen = () => (
       transition={{ duration: 1, ease: "easeOut" }}
       className="flex flex-col items-center"
     >
-      <div className="w-24 h-24 mb-6 relative">
+      <div className="w-auto h-32 mb-6 relative">
         {/* Glow effect */}
-        <div className="absolute inset-0 bg-orange-500 rounded-full blur-[30px] opacity-50 animate-pulse"></div>
-        {/* Logo shape placeholder */}
-        <div className="w-full h-full bg-gradient-to-br from-blue-500 to-orange-500 rounded-2xl flex items-center justify-center shadow-[0_0_40px_rgba(249,115,22,0.4)] relative z-10 border border-white/20">
-          <span className="text-4xl font-black text-white">M</span>
-        </div>
+        <div className="absolute inset-0 bg-yellow-500 rounded-full blur-[40px] opacity-30 animate-pulse"></div>
+        {/* Logo Image */}
+        <img src="/logo.png" alt="ASHERVISION Logo" className="h-full object-contain relative z-10 drop-shadow-2xl" />
       </div>
-      <motion.h1 
-        initial={{ y: 20, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8, delay: 0.3 }}
-        className="text-3xl md:text-4xl font-extrabold text-white tracking-tight"
-      >
-        MasterTech<span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-yellow-400">Global</span>
-      </motion.h1>
       <motion.div 
         initial={{ width: 0 }}
         animate={{ width: "100%" }}
@@ -123,7 +112,6 @@ function App() {
           <Route path="/interior-design" element={<PageWrapper title="Interior & Architectural Design"><InteriorDesign /></PageWrapper>} />
           
           {/* Auxiliary Pages */}
-          <Route path="/about" element={<PageWrapper title="About Us"><AboutUs /></PageWrapper>} />
           <Route path="/contact" element={<PageWrapper title="Contact Us"><ContactPage /></PageWrapper>} />
           <Route path="/privacy" element={<PageWrapper title="Privacy Policy"><PrivacyPolicy /></PageWrapper>} />
           <Route path="/terms" element={<PageWrapper title="Terms & Conditions"><TermsConditions /></PageWrapper>} />

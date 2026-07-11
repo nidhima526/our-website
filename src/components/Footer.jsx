@@ -12,19 +12,11 @@ const Footer = () => {
           
           {/* Company Info */}
           <div className="lg:col-span-2">
-            <Link to="/" className="flex items-center gap-3 mb-6 group">
-              <img src="/logo.png" alt="MasterTechwith Nidhima Logo" className="h-12 md:h-14 object-contain rounded-md shadow-lg shadow-orange-500/20 group-hover:shadow-orange-500/40 group-hover:scale-105 transition-all shrink-0" />
-              <div className="flex flex-col">
-                <div className="text-2xl md:text-3xl font-black tracking-tight text-white leading-none">
-                  MasterTechwith <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-yellow-400">NIDHIMA</span>
-                </div>
-                <div className="text-xs text-gray-400 italic tracking-widest mt-1.5 font-serif">
-                  Prosperity meets a priceless treasure
-                </div>
-              </div>
+            <Link to="/" className="flex items-center group mb-6">
+              <img src="/logo.png" alt="ASHERVISION Logo" className="h-16 md:h-20 object-contain shrink-0" />
             </Link>
             <p className="text-sm text-gray-400 mb-8 max-w-sm leading-relaxed">
-              MasterTechGlobal is a multi-service professional firm providing Legal Services, Technology Solutions, Professional Training, Internships, Digital Marketing, and Business Consulting through one trusted platform.
+              ASHERVISION is a multi-service professional firm providing Legal Services, Technology Solutions, Professional Training, Internships, Digital Marketing, and Business Consulting through one trusted platform.
             </p>
           </div>
 
@@ -48,9 +40,8 @@ const Footer = () => {
               <div className="w-2 h-2 rounded-full bg-blue-500"></div> Quick Links
             </h3>
             <ul className="space-y-4 text-sm font-medium">
-              <li><Link to="/about" className="text-gray-400 hover:text-blue-400 transition-colors flex items-center gap-2 group"><ArrowRight size={14} className="text-blue-500/0 group-hover:text-blue-500 -ml-2 group-hover:ml-0 transition-all"/> About Us</Link></li>
-              <li><Link to="/courses" className="text-gray-400 hover:text-blue-400 transition-colors flex items-center gap-2 group"><ArrowRight size={14} className="text-blue-500/0 group-hover:text-blue-500 -ml-2 group-hover:ml-0 transition-all"/> Courses</Link></li>
-              <li><Link to="/internships" className="text-gray-400 hover:text-blue-400 transition-colors flex items-center gap-2 group"><ArrowRight size={14} className="text-blue-500/0 group-hover:text-blue-500 -ml-2 group-hover:ml-0 transition-all"/> Internships</Link></li>
+              <li><Link to="/services" className="text-gray-400 hover:text-blue-400 transition-colors flex items-center gap-2 group"><ArrowRight size={14} className="text-blue-500/0 group-hover:text-blue-500 -ml-2 group-hover:ml-0 transition-all"/> Services</Link></li>
+              <li><Link to="/legal" className="text-gray-400 hover:text-blue-400 transition-colors flex items-center gap-2 group"><ArrowRight size={14} className="text-blue-500/0 group-hover:text-blue-500 -ml-2 group-hover:ml-0 transition-all"/> Legal</Link></li>
               <li><Link to="/contact" className="text-gray-400 hover:text-blue-400 transition-colors flex items-center gap-2 group"><ArrowRight size={14} className="text-blue-500/0 group-hover:text-blue-500 -ml-2 group-hover:ml-0 transition-all"/> Contact</Link></li>
             </ul>
           </div>
@@ -81,7 +72,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-white/10 pt-8 pb-4 flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="text-center md:text-left text-sm font-semibold text-gray-500">
-            &copy; {new Date().getFullYear()} MasterTechGlobal. All Rights Reserved.
+            &copy; {new Date().getFullYear()} ASHERVISION. All Rights Reserved.
           </div>
           
           <div className="flex gap-6 text-sm font-medium text-gray-500">
@@ -98,3 +89,4 @@ const Footer = () => {
 };
 
 export default Footer;
+

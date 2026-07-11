@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import FaqAccordion from '../components/FaqAccordion';
@@ -52,7 +52,7 @@ const Blog = () => {
 
   const authors = [
     { name: "Advocate Nidhima", role: "Founder & Legal Expert", articles: 45, img: "notionists/svg?seed=Nidhima" },
-    { name: "MasterTech Devs", role: "Engineering Team", articles: 120, img: "notionists/svg?seed=Tech" },
+    { name: "ASHERVISION Devs", role: "Engineering Team", articles: 120, img: "notionists/svg?seed=Tech" },
     { name: "Creative Studio", role: "Design & Media", articles: 38, img: "notionists/svg?seed=Design" }
   ];
 
@@ -78,7 +78,7 @@ const Blog = () => {
             <div className="bg-hero-content">
               <span className="hero-eyebrow text-accent flex items-center gap-2"><BookOpen size={16}/> Knowledge Center</span>
               <h1 className="hero-title mt-4 mb-6">Knowledge That Helps You <span className="text-primary">Learn, Build & Protect.</span></h1>
-              <p className="hero-subtitle mb-8 text-muted">Explore expert articles, legal awareness guides, technology insights, educational resources, and business strategies from the experts at MasterTechGlobal.</p>
+              <p className="hero-subtitle mb-8 text-muted">Explore expert articles, legal awareness guides, technology insights, educational resources, and business strategies from the experts at ASHERVISION.</p>
               <div className="flex flex-wrap gap-4">
                 <a href="#articles" className="btn btn-primary">Explore Articles</a>
                 <a href="#newsletter" className="btn btn-outline">Subscribe</a>
@@ -337,7 +337,7 @@ const Blog = () => {
         <section className="section cta-section">
           <div className="container">
             <div className="cta-banner premium-card text-center py-16">
-              <h2 className="text-4xl font-bold mb-4">Continue Learning with MasterTech</h2>
+              <h2 className="text-4xl font-bold mb-4">Continue Learning with ASHERVISION</h2>
               <p className="text-muted mb-8 max-w-2xl mx-auto">Beyond articles, we provide hands-on courses, legal consulting, and robust technology solutions to help you succeed.</p>
               <div className="flex flex-wrap justify-center gap-4">
                 <button className="btn btn-primary" style={{backgroundColor: 'white', color: 'var(--color-primary)'}}>Explore Services</button>

@@ -103,7 +103,7 @@ const DigitalServices = () => {
           <div className="ds-hero-bg"></div>
           <div className="container grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
             <div className="ds-hero-content">
-              <span className="hero-eyebrow text-accent flex items-center gap-2"><Megaphone size={16}/> MasterTech Creative</span>
+              <span className="hero-eyebrow text-accent flex items-center gap-2"><Megaphone size={16}/> ASHERVISION Creative</span>
               <h1 className="hero-title mt-4 mb-6">Creative Services That <span className="text-primary">Elevate Your Brand</span></h1>
               <p className="hero-subtitle mb-8 text-muted">We help businesses and creators with professional video editing, podcast editing, graphic design, branding, social media content, and digital marketing assets.</p>
               <div className="flex flex-wrap gap-4">

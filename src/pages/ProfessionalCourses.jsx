@@ -93,7 +93,7 @@ const ProfessionalCourses = () => {
             <div className="cr-hero-content">
               <span className="hero-eyebrow text-accent flex items-center gap-2"><BookOpen size={16}/> Professional Courses</span>
               <h1 className="hero-title mt-4 mb-6">Upgrade Your Skills with <span className="text-primary">Industry-Focused Learning</span></h1>
-              <p className="hero-subtitle mb-8 text-muted">MasterTech provides practical, project-based learning designed for students, professionals, freelancers, and entrepreneurs to build tomorrow's career today.</p>
+              <p className="hero-subtitle mb-8 text-muted">ASHERVISION provides practical, project-based learning designed for students, professionals, freelancers, and entrepreneurs to build tomorrow's career today.</p>
               <div className="flex flex-wrap gap-4">
                 <button className="btn btn-primary">Browse Courses</button>
                 <button className="btn btn-outline flex items-center gap-2"><PlayCircle size={18}/> Watch Demo Class</button>
@@ -304,7 +304,7 @@ const ProfessionalCourses = () => {
         <section className="section">
           <div className="container">
             <div className="section-header text-center mb-12">
-              <h2 className="text-3xl font-bold">Why Learn With MasterTech?</h2>
+              <h2 className="text-3xl font-bold">Why Learn With ASHERVISION?</h2>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
               {benefits.map((ben, idx) => (
@@ -415,7 +415,7 @@ const ProfessionalCourses = () => {
           <div className="container">
             <div className="cta-banner premium-card text-center py-16">
               <h2 className="text-4xl font-bold mb-4">Your Future Starts with One Course</h2>
-              <p className="text-muted mb-8 max-w-2xl mx-auto">Join thousands of professionals upgrading their skills with MasterTech's industry-recognized certifications.</p>
+              <p className="text-muted mb-8 max-w-2xl mx-auto">Join thousands of professionals upgrading their skills with ASHERVISION's industry-recognized certifications.</p>
               <div className="flex flex-wrap justify-center gap-4">
                 <button className="btn btn-primary" style={{backgroundColor: 'white', color: 'var(--color-primary)'}}>Enroll Now</button>
                 <button className="btn btn-outline flex items-center gap-2" style={{borderColor: 'white', color: 'white'}}><Search size={18}/> Explore All Courses</button>

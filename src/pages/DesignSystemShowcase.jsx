@@ -40,7 +40,7 @@ export const DesignSystemShowcase = () => {
       <div className="flex justify-between items-center mb-6">
         <div>
           <h1 className="page-heading">Design System</h1>
-          <p className="body-text">MasterTech UI Components Library</p>
+          <p className="body-text">ASHERVISION UI Components Library</p>
         </div>
         <Button onClick={toggleTheme} variant="outline">Toggle Dark Mode</Button>
       </div>
@@ -83,7 +83,7 @@ export const DesignSystemShowcase = () => {
         <section className="grid-cols-12 premium-card">
           <h3 className="section-heading mb-4">Forms</h3>
           <div className="grid grid-cols-2 gap-4">
-            <Input label="Email Address" placeholder="nidhima@mastertech.com" />
+            <Input label="Email Address" placeholder="nidhima@ASHERVISION.com" />
             <Input label="Password" type="password" error="Password must be 8+ characters" />
             <div className="grid-cols-2">
               <Textarea label="Message" placeholder="Type your message here..." />
@@ -151,7 +151,7 @@ export const DesignSystemShowcase = () => {
       </div>
 
       <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)} title="System Update">
-        <p>A new version of the MasterTech ecosystem is available. Please review the changes before applying.</p>
+        <p>A new version of the ASHERVISION ecosystem is available. Please review the changes before applying.</p>
       </Modal>
 
       <Drawer isOpen={drawerOpen} onClose={() => setDrawerOpen(false)}>

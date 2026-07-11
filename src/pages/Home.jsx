@@ -1,206 +1,391 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import CorporateLayout from './CorporateLayout';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { motion, useScroll, AnimatePresence } from 'framer-motion';
 import { 
-  ArrowRight, Monitor, Scale, Zap, GraduationCap, Briefcase, 
-  Globe, Cpu, Award, CheckCircle, Box 
+  ArrowRight, Monitor, Scale, Zap, Box, BookOpen, Briefcase, Award, ChevronRight, ChevronLeft 
 } from 'lucide-react';
-import ShinyText from '../components/ShinyText';
 import HlsVideo from '../components/HlsVideo';
 
-gsap.registerPlugin(ScrollTrigger);
-
 const Home = () => {
-  const heroRef = useRef(null);
-  const textRefs = useRef([]);
-  const sectionRefs = useRef([]);
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"]
+  });
+
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const heroSlides = [
+    {
+      title: "Technology Solutions",
+      subtitle: "ENGINEERING THE DIGITAL FUTURE",
+      desc: "Enterprise software, AI integration, and secure cloud infrastructure tailored to your exact operational needs.",
+      bgImage: "/tech_bg.png",
+      link: "/technology",
+      color: "from-blue-500"
+    },
+    {
+      title: "Legal Services",
+      subtitle: "UNWAVERING LEGAL PRECISION",
+      desc: "Expert civil, criminal, and corporate legal representation focused on protecting your rights and enterprise.",
+      bgImage: "/ap_telangana_court.png", 
+      link: "/legal",
+      color: "from-orange-500"
+    },
+    {
+      title: "Interior Design",
+      subtitle: "SHAPING YOUR DREAM SPACE",
+      desc: "Premium 3D interior design, architectural planning, and turnkey execution services.",
+      bgImage: "/interior_hero_new.png",
+      link: "/interior-design",
+      color: "from-purple-500"
+    },
+    {
+      title: "Creative & Marketing",
+      subtitle: "BRAND STRATEGIES THAT PAUSE",
+      desc: "SEO, Google Ads, UI/UX design, and premium media services that command absolute attention.",
+      bgImage: "/digitalmarketing.jpg",
+      link: "/contact",
+      color: "from-yellow-500"
+    }
+  ];
 
   useEffect(() => {
-    // Hero Animation
-    gsap.fromTo(textRefs.current, 
-      { y: 100, opacity: 0 }, 
-      { y: 0, opacity: 1, duration: 1.5, stagger: 0.1, ease: "power4.out", delay: 0.2 }
-    );
-
-    // Section Scroll Animations (Tension and Movement)
-    sectionRefs.current.forEach((section) => {
-      gsap.fromTo(section, 
-        { opacity: 0, y: 50, scale: 0.95 },
-        {
-          opacity: 1, y: 0, scale: 1,
-          duration: 1.2,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: section,
-            start: "top 85%",
-            end: "bottom 20%",
-            toggleActions: "play none none reverse"
-          }
-        }
-      );
-    });
-
-    return () => {
-      ScrollTrigger.getAll().forEach(t => t.kill());
-    };
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+    }, 6000); // 6 seconds per slide
+    return () => clearInterval(timer);
   }, []);
+
+  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+  const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length);
+
+  const services = [
+    {
+      title: "Technology Solutions",
+      desc: "Enterprise software, AI integration, and secure cloud infrastructure.",
+      icon: <img src="/tech_logo.png" alt="Tech Solutions" className="w-10 h-10 object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.4)]" />,
+      link: "/technology",
+      color: "from-blue-600/20 to-blue-900/20",
+      border: "hover:border-blue-500/50"
+    },
+    {
+      title: "Legal Services",
+      desc: "Civil, criminal, and corporate legal representation with unwavering precision.",
+      icon: <img src="/legal_logo.png" alt="Legal Services" className="w-10 h-10 object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.4)]" />,
+      link: "/legal",
+      color: "from-orange-600/20 to-orange-900/20",
+      border: "hover:border-orange-500/50"
+    },
+    {
+      title: "Creative & Marketing",
+      desc: "Brand strategy, SEO, and premium digital presence that commands attention.",
+      icon: <img src="/creative_logo.png" alt="Creative & Marketing" className="w-10 h-10 object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.4)]" />,
+      link: "/contact", 
+      color: "from-yellow-600/20 to-yellow-900/20",
+      border: "hover:border-yellow-500/50"
+    },
+    {
+      title: "Interior & 3D Design",
+      desc: "Architectural planning and turnkey execution shaping your dream space.",
+      icon: <img src="/interior_logo.png" alt="Interior Design" className="w-10 h-10 object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.4)]" />,
+      link: "/interior-design",
+      color: "from-purple-600/20 to-purple-900/20",
+      border: "hover:border-purple-500/50"
+    },
+    {
+      title: "Educational Courses",
+      desc: "Master your future with elite training in AI, Java, Python, and more.",
+      icon: <img src="/courses_logo.png" alt="Educational Courses" className="w-10 h-10 object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.4)]" />,
+      link: "/courses",
+      color: "from-green-600/20 to-green-900/20",
+      border: "hover:border-green-500/50"
+    }
+  ];
 
   return (
     <CorporateLayout>
-      {/* Fixed Full-Page Mux HLS Background Video */}
-      <div className="fixed inset-0 overflow-hidden z-[-2] pointer-events-none bg-black">
-        <HlsVideo 
-          src="https://stream.mux.com/4IMYGcL01xjs7ek5ANO17JC4VQVUTsojZlnw4fXzwSxc.m3u8"
-          className="w-full h-full object-cover opacity-80 mix-blend-screen"
-        />
-      </div>
-      {/* Dark Overlay to make text readable across all sections */}
-      <div className="fixed inset-0 bg-black/60 z-[-1] pointer-events-none"></div>
-
-      {/* 1. CINEMATIC HERO SECTION */}
-      <section ref={heroRef} className="relative min-h-screen w-full flex flex-col justify-center items-center">
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 flex flex-col items-center text-center mt-20">
-          <div className="overflow-hidden mb-6">
-            <h1 ref={el => textRefs.current[0] = el} className="font-sans font-black tracking-tighter leading-[0.85] text-6xl sm:text-8xl md:text-9xl text-white">
-              MASTER
-            </h1>
-          </div>
-          <div className="overflow-hidden mb-8">
-            <h1 ref={el => textRefs.current[1] = el} className="font-sans font-black tracking-tighter leading-[0.85] text-6xl sm:text-8xl md:text-9xl text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-yellow-400">
-              YOUR FUTURE.
-            </h1>
-          </div>
-          
-          <div className="overflow-hidden mb-12 max-w-2xl">
-            <p ref={el => textRefs.current[2] = el} className="text-gray-400 text-lg md:text-2xl font-light tracking-wide">
-              Every decision feels deliberate. The movement has purpose. The spacing creates tension.
-            </p>
-          </div>
-
-          <div ref={el => textRefs.current[3] = el} className="overflow-hidden mt-8">
-            <Link 
-              to="/contact" 
-              className="group flex items-center gap-4 bg-white text-black font-black px-10 py-5 rounded-full hover:bg-orange-500 hover:text-white transition-all duration-500 ease-out"
+      <div ref={containerRef} className="relative bg-[#050505]">
+        
+        {/* 1. DYNAMIC HERO CAROUSEL SECTION */}
+        <section className="relative h-screen w-full overflow-hidden bg-black">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentSlide}
+              initial={{ opacity: 0, scale: 1.05 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 1.2, ease: "easeInOut" }}
+              className="absolute inset-0 z-0"
             >
-              Start The Journey
-              <ArrowRight size={24} className="group-hover:translate-x-2 transition-transform duration-500" />
-            </Link>
-          </div>
-        </div>
-      </section>
+              <img 
+                src={heroSlides[currentSlide].bgImage} 
+                alt={heroSlides[currentSlide].title}
+                className="w-full h-full object-cover opacity-50"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/60 to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-[#050505] via-[#050505]/40 to-transparent"></div>
+            </motion.div>
+          </AnimatePresence>
 
-      {/* 2. THE 5 PILLARS (DELIBERATE SPACING & TENSION) */}
-      <section className="py-40 text-white relative z-20 bg-transparent">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-32" ref={el => sectionRefs.current[0] = el}>
-            <h2 className="text-5xl md:text-7xl font-black mb-8 tracking-tighter">THE PILLARS.</h2>
-            <p className="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto font-light">
-              We don't just generate possibilities. We shape structures. We control the rhythm. We refine details.
-            </p>
-          </div>
-
-          <div className="flex flex-col gap-32">
-            {/* Pillar 1 */}
-            <div ref={el => sectionRefs.current[1] = el} className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-              <div className="h-[60vh] rounded-3xl overflow-hidden bg-white/5 backdrop-blur-md border border-white/10 relative group">
-                <div className="absolute inset-0 bg-blue-900/40 group-hover:bg-transparent transition-colors duration-1000 z-10"></div>
-                <img src="/custom_tech_logo.jpg" alt="Technology" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[2s] ease-out opacity-80 mix-blend-luminosity" />
-              </div>
+          <div className="relative z-10 h-full w-full max-w-7xl mx-auto px-4 md:px-8 flex flex-col justify-center pt-20">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
               <div>
-                <Monitor size={48} className="text-blue-500 mb-8" />
-                <h3 className="text-5xl font-black mb-6 tracking-tight">Technology</h3>
-                <p className="text-gray-300 text-xl font-light leading-relaxed mb-10">Enterprise software, web & mobile applications, AI integration, ERP systems, and secure cloud infrastructure tailored to your exact operational needs.</p>
-                <Link to="/contact" className="text-white border-b-2 border-orange-500 pb-2 text-lg font-bold hover:text-orange-500 transition-colors">Explore Tech Solutions</Link>
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={currentSlide + 'text'}
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -30 }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
+                  >
+                    <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md mb-6">
+                      <span className={`w-2 h-2 rounded-full bg-gradient-to-r ${heroSlides[currentSlide].color} to-white animate-pulse`}></span>
+                      <span className="text-xs md:text-sm font-bold text-gray-300 tracking-[0.2em]">{heroSlides[currentSlide].subtitle}</span>
+                    </div>
+                    
+                    <h1 className="font-sans font-black tracking-tighter leading-[0.9] text-5xl sm:text-7xl md:text-[5.5rem] text-white mb-8">
+                      {heroSlides[currentSlide].title}
+                    </h1>
+                    
+                    <p className="text-gray-300 text-lg md:text-xl font-light tracking-wide leading-relaxed mb-10 max-w-xl">
+                      {heroSlides[currentSlide].desc}
+                    </p>
+                    
+                    <Link 
+                      to={heroSlides[currentSlide].link} 
+                      className="inline-flex items-center gap-4 bg-white text-black font-bold px-8 py-4 rounded-full hover:scale-105 transition-transform duration-300 shadow-[0_0_30px_rgba(255,255,255,0.1)]"
+                    >
+                      Explore {heroSlides[currentSlide].title.split(' ')[0]}
+                      <ArrowRight size={20} />
+                    </Link>
+                  </motion.div>
+                </AnimatePresence>
               </div>
             </div>
-
-            {/* Pillar 2 */}
-            <div ref={el => sectionRefs.current[2] = el} className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-              <div className="order-2 md:order-1">
-                <Scale size={48} className="text-orange-500 mb-8" />
-                <h3 className="text-5xl font-black mb-6 tracking-tight">Legal</h3>
-                <p className="text-gray-300 text-xl font-light leading-relaxed mb-10">Expert consultation, documentation, civil, criminal, and corporate legal representation with unwavering precision.</p>
-                <Link to="/contact" className="text-white border-b-2 border-orange-500 pb-2 text-lg font-bold hover:text-orange-500 transition-colors">Consult Experts</Link>
+            
+            {/* Carousel Controls & Progress */}
+            <div className="absolute bottom-12 left-4 md:left-8 right-4 md:right-8 flex flex-col md:flex-row justify-between items-center gap-6">
+              <div className="flex items-center gap-4">
+                <button onClick={prevSlide} className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition-colors backdrop-blur-sm text-white">
+                  <ChevronLeft size={20} />
+                </button>
+                <button onClick={nextSlide} className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition-colors backdrop-blur-sm text-white">
+                  <ChevronRight size={20} />
+                </button>
               </div>
-              <div className="order-1 md:order-2 h-[60vh] rounded-3xl overflow-hidden bg-white/5 backdrop-blur-md border border-white/10 relative group">
-                <div className="absolute inset-0 bg-orange-900/20 group-hover:bg-transparent transition-colors duration-1000 z-10"></div>
-                <img src="/legalpage.jpg" alt="Legal" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[2s] ease-out opacity-80 mix-blend-luminosity" />
-              </div>
-            </div>
-
-            {/* Pillar 3 */}
-            <div ref={el => sectionRefs.current[3] = el} className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-              <div className="h-[60vh] rounded-3xl overflow-hidden bg-white/5 backdrop-blur-md border border-white/10 relative group">
-                <div className="absolute inset-0 bg-blue-900/20 group-hover:bg-transparent transition-colors duration-1000 z-10"></div>
-                <img src="/digitalmarketing.jpg" alt="Creative" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[2s] ease-out opacity-80 mix-blend-luminosity" />
-              </div>
-              <div>
-                <Zap size={48} className="text-yellow-500 mb-8" />
-                <h3 className="text-5xl font-black mb-6 tracking-tight">Creative</h3>
-                <p className="text-gray-300 text-xl font-light leading-relaxed mb-10">Brand strategy, SEO, Google Ads, UI/UX design, and premium video editing services that make them pause.</p>
-                <Link to="/contact" className="text-white border-b-2 border-orange-500 pb-2 text-lg font-bold hover:text-orange-500 transition-colors">Grow Your Brand</Link>
+              
+              <div className="flex items-center gap-3 w-full md:w-1/3">
+                {heroSlides.map((_, idx) => (
+                  <div key={idx} className="h-1 flex-1 bg-white/10 rounded-full overflow-hidden cursor-pointer" onClick={() => setCurrentSlide(idx)}>
+                    <motion.div 
+                      className="h-full bg-white"
+                      initial={{ width: "0%" }}
+                      animate={{ width: currentSlide === idx ? "100%" : currentSlide > idx ? "100%" : "0%" }}
+                      transition={{ duration: currentSlide === idx ? 6 : 0, ease: "linear" }}
+                    />
+                  </div>
+                ))}
               </div>
             </div>
+          </div>
+        </section>
 
-            {/* Pillar 4 */}
-            <div ref={el => sectionRefs.current[4] = el} className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-              <div className="order-2 md:order-1">
-                <Box size={48} className="text-purple-500 mb-8" />
-                <h3 className="text-5xl font-black mb-6 tracking-tight">Interior & 3D Design</h3>
-                <p className="text-gray-300 text-xl font-light leading-relaxed mb-10">Premium 3D interior design, architectural planning, and turnkey execution services that visually shape your dream space.</p>
-                <Link to="/interior-design" className="text-white border-b-2 border-orange-500 pb-2 text-lg font-bold hover:text-orange-500 transition-colors">Design Your Space</Link>
-              </div>
-              <div className="order-1 md:order-2 h-[60vh] rounded-3xl overflow-hidden bg-white/5 backdrop-blur-md border border-white/10 relative group flex items-center justify-center">
-                <div className="absolute inset-0 bg-purple-900/20 group-hover:bg-transparent transition-colors duration-1000 z-10"></div>
-                <div className="w-full h-full bg-gradient-to-br from-gray-900 to-black flex items-center justify-center text-gray-400 group-hover:scale-105 transition-transform duration-[2s] ease-out">
-                   <span className="text-2xl font-bold tracking-widest uppercase">3D Interior</span>
+        <div className="relative z-10">
+          {/* 2. OUR MOTTO SECTION */}
+          <section className="py-32 px-4 border-t border-white/5 bg-black/40 backdrop-blur-lg">
+            <div className="max-w-7xl mx-auto">
+              <motion.div 
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.8 }}
+                className="flex flex-col md:flex-row gap-16 items-center"
+              >
+                <div className="md:w-1/3">
+                  <h2 className="text-4xl md:text-6xl font-black text-white tracking-tighter mb-4">OUR MOTTO.</h2>
+                  <div className="h-1 w-24 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
                 </div>
+                <div className="md:w-2/3">
+                  <h3 className="text-3xl md:text-5xl font-light text-gray-200 leading-tight">
+                    "To engineer <span className="text-white font-bold">possibility</span>, 
+                    defend <span className="text-white font-bold">integrity</span>, and 
+                    design <span className="text-white font-bold">brilliance</span> in everything we touch."
+                  </h3>
+                  <p className="mt-8 text-xl text-gray-500 font-light">
+                    We believe that true excellence requires a multi-disciplinary approach. That's why we bring together elite minds across technology, law, and design to provide comprehensive solutions that never compromise.
+                  </p>
+                </div>
+              </motion.div>
+            </div>
+          </section>
+
+          {/* 3. OUR SERVICES BENTO BOX */}
+          <section className="py-32 px-4 bg-[#0a0a0a]">
+            <div className="max-w-7xl mx-auto">
+              <div className="text-center mb-20">
+                <motion.h2 
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  className="text-5xl md:text-7xl font-black text-white tracking-tighter mb-6"
+                >
+                  ALL SERVICES.
+                </motion.h2>
+                <p className="text-xl text-gray-400 font-light max-w-2xl mx-auto">
+                  Comprehensive expertise across multiple domains, delivered with absolute precision.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {services.map((service, idx) => (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: idx * 0.1, duration: 0.6 }}
+                  >
+                    <Link to={service.link} className={`block h-full p-8 rounded-3xl bg-white/[0.03] border border-white/5 backdrop-blur-sm group transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-black/50 ${service.border}`}>
+                      <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-8 bg-gradient-to-br ${service.color} border border-white/10 group-hover:scale-110 transition-transform duration-500`}>
+                        <div className="text-white">{service.icon}</div>
+                      </div>
+                      <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-400 transition-all">{service.title}</h3>
+                      <p className="text-gray-400 leading-relaxed mb-8">{service.desc}</p>
+                      <div className="flex items-center text-sm font-bold tracking-widest uppercase text-gray-500 group-hover:text-white transition-colors mt-auto">
+                        Explore <ArrowRight size={16} className="ml-2 group-hover:translate-x-2 transition-transform" />
+                      </div>
+                    </Link>
+                  </motion.div>
+                ))}
               </div>
             </div>
-          </div>
-        </div>
-      </section>
+          </section>
+          
+          {/* 4. PREMIUM STATS */}
+          <section className="py-24 bg-black/40 backdrop-blur-sm text-white border-y border-white/5">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
+                {[
+                  { num: "500+", label: "Clients" },
+                  { num: "10K+", label: "Students" },
+                  { num: "120+", label: "Projects" },
+                  { num: "4.9", label: "Rating" }
+                ].map((stat, i) => (
+                  <motion.div 
+                    key={i}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.1 }}
+                  >
+                    <div className="text-5xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-500 mb-2">{stat.num}</div>
+                    <div className="text-xs md:text-sm font-bold tracking-[0.3em] uppercase text-gray-500">{stat.label}</div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </section>
 
-      {/* 3. PREMIUM STATS */}
-      <section className="py-40 bg-black/40 backdrop-blur-sm text-white relative overflow-hidden border-y border-white/5">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-16 text-center">
-            <div ref={el => sectionRefs.current[5] = el}>
-              <div className="text-6xl md:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-500 mb-4">500+</div>
-              <div className="text-sm font-bold tracking-[0.3em] uppercase text-gray-400">Clients</div>
-            </div>
-            <div ref={el => sectionRefs.current[6] = el}>
-              <div className="text-6xl md:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-500 mb-4">10K+</div>
-              <div className="text-sm font-bold tracking-[0.3em] uppercase text-gray-400">Students</div>
-            </div>
-            <div ref={el => sectionRefs.current[7] = el}>
-              <div className="text-6xl md:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-b from-orange-400 to-orange-800 mb-4">120+</div>
-              <div className="text-sm font-bold tracking-[0.3em] uppercase text-gray-400">Projects</div>
-            </div>
-            <div ref={el => sectionRefs.current[8] = el}>
-              <div className="text-6xl md:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-500 mb-4">4.9</div>
-              <div className="text-sm font-bold tracking-[0.3em] uppercase text-gray-400">Rating</div>
-            </div>
-          </div>
-        </div>
-      </section>
+          {/* 5. COMPANY DATA & CTA SECTION */}
+          <section className="py-32 bg-[#050505] px-4 relative overflow-hidden">
+            {/* Background Glow */}
+            <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[500px] h-[500px] bg-orange-500/10 blur-[120px] rounded-full pointer-events-none"></div>
+            
+            <div className="max-w-7xl mx-auto">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+                
+                {/* Left Side: Logo */}
+                <motion.div
+                  initial={{ opacity: 0, x: -50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, ease: "easeOut" }}
+                  className="flex justify-center lg:justify-start lg:sticky lg:top-32"
+                >
+                  <div className="relative p-12 bg-white/[0.02] border border-white/5 rounded-3xl backdrop-blur-sm w-full flex justify-center">
+                    <img 
+                      src="/logo.png" 
+                      alt="ASHERVISION Logo" 
+                      className="w-64 md:w-80 object-contain mix-blend-screen drop-shadow-[0_0_30px_rgba(249,115,22,0.3)]" 
+                    />
+                  </div>
+                </motion.div>
 
-      {/* 4. FINAL CTA SECTION */}
-      <section ref={el => sectionRefs.current[9] = el} className="py-40 bg-transparent relative overflow-hidden flex flex-col items-center text-center">
-        <div className="w-24 h-24 bg-white/5 rounded-full flex items-center justify-center mb-12 border border-white/10 backdrop-blur-md">
-          <Award size={48} className="text-white" strokeWidth={1} />
+                {/* Right Side: Company Data & CTA */}
+                <motion.div
+                  initial={{ opacity: 0, x: 50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+                  className="flex flex-col text-center lg:text-left"
+                >
+                  <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-400 w-fit mb-6 mx-auto lg:mx-0">
+                    <Award size={16} />
+                    <span className="text-xs font-bold tracking-[0.2em] uppercase">About Ashervision</span>
+                  </div>
+                  
+                  <h2 className="text-3xl md:text-5xl font-black mb-8 text-white tracking-tighter leading-tight capitalize">
+                    Prosperity Meets Precious.
+                  </h2>
+                  
+                  <div className="space-y-6 text-left">
+                    <p className="text-base md:text-lg text-gray-300 font-light leading-relaxed">
+                      ASHERVISION is a multidisciplinary professional services company co-founded by Kalyan and Nidhima bringing together expertise in Technology Solutions, Legal Services, Professional Education, Interior Design, and Digital Creative Services under one trusted brand.
+                    </p>
+                    <p className="text-base md:text-lg text-gray-300 font-light leading-relaxed">
+                      Driven by innovation, integrity, and a client-first approach, we partner with students, professionals, startups, businesses, and institutions to deliver practical solutions that solve real-world challenges. Every project is built with attention to quality, professionalism, and long-term value.
+                    </p>
+                    <p className="text-base md:text-lg text-gray-300 font-light leading-relaxed">
+                      At ASHERVISION, we believe every idea has the potential to create meaningful impact. Whether it's developing digital platforms, providing legal guidance, designing inspiring spaces, delivering industry-focused training, or building powerful brand identities, our mission is to help our clients move forward with confidence.
+                    </p>
+                  </div>
+                </motion.div>
+                
+              </div>
+              
+              {/* Vision, Center Button, Mission Section */}
+              <motion.div 
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                className="mt-32 w-full flex flex-col lg:flex-row items-stretch justify-center gap-8 lg:gap-12 relative z-10"
+              >
+                {/* Our Vision */}
+                <div className="flex-1 bg-white/[0.03] p-10 md:p-12 rounded-3xl border border-white/10 backdrop-blur-md text-center flex flex-col items-center justify-center hover:bg-white/[0.05] transition-colors shadow-2xl">
+                  <h3 className="text-3xl font-black text-white mb-6 tracking-widest uppercase">Our Vision</h3>
+                  <div className="w-12 h-1 bg-gradient-to-r from-orange-500 to-purple-500 mb-8 rounded-full"></div>
+                  <p className="text-base md:text-lg text-gray-400 leading-relaxed font-light">
+                    To become one of India's most trusted multidisciplinary professional service companies, delivering innovative solutions in technology, legal services, education, design, and digital transformation while building lasting relationships with our clients.
+                  </p>
+                </div>
+
+                {/* Center CTA Button */}
+                <div className="flex items-center justify-center shrink-0 -my-8 lg:my-0 lg:-mx-8 z-20">
+                  <Link 
+                    to="/contact" 
+                    className="group flex flex-col items-center justify-center gap-2 bg-gradient-to-b from-white to-gray-300 text-black font-black w-40 h-40 md:w-56 md:h-56 rounded-full hover:scale-105 transition-all duration-500 shadow-[0_0_40px_rgba(255,255,255,0.15)] hover:shadow-[0_0_80px_rgba(255,255,255,0.3)] border-[8px] border-[#050505]"
+                  >
+                    <span className="text-lg md:text-2xl text-center leading-none tracking-tight uppercase">Partner<br/>With Us</span>
+                    <ArrowRight size={28} className="group-hover:translate-y-2 transition-transform mt-2" />
+                  </Link>
+                </div>
+
+                {/* Our Mission */}
+                <div className="flex-1 bg-white/[0.03] p-10 md:p-12 rounded-3xl border border-white/10 backdrop-blur-md text-center flex flex-col items-center justify-center hover:bg-white/[0.05] transition-colors shadow-2xl">
+                  <h3 className="text-3xl font-black text-white mb-6 tracking-widest uppercase">Our Mission</h3>
+                  <div className="w-12 h-1 bg-gradient-to-r from-purple-500 to-orange-500 mb-8 rounded-full"></div>
+                  <p className="text-base md:text-lg text-gray-400 leading-relaxed font-light">
+                    To empower individuals, businesses, and institutions by providing reliable professional services, innovative technology solutions, quality education, creative excellence, and trusted consultation that contribute to sustainable growth and long-term success.
+                  </p>
+                </div>
+              </motion.div>
+            </div>
+          </section>
         </div>
-        <h2 className="text-5xl md:text-8xl font-black mb-10 text-white tracking-tighter">THAT'S DIRECTION.</h2>
-        <p className="text-xl md:text-2xl text-gray-300 mb-16 max-w-2xl font-light">
-          The difference between something that exists and something that matters.
-        </p>
-        <Link to="/contact" className="group flex items-center gap-4 bg-white/10 backdrop-blur-md border border-white/20 text-white font-black px-12 py-6 rounded-full hover:bg-white hover:text-black transition-all duration-500 ease-out text-xl">
-          Work With Us
-          <ArrowRight size={24} className="group-hover:translate-x-2 transition-transform duration-500" />
-        </Link>
-      </section>
+      </div>
     </CorporateLayout>
   );
 };

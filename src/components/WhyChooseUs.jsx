@@ -20,7 +20,7 @@ const WhyChooseUs = () => {
     <section className="section why-choose-us" id="about">
       <div className="container">
         <div className="section-header text-center mb-6">
-          <h2>Why Choose <span className="text-primary">MasterTech</span></h2>
+          <h2>Why Choose <span className="text-primary">ASHERVISION</span></h2>
           <p>We deliver excellence across all our services and programs.</p>
         </div>
         
