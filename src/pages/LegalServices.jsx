@@ -55,6 +55,7 @@ const practiceAreas = [
   {
     icon: <FileText className="text-[#D4AF37]" size={32} />,
     title: 'Legal Documentation',
+    img: '/legal_documentation_card.png',
     items: ['Affidavits', 'Legal Notices', 'Agreements', 'Contracts', 'MoUs', 'Petitions', 'Document Review']
   }
 ];
