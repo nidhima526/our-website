@@ -25,6 +25,7 @@ const practiceAreas = [
   {
     icon: <Users className="text-[#D4AF37]" size={32} />,
     title: 'Family Law',
+    img: '/family_law_card.png',
     items: ['Divorce Consultation', 'Child Custody', 'Maintenance Matters', 'Domestic Violence Guidance', 'Family Settlement']
   },
   {
