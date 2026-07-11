@@ -65,7 +65,7 @@ const Home = () => {
     {
       title: "Technology Solutions",
       desc: "Enterprise software, AI integration, and secure cloud infrastructure.",
-      icon: <img src="/tech_logo.png" alt="Tech Solutions" className="w-10 h-10 object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.4)]" />,
+      image: "/service_tech.png",
       link: "/technology",
       color: "from-blue-600/20 to-blue-900/20",
       border: "hover:border-blue-500/50"
@@ -73,7 +73,7 @@ const Home = () => {
     {
       title: "Legal Services",
       desc: "Civil, criminal, and corporate legal representation with unwavering precision.",
-      icon: <img src="/legal_logo.png" alt="Legal Services" className="w-10 h-10 object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.4)]" />,
+      image: "/service_legal.png",
       link: "/legal",
       color: "from-orange-600/20 to-orange-900/20",
       border: "hover:border-orange-500/50"
@@ -81,7 +81,7 @@ const Home = () => {
     {
       title: "Creative & Marketing",
       desc: "Brand strategy, SEO, and premium digital presence that commands attention.",
-      icon: <img src="/creative_logo.png" alt="Creative & Marketing" className="w-10 h-10 object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.4)]" />,
+      image: "/service_creative.png",
       link: "/contact", 
       color: "from-yellow-600/20 to-yellow-900/20",
       border: "hover:border-yellow-500/50"
@@ -89,7 +89,7 @@ const Home = () => {
     {
       title: "Interior & 3D Design",
       desc: "Architectural planning and turnkey execution shaping your dream space.",
-      icon: <img src="/interior_logo.png" alt="Interior Design" className="w-10 h-10 object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.4)]" />,
+      image: "/service_interior.png",
       link: "/interior-design",
       color: "from-purple-600/20 to-purple-900/20",
       border: "hover:border-purple-500/50"
@@ -97,7 +97,7 @@ const Home = () => {
     {
       title: "Educational Courses",
       desc: "Master your future with elite training in AI, Java, Python, and more.",
-      icon: <img src="/courses_logo.png" alt="Educational Courses" className="w-10 h-10 object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.4)]" />,
+      image: "/service_education.png",
       link: "/courses",
       color: "from-green-600/20 to-green-900/20",
       border: "hover:border-green-500/50"
@@ -247,14 +247,17 @@ const Home = () => {
                     viewport={{ once: true }}
                     transition={{ delay: idx * 0.1, duration: 0.6 }}
                   >
-                    <Link to={service.link} className={`block h-full p-8 rounded-3xl bg-white/[0.03] border border-white/5 backdrop-blur-sm group transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-black/50 ${service.border}`}>
-                      <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-8 bg-gradient-to-br ${service.color} border border-white/10 group-hover:scale-110 transition-transform duration-500`}>
-                        <div className="text-white">{service.icon}</div>
+                    <Link to={service.link} className={`block h-full flex flex-col rounded-3xl bg-[#0a0a0a] border border-white/5 overflow-hidden group transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-black/50 ${service.border}`}>
+                      <div className="w-full h-48 overflow-hidden relative">
+                        <img src={service.image} alt={service.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/50 to-transparent"></div>
                       </div>
-                      <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-400 transition-all">{service.title}</h3>
-                      <p className="text-gray-400 leading-relaxed mb-8">{service.desc}</p>
-                      <div className="flex items-center text-sm font-bold tracking-widest uppercase text-gray-500 group-hover:text-white transition-colors mt-auto">
-                        Explore <ArrowRight size={16} className="ml-2 group-hover:translate-x-2 transition-transform" />
+                      <div className="p-8 pt-0 flex flex-col flex-grow relative z-10">
+                        <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-400 transition-all">{service.title}</h3>
+                        <p className="text-gray-400 leading-relaxed mb-8">{service.desc}</p>
+                        <div className="flex items-center text-sm font-bold tracking-widest uppercase text-gray-500 group-hover:text-white transition-colors mt-auto">
+                          Explore <ArrowRight size={16} className="ml-2 group-hover:translate-x-2 transition-transform" />
+                        </div>
                       </div>
                     </Link>
                   </motion.div>
