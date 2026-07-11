@@ -83,7 +83,7 @@ export const DesignSystemShowcase = () => {
         <section className="grid-cols-12 premium-card">
           <h3 className="section-heading mb-4">Forms</h3>
           <div className="grid grid-cols-2 gap-4">
-            <Input label="Email Address" placeholder="nidhima@ASHERVISION.com" />
+            <Input label="Email Address" placeholder="ashervsions@gmail.com" />
             <Input label="Password" type="password" error="Password must be 8+ characters" />
             <div className="grid-cols-2">
               <Textarea label="Message" placeholder="Type your message here..." />

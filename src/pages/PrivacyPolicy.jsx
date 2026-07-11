@@ -71,7 +71,7 @@ const PrivacyPolicy = () => {
               <h2 className="text-white text-2xl font-bold mb-4">7. Contact Information</h2>
               <p>
                 If you have questions, concerns, or grievances regarding this Privacy Policy or the handling of your data, please contact our Data Protection Officer at: <br/>
-                <strong>Email:</strong> <a href="mailto:techwithnidhima@gmail.com" className="text-blue-400 hover:text-blue-300 transition-colors">techwithnidhima@gmail.com</a><br/>
+                <strong>Email:</strong> <a href="mailto:ashervsions@gmail.com" className="text-blue-400 hover:text-blue-300 transition-colors">ashervsions@gmail.com</a><br/>
                 <strong>Address:</strong> Ongole, Andhra Pradesh, India
               </p>
             </div>
