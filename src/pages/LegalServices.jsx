@@ -85,8 +85,8 @@ const LegalServices = () => {
                 className="text-5xl sm:text-6xl md:text-8xl font-light text-white leading-[1.1] mb-8 drop-shadow-2xl"
                 style={{ fontFamily: 'Georgia, serif' }}
               >
-                Advocate <br />
-                <span className="italic font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-600 via-yellow-400 to-yellow-200">Nidhima</span>
+                Elite Legal <br />
+                <span className="italic font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-600 via-yellow-400 to-yellow-200">Counsel</span>
               </motion.h1>
 
               <motion.p 
@@ -155,6 +155,36 @@ const LegalServices = () => {
                   ))}
                 </div>
              </div>
+          </div>
+
+          {/* 3. The Power of Defense: Gallery Wall */}
+          <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-5xl text-white font-light mb-6" style={{ fontFamily: 'Georgia, serif' }}>The Power of <span className="italic text-yellow-500">Defense</span></h2>
+              <p className="text-gray-400 text-lg max-w-2xl mx-auto">See the unwavering commitment and strategic legal dominance our advocates bring to every client scenario.</p>
+            </div>
+            
+            <div className="columns-1 sm:columns-2 md:columns-3 gap-6 space-y-6">
+              {[
+                { src: "/legal_voiceless.png", alt: "Defending the Voiceless" },
+                { src: "/legal_counsel.png", alt: "Empathetic Counsel" },
+                { src: "/legal_family.png", alt: "Resolving Family Disputes" },
+                { src: "/legal_corporate.png", alt: "Corporate Dominance" },
+                { src: "/legal_gratitude.png", alt: "Client Gratitude" },
+                { src: "/legal_hero_bg.png", alt: "Premium Law Office" },
+                { src: "/drafting.png", alt: "Flawless Documentation" },
+                { src: "/corporate_law.jpg", alt: "High Stakes Boardroom" },
+                { src: "/criminal_law.jpg", alt: "Criminal Defense" },
+                { src: "/civil_law.jpg", alt: "Scales of Justice" },
+              ].map((img, idx) => (
+                <div key={idx} className="break-inside-avoid relative group rounded-2xl overflow-hidden border border-white/5 shadow-lg shadow-black/50 hover:shadow-yellow-900/20 transition-all duration-500">
+                  <img src={img.src} alt={img.alt} className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700 ease-out" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-start p-6">
+                    <h4 className="text-white font-bold tracking-wide" style={{ fontFamily: 'Georgia, serif' }}>{img.alt}</h4>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
 
           {/* 4. Action Footer */}
