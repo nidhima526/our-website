@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import CorporateLayout from './CorporateLayout';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
@@ -149,7 +149,7 @@ const Courses = () => {
         <div className="relative w-full min-h-[90vh] flex flex-col items-center justify-center text-center px-4 overflow-hidden mb-16 rounded-b-[4rem] shadow-[0_20px_50px_rgba(0,0,0,0.8)]">
           <div className="absolute inset-0 z-0">
             <video 
-              src="https://v1.pinimg.com/videos/mc/720p/df/a9/0f/dfa90f274e1b541c0fe74051452a385c.mp4" 
+              src="https://assets.mixkit.co/videos/preview/mixkit-software-developer-working-on-code-216-large.mp4" 
               autoPlay 
               loop 
               muted 
