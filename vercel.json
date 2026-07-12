@@ -1,4 +1,7 @@
 {
   "name": "our-website",
-  "framework": "vite"
+  "framework": "vite",
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/" }
+  ]
 }
