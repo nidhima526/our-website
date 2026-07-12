@@ -169,7 +169,7 @@ const TechnologyServices = () => {
               <span className="text-yellow-500 tracking-[0.4em] uppercase text-sm md:text-base font-bold mb-6 drop-shadow-lg">
                 0{idx + 1} &mdash; {service.subtitle}
               </span>
-              <h2 className="text-5xl md:text-7xl lg:text-[8rem] font-light text-white uppercase tracking-tighter leading-[0.9] mb-8 drop-shadow-2xl max-w-6xl" style={{ fontFamily: 'Georgia, serif' }}>
+              <h2 className="text-5xl md:text-7xl lg:text-[8rem] font-sans font-black text-white uppercase tracking-tighter leading-tight pb-6 pt-2 mb-4 drop-shadow-2xl max-w-6xl">
                 {service.title}
               </h2>
               <p className="text-xl md:text-2xl text-gray-300 max-w-3xl font-light leading-relaxed mb-12 drop-shadow-md">
@@ -192,7 +192,7 @@ const TechnologyServices = () => {
 
           <div className="max-w-[95rem] mx-auto px-6 md:px-12 relative z-10">
             <div className="text-center mb-24">
-              <h2 className="text-4xl md:text-6xl lg:text-7xl font-light text-white uppercase tracking-tighter mb-8" style={{ fontFamily: 'Georgia, serif' }}>Comprehensive <span className="italic font-bold text-yellow-500">Coverage</span></h2>
+              <h2 className="text-4xl md:text-6xl lg:text-7xl font-sans font-black text-white uppercase tracking-tighter mb-8">Comprehensive <span className="text-yellow-500">Coverage</span></h2>
               <div className="w-32 h-[2px] bg-gradient-to-r from-transparent via-yellow-600 to-transparent mx-auto"></div>
               <p className="mt-8 text-gray-400 max-w-2xl mx-auto text-lg md:text-xl font-light">
                 An exhaustive suite of technical capabilities designed to scale your enterprise with precision.
@@ -211,10 +211,10 @@ const TechnologyServices = () => {
                   <div className="absolute inset-0 z-0">
                     {category.video ? (
                       <>
-                        <video autoPlay loop muted playsInline className="w-full h-full object-cover opacity-100 group-hover:scale-105 transition-all duration-700">
+                        <video autoPlay loop muted playsInline className={`w-full h-full object-cover group-hover:scale-105 transition-all duration-700 ${category.title === "Cloud & Hosting Services" ? "opacity-30 group-hover:opacity-50" : "opacity-100"}`}>
                           <source src={category.video} type="video/mp4" />
                         </video>
-                        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/60 to-transparent"></div>
+                        <div className={`absolute inset-0 ${category.title === "Cloud & Hosting Services" ? "bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/80 to-[#0a0a0a]/40" : "bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/60 to-transparent"}`}></div>
                       </>
                     ) : (
                       <>

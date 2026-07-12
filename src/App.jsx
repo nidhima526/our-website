@@ -17,6 +17,7 @@ import InteriorDesign from './pages/InteriorDesign';
 import StudentDashboard from './pages/StudentDashboard';
 import BusinessDashboard from './pages/BusinessDashboard';
 import AIChatbot from './components/AIChatbot';
+import ScrollToTop from './components/ScrollToTop';
 // Wrapper to handle dynamic SEO titles
 const PageWrapper = ({ title, children }) => {
   useEffect(() => {
@@ -161,35 +162,12 @@ const GrandOpeningSplash = ({ pageName, onOpen, isOpening }) => (
 function App() {
   const { pathname } = useLocation();
   const [initialLoading, setInitialLoading] = useState(true);
-  const [splashState, setSplashState] = useState('waiting'); // 'waiting', 'opening', 'closed'
-  
-  // Check if it's within 30 days of the grand opening
-  const isGrandOpening = new Date() < new Date('2026-08-11T23:59:59');
 
-  // Trigger splash on route change
+  // Initial Load Timer
   useEffect(() => {
-    if (isGrandOpening) {
-      setSplashState('waiting');
-    }
-  }, [pathname, isGrandOpening]);
-
-  // Initial Load Timer for non-grand opening
-  useEffect(() => {
-    if (!isGrandOpening) {
-      const timer = setTimeout(() => setInitialLoading(false), 2200);
-      return () => clearTimeout(timer);
-    } else {
-      setInitialLoading(false);
-    }
-  }, [isGrandOpening]);
-
-  const handleOpenSplash = () => {
-    if (splashState !== 'waiting') return;
-    setSplashState('opening');
-    setTimeout(() => {
-      setSplashState('closed');
-    }, 1200); // 1.2s for the ribbon split animation
-  };
+    const timer = setTimeout(() => setInitialLoading(false), 2200);
+    return () => clearTimeout(timer);
+  }, []);
 
   const getPageName = () => {
     switch (pathname) {
@@ -231,18 +209,10 @@ function App() {
   return (
     <>
       <AnimatePresence>
-        {!isGrandOpening && initialLoading && <SplashScreen />}
+        {initialLoading && <SplashScreen />}
       </AnimatePresence>
 
-      {isGrandOpening && splashState !== 'closed' && (
-        <GrandOpeningSplash 
-          pageName={getPageName()} 
-          onOpen={handleOpenSplash} 
-          isOpening={splashState === 'opening'} 
-        />
-      )}
-      
-      {(!initialLoading || isGrandOpening) && (
+      {!initialLoading && (
         <Routes>
           <Route path="/" element={<PageWrapper title="Home"><Home /></PageWrapper>} />
           <Route path="/legal" element={<PageWrapper title="Legal Services"><LegalServices /></PageWrapper>} />
@@ -263,7 +233,11 @@ function App() {
         </Routes>
       )}
 
-      {/* Background is now handled by individual cinematic sections */}
+      {/* Global Minimal Dark Background (Tharun Speaks Inspired) */}
+      <div className="fixed inset-0 z-[-1] bg-[#030712] pointer-events-none">
+        <img src="/creative-bg.png" alt="Global Background" className="absolute inset-0 w-full h-full object-cover opacity-70 mix-blend-screen" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#030712_100%)] opacity-80 pointer-events-none"></div>
+      </div>
 
       {/* Global WhatsApp Floating Button */}
       <a 
@@ -275,6 +249,9 @@ function App() {
       >
         <FaWhatsapp size={32} />
       </a>
+
+      {/* Global Scroll to Top Button */}
+      <ScrollToTop />
 
       {/* AI Chatbot */}
       <AIChatbot />

@@ -21,7 +21,7 @@ const Home = () => {
       title: "Technology Solutions",
       subtitle: "ENGINEERING THE DIGITAL FUTURE",
       desc: "Enterprise software, AI integration, and secure cloud infrastructure tailored to your exact operational needs.",
-      bgVideo: "https://v1.pinimg.com/videos/iht/expMp4/63/8e/9d/638e9d864ed8169de4b23d3e4df3352c_720w.mp4",
+      bgVideo: "/home_tech_bg.mp4",
       link: "/technology",
       color: "from-blue-500"
     },
@@ -65,7 +65,7 @@ const Home = () => {
     {
       title: "Technology Solutions",
       desc: "Enterprise software, AI integration, and secure cloud infrastructure.",
-      video: "https://v1.pinimg.com/videos/iht/expMp4/63/8e/9d/638e9d864ed8169de4b23d3e4df3352c_720w.mp4",
+      video: "/home_tech_bg.mp4",
       link: "/technology",
       color: "from-blue-600/20 to-blue-900/20",
       border: "hover:border-blue-500/50"
@@ -154,25 +154,20 @@ const Home = () => {
                     exit={{ opacity: 0, y: -30 }}
                     transition={{ duration: 0.6, ease: "easeOut" }}
                   >
-                    <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md mb-6">
-                      <span className={`w-2 h-2 rounded-full bg-gradient-to-r ${heroSlides[currentSlide].color} to-white animate-pulse`}></span>
-                      <span className="text-xs md:text-sm font-bold text-gray-300 tracking-[0.2em]">{heroSlides[currentSlide].subtitle}</span>
-                    </div>
-                    
-                    <h1 
-                      className="font-black tracking-tighter leading-[1.1] text-5xl sm:text-7xl md:text-[6rem] text-transparent bg-clip-text bg-gradient-to-r from-yellow-200 via-yellow-400 to-amber-500 mb-8 drop-shadow-[0_10px_20px_rgba(0,0,0,0.8)]"
-                      style={{ fontFamily: 'Georgia, serif' }}
-                    >
-                      {heroSlides[currentSlide].title}
+
+                    <h1 className="font-sans font-black tracking-tighter leading-tight pb-6 pt-2 text-6xl sm:text-7xl md:text-[7rem] mb-2 drop-shadow-[0_0_20px_rgba(212,175,55,0.3)]">
+                      <span className="box-decoration-clone pr-4 text-transparent bg-clip-text bg-gradient-to-b from-[#F5D76E] via-[#D4AF37] to-[#AA7C11]">
+                        {heroSlides[currentSlide].title}
+                      </span>
                     </h1>
                     
-                    <p className="text-white text-lg md:text-2xl font-light tracking-wide leading-relaxed mb-10 max-w-xl drop-shadow-[0_4px_8px_rgba(0,0,0,0.9)]">
+                    <p className="text-gray-300 text-lg md:text-xl font-sans font-light tracking-wide leading-relaxed mb-10 max-w-xl drop-shadow-lg">
                       {heroSlides[currentSlide].desc}
                     </p>
                     
                     <Link 
                       to={heroSlides[currentSlide].link} 
-                      className="inline-flex items-center gap-4 bg-gradient-to-r from-yellow-300 to-amber-500 text-black font-extrabold uppercase tracking-widest text-sm px-10 py-4 rounded-full hover:scale-105 hover:shadow-[0_0_40px_rgba(245,158,11,0.6)] transition-all duration-300 shadow-[0_0_20px_rgba(245,158,11,0.3)]"
+                      className="inline-flex items-center gap-4 bg-white text-black font-bold tracking-wide text-base px-8 py-4 rounded-full hover:bg-gray-200 hover:scale-105 transition-all duration-300 shadow-xl"
                     >
                       Explore {heroSlides[currentSlide].title.split(' ')[0]}
                       <ArrowRight size={20} />
@@ -223,8 +218,8 @@ const Home = () => {
                   Our Philosophy
                 </h2>
                 
-                <h3 className="text-3xl md:text-5xl font-serif text-gray-100 leading-[1.4] mb-10">
-                  "To engineer <span className="text-[#D4AF37] italic">possibility</span>, defend <span className="text-[#D4AF37] italic">integrity</span>, and design <span className="text-[#D4AF37] italic">brilliance</span> in everything we touch."
+                <h3 className="text-3xl md:text-5xl font-sans font-black tracking-tighter text-gray-100 leading-[1.2] pb-4 mb-6">
+                  "To engineer <span className="text-[#D4AF37]">possibility</span>, defend <span className="text-[#D4AF37]">integrity</span>, and design <span className="text-[#D4AF37]">brilliance</span> in everything we touch."
                 </h3>
                 
                 <div className="w-16 h-[1px] bg-[#D4AF37]/50 mx-auto mb-10"></div>
@@ -282,10 +277,7 @@ const Home = () => {
                         <div className="absolute inset-0 z-20 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/50 to-transparent"></div>
                       </div>
                       <div className="p-8 pt-0 flex flex-col flex-grow relative z-10">
-                        <h3 
-                          className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-200 to-amber-500 mb-4 group-hover:from-white group-hover:to-gray-200 transition-all drop-shadow-sm"
-                          style={{ fontFamily: 'Georgia, serif' }}
-                        >
+                        <h3 className="text-3xl md:text-4xl font-sans font-black tracking-tighter pb-3 pt-1 text-transparent bg-clip-text bg-gradient-to-br from-[#F5D76E] via-[#D4AF37] to-[#AA7C11] mb-2 group-hover:brightness-125 transition-all drop-shadow-sm">
                           {service.title}
                         </h3>
                         <p className="text-gray-300 text-lg font-light leading-relaxed mb-8">{service.desc}</p>

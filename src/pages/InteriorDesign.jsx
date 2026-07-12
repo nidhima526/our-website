@@ -136,8 +136,7 @@ const InteriorDesign = () => {
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 1, delay: 0.3 }}
-                className="text-5xl sm:text-6xl md:text-8xl font-light text-white leading-[1.1] mb-8 drop-shadow-2xl"
-                style={{ fontFamily: 'Georgia, serif' }}
+                className="font-sans font-black tracking-tighter leading-tight pb-6 pt-2 text-6xl sm:text-7xl md:text-[7rem] text-white mb-4 drop-shadow-2xl"
               >
                 Design Your <br />
                 <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-yellow-300">Dream Space</span>

@@ -24,7 +24,7 @@ const CorporateLayout = ({ children }) => {
       {/* Floating Action Buttons could go here (e.g. WhatsApp icon) */}
       <a 
         href="#" 
-        className="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 hover:-translate-y-1 transition-all duration-300 z-50 flex items-center justify-center"
+        className="fixed bottom-6 right-6 bg-[#0a0a0a] text-yellow-500 border border-yellow-500/50 p-4 rounded-full shadow-[0_0_15px_rgba(202,138,4,0.3)] hover:bg-yellow-500 hover:text-black hover:-translate-y-1 transition-all duration-300 z-50 flex items-center justify-center"
         aria-label="Chat on WhatsApp"
       >
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

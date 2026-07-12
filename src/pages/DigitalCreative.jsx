@@ -1,8 +1,12 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import CorporateLayout from './CorporateLayout';
 import MagneticButton from '../components/MagneticButton';
 import { motion, AnimatePresence } from 'framer-motion';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Video, PenTool, Smartphone, TrendingUp, Mic, MonitorPlay, ArrowRight, PlayCircle, Play, Pause, Volume2, VolumeX, CheckCircle2 } from 'lucide-react';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
@@ -120,7 +124,7 @@ const PortfolioVideoCard = ({ video, isHorizontal, isRotated, className }) => {
 };
 
 const servicesData = [
-  { id: 'video', icon: <Video size={32} />, title: "Video Editing", desc: "Cinematic precision for YouTube, Reels, and Commercials.", color: "from-blue-500 to-indigo-600", shadow: "shadow-blue-500/20", bgImage: "/video-editing.jpg", includes: ["High-retention YouTube Long-form Edits", "Viral-optimized Reels & TikToks", "Color Grading & Cinematic Audio Mixing", "Advanced Motion Graphics & VFX", "Corporate Commercials & Ads"] },
+  { id: 'video', icon: <Video size={32} />, title: "Video Editing", desc: "Cinematic precision for YouTube, Reels, and Commercials.", color: "from-blue-500 to-indigo-600", shadow: "shadow-blue-500/20", bgImage: "/video-editing.jpg", bgVideo: "/video_editing_bg.mp4", includes: ["High-retention YouTube Long-form Edits", "Viral-optimized Reels & TikToks", "Color Grading & Cinematic Audio Mixing", "Advanced Motion Graphics & VFX", "Corporate Commercials & Ads"] },
   { id: 'podcast', icon: <Mic size={32} />, title: "Podcast Production", desc: "Studio-quality audio & video multi-cam setups.", color: "from-slate-400 to-slate-600", shadow: "shadow-slate-500/20", bgImage: "/podcast_bg.png", includes: ["Multi-cam Video Switching & Editing", "Professional Audio Mastering & Noise Reduction", "Podcast Studio Setup Consultation", "Short-form Clip Extraction (Shorts/Reels)", "Show Notes & Transcript Generation"] },
   { id: 'graphic', icon: <PenTool size={32} />, title: "Graphic Design", desc: "Logos, brand identity, and stunning visual media.", color: "from-teal-400 to-emerald-600", shadow: "shadow-teal-500/20", bgImage: "/graphic_design_bg.png", includes: ["Brand Identity & Custom Logos", "UI/UX App & Web Interface Design", "Social Media Post Graphics & Carousels", "High-CTR Thumbnail Design", "Marketing Collateral & Pitch Decks"] },
   { id: 'social', icon: <Smartphone size={32} />, title: "Social Media", desc: "Dominating feeds with viral strategies and daily content.", color: "from-cyan-400 to-blue-500", shadow: "shadow-cyan-500/20", bgImage: "/social_media_bg.png", includes: ["Full Social Media Account Management", "Viral Content Strategy & Calendar", "Community Engagement & Growth", "Influencer Marketing & Outreach", "Trend Analysis & Rapid Adapting"] },
@@ -156,180 +160,207 @@ const creativeProcess = [
 ];
 
 const testimonials = [
-  { name: "Sarah Jenkins", role: "Marketing Director, TechFlow", quote: "Ashervision's video editing completely transformed our YouTube presence. Our retention rates doubled within a month.", rating: 5 },
-  { name: "David Chen", role: "Founder, Zenith Apparel", quote: "The brand identity and commercials they produced look like they cost $100k+. Absolutely stunning cinematic quality.", rating: 5 },
-  { name: "Elena Rodriguez", role: "Tech YouTuber", quote: "I handed them my raw podcast footage and they turned it into a viral shorts machine. Best ROI I've ever gotten.", rating: 5 },
-  { name: "Marcus Thorne", role: "CEO, Thorne Real Estate", quote: "Their team doesn't just shoot videos; they understand marketing psychology. Our ad conversions skyrocketed.", rating: 5 },
-  { name: "Sophia Patel", role: "Creative Lead, Lumina", quote: "Fast turnaround, incredible attention to detail, and top-tier VFX. They are our go-to agency for all things creative.", rating: 5 }
+  { name: "Sarah Jenkins", role: "Marketing Director, TechFlow", quote: "Ashervision's video editing completely transformed our YouTube presence. Our retention rates doubled within a month.", rating: 5, image: "https://randomuser.me/api/portraits/women/44.jpg" },
+  { name: "David Chen", role: "Founder, Zenith Apparel", quote: "The brand identity and commercials they produced look like they cost $100k+. Absolutely stunning cinematic quality.", rating: 5, image: "https://randomuser.me/api/portraits/men/32.jpg" },
+  { name: "Elena Rodriguez", role: "Tech YouTuber", quote: "I handed them my raw podcast footage and they turned it into a viral shorts machine. Best ROI I've ever gotten.", rating: 5, image: "https://randomuser.me/api/portraits/women/68.jpg" },
+  { name: "Marcus Thorne", role: "CEO, Thorne Real Estate", quote: "Their team doesn't just shoot videos; they understand marketing psychology. Our ad conversions skyrocketed.", rating: 5, image: "https://randomuser.me/api/portraits/men/46.jpg" },
+  { name: "Sophia Patel", role: "Creative Lead, Lumina", quote: "Fast turnaround, incredible attention to detail, and top-tier VFX. They are our go-to agency for all things creative.", rating: 5, image: "https://randomuser.me/api/portraits/women/32.jpg" }
 ];
 
 const DigitalCreative = () => {
+  const containerRef = useRef(null);
+  const panelsRef = useRef([]);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      panelsRef.current.forEach((panel) => {
+        if (!panel) return;
+        const bg = panel.querySelector('.bg-media');
+        const textGroup = panel.querySelector('.text-group');
+
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: panel,
+            start: "top top",
+            end: "+=120%", 
+            pin: true,
+            scrub: 1, 
+          }
+        });
+
+        tl.fromTo(bg, { scale: 1 }, { scale: 1.15, duration: 1, ease: "none" }, 0);
+        
+        tl.fromTo(textGroup, 
+          { opacity: 0, y: 100, scale: 0.95 }, 
+          { opacity: 1, y: 0, scale: 1, duration: 0.3, ease: "power2.out" }, 
+          0.1
+        );
+        
+        tl.to(textGroup, 
+          { opacity: 0, y: -100, scale: 1.05, duration: 0.3, ease: "power2.in" }, 
+          0.7
+        );
+      });
+    }, containerRef);
+    return () => ctx.revert();
+  }, []);
+
+  const setPanelRef = (el, index) => {
+    if (el && !panelsRef.current.includes(el)) {
+      panelsRef.current[index] = el;
+    }
+  };
 
   return (
     <CorporateLayout>
-      <div className="w-full min-h-screen bg-black relative selection:bg-blue-600 selection:text-white overflow-hidden">
-        
-        {/* THARUN SPEAKS STYLE DARK NAVY TO BLACK BACKGROUND */}
-        <div className="fixed inset-0 z-0 bg-gradient-to-b from-[#001a33] via-[#000510] to-[#000000]">
-          {/* Subtle noise/texture overlay for premium feel */}
-          <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E")' }}></div>
-          {/* Glowing orbs for depth */}
-          <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] bg-[#09f]/10 rounded-full blur-[150px] mix-blend-screen pointer-events-none"></div>
-          <div className="absolute bottom-[-20%] right-[-10%] w-[60%] h-[60%] bg-[#001a33]/40 rounded-full blur-[150px] mix-blend-screen pointer-events-none"></div>
-        </div>
+      <div ref={containerRef} className="w-full min-h-screen relative selection:bg-blue-600 selection:text-white">
 
         {/* 1. HERO SECTION */}
         <section className="relative w-full min-h-screen flex items-center justify-center pt-20 px-4 overflow-hidden z-10">
           <div className="text-center max-w-5xl mx-auto">
             <motion.div initial="hidden" animate="visible" variants={staggerContainer} className="flex flex-col items-center">
               
-              <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-6 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-md mb-8 text-gray-300 font-sans tracking-widest text-xs uppercase">
-                <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse shadow-[0_0_10px_rgba(59,130,246,0.8)]"></span>
-                Digital & Creative Agency
+              <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-6 py-2 rounded-full border border-[#D4AF37]/30 bg-[#D4AF37]/10 backdrop-blur-md mb-8 text-[#D4AF37] font-sans tracking-widest text-xs uppercase">
+                <span className="w-2 h-2 rounded-full bg-[#F5D76E] animate-pulse shadow-[0_0_10px_rgba(245,215,110,0.8)]"></span>
+                Elite Creative Agency
               </motion.div>
               
               <motion.div variants={textRevealContainer} initial="hidden" animate="visible" className="mb-6 overflow-hidden py-2">
-                <motion.h1 variants={textRevealItem} className="text-5xl md:text-7xl lg:text-[7.5rem] font-heading text-white tracking-tight leading-[1] mb-4">
-                  Creative <br/>
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-white drop-shadow-2xl font-heading italic">
-                    Dominance.
+                <motion.h1 variants={textRevealItem} className="text-5xl md:text-7xl lg:text-[7.5rem] font-sans font-black text-white tracking-tighter leading-[1] mb-4">
+                  Crafting Digital <br/>
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F5D76E] via-[#D4AF37] to-[#AA7C11] drop-shadow-[0_0_30px_rgba(212,175,55,0.2)] font-sans font-black tracking-tighter">
+                    Masterpieces.
                   </span>
                 </motion.h1>
               </motion.div>
               
-              <motion.p variants={fadeInUp} className="text-gray-400 text-lg md:text-2xl max-w-3xl mx-auto font-sans font-light mb-12">
-                Elite video production, high-converting graphic design, and data-driven marketing to scale your enterprise.
+              <motion.p variants={fadeInUp} className="text-gray-400 text-lg md:text-2xl max-w-3xl mx-auto font-sans font-light mb-12 leading-relaxed">
+                Transforming ambitious ideas into visually stunning realities. We combine cinematic video production and elite design to elevate your brand's digital presence.
               </motion.p>
               
               <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row flex-wrap justify-center gap-6">
                 <MagneticButton>
-                  <a href="#work" className="h-14 w-full sm:w-[220px] bg-white hover:bg-gray-200 text-black rounded-full font-sans font-semibold text-sm transition-all duration-300 shadow-[0_0_30px_rgba(255,255,255,0.1)] flex items-center justify-center gap-3">
-                    View Our Work
+                  <a href="#services" className="h-14 w-full sm:w-[260px] bg-gradient-to-r from-[#D4AF37] to-[#AA7C11] hover:brightness-110 text-black rounded-full font-sans font-extrabold text-sm transition-all duration-300 flex items-center justify-center gap-3 shadow-[0_0_30px_rgba(212,175,55,0.4)]">
+                    View Our Masterpieces
                   </a>
                 </MagneticButton>
                 <MagneticButton>
-                  <a href="#services" className="h-14 w-full sm:w-[220px] bg-transparent border border-white/20 hover:bg-white/10 text-white rounded-full font-sans font-medium text-sm transition-all duration-300 flex items-center justify-center gap-3">
-                    Explore Services
+                  <a href="#contact" className="h-14 w-full sm:w-[220px] bg-transparent border border-white/20 hover:border-white/60 hover:bg-white/5 text-white rounded-full font-sans font-bold text-sm transition-all duration-300 flex items-center justify-center gap-3">
+                    Book Strategy Call
                   </a>
                 </MagneticButton>
               </motion.div>
+
+              {/* Removed Hiring Section */}\n
             </motion.div>
           </div>
         </section>
 
-        {/* 2. REAL WORK PORTFOLIO (VIDEO WALL) */}
-        <section id="work" className="relative z-10 py-32 border-y border-white/5 bg-black/20 backdrop-blur-sm overflow-visible">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 mb-20 text-center">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading text-white tracking-tight mb-4">
-              Our <span className="font-heading italic text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-white">Masterpieces</span>
+        {/* 2. OUR MASTERPIECES (SCROLLING YOUTUBE SHORTS) */}
+        <section id="work" className="relative z-10 py-32 border-y border-white/5 bg-black/20 backdrop-blur-sm overflow-hidden">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 mb-16 text-center">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-sans font-black text-white tracking-tighter mb-4">
+              Our <span className="font-sans font-black tracking-tighter italic text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-white">Masterpieces</span>
             </h2>
-            <p className="text-gray-400 max-w-2xl mx-auto text-lg font-sans font-light">Browse our latest commercial edits, podcast highlights, and design work.</p>
+            <p className="text-gray-400 max-w-2xl mx-auto text-lg font-sans font-light">Browse our latest viral edits and cinematic productions.</p>
           </div>
-          
-          <div className="w-full px-4 md:px-8 relative z-20">
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 md:gap-6">
-              {portfolioVideos.map((video, idx) => (
-                <div 
-                  key={idx} 
-                  className="relative group/card aspect-[9/16] rounded-2xl overflow-hidden border border-white/10 bg-black cursor-pointer transition-all duration-500 hover:scale-[1.1] hover:z-50 hover:shadow-[0_0_40px_rgba(59,130,246,0.2)]"
-                  onMouseEnter={(e) => {
-                    const vid = e.currentTarget.querySelector('video');
-                    if (vid) { vid.muted = false; }
-                  }}
-                  onMouseLeave={(e) => {
-                    const vid = e.currentTarget.querySelector('video');
-                    if (vid) { vid.muted = true; }
-                  }}
-                >
-                  <video 
-                    src={video.src}
-                    autoPlay 
-                    loop 
-                    muted 
-                    playsInline
-                    className="w-full h-full object-cover opacity-70 group-hover/card:opacity-100 transition-opacity duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#000510] via-transparent to-transparent opacity-90 group-hover/card:opacity-50 transition-opacity duration-300 pointer-events-none"></div>
-                  
-                  {/* Content Overlay */}
-                  <div className="absolute bottom-0 left-0 right-0 p-5 transform translate-y-2 group-hover/card:translate-y-0 transition-transform duration-300 pointer-events-none">
-                    <div className="inline-flex items-center gap-1.5 px-2 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-3 text-gray-300 font-sans font-medium text-[9px] uppercase tracking-widest">
-                      {[7, 11, 12, 13].includes(video.id) ? 'Short / Reel' : 'Commercial'}
-                    </div>
-                    <h3 className="text-sm md:text-base font-sans font-semibold text-white drop-shadow-md leading-tight line-clamp-2">{video.title}</h3>
-                  </div>
+
+          <div className="relative flex overflow-x-hidden group">
+            {/* Gradient Fades for Smooth Scroll Edges */}
+            <div className="absolute left-0 top-0 bottom-0 w-20 md:w-40 bg-gradient-to-r from-[#000510] to-transparent z-10 pointer-events-none"></div>
+            <div className="absolute right-0 top-0 bottom-0 w-20 md:w-40 bg-gradient-to-l from-[#000510] to-transparent z-10 pointer-events-none"></div>
+            
+            <div className="flex animate-marquee-testimonials whitespace-nowrap group-hover:[animation-play-state:paused] py-4 items-center">
+              {[
+                "ug6oueoqbmI", 
+                "KGYqKhlGI6Y", 
+                "DiH9Pek312c", 
+                "me3sFZCXxlg", 
+                "C-yZlQXN3rQ", 
+                "DLND-0I2FmM",
+                // Duplicated for seamless loop
+                "ug6oueoqbmI", 
+                "KGYqKhlGI6Y", 
+                "DiH9Pek312c", 
+                "me3sFZCXxlg", 
+                "C-yZlQXN3rQ", 
+                "DLND-0I2FmM"
+              ].map((videoId, idx) => (
+                <div key={idx} className="w-[280px] md:w-[320px] aspect-[9/16] shrink-0 mx-4 md:mx-6 rounded-2xl overflow-hidden border border-white/10 shadow-[0_0_20px_rgba(0,0,0,0.5)] transition-all duration-500 hover:scale-[1.05] hover:border-white/30 hover:shadow-[0_0_40px_rgba(59,130,246,0.3)] bg-black relative flex items-center justify-center">
+                  <div className="absolute inset-0 z-20 pointer-events-none bg-transparent"></div>
+                  <iframe 
+                    src={`https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&controls=0&loop=1&playlist=${videoId}&modestbranding=1&showinfo=0&rel=0&disablekb=1&iv_load_policy=3`} 
+                    title={`YouTube Short ${idx}`}
+                    frameBorder="0" 
+                    allow="autoplay; encrypted-media" 
+                    className="w-[150%] h-[150%] scale-[1.1] pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+                  ></iframe>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* 3. SERVICES GRID (BENTO STYLE) */}
-        <section id="services" className="relative z-10 py-32 overflow-hidden">
-          <div className="max-w-[90rem] mx-auto px-4 sm:px-6 md:px-12 relative z-10">
-            <div className="text-center mb-24">
-              <h2 className="text-4xl md:text-5xl lg:text-7xl font-heading text-white tracking-tight mb-6">
-                Full-Spectrum <span className="font-heading italic text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-white">Services</span>
+        {/* 3. APPLE-STYLE CINEMATIC SCROLL SECTIONS */}
+        <div className="relative w-full overflow-hidden bg-black py-20 text-center z-10 border-y border-white/5">
+          <h2 className="text-4xl md:text-5xl lg:text-7xl font-sans font-black text-white tracking-tighter mb-6">
+            Full-Spectrum <span className="font-sans font-black tracking-tighter italic text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-white">Services</span>
+          </h2>
+          <div className="w-20 h-[1px] bg-white/20 mx-auto"></div>
+          <p className="mt-8 text-gray-400 max-w-2xl mx-auto text-lg md:text-xl font-sans font-light">
+            We handle the entire creative pipeline. From filming and design to distribution and marketing algorithms.
+          </p>
+        </div>
+
+        {servicesData.map((service, idx) => (
+          <section key={idx} ref={(el) => setPanelRef(el, idx)} className="relative w-full h-screen overflow-hidden bg-[#000510]">
+            <div className="absolute inset-0 z-0">
+              {service.bgVideo ? (
+                <video 
+                  src={service.bgVideo} 
+                  autoPlay loop muted playsInline
+                  className="bg-media w-full h-full object-cover origin-center opacity-70"
+                />
+              ) : (
+                <img 
+                  src={service.bgImage} 
+                  alt={service.title}
+                  className="bg-media w-full h-full object-cover origin-center opacity-70"
+                />
+              )}
+            </div>
+            <div className="absolute inset-0 z-10 bg-gradient-to-t from-[#000510] via-black/60 to-transparent pointer-events-none"></div>
+            
+            <div className="absolute inset-0 z-20 flex flex-col items-center justify-center px-6 text-center text-group pointer-events-none">
+              <h2 className={`text-5xl md:text-7xl lg:text-[8rem] font-sans font-black tracking-tighter leading-[0.9] mb-8 ${service.id === 'graphic' ? 'drop-shadow-[0_0_20px_rgba(212,175,55,0.3)]' : 'drop-shadow-2xl text-white'}`}>
+                {service.id === 'graphic' ? (
+                  <span className="box-decoration-clone pr-4 text-transparent bg-clip-text bg-gradient-to-b from-[#F5D76E] via-[#D4AF37] to-[#AA7C11]">
+                    {service.title}
+                  </span>
+                ) : (
+                  service.title
+                )}
               </h2>
-              <div className="w-20 h-[1px] bg-white/20 mx-auto"></div>
-              <p className="mt-8 text-gray-400 max-w-2xl mx-auto text-lg md:text-xl font-sans font-light">
-                We handle the entire creative pipeline. From filming and design to distribution and marketing algorithms.
+              <p className="text-xl md:text-2xl text-gray-300 max-w-3xl font-sans font-light leading-relaxed mb-12 drop-shadow-md">
+                {service.desc}
               </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 auto-rows-min">
-              {servicesData.map((service, idx) => (
-                <div 
-                  key={idx} 
-                  onMouseMove={(e) => {
-                    const rect = e.currentTarget.getBoundingClientRect();
-                    e.currentTarget.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
-                    e.currentTarget.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
-                  }}
-                  className={`bento-card relative group p-8 lg:p-10 bg-white/[0.02] rounded-3xl border border-white/5 hover:border-white/20 transition-all duration-700 overflow-hidden flex flex-col min-h-[450px] backdrop-blur-sm`}
-                >
-                  <div className="pointer-events-none absolute -inset-px rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-30"
-                       style={{
-                         background: `radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(255,255,255,0.06), transparent 40%)`
-                       }}
-                  />
-                  
-                  <div className="absolute inset-0 z-0">
-                    <img src={service.bgImage} alt={service.title} className="w-full h-full object-cover opacity-[0.03] group-hover:opacity-[0.08] group-hover:scale-105 transition-all duration-1000 grayscale mix-blend-lighten" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#000510] via-transparent to-transparent"></div>
+              <div className="flex flex-wrap justify-center gap-4">
+                {service.includes.map((sub, sIdx) => (
+                  <div key={sIdx} className="px-6 py-3 rounded-full border border-white/20 bg-black/60 backdrop-blur-md text-white font-sans font-light tracking-wide shadow-[0_0_15px_rgba(255,255,255,0.05)]">
+                    {sub}
                   </div>
-                  
-                  <div className="relative z-10 flex flex-col h-full">
-                    <div className="flex items-center gap-5 mb-8">
-                      <div className={`w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white shrink-0 group-hover:bg-white group-hover:text-black transition-all duration-500`}>
-                        {React.cloneElement(service.icon, { size: 20 })}
-                      </div>
-                      <h3 className="text-2xl md:text-3xl font-heading text-white tracking-wide">{service.title}</h3>
-                    </div>
-                    
-                    <ul className="space-y-4 flex-1 mt-2">
-                      {service.includes.map((item, i) => (
-                        <li key={i} className="flex items-start gap-4 text-gray-400 group-hover:text-gray-200 transition-colors duration-300 font-sans font-light">
-                          <div className="mt-2 shrink-0 text-white/40 group-hover:text-blue-400 transition-colors">
-                            <CheckCircle2 size={14} />
-                          </div>
-                          <span className="text-sm md:text-base leading-relaxed">{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        ))}
 
         {/* 4. OUR CREATIVE PROCESS */}
         <section className="relative z-10 py-32 px-4 sm:px-6 lg:px-8 border-t border-white/5 bg-black/40 overflow-hidden">
           <div className="max-w-7xl mx-auto relative z-10">
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp} className="text-center mb-24">
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading text-white tracking-tight mb-6">
-                How We <span className="font-heading italic text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-white">Operate</span>
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-sans font-black text-white tracking-tighter mb-6">
+                How We <span className="font-sans font-black tracking-tighter italic text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-white">Operate</span>
               </h2>
               <p className="text-gray-400 max-w-2xl mx-auto text-lg font-sans font-light">Our proven four-step blueprint to turn your vision into high-converting premium assets.</p>
             </motion.div>
@@ -342,15 +373,15 @@ const DigitalCreative = () => {
                   className="group relative bg-white/[0.02] border border-white/5 rounded-3xl overflow-hidden hover:border-white/20 transition-all duration-500 flex flex-col"
                 >
                   <div className="h-48 w-full relative overflow-hidden shrink-0">
-                    <img src={step.image} alt={step.title} className="w-full h-full object-cover opacity-30 group-hover:opacity-60 group-hover:scale-105 transition-all duration-1000 grayscale mix-blend-lighten" />
+                    <img src={step.image} alt={step.title} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-1000" />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#000510] to-transparent"></div>
-                    <div className="absolute top-6 left-6 text-6xl font-heading italic text-white/10 group-hover:text-blue-500/20 transition-colors duration-500">
+                    <div className="absolute top-6 left-6 text-6xl font-sans font-black italic tracking-tighter text-white/10 group-hover:text-blue-500/20 transition-colors duration-500">
                       {step.id}
                     </div>
                   </div>
                   
                   <div className="p-8 pt-0 flex-grow relative z-10">
-                    <h3 className="text-xl font-heading text-white mb-4 group-hover:text-blue-400 transition-colors">{step.title}</h3>
+                    <h3 className="text-xl font-sans font-black tracking-tighter text-white mb-4 group-hover:text-blue-400 transition-colors">{step.title}</h3>
                     <p className="text-gray-400 leading-relaxed text-sm font-sans font-light group-hover:text-gray-300">{step.desc}</p>
                   </div>
                 </motion.div>
@@ -373,50 +404,56 @@ const DigitalCreative = () => {
           </div>
         </section>
 
-        {/* 6. CTA SECTION */}
-        <section className="relative z-10 py-32 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-5xl mx-auto rounded-3xl overflow-hidden relative group border border-white/10">
-            <div className="absolute inset-0 z-0">
-              <video 
-                src="/creative_bg.mp4" 
-                autoPlay loop muted playsInline 
-                className="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-1000 opacity-20 grayscale"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#000510] via-black/80 to-transparent"></div>
-            </div>
 
-            <div className="relative z-10 p-12 md:p-24 text-center">
+
+        {/* 6. SERVICE DELIVERY SECTION */}
+        <section className="relative z-10 py-32 md:py-48 px-4 sm:px-6 lg:px-8 border-t border-white/5 bg-[#030712] overflow-hidden">
+          
+          {/* FULL SECTION BACKGROUND IMAGE */}
+          <div className="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=2070&auto=format&fit=crop" alt="Edit Suite setup" className="w-full h-full object-cover opacity-40 object-right mix-blend-luminosity" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#030712] via-[#030712]/80 to-transparent"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-[#030712] via-transparent to-[#030712]"></div>
+          </div>
+          
+          <div className="max-w-7xl mx-auto relative z-10">
+            <div className="max-w-3xl">
               <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}>
-                <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-md mb-8 text-gray-300 font-sans text-xs uppercase tracking-widest">
-                  <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
-                  Let's Create Magic
+                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-blue-500/30 bg-blue-500/10 mb-6 text-blue-400 font-sans font-bold text-xs uppercase tracking-widest">
+                  <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse"></span>
+                  Unmatched Delivery Standard
                 </div>
-                
-                <motion.h2 
-                  variants={textRevealItem}
-                  className="text-4xl md:text-6xl lg:text-7xl font-heading text-white tracking-tight mb-6"
-                >
-                  Ready to <br className="hidden md:block"/>
-                  <span className="font-heading italic text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-white">Dominate?</span>
-                </motion.h2>
-                
-                <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-12 font-sans font-light">
-                  Stop blending in. Let our team craft the premium cinematic assets your brand deserves.
+                <h2 className="text-4xl md:text-5xl lg:text-7xl font-sans font-black text-white tracking-tighter mb-6 leading-[1.1]">
+                  Cinematic <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-500 to-white">Post-Production</span> & Design.
+                </h2>
+                <p className="text-gray-300 text-lg md:text-xl font-sans font-light leading-relaxed mb-8 drop-shadow-md">
+                  We don't just edit videos; we engineer them for maximum retention and conversion. Using industry-leading workflows and elite visual effects, we deliver assets that dominate the algorithm and elevate your brand identity to a premium level.
                 </p>
-                
-                <a href="/contact" className="inline-flex items-center justify-center gap-3 px-10 py-5 bg-white text-black hover:bg-gray-200 rounded-full font-sans font-semibold text-sm transition-all duration-300 hover:scale-105 shadow-[0_0_30px_rgba(255,255,255,0.1)]">
-                  Start Your Project <ArrowRight size={18} />
-                </a>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <button className="px-8 py-4 bg-white text-black rounded-full font-sans font-bold text-sm tracking-wide hover:scale-105 transition-transform duration-300 shadow-2xl">
+                    Book A Consultation
+                  </button>
+                </div>
               </motion.div>
             </div>
+          </div>
+          
+          {/* Floating Badge over the background */}
+          <div className="absolute bottom-10 right-6 lg:right-20 bg-black/60 backdrop-blur-xl border border-white/10 px-6 py-3 rounded-full flex items-center gap-3 shadow-[0_10px_40px_rgba(0,0,0,0.8)] z-20">
+            <div className="flex -space-x-3">
+              <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client" className="w-10 h-10 rounded-full border-2 border-[#0a0a0a]" />
+              <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Client" className="w-10 h-10 rounded-full border-2 border-[#0a0a0a]" />
+              <img src="https://randomuser.me/api/portraits/men/68.jpg" alt="Client" className="w-10 h-10 rounded-full border-2 border-[#0a0a0a]" />
+            </div>
+            <span className="text-white font-sans font-bold text-sm ml-2">100M+ Views Generated</span>
           </div>
         </section>
 
         {/* 7. CLIENT TESTIMONIALS */}
         <section className="relative z-10 py-32 border-t border-white/5 bg-black/20 overflow-hidden">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 mb-20 text-center">
-            <h2 className="text-4xl md:text-5xl font-heading text-white tracking-tight mb-4">
-              Client <span className="font-heading italic text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-white">Success</span>
+            <h2 className="text-4xl md:text-5xl font-sans font-black text-white tracking-tighter mb-4">
+              Client <span className="font-sans font-black tracking-tighter italic text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-white">Success</span>
             </h2>
             <p className="text-gray-400 max-w-2xl mx-auto text-lg font-sans font-light">Don't just take our word for it. Here is what industry leaders say.</p>
           </div>
@@ -429,16 +466,20 @@ const DigitalCreative = () => {
               {[...testimonials, ...testimonials].map((test, idx) => (
                 <div key={idx} className="w-[350px] md:w-[450px] shrink-0 mx-4 whitespace-normal">
                   <div className="bg-white/[0.02] border border-white/5 rounded-3xl p-8 h-full flex flex-col hover:border-white/20 transition-all duration-300 backdrop-blur-sm">
-                    <div className="flex gap-1 mb-6 text-white/80">
+                    <div className="flex gap-1 mb-6 text-[#D4AF37]">
                       {[...Array(test.rating)].map((_, i) => (
                         <svg key={i} xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
                       ))}
                     </div>
                     <p className="text-gray-300 text-base md:text-lg font-sans font-light leading-relaxed mb-8 flex-grow">"{test.quote}"</p>
                     <div className="flex items-center gap-4">
-                      <div className="w-12 h-12 rounded-full bg-white/10 border border-white/10 flex items-center justify-center text-white font-heading text-xl uppercase">
-                        {test.name.charAt(0)}
-                      </div>
+                      {test.image ? (
+                        <img src={test.image} alt={test.name} className="w-12 h-12 rounded-full object-cover border border-white/10 shadow-[0_0_15px_rgba(255,255,255,0.1)]" />
+                      ) : (
+                        <div className="w-12 h-12 rounded-full bg-white/10 border border-white/10 flex items-center justify-center text-white font-sans font-black text-xl uppercase">
+                          {test.name.charAt(0)}
+                        </div>
+                      )}
                       <div>
                         <h4 className="text-white font-sans font-medium">{test.name}</h4>
                         <p className="text-gray-500 font-sans text-sm font-light">{test.role}</p>
