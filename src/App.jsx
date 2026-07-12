@@ -43,24 +43,162 @@ const SplashScreen = () => (
       transition={{ duration: 1, ease: "easeOut" }}
       className="flex flex-col items-center"
     >
-      <div className="w-auto h-32 mb-6 relative">
+      <div className="w-auto h-32 mb-6 relative flex items-center justify-center">
         {/* Glow effect */}
-        <div className="absolute inset-0 bg-yellow-500 rounded-full blur-[40px] opacity-30 animate-pulse"></div>
+        <div className="absolute inset-0 bg-yellow-500/20 rounded-full blur-[40px] animate-pulse"></div>
         {/* Logo Image */}
-        <img src="/logo.png" alt="ASHERVISION Logo" className="h-full object-contain relative z-10 drop-shadow-2xl" />
+        <img src="/ashervisionlogo.png" alt="ASHERVISION Logo" className="h-full object-contain relative z-10 mix-blend-screen" />
       </div>
-      <motion.div 
-        initial={{ width: 0 }}
-        animate={{ width: "100%" }}
-        transition={{ duration: 1.5, delay: 0.5, ease: "easeInOut" }}
-        className="h-1 bg-gradient-to-r from-blue-500 to-orange-500 mt-8 rounded-full max-w-[200px]"
-      />
+    </motion.div>
+  </motion.div>
+);
+
+const GrandOpeningSplash = ({ pageName, onOpen, isOpening }) => (
+  <motion.div 
+    className="fixed inset-0 z-[9999] flex flex-col cursor-pointer"
+    onClick={onOpen}
+  >
+    {/* CONFETTI OVERLAY */}
+    <div className="absolute inset-0 pointer-events-none z-10 overflow-hidden">
+      {[...Array(40)].map((_, i) => (
+        <motion.div
+          key={i}
+          initial={{ y: "-10vh", opacity: 0 }}
+          animate={{ 
+            y: ["-10vh", "110vh"], 
+            opacity: [0, 1, 1, 0], 
+            rotate: [0, Math.random() * 720], 
+            x: [Math.random() * 50 - 25, Math.random() * 200 - 100] 
+          }}
+          transition={{ 
+            duration: 2 + Math.random() * 3, 
+            repeat: Infinity, 
+            delay: Math.random() * 2,
+            ease: "linear"
+          }}
+          className="text-3xl absolute"
+          style={{ left: `${Math.random() * 100}%` }}
+        >
+          {['🎉', '🎊', '✨', '🎈', '⭐'][Math.floor(Math.random() * 5)]}
+        </motion.div>
+      ))}
+    </div>
+
+    {/* TOP HALF RIBBON BACKGROUND */}
+    <motion.div
+      initial={{ y: 0 }}
+      animate={{ y: isOpening ? "-100%" : 0 }}
+      transition={{ duration: 1.2, ease: [0.76, 0, 0.24, 1] }}
+      className="absolute top-0 left-0 w-full h-1/2 bg-[#050505] z-20 shadow-[0_20px_50px_rgba(0,0,0,0.8)]"
+    >
+      <div className="absolute bottom-0 w-full h-8 bg-gradient-to-r from-yellow-700 via-yellow-400 to-yellow-700 shadow-[0_-5px_20px_rgba(234,179,8,0.3)] border-b border-yellow-200/50"></div>
+    </motion.div>
+
+    {/* BOTTOM HALF RIBBON BACKGROUND */}
+    <motion.div
+      initial={{ y: 0 }}
+      animate={{ y: isOpening ? "100%" : 0 }}
+      transition={{ duration: 1.2, ease: [0.76, 0, 0.24, 1] }}
+      className="absolute bottom-0 left-0 w-full h-1/2 bg-[#050505] z-20 shadow-[0_-20px_50px_rgba(0,0,0,0.8)]"
+    >
+      <div className="absolute top-0 w-full h-8 bg-gradient-to-r from-yellow-700 via-yellow-400 to-yellow-700 shadow-[0_5px_20px_rgba(234,179,8,0.3)] border-t border-yellow-900/50"></div>
+    </motion.div>
+    
+    {/* CENTER BOW IMAGE */}
+    <motion.div
+      initial={{ scale: 1, opacity: 1, y: 0 }}
+      animate={{ 
+        scale: isOpening ? 2 : 1, 
+        opacity: isOpening ? 0 : 1, 
+        y: isOpening ? 100 : 0 
+      }}
+      transition={{ duration: 0.6, ease: "easeIn" }}
+      className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-25 w-full max-w-[800px] px-4 flex justify-center pointer-events-none"
+    >
+      <img src="/ai_ribbon_gold.png" alt="Grand Opening Ribbon" className="w-full object-contain drop-shadow-[0_0_50px_rgba(234,179,8,0.5)]" />
+    </motion.div>
+
+    {/* CENTERED TEXT OVERLAY */}
+    <motion.div
+      initial={{ opacity: 1, scale: 1, y: 0 }}
+      animate={{ 
+        opacity: isOpening ? 0 : 1, 
+        scale: isOpening ? 1.2 : 1, 
+        y: isOpening ? -50 : 0 
+      }}
+      transition={{ duration: 0.8, ease: "easeIn" }}
+      className="absolute inset-0 flex flex-col items-center justify-center z-40 drop-shadow-2xl pointer-events-none"
+    >
+      <div className="text-center px-6 py-12 rounded-3xl backdrop-blur-sm bg-black/30 border border-yellow-500/10 shadow-[0_0_100px_rgba(234,179,8,0.15)] max-w-5xl mx-auto w-full">
+        <h1 className="text-2xl md:text-3xl lg:text-4xl font-geist font-black text-yellow-500 tracking-[0.4em] uppercase mb-6 drop-shadow-[0_0_20px_rgba(234,179,8,0.6)]">
+          Grand Opening
+        </h1>
+        <h2 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-heading font-normal tracking-wide text-white uppercase leading-[1.1]" style={{ textShadow: '0 0 40px rgba(255,255,255,0.3)' }}>
+          Welcome To<br/>
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-yellow-200 to-yellow-600 block mt-2 drop-shadow-lg font-bold">
+            Ashervision {pageName}
+          </span>
+        </h2>
+
+        {!isOpening && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: [0.3, 1, 0.3] }}
+            transition={{ repeat: Infinity, duration: 2 }}
+            className="mt-12 text-yellow-400 font-sans tracking-[0.2em] uppercase text-sm font-bold bg-black/50 px-6 py-3 rounded-full border border-yellow-500/30 inline-block pointer-events-none"
+          >
+            Click Anywhere To Enter
+          </motion.div>
+        )}
+      </div>
     </motion.div>
   </motion.div>
 );
 
 function App() {
-  const [loading, setLoading] = useState(true);
+  const { pathname } = useLocation();
+  const [initialLoading, setInitialLoading] = useState(true);
+  const [splashState, setSplashState] = useState('waiting'); // 'waiting', 'opening', 'closed'
+  
+  // Check if it's within 30 days of the grand opening
+  const isGrandOpening = new Date() < new Date('2026-08-11T23:59:59');
+
+  // Trigger splash on route change
+  useEffect(() => {
+    if (isGrandOpening) {
+      setSplashState('waiting');
+    }
+  }, [pathname, isGrandOpening]);
+
+  // Initial Load Timer for non-grand opening
+  useEffect(() => {
+    if (!isGrandOpening) {
+      const timer = setTimeout(() => setInitialLoading(false), 2200);
+      return () => clearTimeout(timer);
+    } else {
+      setInitialLoading(false);
+    }
+  }, [isGrandOpening]);
+
+  const handleOpenSplash = () => {
+    if (splashState !== 'waiting') return;
+    setSplashState('opening');
+    setTimeout(() => {
+      setSplashState('closed');
+    }, 1200); // 1.2s for the ribbon split animation
+  };
+
+  const getPageName = () => {
+    switch (pathname) {
+      case '/legal': return 'Legal';
+      case '/technology': return 'Tech';
+      case '/creative': return 'Creative';
+      case '/internships': return 'Internships';
+      case '/interior-design': return 'Interior';
+      case '/courses': return 'Academy';
+      default: return '';
+    }
+  };
 
   // Initialize Lenis for smooth scrolling
   useEffect(() => {
@@ -87,21 +225,21 @@ function App() {
     };
   }, []);
 
-  useEffect(() => {
-    // Simulate loading time for splash screen
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 2200);
-    return () => clearTimeout(timer);
-  }, []);
-
   return (
     <>
       <AnimatePresence>
-        {loading && <SplashScreen />}
+        {!isGrandOpening && initialLoading && <SplashScreen />}
       </AnimatePresence>
+
+      {isGrandOpening && splashState !== 'closed' && (
+        <GrandOpeningSplash 
+          pageName={getPageName()} 
+          onOpen={handleOpenSplash} 
+          isOpening={splashState === 'opening'} 
+        />
+      )}
       
-      {!loading && (
+      {(!initialLoading || isGrandOpening) && (
         <Routes>
           <Route path="/" element={<PageWrapper title="Home"><Home /></PageWrapper>} />
           <Route path="/legal" element={<PageWrapper title="Legal Services"><LegalServices /></PageWrapper>} />

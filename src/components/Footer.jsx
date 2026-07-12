@@ -28,9 +28,9 @@ const Footer = () => {
             <ul className="space-y-4 text-sm font-medium">
               <li><Link to="/legal" className="text-gray-400 hover:text-orange-400 transition-colors flex items-center gap-2 group"><ArrowRight size={14} className="text-orange-500/0 group-hover:text-orange-500 -ml-2 group-hover:ml-0 transition-all"/> Legal Services</Link></li>
               <li><Link to="/technology" className="text-gray-400 hover:text-orange-400 transition-colors flex items-center gap-2 group"><ArrowRight size={14} className="text-orange-500/0 group-hover:text-orange-500 -ml-2 group-hover:ml-0 transition-all"/> Technology Services</Link></li>
-              <li><Link to="/creative" className="text-gray-400 hover:text-orange-400 transition-colors flex items-center gap-2 group"><ArrowRight size={14} className="text-orange-500/0 group-hover:text-orange-500 -ml-2 group-hover:ml-0 transition-all"/> Digital Marketing</Link></li>
-              <li><Link to="/creative" className="text-gray-400 hover:text-orange-400 transition-colors flex items-center gap-2 group"><ArrowRight size={14} className="text-orange-500/0 group-hover:text-orange-500 -ml-2 group-hover:ml-0 transition-all"/> Creative Services</Link></li>
-              <li><Link to="/contact" className="text-gray-400 hover:text-orange-400 transition-colors flex items-center gap-2 group"><ArrowRight size={14} className="text-orange-500/0 group-hover:text-orange-500 -ml-2 group-hover:ml-0 transition-all"/> Business Consulting</Link></li>
+              <li><Link to="/creative" className="text-gray-400 hover:text-orange-400 transition-colors flex items-center gap-2 group"><ArrowRight size={14} className="text-orange-500/0 group-hover:text-orange-500 -ml-2 group-hover:ml-0 transition-all"/> Digital & Creative</Link></li>
+              <li><Link to="/interior-design" className="text-gray-400 hover:text-orange-400 transition-colors flex items-center gap-2 group"><ArrowRight size={14} className="text-orange-500/0 group-hover:text-orange-500 -ml-2 group-hover:ml-0 transition-all"/> Interior Design</Link></li>
+              <li><Link to="/internships" className="text-gray-400 hover:text-orange-400 transition-colors flex items-center gap-2 group"><ArrowRight size={14} className="text-orange-500/0 group-hover:text-orange-500 -ml-2 group-hover:ml-0 transition-all"/> Internships</Link></li>
             </ul>
           </div>
 

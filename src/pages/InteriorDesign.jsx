@@ -88,6 +88,15 @@ const whyChooseUs = [
   'Timely Project Planning', 'Client-Centric Approach'
 ];
 
+const interiorVideos = [
+  { id: 1, title: 'Modern Aesthetic', src: 'https://v1.pinimg.com/videos/iht/expMp4/11/9a/7d/119a7db35a1d18e1795adc9f9c1ec521_720w.mp4', type: 'Residential' },
+  { id: 2, title: 'Minimalist Elegance', src: 'https://v1.pinimg.com/videos/iht/720p/87/35/3c/87353c2827cc9a5ab528ac696657721a.mp4', type: 'Commercial' },
+  { id: 3, title: 'Luxury Interiors', src: 'https://v1.pinimg.com/videos/iht/expMp4/9a/04/66/9a046671e63a7b0ae19d211bcca135e7_720w.mp4', type: 'Residential' },
+  { id: 4, title: 'Bespoke Design', src: 'https://v1.pinimg.com/videos/iht/expMp4/4e/b2/fb/4eb2fb95734a8fbfd107b3f1d2f6c64b_720w.mp4', type: 'Commercial' },
+  { id: 5, title: 'Premium Styling', src: 'https://v1.pinimg.com/videos/iht/hevcMp4V3/a5/df/ca/a5dfca0d14af8b3931a3acb125f03630_540w.mp4', type: 'Modular' },
+  { id: 6, title: 'Architectural Flow', src: 'https://v1.pinimg.com/videos/mc/720p/1c/c5/a0/1cc5a0079852d9c6a73d90a3b380c1ee.mp4', type: 'Residential' }
+];
+
 const InteriorDesign = () => {
   return (
     <CorporateLayout>
@@ -101,12 +110,19 @@ const InteriorDesign = () => {
           {/* 1. Hero Section */}
           <div className="relative w-full min-h-[85vh] flex flex-col items-center justify-center text-center px-4 overflow-hidden mb-8 shadow-2xl">
             {/* 3D Background Image */}
-            <div className="absolute inset-0 z-0">
-              <img src="/interior_hero_bg.png" alt="3D Luxury Interior Design" className="w-full h-full object-cover opacity-60" />
-              <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a]/80 via-[#0a0a0a]/40 to-[#0a0a0a]"></div>
+            <div className="absolute inset-0 z-0 flex items-center justify-center bg-[#0a0a0a]">
+              <img src="/luxury_interior_hero_ai.png" alt="Luxury Interior Design" className="w-full h-full object-cover opacity-80" />
+              <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a]/70 via-[#0a0a0a]/30 to-[#0a0a0a]"></div>
             </div>
             
             <div className="relative z-10 max-w-5xl mx-auto pt-24 pb-12 mt-16">
+              <motion.h2 
+                initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}
+                className="text-3xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-yellow-500 uppercase mb-6 drop-shadow-lg"
+              >
+                Welcome to Ashervision Interiors
+              </motion.h2>
+
               <motion.p 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -260,8 +276,47 @@ const InteriorDesign = () => {
             </div>
           </div>
 
+          {/* 4.5. WORK VIDEOS MARQUEE */}
+          <div className="w-full py-20 bg-[#050505] relative overflow-hidden border-t border-white/5">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl text-white font-light mb-4" style={{ fontFamily: 'Georgia, serif' }}>Our Recent <span className="italic text-orange-400">Projects</span></h2>
+              <div className="w-24 h-1 bg-gradient-to-r from-orange-500 to-yellow-500 mx-auto rounded-full"></div>
+            </div>
+
+            <div className="relative flex overflow-x-hidden group">
+              <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-[#050505] to-transparent z-10 pointer-events-none"></div>
+              <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-[#050505] to-transparent z-10 pointer-events-none"></div>
+              
+              <div className="flex animate-marquee-interior whitespace-nowrap group-hover:[animation-play-state:paused] py-4">
+                {[...interiorVideos, ...interiorVideos].map((video, idx) => (
+                  <div 
+                    key={idx} 
+                    className={`shrink-0 mx-4 whitespace-normal rounded-2xl overflow-hidden border border-white/10 bg-[#111] relative group/card transition-all duration-300 hover:border-orange-500/50 hover:shadow-[0_0_30px_rgba(249,115,22,0.3)] hover:-translate-y-2 w-[400px] md:w-[500px]`} 
+                    style={{ height: '350px' }}
+                  >
+                    <video 
+                      src={video.src}
+                      autoPlay 
+                      loop 
+                      muted 
+                      playsInline
+                      className="w-full h-full object-cover opacity-100 transition-opacity duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80 pointer-events-none"></div>
+                    <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-2 group-hover/card:translate-y-0 transition-transform duration-500 pointer-events-none">
+                      <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/20 backdrop-blur-md border border-orange-500/50 mb-2 text-orange-400 font-bold tracking-widest text-[10px] uppercase">
+                        {video.type}
+                      </div>
+                      <h3 className="text-xl font-bold text-white uppercase tracking-wide drop-shadow-lg">{video.title}</h3>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
           {/* 5. Call To Action Footer */}
-          <div id="cta" className="w-full py-32 relative overflow-hidden mt-12 flex items-center justify-center bg-[#0a0a0a]">
+          <div id="cta" className="w-full py-32 relative overflow-hidden flex items-center justify-center bg-[#0a0a0a]">
             {/* Background Image */}
             <div className="absolute inset-0 z-0">
               <img src="/cta_bg.png" alt="Blueprint CTA" className="w-full h-full object-cover opacity-40" />
@@ -288,6 +343,16 @@ const InteriorDesign = () => {
 
         </div>
       </div>
+      <style dangerouslySetInnerHTML={{__html: `
+        @keyframes marquee-interior {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        .animate-marquee-interior {
+          animation: marquee-interior 30s linear infinite;
+          width: fit-content;
+        }
+      `}} />
     </CorporateLayout>
   );
 };

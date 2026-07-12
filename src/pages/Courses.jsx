@@ -62,7 +62,7 @@ const courseCategories = [
     id: "video",
     title: "Video Editing & Content Creation", 
     icon: <Video size={24} />,
-    image: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=2070&auto=format&fit=crop",
+    image: "/video-editing.jpg",
     iconColor: "text-red-500",
     courses: ["Video Editing", "Premiere Pro", "CapCut", "DaVinci Resolve", "Podcast Editing", "Motion Graphics Basics", "Thumbnail Design", "YouTube Content Creation"] 
   },
@@ -170,6 +170,13 @@ const Courses = () => {
           </div>
           
           <div className="relative z-10 max-w-6xl mx-auto pt-32 pb-12 mt-16">
+            <motion.h2 
+              initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}
+              className="text-3xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 uppercase mb-8 drop-shadow-lg"
+            >
+              Welcome to Ashervision Educations
+            </motion.h2>
+
             <motion.div 
               initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} 
               className="inline-flex items-center justify-center gap-3 mb-6 px-6 py-2.5 rounded-full border border-cyan-500/30 bg-cyan-500/10 backdrop-blur-md shadow-[0_0_15px_rgba(34,211,238,0.3)] text-cyan-400"

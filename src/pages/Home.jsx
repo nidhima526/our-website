@@ -21,7 +21,7 @@ const Home = () => {
       title: "Technology Solutions",
       subtitle: "ENGINEERING THE DIGITAL FUTURE",
       desc: "Enterprise software, AI integration, and secure cloud infrastructure tailored to your exact operational needs.",
-      bgImage: "/tech_bg.png",
+      bgVideo: "https://v1.pinimg.com/videos/iht/expMp4/63/8e/9d/638e9d864ed8169de4b23d3e4df3352c_720w.mp4",
       link: "/technology",
       color: "from-blue-500"
     },
@@ -29,7 +29,7 @@ const Home = () => {
       title: "Legal Services",
       subtitle: "UNWAVERING LEGAL PRECISION",
       desc: "Expert civil, criminal, and corporate legal representation focused on protecting your rights and enterprise.",
-      bgImage: "/ap_telangana_court.png", 
+      bgVideo: "https://v1.pinimg.com/videos/mc/720p/fb/3d/1c/fb3d1c70e4969f2df7555cfe4095c753.mp4", 
       link: "/legal",
       color: "from-orange-500"
     },
@@ -45,7 +45,7 @@ const Home = () => {
       title: "Creative & Marketing",
       subtitle: "BRAND STRATEGIES THAT PAUSE",
       desc: "SEO, Google Ads, UI/UX design, and premium media services that command absolute attention.",
-      bgImage: "/creative_hero.png",
+      bgVideo: "/creative_bg.mp4?v=3",
       link: "/contact",
       color: "from-yellow-500"
     }
@@ -65,7 +65,7 @@ const Home = () => {
     {
       title: "Technology Solutions",
       desc: "Enterprise software, AI integration, and secure cloud infrastructure.",
-      image: "/service_tech.png",
+      video: "https://v1.pinimg.com/videos/iht/expMp4/63/8e/9d/638e9d864ed8169de4b23d3e4df3352c_720w.mp4",
       link: "/technology",
       color: "from-blue-600/20 to-blue-900/20",
       border: "hover:border-blue-500/50"
@@ -73,7 +73,7 @@ const Home = () => {
     {
       title: "Legal Services",
       desc: "Civil, criminal, and corporate legal representation with unwavering precision.",
-      image: "/service_legal.png",
+      video: "https://v1.pinimg.com/videos/mc/720p/fb/3d/1c/fb3d1c70e4969f2df7555cfe4095c753.mp4",
       link: "/legal",
       color: "from-orange-600/20 to-orange-900/20",
       border: "hover:border-orange-500/50"
@@ -81,7 +81,7 @@ const Home = () => {
     {
       title: "Creative & Marketing",
       desc: "Brand strategy, SEO, and premium digital presence that commands attention.",
-      image: "/service_creative.png",
+      video: "/creative_bg.mp4?v=3",
       link: "/contact", 
       color: "from-yellow-600/20 to-yellow-900/20",
       border: "hover:border-yellow-500/50"
@@ -113,17 +113,31 @@ const Home = () => {
           <AnimatePresence mode="wait">
             <motion.div
               key={currentSlide}
-              initial={{ opacity: 0, scale: 1.05 }}
+              initial={{ opacity: 0, scale: 1.1 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 1.2, ease: "easeInOut" }}
+              transition={{ duration: 2, ease: "easeOut" }}
               className="absolute inset-0 z-0"
             >
-              <img 
-                src={heroSlides[currentSlide].bgImage} 
-                alt={heroSlides[currentSlide].title}
-                className="w-full h-full object-cover"
-              />
+              {heroSlides[currentSlide].bgVideo ? (
+                heroSlides[currentSlide].bgVideo.endsWith('.m3u8') ? (
+                  <>
+                    <HlsVideo src={heroSlides[currentSlide].bgVideo} className="absolute inset-0 w-full h-full object-cover blur-3xl opacity-40 scale-110" />
+                    <HlsVideo src={heroSlides[currentSlide].bgVideo} className="absolute inset-0 w-full h-full object-contain" />
+                  </>
+                ) : (
+                  <>
+                    <video src={heroSlides[currentSlide].bgVideo} autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover blur-3xl opacity-40 scale-110" />
+                    <video src={heroSlides[currentSlide].bgVideo} autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-contain z-10" />
+                  </>
+                )
+              ) : (
+                <img 
+                  src={heroSlides[currentSlide].bgImage} 
+                  alt={heroSlides[currentSlide].title}
+                  className="w-full h-full object-cover"
+                />
+              )}
               <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/30 to-transparent"></div>
               <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent"></div>
             </motion.div>
@@ -145,17 +159,20 @@ const Home = () => {
                       <span className="text-xs md:text-sm font-bold text-gray-300 tracking-[0.2em]">{heroSlides[currentSlide].subtitle}</span>
                     </div>
                     
-                    <h1 className="font-sans font-black tracking-tighter leading-[0.9] text-5xl sm:text-7xl md:text-[5.5rem] text-white mb-8">
+                    <h1 
+                      className="font-black tracking-tighter leading-[1.1] text-5xl sm:text-7xl md:text-[6rem] text-transparent bg-clip-text bg-gradient-to-r from-yellow-200 via-yellow-400 to-amber-500 mb-8 drop-shadow-[0_10px_20px_rgba(0,0,0,0.8)]"
+                      style={{ fontFamily: 'Georgia, serif' }}
+                    >
                       {heroSlides[currentSlide].title}
                     </h1>
                     
-                    <p className="text-gray-300 text-lg md:text-xl font-light tracking-wide leading-relaxed mb-10 max-w-xl">
+                    <p className="text-white text-lg md:text-2xl font-light tracking-wide leading-relaxed mb-10 max-w-xl drop-shadow-[0_4px_8px_rgba(0,0,0,0.9)]">
                       {heroSlides[currentSlide].desc}
                     </p>
                     
                     <Link 
                       to={heroSlides[currentSlide].link} 
-                      className="inline-flex items-center gap-4 bg-white text-black font-bold px-8 py-4 rounded-full hover:scale-105 transition-transform duration-300 shadow-[0_0_30px_rgba(255,255,255,0.1)]"
+                      className="inline-flex items-center gap-4 bg-gradient-to-r from-yellow-300 to-amber-500 text-black font-extrabold uppercase tracking-widest text-sm px-10 py-4 rounded-full hover:scale-105 hover:shadow-[0_0_40px_rgba(245,158,11,0.6)] transition-all duration-300 shadow-[0_0_20px_rgba(245,158,11,0.3)]"
                     >
                       Explore {heroSlides[currentSlide].title.split(' ')[0]}
                       <ArrowRight size={20} />
@@ -166,7 +183,7 @@ const Home = () => {
             </div>
             
             {/* Carousel Controls & Progress */}
-            <div className="absolute bottom-12 left-4 md:left-8 right-4 md:right-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div className="absolute bottom-4 left-4 md:left-8 right-4 md:right-8 flex justify-between items-center gap-6 z-20">
               <div className="flex items-center gap-4">
                 <button onClick={prevSlide} className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition-colors backdrop-blur-sm text-white">
                   <ChevronLeft size={20} />
@@ -193,30 +210,28 @@ const Home = () => {
         </section>
 
         <div className="relative z-10">
-          {/* 2. OUR MOTTO SECTION */}
-          <section className="py-32 px-4 border-t border-white/5 bg-black/40 backdrop-blur-lg">
-            <div className="max-w-7xl mx-auto">
+          {/* 2. CORPORATE VISION SECTION */}
+          <section className="py-28 px-4 bg-[#050b14] border-y border-white/5">
+            <div className="max-w-5xl mx-auto relative z-10 flex flex-col items-center text-center">
               <motion.div 
-                initial={{ opacity: 0, y: 40 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.8 }}
-                className="flex flex-col md:flex-row gap-16 items-center"
+                viewport={{ once: true }}
+                transition={{ duration: 1 }}
               >
-                <div className="md:w-1/3">
-                  <h2 className="text-4xl md:text-6xl font-black text-white tracking-tighter mb-4">OUR MOTTO.</h2>
-                  <div className="h-1 w-24 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
-                </div>
-                <div className="md:w-2/3">
-                  <h3 className="text-3xl md:text-5xl font-light text-gray-200 leading-tight">
-                    "To engineer <span className="text-white font-bold">possibility</span>, 
-                    defend <span className="text-white font-bold">integrity</span>, and 
-                    design <span className="text-white font-bold">brilliance</span> in everything we touch."
-                  </h3>
-                  <p className="mt-8 text-xl text-gray-500 font-light">
-                    We believe that true excellence requires a multi-disciplinary approach. That's why we bring together elite minds across technology, law, and design to provide comprehensive solutions that never compromise.
-                  </p>
-                </div>
+                <h2 className="text-xs md:text-sm font-sans font-bold text-[#D4AF37] tracking-[0.3em] uppercase mb-8">
+                  Our Philosophy
+                </h2>
+                
+                <h3 className="text-3xl md:text-5xl font-serif text-gray-100 leading-[1.4] mb-10">
+                  "To engineer <span className="text-[#D4AF37] italic">possibility</span>, defend <span className="text-[#D4AF37] italic">integrity</span>, and design <span className="text-[#D4AF37] italic">brilliance</span> in everything we touch."
+                </h3>
+                
+                <div className="w-16 h-[1px] bg-[#D4AF37]/50 mx-auto mb-10"></div>
+                
+                <p className="text-lg text-gray-400 font-sans font-light max-w-3xl mx-auto leading-relaxed">
+                  We believe that true excellence requires a multi-disciplinary approach. AsherVision brings together elite minds across technology, law, and design to provide comprehensive, uncompromising solutions for your enterprise.
+                </p>
               </motion.div>
             </div>
           </section>
@@ -231,7 +246,7 @@ const Home = () => {
                   viewport={{ once: true }}
                   className="text-5xl md:text-7xl font-black text-white tracking-tighter mb-6"
                 >
-                  ALL SERVICES.
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] to-yellow-600">ASHERVISION</span> SERVICES.
                 </motion.h2>
                 <p className="text-xl text-gray-400 font-light max-w-2xl mx-auto">
                   Comprehensive expertise across multiple domains, delivered with absolute precision.
@@ -249,14 +264,33 @@ const Home = () => {
                   >
                     <Link to={service.link} className={`block h-full flex flex-col rounded-3xl bg-[#0a0a0a] border border-white/5 overflow-hidden group transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-black/50 ${service.border}`}>
                       <div className="w-full h-48 overflow-hidden relative">
-                        <img src={service.image} alt={service.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out" />
-                        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/50 to-transparent"></div>
+                        {service.video ? (
+                          service.video.endsWith('.m3u8') ? (
+                            <>
+                              <HlsVideo src={service.video} className="absolute inset-0 w-full h-full object-cover blur-xl opacity-50 scale-110" />
+                              <HlsVideo src={service.video} className="absolute inset-0 w-full h-full object-contain group-hover:scale-110 transition-transform duration-700 ease-out z-10" />
+                            </>
+                          ) : (
+                            <>
+                              <video src={service.video} autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover blur-xl opacity-50 scale-110" />
+                              <video src={service.video} autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-contain group-hover:scale-110 transition-transform duration-700 ease-out z-10" />
+                            </>
+                          )
+                        ) : (
+                          <img src={service.image} alt={service.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out" />
+                        )}
+                        <div className="absolute inset-0 z-20 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/50 to-transparent"></div>
                       </div>
                       <div className="p-8 pt-0 flex flex-col flex-grow relative z-10">
-                        <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-400 transition-all">{service.title}</h3>
-                        <p className="text-gray-400 leading-relaxed mb-8">{service.desc}</p>
-                        <div className="flex items-center text-sm font-bold tracking-widest uppercase text-gray-500 group-hover:text-white transition-colors mt-auto">
-                          Explore <ArrowRight size={16} className="ml-2 group-hover:translate-x-2 transition-transform" />
+                        <h3 
+                          className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-200 to-amber-500 mb-4 group-hover:from-white group-hover:to-gray-200 transition-all drop-shadow-sm"
+                          style={{ fontFamily: 'Georgia, serif' }}
+                        >
+                          {service.title}
+                        </h3>
+                        <p className="text-gray-300 text-lg font-light leading-relaxed mb-8">{service.desc}</p>
+                        <div className="flex items-center text-sm font-black tracking-widest uppercase text-amber-400 group-hover:text-white transition-colors mt-auto">
+                          Explore <ArrowRight size={18} className="ml-2 group-hover:translate-x-2 transition-transform" />
                         </div>
                       </div>
                     </Link>
@@ -299,20 +333,33 @@ const Home = () => {
             <div className="max-w-7xl mx-auto">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
                 
-                {/* Left Side: Logo */}
+                {/* Left Side: Holographic Graphic Logo */}
                 <motion.div
-                  initial={{ opacity: 0, x: -50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.8, ease: "easeOut" }}
-                  className="flex justify-center lg:justify-start lg:sticky lg:top-32"
+                  transition={{ duration: 1, ease: "easeOut" }}
+                  className="flex justify-center lg:justify-start lg:sticky lg:top-32 w-full"
                 >
-                  <div className="relative p-12 bg-white/[0.02] border border-white/5 rounded-3xl backdrop-blur-sm w-full flex justify-center">
-                    <img 
-                      src="/logo.png" 
-                      alt="ASHERVISION Logo" 
-                      className="w-64 md:w-80 object-contain mix-blend-screen drop-shadow-[0_0_30px_rgba(249,115,22,0.3)]" 
-                    />
+                  <div className="relative w-full h-[400px] flex justify-center items-center group cursor-pointer">
+                    
+                    {/* Inner intense glow */}
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-[#D4AF37]/10 blur-[80px] rounded-full animate-pulse"></div>
+
+                    {/* The Logo itself (Free-floating, no box) */}
+                    <motion.div
+                      whileHover={{ scale: 1.1, rotateY: 15, rotateX: 10 }}
+                      transition={{ type: "spring", stiffness: 300, damping: 15 }}
+                      className="relative z-10"
+                    >
+                      <motion.img 
+                        animate={{ y: [-15, 15, -15] }}
+                        transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
+                        src="/ashervisionlogo.png" 
+                        alt="ASHERVISION Logo" 
+                        className="w-72 md:w-96 object-contain drop-shadow-[0_0_20px_rgba(212,175,55,0.6)]" 
+                      />
+                    </motion.div>
                   </div>
                 </motion.div>
 
@@ -335,7 +382,7 @@ const Home = () => {
                   
                   <div className="space-y-6 text-left">
                     <p className="text-base md:text-lg text-gray-300 font-light leading-relaxed">
-                      ASHERVISION is a multidisciplinary professional services company co-founded by Kalyan and Nidhima bringing together expertise in Technology Solutions, Legal Services, Professional Education, Interior Design, and Digital Creative Services under one trusted brand.
+                      ASHERVISION is a multidisciplinary professional services company founded by Kalyan bringing together expertise in Technology Solutions, Legal Services, Professional Education, Interior Design, and Digital Creative Services under one trusted brand.
                     </p>
                     <p className="text-base md:text-lg text-gray-300 font-light leading-relaxed">
                       Driven by innovation, integrity, and a client-first approach, we partner with students, professionals, startups, businesses, and institutions to deliver practical solutions that solve real-world challenges. Every project is built with attention to quality, professionalism, and long-term value.

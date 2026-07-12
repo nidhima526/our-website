@@ -21,6 +21,7 @@ export default {
         sans: ['Inter', 'sans-serif'],
         heading: ['Instrument Serif', 'serif'],
         body: ['Barlow', 'sans-serif'],
+        geist: ['Geist', 'sans-serif'],
       },
       borderRadius: {
         'corporate': '18px',

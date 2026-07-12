@@ -108,10 +108,17 @@ const LegalServices = () => {
             <div className="absolute inset-0 bg-gradient-to-b from-[#050505]/80 via-transparent to-[#0a0a0a]"></div>
           </div>
           
-          <div className="relative z-10 max-w-4xl mx-auto pt-16">
+          <div className="relative z-10 max-w-5xl mx-auto pt-16">
+            <motion.h2 
+              initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}
+              className="text-3xl md:text-5xl font-black text-white uppercase mb-4 drop-shadow-lg"
+            >
+              Welcome to Ashervision Legal Services
+            </motion.h2>
+
             <motion.p 
-              initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}
-              className="text-[#D4AF37] tracking-[0.2em] uppercase text-sm font-semibold mb-6 drop-shadow-md"
+              initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-gray-300 tracking-[0.2em] uppercase text-sm font-semibold mb-6 drop-shadow-md"
             >
               Prosperity Meets Precious.
             </motion.p>

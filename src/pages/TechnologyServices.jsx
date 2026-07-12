@@ -129,6 +129,13 @@ const TechnologyServices = () => {
         <div className="relative min-h-[80vh] flex flex-col items-center justify-center text-center px-4 pt-32 pb-20 overflow-hidden">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-yellow-500/10 rounded-full blur-[150px] pointer-events-none"></div>
           
+          <motion.h2 
+            initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}
+            className="text-3xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] to-yellow-600 uppercase mb-8 drop-shadow-lg relative z-10"
+          >
+            Welcome to Ashervision Technologies
+          </motion.h2>
+
           <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="inline-flex items-center justify-center gap-3 mb-6 text-yellow-500 px-6 py-2.5 rounded-full border border-yellow-500/30 bg-yellow-500/10 backdrop-blur-md shadow-xl relative z-10">
             <Monitor size={20} strokeWidth={2} />
             <span className="font-bold tracking-widest uppercase text-sm">Technology Division</span>

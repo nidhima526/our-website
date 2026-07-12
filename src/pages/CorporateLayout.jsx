@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import CustomCursor from '../components/CustomCursor';
 
 const CorporateLayout = ({ children }) => {
   // Ensure we start at the top of the page on route change
@@ -10,6 +11,7 @@ const CorporateLayout = ({ children }) => {
 
   return (
     <div className="flex flex-col min-h-screen bg-transparent font-sans text-corporate-dark">
+      <CustomCursor />
       <Header />
       
       {/* Main content area needs top padding to account for fixed header */}

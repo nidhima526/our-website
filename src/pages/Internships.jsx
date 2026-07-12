@@ -83,6 +83,13 @@ const Internships = () => {
           
           {/* Page Header */}
           <div className="text-white pt-20 pb-16 flex flex-col items-center text-center px-4">
+            <motion.h2 
+              initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}
+              className="text-3xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 uppercase mb-8 drop-shadow-lg"
+            >
+              Welcome to Ashervision Internships
+            </motion.h2>
+
             <motion.div 
               initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5 }} 
               className="liquid-glass inline-flex items-center justify-center gap-3 mb-6 text-white px-6 py-2.5 rounded-full shadow-xl"

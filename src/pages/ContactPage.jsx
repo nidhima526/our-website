@@ -6,7 +6,6 @@ import {
   Monitor, PenTool, GraduationCap, Briefcase, CheckCircle2,
   Cpu, Building, Globe, Star
 } from 'lucide-react';
-import FadingVideo from '../components/FadingVideo';
 
 const divisions = [
   { id: 'tech', label: 'Technology', icon: <Monitor size={16} /> },
@@ -30,12 +29,7 @@ const ContactPage = () => {
     
     const divisionLabel = divisions.find(d => d.id === selectedDivision)?.label || selectedDivision;
 
-    const whatsappMessage = `*New Inquiry via Website*
-*Division:* ${divisionLabel}
-*Name:* ${firstName} ${lastName}
-*Email:* ${email}
-*Message:* ${message}`;
-
+    const whatsappMessage = `*New Inquiry via Website*\n*Division:* ${divisionLabel}\n*Name:* ${firstName} ${lastName}\n*Email:* ${email}\n*Message:* ${message}`;
     const encodedMessage = encodeURIComponent(whatsappMessage);
     const whatsappUrl = `https://wa.me/916281646302?text=${encodedMessage}`;
     
@@ -50,15 +44,18 @@ const ContactPage = () => {
     <CorporateLayout>
       <div className="min-h-screen bg-transparent text-white flex flex-col relative overflow-hidden pt-28 pb-20">
         
-        {/* Dark Glass Overlay and Cinematic Video */}
+        {/* Cinematic Video Background (As requested by user) */}
         <div className="absolute inset-0 bg-black/40 z-0 pointer-events-none"></div>
-        <div className="absolute inset-0 overflow-hidden z-0 pointer-events-none">
-          <div className="absolute -top-[30%] -bottom-[30%] left-0 right-0">
-            <FadingVideo 
-              src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260508_064122_c4750c0e-7476-4b44-94a2-a85a65c63bf2.mp4" 
-              className="w-full h-full object-cover translate-y-[17%]"
-            />
-          </div>
+        <div className="absolute inset-0 z-0 pointer-events-none">
+          <video 
+            src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260622_204221_5339e40b-e73d-4ab0-9c65-79c18c66fd50.mp4"
+            autoPlay 
+            muted 
+            loop 
+            playsInline
+            className="w-full h-full object-cover"
+            style={{ objectPosition: '70% center' }}
+          />
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full flex flex-col lg:flex-row gap-16">
@@ -109,8 +106,6 @@ const ContactPage = () => {
                   </div>
                 </div>
               </div>
-
-
             </motion.div>
           </div>
           
@@ -120,7 +115,6 @@ const ContactPage = () => {
               initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6, delay: 0.3 }}
               className="liquid-glass p-8 md:p-12 rounded-[32px] relative overflow-hidden"
             >
-              
               <h2 className="text-3xl font-extrabold text-white mb-2 relative z-10">Send an Inquiry</h2>
               <p className="text-gray-300 mb-8 font-medium relative z-10">Select a division and tell us how we can help you today.</p>
               
@@ -203,7 +197,6 @@ const ContactPage = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Testimonial 1 */}
             <div className="liquid-glass p-8 rounded-3xl relative border border-white/5 hover:-translate-y-2 transition-all duration-300 shadow-xl shadow-black/20">
               <div className="flex text-yellow-500 mb-6 gap-1">
                 <Star size={20} fill="currentColor" />
@@ -222,7 +215,6 @@ const ContactPage = () => {
               </div>
             </div>
 
-            {/* Testimonial 2 */}
             <div className="liquid-glass p-8 rounded-3xl relative border border-white/5 hover:-translate-y-2 transition-all duration-300 shadow-xl shadow-black/20">
               <div className="flex text-yellow-500 mb-6 gap-1">
                 <Star size={20} fill="currentColor" />
@@ -241,7 +233,6 @@ const ContactPage = () => {
               </div>
             </div>
 
-            {/* Testimonial 3 */}
             <div className="liquid-glass p-8 rounded-3xl relative border border-white/5 hover:-translate-y-2 transition-all duration-300 shadow-xl shadow-black/20">
               <div className="flex text-yellow-500 mb-6 gap-1">
                 <Star size={20} fill="currentColor" />
