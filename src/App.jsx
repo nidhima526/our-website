@@ -130,12 +130,12 @@ const GrandOpeningSplash = ({ pageName, onOpen, isOpening }) => (
       className="absolute inset-0 flex flex-col items-center justify-center z-40 drop-shadow-2xl pointer-events-none"
     >
       <div className="text-center px-6 py-12 rounded-3xl backdrop-blur-sm bg-black/30 border border-yellow-500/10 shadow-[0_0_100px_rgba(234,179,8,0.15)] max-w-5xl mx-auto w-full">
-        <h1 className="text-2xl md:text-3xl lg:text-4xl font-geist font-black text-yellow-500 tracking-[0.4em] uppercase mb-6 drop-shadow-[0_0_20px_rgba(234,179,8,0.6)]">
+        <h1 className="text-2xl md:text-3xl lg:text-4xl font-sans font-black text-yellow-500 tracking-[0.4em] uppercase mb-6 drop-shadow-[0_0_20px_rgba(234,179,8,0.6)]">
           Grand Opening
         </h1>
-        <h2 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-heading font-normal tracking-wide text-white uppercase leading-[1.1]" style={{ textShadow: '0 0 40px rgba(255,255,255,0.3)' }}>
+        <h2 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-sans font-light tracking-[0.1em] text-white uppercase leading-[1.1]" style={{ textShadow: '0 0 40px rgba(255,255,255,0.3)' }}>
           Welcome To<br/>
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-yellow-200 to-yellow-600 block mt-2 drop-shadow-lg font-bold">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-yellow-200 to-yellow-600 block mt-2 drop-shadow-lg font-bold tracking-widest">
             Ashervision {pageName}
           </span>
         </h2>
