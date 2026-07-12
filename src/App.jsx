@@ -14,6 +14,9 @@ import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsConditions from './pages/TermsConditions';
 import RefundPolicy from './pages/RefundPolicy';
 import InteriorDesign from './pages/InteriorDesign';
+import StudentDashboard from './pages/StudentDashboard';
+import BusinessDashboard from './pages/BusinessDashboard';
+import AIChatbot from './components/AIChatbot';
 // Wrapper to handle dynamic SEO titles
 const PageWrapper = ({ title, children }) => {
   useEffect(() => {
@@ -264,14 +267,17 @@ function App() {
 
       {/* Global WhatsApp Floating Button */}
       <a 
-        href="https://wa.me/916281646302" 
+        href="https://wa.me/919999999999" 
         target="_blank" 
         rel="noopener noreferrer"
-        className="fixed bottom-6 right-6 z-[100] w-14 h-14 bg-green-500 rounded-full flex items-center justify-center text-white shadow-lg hover:scale-110 transition-transform duration-300 hover:shadow-[0_0_20px_rgba(34,197,94,0.6)] cursor-pointer"
+        className="fixed bottom-6 left-6 z-[100] w-14 h-14 bg-green-500 rounded-full flex items-center justify-center text-white shadow-lg hover:scale-110 transition-transform duration-300 hover:shadow-[0_0_20px_rgba(34,197,94,0.6)] cursor-pointer"
         aria-label="Chat with us on WhatsApp"
       >
         <FaWhatsapp size={32} />
       </a>
+
+      {/* AI Chatbot */}
+      <AIChatbot />
     </>
   );
 }
