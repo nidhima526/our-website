@@ -5,7 +5,7 @@ import {
   FileText, Briefcase, Award, Target, MessageSquare, Calendar as CalendarIcon, 
   CreditCard, Download, Settings, LogOut, User, Search, Bell, Moon, ChevronDown, 
   Menu, X, UploadCloud, Clock, CheckCircle2, Code, Terminal, Play, PlayCircle,
-  MoreVertical, Filter, AlertCircle, ChevronRight, Check
+  MoreVertical, Filter, AlertCircle, ChevronRight, Check, ArrowUpRight, Flame
 } from 'lucide-react';
 import './StudentDashboard.css'; // Inheriting global dashboard layouts
 import './Assignments.css';      // Custom assignment center styles

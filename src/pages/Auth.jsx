@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { 
   Building2, GraduationCap, Scale, Briefcase, Mail, Lock, User, Phone,
   Eye, EyeOff, CheckCircle2, ChevronLeft, ArrowRight, ShieldCheck,
-  AlertCircle, AlertTriangle, Key, Search, Monitor, X
+  AlertCircle, AlertTriangle, Key, Search, Monitor, X, Clock
 } from 'lucide-react';
 import './Auth.css';
 
