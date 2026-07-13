@@ -153,17 +153,17 @@ const LegalServices = () => {
 
         {/* SECTION 2: PRACTICE AREAS */}
         <section className="relative py-24 px-4 sm:px-6 lg:px-8 overflow-hidden border-y border-white/5">
-          <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 z-0 bg-black">
             <video 
               autoPlay 
               loop 
               muted 
               playsInline 
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover blur-md opacity-30 mix-blend-screen"
             >
               <source src="https://v1.pinimg.com/videos/iht/expMp4/0e/15/ba/0e15ba096d727c11d929b323f2a23d1e_720w.mp4" type="video/mp4" />
             </video>
-            <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a]/80 via-transparent to-[#0a0a0a]/80"></div>
+            <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a]/90 via-[#0a0a0a]/60 to-[#0a0a0a]/90"></div>
           </div>
           <div className="relative z-10 max-w-7xl mx-auto">
             <div className="text-center mb-16">

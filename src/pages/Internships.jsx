@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import CorporateLayout from './CorporateLayout';
 import { motion } from 'framer-motion';
+import Hls from 'hls.js';
 import { 
   Briefcase, Code, Monitor, PenTool, Megaphone, 
   CheckCircle2, FileText, Award, ArrowRight, Target, Users
@@ -8,39 +9,31 @@ import {
 
 const Internships = () => {
   const videoRef = useRef(null);
-  const isSeeking = useRef(false);
-  const targetTime = useRef(0);
 
   useEffect(() => {
-    const handleMouseMove = (e) => {
-      if (!videoRef.current || !videoRef.current.duration) return;
-      const progress = e.clientX / window.innerWidth;
-      const adjustedProgress = 0.1 + progress * 0.8;
-      targetTime.current = adjustedProgress * videoRef.current.duration;
-      
-      if (!isSeeking.current) {
-        isSeeking.current = true;
-        videoRef.current.currentTime = targetTime.current;
-      }
-    };
-    
-    const handleSeeked = () => {
-      if (!videoRef.current) return;
-      if (Math.abs(videoRef.current.currentTime - targetTime.current) > 0.05) {
-        videoRef.current.currentTime = targetTime.current;
-      } else {
-        isSeeking.current = false;
-      }
-    };
+    const video = videoRef.current;
+    if (!video) return;
 
-    window.addEventListener('mousemove', handleMouseMove);
-    const videoEl = videoRef.current;
-    if (videoEl) videoEl.addEventListener('seeked', handleSeeked);
-    
-    return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-      if (videoEl) videoEl.removeEventListener('seeked', handleSeeked);
-    };
+    const src = "https://stream.mux.com/kimF2ha9zLrX64H00UgLGPflCzNtl1T0215MlAmeOztv8.m3u8";
+
+    if (video.canPlayType('application/vnd.apple.mpegurl')) {
+      video.src = src;
+      video.addEventListener('loadedmetadata', () => {
+        video.play().catch(e => console.error("Video play failed", e));
+      });
+    } else if (Hls.isSupported()) {
+      const hls = new Hls();
+      hls.loadSource(src);
+      hls.attachMedia(video);
+      
+      hls.on(Hls.Events.MANIFEST_PARSED, () => {
+        video.play().catch(e => console.error("HLS Video play failed", e));
+      });
+      
+      return () => {
+        hls.destroy();
+      };
+    }
   }, []);
 
   const programs = [
@@ -67,16 +60,18 @@ const Internships = () => {
       {/* Full Page Background Wrapper */}
       <div className="w-full min-h-screen relative pt-20 pb-20 font-body">
         
-        {/* Dark Glass Overlay and Cinematic Cyber Video */}
+        {/* HLS Background Video */}
         <div className="fixed inset-0 overflow-hidden z-[-2] pointer-events-none bg-black">
           <video 
             ref={videoRef}
-            src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260622_083515_290e5a10-0b95-41af-a5e2-32b6389baa4d.mp4" 
-            className="w-full h-full object-cover"
-            muted playsInline preload="auto"
+            autoPlay 
+            muted 
+            loop 
+            playsInline
+            crossOrigin="anonymous"
+            className="w-full h-full object-cover opacity-100"
           />
         </div>
-        <div className="fixed inset-0 bg-black/60 z-[-1] pointer-events-none mix-blend-multiply"></div>
 
         {/* Content Wrapper */}
         <div className="relative z-10">

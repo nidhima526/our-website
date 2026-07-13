@@ -12,9 +12,9 @@ const Footer = () => {
         <img 
           src="/footer_bg.png" 
           alt="Golden Wave Background" 
-          className="w-full h-full object-cover opacity-40 mix-blend-screen"
+          className="w-full h-full object-cover opacity-15 mix-blend-screen blur-md"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/80 to-[#0a0a0a]/30"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/90 to-[#0a0a0a]/50"></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

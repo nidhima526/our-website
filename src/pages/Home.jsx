@@ -45,7 +45,7 @@ const Home = () => {
       title: "Creative & Marketing",
       subtitle: "BRAND STRATEGIES THAT PAUSE",
       desc: "SEO, Google Ads, UI/UX design, and premium media services that command absolute attention.",
-      bgVideo: "/creative_bg.mp4?v=3",
+      bgVideo: "/creative_hero_new.mp4",
       link: "/contact",
       color: "from-yellow-500"
     }
@@ -54,7 +54,7 @@ const Home = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
-    }, 6000); // 6 seconds per slide
+    }, 30000); // 30 seconds per slide
     return () => clearInterval(timer);
   }, []);
 
@@ -81,7 +81,7 @@ const Home = () => {
     {
       title: "Creative & Marketing",
       desc: "Brand strategy, SEO, and premium digital presence that commands attention.",
-      video: "/creative_bg.mp4?v=3",
+      video: "/creative_hero_new.mp4",
       link: "/contact", 
       color: "from-yellow-600/20 to-yellow-900/20",
       border: "hover:border-yellow-500/50"
@@ -195,7 +195,7 @@ const Home = () => {
                       className="h-full bg-white"
                       initial={{ width: "0%" }}
                       animate={{ width: currentSlide === idx ? "100%" : currentSlide > idx ? "100%" : "0%" }}
-                      transition={{ duration: currentSlide === idx ? 6 : 0, ease: "linear" }}
+                      transition={{ duration: currentSlide === idx ? 30 : 0, ease: "linear" }}
                     />
                   </div>
                 ))}
