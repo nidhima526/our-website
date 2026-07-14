@@ -6,6 +6,8 @@ import {
   Monitor, PenTool, GraduationCap, Briefcase, CheckCircle2,
   Cpu, Building, Globe, Star
 } from 'lucide-react';
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import { db } from '../firebase';
 
 const divisions = [
   { id: 'tech', label: 'Technology', icon: <Monitor size={16} /> },
@@ -13,9 +15,6 @@ const divisions = [
   { id: 'creative', label: 'Digital Creative', icon: <PenTool size={16} /> },
   { id: 'academy', label: 'Academy (Courses/Internships)', icon: <GraduationCap size={16} /> },
 ];
-
-import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
-import { db } from '../firebase';
 
 const ContactPage = () => {
   const [selectedDivision, setSelectedDivision] = useState('tech');
