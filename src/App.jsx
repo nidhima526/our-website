@@ -35,31 +35,7 @@ const PageWrapper = ({ title, children }) => {
   return children;
 };
 
-// Custom Splash Screen Component
-const SplashScreen = ({ onComplete }) => (
-  <motion.div 
-    initial={{ opacity: 1 }}
-    exit={{ opacity: 0 }}
-    transition={{ duration: 0.8, ease: "easeInOut" }}
-    className="fixed inset-0 z-[9999] bg-black flex flex-col items-center justify-center overflow-hidden"
-  >
-    <div className="relative w-full h-full flex items-center justify-center pointer-events-none">
-      <video
-        autoPlay
-        muted
-        playsInline
-        onEnded={onComplete}
-        className="w-full max-w-[1200px] h-full object-cover md:object-contain scale-125 md:scale-150"
-        style={{
-          WebkitMaskImage: 'radial-gradient(circle at center, black 35%, transparent 65%)',
-          maskImage: 'radial-gradient(circle at center, black 35%, transparent 65%)'
-        }}
-      >
-        <source src="/opening_vedio.mp4" type="video/mp4" />
-      </video>
-    </div>
-  </motion.div>
-);
+
 
 const GrandOpeningSplash = ({ pageName, onOpen, isOpening }) => (
   <motion.div 
@@ -165,14 +141,6 @@ const GrandOpeningSplash = ({ pageName, onOpen, isOpening }) => (
 
 function App() {
   const { pathname } = useLocation();
-  const [initialLoading, setInitialLoading] = useState(true);
-
-  // Initial Load Timer Fallback
-  useEffect(() => {
-    // Fallback timer just in case video fails to load or play
-    const timer = setTimeout(() => setInitialLoading(false), 15000);
-    return () => clearTimeout(timer);
-  }, []);
 
   const getPageName = () => {
     switch (pathname) {
@@ -213,60 +181,52 @@ function App() {
 
   return (
     <>
-      <AnimatePresence>
-        {initialLoading && <SplashScreen onComplete={() => setInitialLoading(false)} />}
-      </AnimatePresence>
+      <Routes>
+        <Route path="/" element={<PageWrapper title="Home"><Home /></PageWrapper>} />
+        <Route path="/legal" element={<PageWrapper title="Legal Services"><LegalServices /></PageWrapper>} />
+        <Route path="/technology" element={<PageWrapper title="Technology Solutions"><TechnologyServices /></PageWrapper>} />
+        <Route path="/courses" element={<PageWrapper title="Professional Academy"><Courses /></PageWrapper>} />
+        <Route path="/creative" element={<PageWrapper title="Digital & Creative"><DigitalCreative /></PageWrapper>} />
+        <Route path="/internships" element={<PageWrapper title="Corporate Internships"><Internships /></PageWrapper>} />
+        <Route path="/interior-design" element={<PageWrapper title="Interior & Architectural Design"><InteriorDesign /></PageWrapper>} />
+        
+        {/* Auxiliary Pages */}
+        <Route path="/contact" element={<PageWrapper title="Contact Us"><ContactPage /></PageWrapper>} />
+        <Route path="/privacy" element={<PageWrapper title="Privacy Policy"><PrivacyPolicy /></PageWrapper>} />
+        <Route path="/terms" element={<PageWrapper title="Terms & Conditions"><TermsConditions /></PageWrapper>} />
+        <Route path="/refund" element={<PageWrapper title="Refund Policy"><RefundPolicy /></PageWrapper>} />
+        
+        <Route path="/admin" element={<PageWrapper title="Admin Dashboard"><AdminDashboard /></PageWrapper>} />
+        
+        {/* Fallback route */}
+        <Route path="*" element={<PageWrapper title="Home"><Home /></PageWrapper>} />
+      </Routes>
 
-      {!initialLoading && (
-        <>
-          <Routes>
-            <Route path="/" element={<PageWrapper title="Home"><Home /></PageWrapper>} />
-            <Route path="/legal" element={<PageWrapper title="Legal Services"><LegalServices /></PageWrapper>} />
-            <Route path="/technology" element={<PageWrapper title="Technology Solutions"><TechnologyServices /></PageWrapper>} />
-            <Route path="/courses" element={<PageWrapper title="Professional Academy"><Courses /></PageWrapper>} />
-            <Route path="/creative" element={<PageWrapper title="Digital & Creative"><DigitalCreative /></PageWrapper>} />
-            <Route path="/internships" element={<PageWrapper title="Corporate Internships"><Internships /></PageWrapper>} />
-            <Route path="/interior-design" element={<PageWrapper title="Interior & Architectural Design"><InteriorDesign /></PageWrapper>} />
-            
-            {/* Auxiliary Pages */}
-            <Route path="/contact" element={<PageWrapper title="Contact Us"><ContactPage /></PageWrapper>} />
-            <Route path="/privacy" element={<PageWrapper title="Privacy Policy"><PrivacyPolicy /></PageWrapper>} />
-            <Route path="/terms" element={<PageWrapper title="Terms & Conditions"><TermsConditions /></PageWrapper>} />
-            <Route path="/refund" element={<PageWrapper title="Refund Policy"><RefundPolicy /></PageWrapper>} />
-            
-            <Route path="/admin" element={<PageWrapper title="Admin Dashboard"><AdminDashboard /></PageWrapper>} />
-            
-            {/* Fallback route */}
-            <Route path="*" element={<PageWrapper title="Home"><Home /></PageWrapper>} />
-          </Routes>
+      {/* Global Minimal Dark Background (Tharun Speaks Inspired) */}
+      <div className="fixed inset-0 z-[-1] bg-[#030712] pointer-events-none">
+        <img loading="lazy" src="/creative-bg.png" alt="Global Background" className="absolute inset-0 w-full h-full object-cover opacity-70 mix-blend-screen" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#030712_100%)] opacity-80 pointer-events-none"></div>
+      </div>
 
-          {/* Global Minimal Dark Background (Tharun Speaks Inspired) */}
-          <div className="fixed inset-0 z-[-1] bg-[#030712] pointer-events-none">
-            <img loading="lazy" src="/creative-bg.png" alt="Global Background" className="absolute inset-0 w-full h-full object-cover opacity-70 mix-blend-screen" />
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#030712_100%)] opacity-80 pointer-events-none"></div>
-          </div>
+      {/* Global WhatsApp Floating Button */}
+      <a 
+        href="https://wa.me/918184801842" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        className="fixed bottom-6 left-6 z-[100] w-14 h-14 bg-green-500 rounded-full flex items-center justify-center text-white shadow-lg hover:scale-110 transition-transform duration-300 hover:shadow-[0_0_20px_rgba(34,197,94,0.6)] cursor-pointer"
+        aria-label="Chat with us on WhatsApp"
+      >
+        <FaWhatsapp size={32} />
+      </a>
 
-          {/* Global WhatsApp Floating Button */}
-          <a 
-            href="https://wa.me/918184801842" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="fixed bottom-6 left-6 z-[100] w-14 h-14 bg-green-500 rounded-full flex items-center justify-center text-white shadow-lg hover:scale-110 transition-transform duration-300 hover:shadow-[0_0_20px_rgba(34,197,94,0.6)] cursor-pointer"
-            aria-label="Chat with us on WhatsApp"
-          >
-            <FaWhatsapp size={32} />
-          </a>
+      {/* Global Scroll to Top Button */}
+      <ScrollToTop />
 
-          {/* Global Scroll to Top Button */}
-          <ScrollToTop />
+      {/* AI Chatbot */}
+      <AIChatbot />
 
-          {/* AI Chatbot */}
-          <AIChatbot />
-
-          {/* Cookie Consent Banner */}
-          <CookieConsent />
-        </>
-      )}
+      {/* Cookie Consent Banner */}
+      <CookieConsent />
     </>
   );
 }
