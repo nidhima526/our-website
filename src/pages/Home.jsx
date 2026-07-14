@@ -21,7 +21,7 @@ const Home = () => {
       title: "Technology Solutions",
       subtitle: "ENGINEERING THE DIGITAL FUTURE",
       desc: "Enterprise software, AI integration, and secure cloud infrastructure tailored to your exact operational needs.",
-      bgVideo: "/home_tech_bg.mp4",
+      bgImage: "/tech_hero_bg_ai.png",
       link: "/technology",
       color: "from-blue-500"
     },
@@ -45,7 +45,7 @@ const Home = () => {
       title: "Creative & Marketing",
       subtitle: "BRAND STRATEGIES THAT PAUSE",
       desc: "SEO, Google Ads, UI/UX design, and premium media services that command absolute attention.",
-      bgVideo: "/creative_hero_new.mp4",
+      bgImage: "/video_editing_bg_ai.png",
       link: "/contact",
       color: "from-yellow-500"
     }

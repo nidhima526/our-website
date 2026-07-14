@@ -1,4 +1,4 @@
-﻿import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import CorporateLayout from './CorporateLayout';
 import MagneticButton from '../components/MagneticButton';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -124,7 +124,7 @@ const PortfolioVideoCard = ({ video, isHorizontal, isRotated, className }) => {
 };
 
 const servicesData = [
-  { id: 'video', icon: <video webkit-playsinline='true' preload='auto' size={32} />, title: "Video Editing", desc: "Cinematic precision for YouTube, Reels, and Commercials.", color: "from-blue-500 to-indigo-600", shadow: "shadow-blue-500/20", bgImage: "/video-editing.jpg", bgVideo: "/video_editing_bg.mp4", includes: ["High-retention YouTube Long-form Edits", "Viral-optimized Reels & TikToks", "Color Grading & Cinematic Audio Mixing", "Advanced Motion Graphics & VFX", "Corporate Commercials & Ads"] },
+  { id: 'video', icon: <video webkit-playsinline='true' preload='auto' size={32} />, title: "Video Editing", desc: "Cinematic precision for YouTube, Reels, and Commercials.", color: "from-blue-500 to-indigo-600", shadow: "shadow-blue-500/20", bgImage: "/video_editing_bg_ai.png", includes: ["High-retention YouTube Long-form Edits", "Viral-optimized Reels & TikToks", "Color Grading & Cinematic Audio Mixing", "Advanced Motion Graphics & VFX", "Corporate Commercials & Ads"] },
   { id: 'podcast', icon: <Mic size={32} />, title: "Podcast Production", desc: "Studio-quality audio & video multi-cam setups.", color: "from-slate-400 to-slate-600", shadow: "shadow-slate-500/20", bgImage: "/podcast_bg.png", includes: ["Multi-cam Video Switching & Editing", "Professional Audio Mastering & Noise Reduction", "Podcast Studio Setup Consultation", "Short-form Clip Extraction (Shorts/Reels)", "Show Notes & Transcript Generation"] },
   { id: 'graphic', icon: <PenTool size={32} />, title: "Graphic Design", desc: "Logos, brand identity, and stunning visual media.", color: "from-teal-400 to-emerald-600", shadow: "shadow-teal-500/20", bgImage: "/graphic_design_bg.png", includes: ["Brand Identity & Custom Logos", "UI/UX App & Web Interface Design", "Social Media Post Graphics & Carousels", "High-CTR Thumbnail Design", "Marketing Collateral & Pitch Decks"] },
   { id: 'social', icon: <Smartphone size={32} />, title: "Social Media", desc: "Dominating feeds with viral strategies and daily content.", color: "from-cyan-400 to-blue-500", shadow: "shadow-cyan-500/20", bgImage: "/social_media_bg.png", includes: ["Full Social Media Account Management", "Viral Content Strategy & Calendar", "Community Engagement & Growth", "Influencer Marketing & Outreach", "Trend Analysis & Rapid Adapting"] },
