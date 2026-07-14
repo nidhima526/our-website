@@ -39,19 +39,42 @@ const PageWrapper = ({ title, children }) => {
 const SplashScreen = ({ onComplete }) => (
   <motion.div 
     initial={{ opacity: 1 }}
-    exit={{ opacity: 0 }}
-    transition={{ duration: 0.8, ease: "easeInOut" }}
-    className="fixed inset-0 z-[9999] bg-black flex flex-col items-center justify-center overflow-hidden"
+    exit={{ opacity: 0, scale: 1.05 }}
+    transition={{ duration: 1.2, ease: "easeInOut" }}
+    className="fixed inset-0 z-[9999] bg-[#030712] flex flex-col items-center justify-center overflow-hidden"
   >
+    {/* Dynamic Blurred Background */}
     <video
       autoPlay
       muted
       playsInline
-      onEnded={onComplete}
-      className="w-full max-w-4xl max-h-[80vh] object-contain"
+      className="absolute inset-0 w-full h-full object-cover opacity-40 blur-[80px] scale-110 pointer-events-none"
     >
       <source src="/opening_vedio.mp4" type="video/mp4" />
     </video>
+
+    {/* Ambient Glow */}
+    <div className="absolute inset-0 bg-gradient-to-tr from-orange-500/10 via-transparent to-orange-500/5 pointer-events-none"></div>
+
+    {/* Glassmorphism Frame for Main Video */}
+    <motion.div 
+      initial={{ opacity: 0, scale: 0.95 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 1, ease: "easeOut" }}
+      className="relative z-10 w-full max-w-5xl mx-4 p-[1px] rounded-3xl bg-gradient-to-b from-white/20 to-white/5 backdrop-blur-xl shadow-[0_0_80px_rgba(249,115,22,0.2)]"
+    >
+      <div className="rounded-[23px] overflow-hidden bg-black/60 relative">
+        <video
+          autoPlay
+          muted
+          playsInline
+          onEnded={onComplete}
+          className="w-full max-h-[80vh] object-contain block"
+        >
+          <source src="/opening_vedio.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </motion.div>
   </motion.div>
 );
 
