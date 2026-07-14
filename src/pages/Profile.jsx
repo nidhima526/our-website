@@ -65,7 +65,7 @@ const Profile = () => {
           </button>
           <div className="flex items-center gap-2 ml-2 cursor-pointer hover:bg-slate-50 p-1 pr-2 rounded-full border border-transparent hover:border-slate-200 transition-all">
             <div className="w-8 h-8 rounded-full bg-slate-200 overflow-hidden">
-              <img src="https://api.dicebear.com/7.x/notionists/svg?seed=StudentOne" alt="Profile" className="w-full h-full object-cover"/>
+              <img loading="lazy" src="https://api.dicebear.com/7.x/notionists/svg?seed=StudentOne" alt="Profile" className="w-full h-full object-cover"/>
             </div>
             <span className="text-sm font-bold hidden xl:block">Alex Doe</span>
           </div>
@@ -190,10 +190,10 @@ const Profile = () => {
           
           <div className="profile-header">
             <div className="profile-cover">
-              <img src="https://images.unsplash.com/photo-1579546929518-9e396f3cc809?w=1200&q=80" alt="Cover" />
+              <img loading="lazy" src="https://images.unsplash.com/photo-1579546929518-9e396f3cc809?w=1200&q=80" alt="Cover" />
             </div>
             <div className="profile-avatar-container">
-              <img src="https://api.dicebear.com/7.x/notionists/svg?seed=StudentOne" alt="Profile" />
+              <img loading="lazy" src="https://api.dicebear.com/7.x/notionists/svg?seed=StudentOne" alt="Profile" />
               <div className="profile-avatar-overlay">
                 <Camera size={24}/>
               </div>
@@ -254,3 +254,4 @@ const Profile = () => {
 };
 
 export default Profile;
+

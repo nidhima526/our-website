@@ -31,7 +31,7 @@ const ContactPage = () => {
 
     const whatsappMessage = `*New Inquiry via Website*\n*Division:* ${divisionLabel}\n*Name:* ${firstName} ${lastName}\n*Email:* ${email}\n*Message:* ${message}`;
     const encodedMessage = encodeURIComponent(whatsappMessage);
-    const whatsappUrl = `https://wa.me/916281646302?text=${encodedMessage}`;
+    const whatsappUrl = `https://wa.me/918184801842?text=${encodedMessage}`;
     
     window.open(whatsappUrl, '_blank');
     

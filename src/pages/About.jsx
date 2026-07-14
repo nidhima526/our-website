@@ -171,7 +171,7 @@ const About = () => {
             <div className="premium-card overflow-hidden">
               <div className="grid grid-cols-1 lg:grid-cols-5">
                 <div className="lg:col-span-2 bg-slate-100 relative min-h-[350px]">
-                  <img src={founderImage} alt="Advocate Nidhima" className="absolute inset-0 w-full h-full object-cover object-top" />
+                  <img loading="lazy" src={founderImage} alt="Advocate Nidhima" className="absolute inset-0 w-full h-full object-cover object-top" />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent"></div>
                   <div className="absolute bottom-6 left-6 text-white">
                     <h3 className="text-2xl font-bold">Adv. Nidhima</h3>
@@ -285,7 +285,7 @@ const About = () => {
               {team.map((t, idx) => (
                 <div key={idx} className="premium-card p-6 flex flex-col items-center text-center">
                   <div className="w-24 h-24 rounded-full bg-slate-200 mb-4 overflow-hidden shadow-inner border-4 border-white">
-                    <img src={`https://api.dicebear.com/7.x/notionists/svg?seed=${t.name}`} alt={t.name} className="w-full h-full object-cover"/>
+                    <img loading="lazy" src={`https://api.dicebear.com/7.x/notionists/svg?seed=${t.name}`} alt={t.name} className="w-full h-full object-cover"/>
                   </div>
                   <h3 className="font-bold text-lg">{t.name}</h3>
                   <p className="text-primary text-xs font-bold uppercase tracking-wider mb-2 mt-1">{t.role}</p>
@@ -370,3 +370,4 @@ const About = () => {
 };
 
 export default About;
+

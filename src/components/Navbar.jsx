@@ -33,7 +33,7 @@ const Navbar = () => {
           
           {/* Logo */}
           <Link to="/" className="flex items-center group">
-            <img src="/ashervisionlogo.png" alt="ASHERVISION Logo" className="h-10 md:h-12 object-contain mix-blend-screen" />
+            <img loading="lazy" src="/ashervisionlogo.png" alt="ASHERVISION Logo" className="h-10 md:h-12 object-contain mix-blend-screen" />
           </Link>
 
           {/* Desktop Menu */}
@@ -99,3 +99,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+

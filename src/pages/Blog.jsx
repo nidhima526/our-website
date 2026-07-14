@@ -211,7 +211,7 @@ const Blog = () => {
                       <div className="flex items-center justify-between pt-4 border-t border-gray-100">
                         <div className="flex items-center gap-2">
                           <div className="w-8 h-8 rounded-full bg-slate-200 overflow-hidden">
-                            <img src={`https://api.dicebear.com/7.x/notionists/svg?seed=${article.author}`} alt={article.author} className="w-full h-full object-cover"/>
+                            <img loading="lazy" src={`https://api.dicebear.com/7.x/notionists/svg?seed=${article.author}`} alt={article.author} className="w-full h-full object-cover"/>
                           </div>
                           <div>
                             <div className="text-xs font-bold text-main">{article.author}</div>
@@ -299,7 +299,7 @@ const Blog = () => {
               {authors.map((author, idx) => (
                 <div key={idx} className="premium-card p-6 flex items-center gap-4">
                   <div className="w-16 h-16 rounded-full bg-slate-100 overflow-hidden border-2 border-white shadow-sm flex-shrink-0">
-                    <img src={`https://api.dicebear.com/7.x/${author.img}`} alt={author.name} className="w-full h-full object-cover"/>
+                    <img loading="lazy" src={`https://api.dicebear.com/7.x/${author.img}`} alt={author.name} className="w-full h-full object-cover"/>
                   </div>
                   <div>
                     <h4 className="font-bold text-main">{author.name}</h4>
@@ -354,3 +354,4 @@ const Blog = () => {
 };
 
 export default Blog;
+

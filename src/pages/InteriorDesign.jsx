@@ -111,7 +111,7 @@ const InteriorDesign = () => {
           <div className="relative w-full min-h-[85vh] flex flex-col items-center justify-center text-center px-4 overflow-hidden mb-8 shadow-2xl">
             {/* 3D Background Image */}
             <div className="absolute inset-0 z-0 flex items-center justify-center bg-[#0a0a0a]">
-              <img src="/luxury_interior_hero_ai.png" alt="Luxury Interior Design" className="w-full h-full object-cover opacity-80" />
+              <img loading="lazy" src="/luxury_interior_hero_ai.png" alt="Luxury Interior Design" className="w-full h-full object-cover opacity-80" />
               <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a]/70 via-[#0a0a0a]/30 to-[#0a0a0a]"></div>
             </div>
             
@@ -183,7 +183,7 @@ const InteriorDesign = () => {
                 >
                   <div className="w-full aspect-[4/5] sm:h-[400px] bg-[#1a1a1a] flex items-center justify-center relative overflow-hidden">
                     {service.img ? (
-                      <img 
+                      <img loading="lazy" 
                         src={service.img} 
                         alt={service.title} 
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
@@ -318,7 +318,7 @@ const InteriorDesign = () => {
           <div id="cta" className="w-full py-32 relative overflow-hidden flex items-center justify-center bg-[#0a0a0a]">
             {/* Background Image */}
             <div className="absolute inset-0 z-0">
-              <img src="/cta_bg.png" alt="Blueprint CTA" className="w-full h-full object-cover opacity-40" />
+              <img loading="lazy" src="/cta_bg.png" alt="Blueprint CTA" className="w-full h-full object-cover opacity-40" />
             </div>
             
             {/* Gradient Overlay for Text Readability */}
@@ -357,6 +357,7 @@ const InteriorDesign = () => {
 };
 
 export default InteriorDesign;
+
 
 
 

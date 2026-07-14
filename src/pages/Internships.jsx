@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import CorporateLayout from './CorporateLayout';
 import { motion } from 'framer-motion';
 import Hls from 'hls.js';
@@ -9,6 +9,27 @@ import {
 
 const Internships = () => {
   const videoRef = useRef(null);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const name = form.intName.value;
+    const email = form.intEmail.value;
+    const phone = form.intPhone.value;
+    const program = form.program.value;
+    const college = form.intCollege.value;
+
+    const whatsappMessage = `*New Internship Application*\n*Name:* ${name}\n*Email:* ${email}\n*Phone:* ${phone}\n*Program:* ${program}\n*College:* ${college}`;
+    const encodedMessage = encodeURIComponent(whatsappMessage);
+    const whatsappUrl = `https://wa.me/918184801842?text=${encodedMessage}`;
+    
+    window.open(whatsappUrl, '_blank');
+    
+    setIsSubmitted(true);
+    form.reset();
+    setTimeout(() => setIsSubmitted(false), 4000);
+  };
 
   useEffect(() => {
     const video = videoRef.current;
@@ -165,7 +186,7 @@ const Internships = () => {
                       
                       <div className="flex justify-between items-start mb-6 relative z-10">
                         <div className="w-16 h-16 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center overflow-hidden shadow-inner border border-white/10 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500 shrink-0 p-2">
-                          <img src={prog.logo} alt={prog.title} className="w-full h-full object-contain" />
+                          <img loading="lazy" src={prog.logo} alt={prog.title} className="w-full h-full object-contain" />
                         </div>
                         <span className="text-[10px] font-black uppercase tracking-wider px-3 py-1.5 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 font-body">
                           {prog.category}
@@ -201,42 +222,50 @@ const Internships = () => {
                   <h3 className="text-2xl font-extrabold mb-3 text-white tracking-tight relative z-10 font-body">Internship Registration</h3>
                   <p className="text-gray-300 text-sm mb-8 font-light relative z-10 font-body">Applications for the upcoming cohort are currently open. Apply early to secure your spot.</p>
                   
-                  <form className="space-y-6 relative z-10 font-body">
+                  {isSubmitted ? (
+                    <div className="bg-cyan-500/10 border border-cyan-500/30 rounded-2xl p-10 text-center relative z-10 font-body mt-6">
+                      <CheckCircle2 size={64} className="text-cyan-400 mx-auto mb-6 drop-shadow-[0_0_15px_rgba(6,182,212,0.5)]" />
+                      <h3 className="text-2xl font-bold text-white mb-3">Application Sent!</h3>
+                      <p className="text-cyan-100 text-lg">Your application has been redirected to WhatsApp.</p>
+                    </div>
+                  ) : (
+                  <form onSubmit={handleSubmit} className="space-y-6 relative z-10 font-body mt-6">
                     <div className="relative group">
-                      <input type="text" id="intName" className="block w-full px-5 py-4 text-white bg-black/40 border border-white/10 rounded-xl appearance-none focus:outline-none focus:border-cyan-500 focus:bg-black/60 peer transition-all placeholder-transparent" placeholder="Full Name" required />
+                      <input type="text" name="intName" id="intName" className="block w-full px-5 py-4 text-white bg-black/40 border border-white/10 rounded-xl appearance-none focus:outline-none focus:border-cyan-500 focus:bg-black/60 peer transition-all placeholder-transparent" placeholder="Full Name" required />
                       <label htmlFor="intName" className="absolute text-sm text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-black/80 px-2 peer-focus:px-2 peer-focus:text-cyan-400 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-placeholder-shown:bg-transparent peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 peer-focus:bg-black/80 left-3 rounded-md">Full Name</label>
                     </div>
                     
                     <div className="relative group">
-                      <input type="email" id="intEmail" className="block w-full px-5 py-4 text-white bg-black/40 border border-white/10 rounded-xl appearance-none focus:outline-none focus:border-cyan-500 focus:bg-black/60 peer transition-all placeholder-transparent" placeholder="Email Address" required />
+                      <input type="email" name="intEmail" id="intEmail" className="block w-full px-5 py-4 text-white bg-black/40 border border-white/10 rounded-xl appearance-none focus:outline-none focus:border-cyan-500 focus:bg-black/60 peer transition-all placeholder-transparent" placeholder="Email Address" required />
                       <label htmlFor="intEmail" className="absolute text-sm text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-black/80 px-2 peer-focus:px-2 peer-focus:text-cyan-400 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-placeholder-shown:bg-transparent peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 peer-focus:bg-black/80 left-3 rounded-md">Email Address</label>
                     </div>
 
                     <div className="relative group">
-                      <input type="tel" id="intPhone" className="block w-full px-5 py-4 text-white bg-black/40 border border-white/10 rounded-xl appearance-none focus:outline-none focus:border-cyan-500 focus:bg-black/60 peer transition-all placeholder-transparent" placeholder="Phone Number" required />
+                      <input type="tel" name="intPhone" id="intPhone" className="block w-full px-5 py-4 text-white bg-black/40 border border-white/10 rounded-xl appearance-none focus:outline-none focus:border-cyan-500 focus:bg-black/60 peer transition-all placeholder-transparent" placeholder="Phone Number" required />
                       <label htmlFor="intPhone" className="absolute text-sm text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-black/80 px-2 peer-focus:px-2 peer-focus:text-cyan-400 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-placeholder-shown:bg-transparent peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 peer-focus:bg-black/80 left-3 rounded-md">Phone Number</label>
                     </div>
                     
                     <div>
-                      <select className="block w-full px-5 py-4 text-white bg-black/40 border border-white/10 rounded-xl focus:outline-none focus:border-cyan-500 focus:bg-black/60 transition-colors appearance-none font-medium">
-                        <option value="" disabled selected className="text-gray-900">Select Program</option>
-                        <option className="text-gray-900">Python Development</option>
-                        <option className="text-gray-900">Web Development</option>
-                        <option className="text-gray-900">AI Engineering</option>
-                        <option className="text-gray-900">UI/UX Design</option>
-                        <option className="text-gray-900">Digital Marketing</option>
+                      <select name="program" defaultValue="" required className="block w-full px-5 py-4 text-white bg-black/40 border border-white/10 rounded-xl focus:outline-none focus:border-cyan-500 focus:bg-black/60 transition-colors appearance-none font-medium">
+                        <option value="" disabled className="text-gray-900">Select Program</option>
+                        <option value="Python Development" className="text-gray-900">Python Development</option>
+                        <option value="Web Development" className="text-gray-900">Web Development</option>
+                        <option value="AI Engineering" className="text-gray-900">AI Engineering</option>
+                        <option value="UI/UX Design" className="text-gray-900">UI/UX Design</option>
+                        <option value="Digital Marketing" className="text-gray-900">Digital Marketing</option>
                       </select>
                     </div>
                     
                     <div className="relative group">
-                      <input type="text" id="intCollege" className="block w-full px-5 py-4 text-white bg-black/40 border border-white/10 rounded-xl appearance-none focus:outline-none focus:border-cyan-500 focus:bg-black/60 peer transition-all placeholder-transparent" placeholder="College / University" required />
+                      <input type="text" name="intCollege" id="intCollege" className="block w-full px-5 py-4 text-white bg-black/40 border border-white/10 rounded-xl appearance-none focus:outline-none focus:border-cyan-500 focus:bg-black/60 peer transition-all placeholder-transparent" placeholder="College / University" required />
                       <label htmlFor="intCollege" className="absolute text-sm text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-black/80 px-2 peer-focus:px-2 peer-focus:text-cyan-400 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-placeholder-shown:bg-transparent peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 peer-focus:bg-black/80 left-3 rounded-md">College / University</label>
                     </div>
 
-                    <button type="button" className="w-full mt-6 py-4 rounded-xl shadow-[0_10px_20px_rgba(6,182,212,0.3)] bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white hover:shadow-[0_15px_30px_rgba(6,182,212,0.5)] hover:-translate-y-1 transition-all duration-300 text-sm font-extrabold uppercase tracking-widest flex items-center justify-center gap-2 group">
+                    <button type="submit" className="w-full mt-6 py-4 rounded-xl shadow-[0_10px_20px_rgba(6,182,212,0.3)] bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white hover:shadow-[0_15px_30px_rgba(6,182,212,0.5)] hover:-translate-y-1 transition-all duration-300 text-sm font-extrabold uppercase tracking-widest flex items-center justify-center gap-2 group">
                       Submit Application <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                     </button>
                   </form>
+                  )}
                 </motion.div>
               </div>
 
@@ -250,3 +279,4 @@ const Internships = () => {
 };
 
 export default Internships;
+

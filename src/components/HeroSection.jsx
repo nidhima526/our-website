@@ -54,7 +54,7 @@ const HeroSection = () => {
         >
           <div className="professional-image-wrapper">
             <div className="professional-image overflow-hidden shadow-2xl rounded-2xl relative" style={{ height: '400px', width: '100%', position: 'relative' }}>
-              <img src={heroImage} alt="Professional Team" className="w-full h-full object-cover object-center absolute inset-0" />
+              <img loading="lazy" src={heroImage} alt="Professional Team" className="w-full h-full object-cover object-center absolute inset-0" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
             </div>
             
@@ -90,3 +90,4 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
+

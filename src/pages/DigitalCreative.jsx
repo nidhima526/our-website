@@ -322,7 +322,7 @@ const DigitalCreative = () => {
                   className="bg-media w-full h-full object-cover origin-center opacity-70"
                 />
               ) : (
-                <img 
+                <img loading="lazy" 
                   src={service.bgImage} 
                   alt={service.title}
                   className="bg-media w-full h-full object-cover origin-center opacity-70"
@@ -373,7 +373,7 @@ const DigitalCreative = () => {
                   className="group relative bg-white/[0.02] border border-white/5 rounded-3xl overflow-hidden hover:border-white/20 transition-all duration-500 flex flex-col"
                 >
                   <div className="h-48 w-full relative overflow-hidden shrink-0">
-                    <img src={step.image} alt={step.title} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-1000" />
+                    <img loading="lazy" src={step.image} alt={step.title} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-1000" />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#000510] to-transparent"></div>
                     <div className="absolute top-6 left-6 text-6xl font-sans font-black italic tracking-tighter text-white/10 group-hover:text-blue-500/20 transition-colors duration-500">
                       {step.id}
@@ -411,7 +411,7 @@ const DigitalCreative = () => {
           
           {/* FULL SECTION BACKGROUND IMAGE */}
           <div className="absolute inset-0 z-0">
-            <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=2070&auto=format&fit=crop" alt="Edit Suite setup" className="w-full h-full object-cover opacity-40 object-right mix-blend-luminosity" />
+            <img loading="lazy" src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=2070&auto=format&fit=crop" alt="Edit Suite setup" className="w-full h-full object-cover opacity-40 object-right mix-blend-luminosity" />
             <div className="absolute inset-0 bg-gradient-to-r from-[#030712] via-[#030712]/80 to-transparent"></div>
             <div className="absolute inset-0 bg-gradient-to-t from-[#030712] via-transparent to-[#030712]"></div>
           </div>
@@ -441,9 +441,9 @@ const DigitalCreative = () => {
           {/* Floating Badge over the background */}
           <div className="absolute bottom-10 right-6 lg:right-20 bg-black/60 backdrop-blur-xl border border-white/10 px-6 py-3 rounded-full flex items-center gap-3 shadow-[0_10px_40px_rgba(0,0,0,0.8)] z-20">
             <div className="flex -space-x-3">
-              <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client" className="w-10 h-10 rounded-full border-2 border-[#0a0a0a]" />
-              <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Client" className="w-10 h-10 rounded-full border-2 border-[#0a0a0a]" />
-              <img src="https://randomuser.me/api/portraits/men/68.jpg" alt="Client" className="w-10 h-10 rounded-full border-2 border-[#0a0a0a]" />
+              <img loading="lazy" src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client" className="w-10 h-10 rounded-full border-2 border-[#0a0a0a]" />
+              <img loading="lazy" src="https://randomuser.me/api/portraits/women/44.jpg" alt="Client" className="w-10 h-10 rounded-full border-2 border-[#0a0a0a]" />
+              <img loading="lazy" src="https://randomuser.me/api/portraits/men/68.jpg" alt="Client" className="w-10 h-10 rounded-full border-2 border-[#0a0a0a]" />
             </div>
             <span className="text-white font-sans font-bold text-sm ml-2">100M+ Views Generated</span>
           </div>
@@ -474,7 +474,7 @@ const DigitalCreative = () => {
                     <p className="text-gray-300 text-base md:text-lg font-sans font-light leading-relaxed mb-8 flex-grow">"{test.quote}"</p>
                     <div className="flex items-center gap-4">
                       {test.image ? (
-                        <img src={test.image} alt={test.name} className="w-12 h-12 rounded-full object-cover border border-white/10 shadow-[0_0_15px_rgba(255,255,255,0.1)]" />
+                        <img loading="lazy" src={test.image} alt={test.name} className="w-12 h-12 rounded-full object-cover border border-white/10 shadow-[0_0_15px_rgba(255,255,255,0.1)]" />
                       ) : (
                         <div className="w-12 h-12 rounded-full bg-white/10 border border-white/10 flex items-center justify-center text-white font-sans font-black text-xl uppercase">
                           {test.name.charAt(0)}
@@ -524,3 +524,4 @@ const DigitalCreative = () => {
 };
 
 export default DigitalCreative;
+

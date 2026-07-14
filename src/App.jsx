@@ -17,6 +17,7 @@ import InteriorDesign from './pages/InteriorDesign';
 import StudentDashboard from './pages/StudentDashboard';
 import BusinessDashboard from './pages/BusinessDashboard';
 import AIChatbot from './components/AIChatbot';
+import CookieConsent from './components/CookieConsent';
 import ScrollToTop from './components/ScrollToTop';
 // Wrapper to handle dynamic SEO titles
 const PageWrapper = ({ title, children }) => {
@@ -34,26 +35,29 @@ const PageWrapper = ({ title, children }) => {
 };
 
 // Custom Splash Screen Component
-const SplashScreen = () => (
+const SplashScreen = ({ onComplete }) => (
   <motion.div 
     initial={{ opacity: 1 }}
     exit={{ opacity: 0 }}
     transition={{ duration: 0.8, ease: "easeInOut" }}
-    className="fixed inset-0 z-[9999] bg-[#050b14] flex flex-col items-center justify-center"
+    className="fixed inset-0 z-[9999] bg-black flex flex-col items-center justify-center overflow-hidden"
   >
-    <motion.div
-      initial={{ scale: 0.8, opacity: 0 }}
-      animate={{ scale: 1, opacity: 1 }}
-      transition={{ duration: 1, ease: "easeOut" }}
-      className="flex flex-col items-center"
+    <video
+      autoPlay
+      muted
+      playsInline
+      onEnded={onComplete}
+      className="w-full h-full object-cover"
     >
-      <div className="w-auto h-32 mb-6 relative flex items-center justify-center">
-        {/* Glow effect */}
-        <div className="absolute inset-0 bg-yellow-500/20 rounded-full blur-[40px] animate-pulse"></div>
-        {/* Logo Image */}
-        <img src="/ashervisionlogo.png" alt="ASHERVISION Logo" className="h-full object-contain relative z-10 mix-blend-screen" />
-      </div>
-    </motion.div>
+      <source src="/opening_vedio.mp4" type="video/mp4" />
+    </video>
+    
+    <button 
+      onClick={onComplete}
+      className="absolute bottom-8 right-8 text-white/50 hover:text-white border border-white/20 hover:bg-white/10 px-4 py-2 rounded-full backdrop-blur-md transition-all text-sm tracking-widest uppercase z-10"
+    >
+      Skip
+    </button>
   </motion.div>
 );
 
@@ -119,7 +123,7 @@ const GrandOpeningSplash = ({ pageName, onOpen, isOpening }) => (
       transition={{ duration: 0.6, ease: "easeIn" }}
       className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-25 w-full max-w-[800px] px-4 flex justify-center pointer-events-none"
     >
-      <img src="/ai_ribbon_gold.png" alt="Grand Opening Ribbon" className="w-full object-contain drop-shadow-[0_0_50px_rgba(234,179,8,0.5)]" />
+      <img loading="lazy" src="/ai_ribbon_gold.png" alt="Grand Opening Ribbon" className="w-full object-contain drop-shadow-[0_0_50px_rgba(234,179,8,0.5)]" />
     </motion.div>
 
     {/* CENTERED TEXT OVERLAY */}
@@ -163,9 +167,10 @@ function App() {
   const { pathname } = useLocation();
   const [initialLoading, setInitialLoading] = useState(true);
 
-  // Initial Load Timer
+  // Initial Load Timer Fallback
   useEffect(() => {
-    const timer = setTimeout(() => setInitialLoading(false), 2200);
+    // Fallback timer just in case video fails to load or play
+    const timer = setTimeout(() => setInitialLoading(false), 15000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -209,7 +214,7 @@ function App() {
   return (
     <>
       <AnimatePresence>
-        {initialLoading && <SplashScreen />}
+        {initialLoading && <SplashScreen onComplete={() => setInitialLoading(false)} />}
       </AnimatePresence>
 
       {!initialLoading && (
@@ -235,7 +240,7 @@ function App() {
 
       {/* Global Minimal Dark Background (Tharun Speaks Inspired) */}
       <div className="fixed inset-0 z-[-1] bg-[#030712] pointer-events-none">
-        <img src="/creative-bg.png" alt="Global Background" className="absolute inset-0 w-full h-full object-cover opacity-70 mix-blend-screen" />
+        <img loading="lazy" src="/creative-bg.png" alt="Global Background" className="absolute inset-0 w-full h-full object-cover opacity-70 mix-blend-screen" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#030712_100%)] opacity-80 pointer-events-none"></div>
       </div>
 
@@ -255,8 +260,12 @@ function App() {
 
       {/* AI Chatbot */}
       <AIChatbot />
+
+      {/* Cookie Consent Banner */}
+      <CookieConsent />
     </>
   );
 }
 
 export default App;
+

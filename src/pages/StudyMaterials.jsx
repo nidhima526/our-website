@@ -153,7 +153,7 @@ const StudyMaterials = () => {
           </button>
           <div className="flex items-center gap-2 ml-2 cursor-pointer hover:bg-slate-50 p-1 pr-2 rounded-full border border-transparent hover:border-slate-200 transition-all">
             <div className="w-8 h-8 rounded-full bg-slate-200 overflow-hidden">
-              <img src="https://api.dicebear.com/7.x/notionists/svg?seed=StudentOne" alt="Profile" className="w-full h-full object-cover"/>
+              <img loading="lazy" src="https://api.dicebear.com/7.x/notionists/svg?seed=StudentOne" alt="Profile" className="w-full h-full object-cover"/>
             </div>
             <span className="text-sm font-bold hidden xl:block">Alex Doe</span>
           </div>
@@ -214,7 +214,7 @@ const StudyMaterials = () => {
               <div key={product.id} className="sm-product-card">
                 <div className="sm-product-cover">
                   {product.premium && <div className="sm-product-badge premium">Premium</div>}
-                  <img src={product.image} alt={product.title} />
+                  <img loading="lazy" src={product.image} alt={product.title} />
                   {product.purchased && (
                     <div className="absolute inset-0 bg-black/60 flex items-center justify-center backdrop-blur-sm z-20">
                       <div className="bg-white text-slate-900 font-bold px-4 py-2 rounded-lg flex items-center gap-2">
@@ -288,7 +288,7 @@ const StudyMaterials = () => {
                   {cart.map(item => (
                     <div key={item.id} className="flex gap-4 p-3 border border-slate-100 rounded-lg relative group">
                       <div className="w-20 h-20 bg-slate-100 rounded overflow-hidden flex-shrink-0">
-                        <img src={item.image} alt="thumb" className="w-full h-full object-cover"/>
+                        <img loading="lazy" src={item.image} alt="thumb" className="w-full h-full object-cover"/>
                       </div>
                       <div className="flex-1 pr-6">
                         <h4 className="font-bold text-sm mb-1 line-clamp-2">{item.title}</h4>
@@ -330,3 +330,4 @@ const StudyMaterials = () => {
 };
 
 export default StudyMaterials;
+

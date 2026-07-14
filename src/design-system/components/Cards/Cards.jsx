@@ -24,7 +24,7 @@ export const StatisticCard = ({ title, value, icon, trend, trendLabel }) => (
 export const ProfileCard = ({ name, role, avatar, bio, children }) => (
   <div className="ds-card ds-profile-card text-center flex flex-col items-center">
     <div className="ds-avatar mb-4">
-      {avatar ? <img src={avatar} alt={name} /> : <span>{name.charAt(0)}</span>}
+      {avatar ? <img loading="lazy" src={avatar} alt={name} /> : <span>{name.charAt(0)}</span>}
     </div>
     <h3 className="ds-profile-name">{name}</h3>
     <p className="small-text mb-4">{role}</p>
@@ -56,3 +56,4 @@ export const PricingCard = ({ title, price, period, features, isPopular, buttonT
     </button>
   </div>
 );
+

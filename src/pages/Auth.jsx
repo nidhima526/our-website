@@ -64,10 +64,10 @@ const Auth = () => {
 
   const SocialButtons = () => (
     <div className="auth-social-grid">
-      <button className="auth-social-btn"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" alt="Google" className="w-5 h-5"/> Google</button>
-      <button className="auth-social-btn"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apple/apple-original.svg" alt="Apple" className="w-5 h-5 dark:invert"/> Apple</button>
-      <button className="auth-social-btn"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" className="w-5 h-5 dark:invert"/> GitHub</button>
-      <button className="auth-social-btn"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoft/microsoft-original.svg" alt="Microsoft" className="w-5 h-5"/> Microsoft</button>
+      <button className="auth-social-btn"><img loading="lazy" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" alt="Google" className="w-5 h-5"/> Google</button>
+      <button className="auth-social-btn"><img loading="lazy" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apple/apple-original.svg" alt="Apple" className="w-5 h-5 dark:invert"/> Apple</button>
+      <button className="auth-social-btn"><img loading="lazy" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" className="w-5 h-5 dark:invert"/> GitHub</button>
+      <button className="auth-social-btn"><img loading="lazy" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoft/microsoft-original.svg" alt="Microsoft" className="w-5 h-5"/> Microsoft</button>
     </div>
   );
 
@@ -440,3 +440,4 @@ const Auth = () => {
 };
 
 export default Auth;
+

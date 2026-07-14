@@ -165,7 +165,7 @@ const TechnologyServices = () => {
         {featuredServices.map((service, idx) => (
           <section key={idx} ref={(el) => setPanelRef(el, idx)} className="relative w-full h-screen overflow-hidden bg-[#050505]">
             <div className="absolute inset-0 z-0">
-              <img 
+              <img loading="lazy" 
                 src={service.mediaUrl} 
                 alt={service.title}
                 className="bg-media w-full h-full object-cover origin-center opacity-80"
@@ -222,7 +222,7 @@ const TechnologyServices = () => {
                         <source src={category.video} type="video/mp4" />
                       </video>
                     ) : (
-                      <img src={category.image} alt={category.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                      <img loading="lazy" src={category.image} alt={category.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                     )}
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] to-transparent"></div>
                   </div>
@@ -267,3 +267,4 @@ const TechnologyServices = () => {
 };
 
 export default TechnologyServices;
+

@@ -132,7 +132,7 @@ const Home = () => {
                   </>
                 )
               ) : (
-                <img 
+                <img loading="lazy" 
                   src={heroSlides[currentSlide].bgImage} 
                   alt={heroSlides[currentSlide].title}
                   className="w-full h-full object-cover"
@@ -272,7 +272,7 @@ const Home = () => {
                             </>
                           )
                         ) : (
-                          <img src={service.image} alt={service.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out" />
+                          <img loading="lazy" src={service.image} alt={service.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out" />
                         )}
                         <div className="absolute inset-0 z-20 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/50 to-transparent"></div>
                       </div>
@@ -422,3 +422,4 @@ const Home = () => {
 };
 
 export default Home;
+

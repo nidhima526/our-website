@@ -83,7 +83,7 @@ const Assignments = () => {
           </button>
           <div className="flex items-center gap-2 ml-2 cursor-pointer hover:bg-slate-50 p-1 pr-2 rounded-full border border-transparent hover:border-slate-200 transition-all">
             <div className="w-8 h-8 rounded-full bg-slate-200 overflow-hidden">
-              <img src="https://api.dicebear.com/7.x/notionists/svg?seed=StudentOne" alt="Profile" className="w-full h-full object-cover"/>
+              <img loading="lazy" src="https://api.dicebear.com/7.x/notionists/svg?seed=StudentOne" alt="Profile" className="w-full h-full object-cover"/>
             </div>
             <span className="text-sm font-bold hidden xl:block">Alex Doe</span>
           </div>
@@ -450,7 +450,7 @@ var twoSum = function(nums, target) {
                 <div className="p-3 rounded-lg border border-slate-100 hover:border-primary transition-colors cursor-pointer bg-slate-50 relative group">
                   <div className="absolute top-3 right-3 text-primary opacity-0 group-hover:opacity-100 transition-opacity"><ChevronRight size={14}/></div>
                   <div className="flex items-center gap-2 mb-2">
-                    <div className="w-6 h-6 rounded-full bg-slate-200 overflow-hidden"><img src="https://api.dicebear.com/7.x/notionists/svg?seed=Elena" alt="Inst"/></div>
+                    <div className="w-6 h-6 rounded-full bg-slate-200 overflow-hidden"><img loading="lazy" src="https://api.dicebear.com/7.x/notionists/svg?seed=Elena" alt="Inst"/></div>
                     <span className="text-xs font-bold">Elena V.</span>
                   </div>
                   <div className="font-bold text-sm mb-1">UI Wireframes</div>
@@ -483,3 +483,4 @@ var twoSum = function(nums, target) {
 };
 
 export default Assignments;
+

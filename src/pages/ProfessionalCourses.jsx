@@ -237,7 +237,7 @@ const ProfessionalCourses = () => {
                 
                 {/* Simulated Video Player */}
                 <div className="aspect-video bg-black rounded-xl border border-slate-700 relative flex items-center justify-center group cursor-pointer overflow-hidden shadow-2xl">
-                  <img src={codingImage} alt="Coding workspace" className="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-30 transition-opacity" />
+                  <img loading="lazy" src={codingImage} alt="Coding workspace" className="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-30 transition-opacity" />
                   <div className="w-16 h-16 bg-primary/90 backdrop-blur rounded-full flex items-center justify-center z-10 group-hover:scale-110 transition-transform">
                     <Play size={24} className="text-white ml-1 fill-white"/>
                   </div>
@@ -327,7 +327,7 @@ const ProfessionalCourses = () => {
               {instructors.map((inst, idx) => (
                 <div key={idx} className="premium-card p-6 flex flex-col items-center text-center">
                   <div className="w-20 h-20 rounded-full bg-slate-200 mb-4 overflow-hidden">
-                    <img src={`https://api.dicebear.com/7.x/notionists/svg?seed=${inst.name}`} alt={inst.name} className="w-full h-full object-cover"/>
+                    <img loading="lazy" src={`https://api.dicebear.com/7.x/notionists/svg?seed=${inst.name}`} alt={inst.name} className="w-full h-full object-cover"/>
                   </div>
                   <h3 className="font-bold text-lg">{inst.name}</h3>
                   <p className="text-primary text-xs font-bold uppercase tracking-wider mb-4 mt-1">{inst.expert}</p>
@@ -431,3 +431,4 @@ const ProfessionalCourses = () => {
 };
 
 export default ProfessionalCourses;
+

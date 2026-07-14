@@ -173,7 +173,7 @@ const MyCourses = () => {
           
           <div className="flex items-center gap-2 ml-2 cursor-pointer hover:bg-slate-50 p-1 pr-2 rounded-full border border-transparent hover:border-slate-200 transition-all">
             <div className="w-8 h-8 rounded-full bg-slate-200 overflow-hidden">
-              <img src="https://api.dicebear.com/7.x/notionists/svg?seed=StudentOne" alt="Profile" className="w-full h-full object-cover"/>
+              <img loading="lazy" src="https://api.dicebear.com/7.x/notionists/svg?seed=StudentOne" alt="Profile" className="w-full h-full object-cover"/>
             </div>
             <span className="text-sm font-bold hidden xl:block">Alex Doe</span>
             <ChevronDown size={14} className="text-slate-400 hidden xl:block"/>
@@ -244,7 +244,7 @@ const MyCourses = () => {
                 <h2 className="text-lg font-bold mb-4 flex items-center gap-2"><PlayCircle size={20} className="text-primary"/> Continue Learning</h2>
                 <div className="mc-continue-card group">
                   <div className="mc-continue-thumb">
-                    <img src={activeCourse.image} alt={activeCourse.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                    <img loading="lazy" src={activeCourse.image} alt={activeCourse.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
                     <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                       <div className="w-14 h-14 bg-white/20 backdrop-blur rounded-full flex items-center justify-center">
                         <Play size={24} className="text-white fill-white ml-1"/>
@@ -314,7 +314,7 @@ const MyCourses = () => {
                 {filteredCourses.map(course => (
                   <div key={course.id} className="mc-course-card group">
                     <div className="mc-course-thumb">
-                      <img src={course.image} alt={course.title} />
+                      <img loading="lazy" src={course.image} alt={course.title} />
                       <div className="mc-course-badge">{course.category}</div>
                       <button className={`mc-course-fav ${course.isFavorite ? 'active' : ''}`}>
                         <Bookmark size={16} className={course.isFavorite ? "fill-red-500 text-red-500" : ""} />
@@ -385,7 +385,7 @@ const MyCourses = () => {
                 {myCoursesData.filter(c => c.progress > 0).map(course => (
                   <div key={`recent-${course.id}`} className="mc-carousel-item lms-card p-3 flex items-center gap-4 hover:border-primary cursor-pointer transition-colors group">
                     <div className="w-20 h-14 rounded-lg overflow-hidden relative flex-shrink-0">
-                      <img src={course.image} alt={course.title} className="w-full h-full object-cover"/>
+                      <img loading="lazy" src={course.image} alt={course.title} className="w-full h-full object-cover"/>
                       <div className="absolute inset-0 bg-black/20 flex items-center justify-center group-hover:bg-black/40 transition-colors">
                         <Play size={16} className="text-white"/>
                       </div>
@@ -488,3 +488,4 @@ const MyCourses = () => {
 };
 
 export default MyCourses;
+

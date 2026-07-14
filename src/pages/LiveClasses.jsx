@@ -112,7 +112,7 @@ const LiveClasses = () => {
           </button>
           <div className="flex items-center gap-2 ml-2 cursor-pointer hover:bg-slate-50 p-1 pr-2 rounded-full border border-transparent hover:border-slate-200 transition-all">
             <div className="w-8 h-8 rounded-full bg-slate-200 overflow-hidden">
-              <img src="https://api.dicebear.com/7.x/notionists/svg?seed=StudentOne" alt="Profile" className="w-full h-full object-cover"/>
+              <img loading="lazy" src="https://api.dicebear.com/7.x/notionists/svg?seed=StudentOne" alt="Profile" className="w-full h-full object-cover"/>
             </div>
             <span className="text-sm font-bold hidden xl:block">Alex Doe</span>
           </div>
@@ -137,7 +137,7 @@ const LiveClasses = () => {
           {/* Active Live Class Hero */}
           <div className="live-hero">
             <div className="live-hero-image">
-              <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&q=80" alt="Webinar" />
+              <img loading="lazy" src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&q=80" alt="Webinar" />
             </div>
             <div className="live-hero-content">
               <div className="live-indicator">
@@ -150,7 +150,7 @@ const LiveClasses = () => {
               <div className="flex flex-wrap items-center gap-6 mb-8">
                 <div className="flex items-center gap-2">
                   <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-white/20">
-                    <img src="https://api.dicebear.com/7.x/notionists/svg?seed=DrRao" alt="Instructor" />
+                    <img loading="lazy" src="https://api.dicebear.com/7.x/notionists/svg?seed=DrRao" alt="Instructor" />
                   </div>
                   <div>
                     <div className="text-sm font-bold">Dr. Rao</div>
@@ -212,7 +212,7 @@ const LiveClasses = () => {
                 
                 <div className="flex items-center gap-3 mb-6 mt-auto">
                   <div className="w-8 h-8 rounded-full overflow-hidden bg-slate-200">
-                    <img src={`https://api.dicebear.com/7.x/notionists/svg?seed=${cls.instructor.replace(" ", "")}`} alt={cls.instructor} />
+                    <img loading="lazy" src={`https://api.dicebear.com/7.x/notionists/svg?seed=${cls.instructor.replace(" ", "")}`} alt={cls.instructor} />
                   </div>
                   <div>
                     <div className="text-xs text-muted uppercase tracking-wider">Instructor</div>
@@ -237,3 +237,4 @@ const LiveClasses = () => {
 };
 
 export default LiveClasses;
+

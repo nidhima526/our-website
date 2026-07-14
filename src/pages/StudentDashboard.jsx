@@ -115,7 +115,7 @@ const StudentDashboard = () => {
           
           <div className="flex items-center gap-2 ml-2 cursor-pointer hover:bg-slate-50 p-1 pr-2 rounded-full border border-transparent hover:border-slate-200 transition-all">
             <div className="w-8 h-8 rounded-full bg-slate-200 overflow-hidden">
-              <img src="https://api.dicebear.com/7.x/notionists/svg?seed=StudentOne" alt="Profile" className="w-full h-full object-cover"/>
+              <img loading="lazy" src="https://api.dicebear.com/7.x/notionists/svg?seed=StudentOne" alt="Profile" className="w-full h-full object-cover"/>
             </div>
             <span className="text-sm font-bold hidden xl:block">Student</span>
             <ChevronDown size={14} className="text-slate-400 hidden xl:block"/>
@@ -350,7 +350,7 @@ const StudentDashboard = () => {
             {/* User Profile Summary */}
             <div className="flex items-center gap-4 mb-8">
               <div className="w-12 h-12 rounded-full bg-slate-200 overflow-hidden shadow-sm">
-                <img src="https://api.dicebear.com/7.x/notionists/svg?seed=StudentOne" alt="Profile" className="w-full h-full object-cover"/>
+                <img loading="lazy" src="https://api.dicebear.com/7.x/notionists/svg?seed=StudentOne" alt="Profile" className="w-full h-full object-cover"/>
               </div>
               <div>
                 <div className="font-bold text-main leading-tight">Student Name</div>
@@ -401,7 +401,7 @@ const StudentDashboard = () => {
               <div className="space-y-3">
                 <div className="flex items-center gap-3 p-2 rounded-lg hover:bg-slate-50 transition-colors">
                   <div className="font-bold text-slate-400 text-xs w-3">1</div>
-                  <div className="w-8 h-8 rounded-full bg-slate-200 overflow-hidden"><img src="https://api.dicebear.com/7.x/notionists/svg?seed=Alex" alt="User" className="w-full h-full object-cover"/></div>
+                  <div className="w-8 h-8 rounded-full bg-slate-200 overflow-hidden"><img loading="lazy" src="https://api.dicebear.com/7.x/notionists/svg?seed=Alex" alt="User" className="w-full h-full object-cover"/></div>
                   <div className="flex-1 overflow-hidden">
                     <div className="text-sm font-bold truncate">Alex M.</div>
                   </div>
@@ -409,7 +409,7 @@ const StudentDashboard = () => {
                 </div>
                 <div className="flex items-center gap-3 p-2 rounded-lg hover:bg-slate-50 transition-colors bg-blue-50 border border-blue-100">
                   <div className="font-bold text-primary text-xs w-3">2</div>
-                  <div className="w-8 h-8 rounded-full bg-slate-200 overflow-hidden"><img src="https://api.dicebear.com/7.x/notionists/svg?seed=StudentOne" alt="User" className="w-full h-full object-cover"/></div>
+                  <div className="w-8 h-8 rounded-full bg-slate-200 overflow-hidden"><img loading="lazy" src="https://api.dicebear.com/7.x/notionists/svg?seed=StudentOne" alt="User" className="w-full h-full object-cover"/></div>
                   <div className="flex-1 overflow-hidden">
                     <div className="text-sm font-bold truncate">You</div>
                   </div>
@@ -431,3 +431,4 @@ function ChevronLeft({size}) { return <svg width={size} height={size} viewBox="0
 function ChevronRight({size}) { return <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>; }
 
 export default StudentDashboard;
+

@@ -80,7 +80,7 @@ const Messages = () => {
           </button>
           <div className="flex items-center gap-2 ml-2 cursor-pointer hover:bg-slate-50 p-1 pr-2 rounded-full border border-transparent hover:border-slate-200 transition-all">
             <div className="w-8 h-8 rounded-full bg-slate-200 overflow-hidden">
-              <img src="https://api.dicebear.com/7.x/notionists/svg?seed=StudentOne" alt="Profile" className="w-full h-full object-cover"/>
+              <img loading="lazy" src="https://api.dicebear.com/7.x/notionists/svg?seed=StudentOne" alt="Profile" className="w-full h-full object-cover"/>
             </div>
           </div>
         </div>
@@ -118,7 +118,7 @@ const Messages = () => {
                           {chat.image}
                         </div>
                       ) : (
-                        <img src={`https://api.dicebear.com/7.x/notionists/svg?seed=${chat.image}`} alt={chat.name}/>
+                        <img loading="lazy" src={`https://api.dicebear.com/7.x/notionists/svg?seed=${chat.image}`} alt={chat.name}/>
                       )}
                       {chat.online && <div className="online-dot"></div>}
                     </div>
@@ -168,7 +168,7 @@ const Messages = () => {
                   <div key={msg.id} className={`message-row ${msg.isMe ? 'me' : ''}`}>
                     {!msg.isMe && (
                       <div className="w-8 h-8 rounded-full overflow-hidden bg-slate-200 flex-shrink-0 self-end mb-4">
-                        <img src={`https://api.dicebear.com/7.x/notionists/svg?seed=${msg.avatar}`} alt={msg.sender}/>
+                        <img loading="lazy" src={`https://api.dicebear.com/7.x/notionists/svg?seed=${msg.avatar}`} alt={msg.sender}/>
                       </div>
                     )}
                     <div>
@@ -208,3 +208,4 @@ const Messages = () => {
 };
 
 export default Messages;
+

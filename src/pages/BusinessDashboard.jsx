@@ -82,7 +82,7 @@ const BusinessDashboard = () => {
           
           <div className="flex items-center gap-2 ml-2 cursor-pointer hover:bg-slate-50 p-1 pr-2 rounded-full border border-transparent hover:border-slate-200 transition-all">
             <div className="w-8 h-8 rounded-full bg-slate-200 overflow-hidden">
-              <img src="https://api.dicebear.com/7.x/notionists/svg?seed=AcmeCorp" alt="Profile" className="w-full h-full object-cover"/>
+              <img loading="lazy" src="https://api.dicebear.com/7.x/notionists/svg?seed=AcmeCorp" alt="Profile" className="w-full h-full object-cover"/>
             </div>
             <div className="hidden xl:block">
               <span className="text-sm font-bold block leading-none">Acme Corp</span>
@@ -403,8 +403,8 @@ const BusinessDashboard = () => {
                   </div>
                   <h4 className="text-sm font-bold mb-3">Project Review: Phase 2</h4>
                   <div className="flex -space-x-2 mb-4">
-                    <div className="w-6 h-6 rounded-full border-2 border-slate-900 bg-slate-200 overflow-hidden"><img src="https://api.dicebear.com/7.x/notionists/svg?seed=Nidhima" alt="User"/></div>
-                    <div className="w-6 h-6 rounded-full border-2 border-slate-900 bg-slate-200 overflow-hidden"><img src="https://api.dicebear.com/7.x/notionists/svg?seed=Dev" alt="User"/></div>
+                    <div className="w-6 h-6 rounded-full border-2 border-slate-900 bg-slate-200 overflow-hidden"><img loading="lazy" src="https://api.dicebear.com/7.x/notionists/svg?seed=Nidhima" alt="User"/></div>
+                    <div className="w-6 h-6 rounded-full border-2 border-slate-900 bg-slate-200 overflow-hidden"><img loading="lazy" src="https://api.dicebear.com/7.x/notionists/svg?seed=Dev" alt="User"/></div>
                   </div>
                   <button className="w-full bg-primary hover:bg-blue-600 text-white text-xs font-bold py-2 rounded-lg transition-colors">Join Google Meet</button>
                 </div>
@@ -433,3 +433,4 @@ const BusinessDashboard = () => {
 };
 
 export default BusinessDashboard;
+

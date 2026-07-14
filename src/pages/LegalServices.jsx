@@ -103,7 +103,7 @@ const LegalServices = () => {
         <section className="relative w-full min-h-[70vh] flex flex-col items-center justify-center text-center px-4 overflow-hidden pt-20 pb-20">
           <div className="absolute inset-0 z-0">
             {/* Fallback to dark solid if image fails to load, but using hero image */}
-            <img src="/legal_hero_bg_new.jpg" alt="High Court Architecture" className="w-full h-full object-cover" />
+            <img loading="lazy" src="/legal_hero_bg_new.jpg" alt="High Court Architecture" className="w-full h-full object-cover" />
             <div className="absolute inset-0 bg-[#050505]/40"></div>
             <div className="absolute inset-0 bg-gradient-to-b from-[#050505]/80 via-transparent to-[#0a0a0a]"></div>
           </div>
@@ -159,7 +159,7 @@ const LegalServices = () => {
               loop 
               muted 
               playsInline 
-              className="w-full h-full object-cover blur-md opacity-30 mix-blend-screen"
+              className="w-full h-full object-cover opacity-70 mix-blend-screen"
             >
               <source src="https://v1.pinimg.com/videos/iht/expMp4/0e/15/ba/0e15ba096d727c11d929b323f2a23d1e_720w.mp4" type="video/mp4" />
             </video>
@@ -183,7 +183,7 @@ const LegalServices = () => {
               >
                 {area.img ? (
                   <div className="w-full h-48 relative overflow-hidden bg-[#050505]">
-                    <img src={area.img} alt={area.title} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500" />
+                    <img loading="lazy" src={area.img} alt={area.title} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500" />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] to-transparent"></div>
                     <div className="absolute bottom-4 left-6 flex items-center gap-3">
                       {React.cloneElement(area.icon, { size: 24 })}
@@ -298,7 +298,7 @@ const LegalServices = () => {
         {/* SECTION 6: FAQ */}
         <section className="relative py-24 bg-[#0a0a0a] border-t border-white/5 overflow-hidden">
           <div className="absolute inset-0 z-0">
-            <img src="/faq_bg.png" alt="FAQ Background" className="w-full h-full object-cover opacity-70" />
+            <img loading="lazy" src="/faq_bg.png" alt="FAQ Background" className="w-full h-full object-cover opacity-70" />
             <div className="absolute inset-0 bg-[#050505]/80"></div>
             <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-[#050505]"></div>
           </div>
@@ -362,3 +362,4 @@ const LegalServices = () => {
 };
 
 export default LegalServices;
+

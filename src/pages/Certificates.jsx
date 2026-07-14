@@ -98,7 +98,7 @@ const Certificates = () => {
           </button>
           <div className="flex items-center gap-2 ml-2 cursor-pointer hover:bg-slate-50 p-1 pr-2 rounded-full border border-transparent hover:border-slate-200 transition-all">
             <div className="w-8 h-8 rounded-full bg-slate-200 overflow-hidden">
-              <img src="https://api.dicebear.com/7.x/notionists/svg?seed=StudentOne" alt="Profile" className="w-full h-full object-cover"/>
+              <img loading="lazy" src="https://api.dicebear.com/7.x/notionists/svg?seed=StudentOne" alt="Profile" className="w-full h-full object-cover"/>
             </div>
             <span className="text-sm font-bold hidden xl:block">Alex Doe</span>
           </div>
@@ -119,7 +119,7 @@ const Certificates = () => {
                     <div className={`cert-card ${flippedCert === cert.id ? 'flipped' : ''}`}>
                       {/* Front of Certificate */}
                       <div className="cert-card-front relative group">
-                        <img src={cert.image} alt={cert.course} />
+                        <img loading="lazy" src={cert.image} alt={cert.course} />
                         <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                           <button 
                             onClick={() => setFlippedCert(cert.id)}
@@ -244,7 +244,7 @@ const Certificates = () => {
                         <td>
                           <div className="flex items-center gap-3">
                             <div className="w-8 h-8 rounded-full bg-slate-200 overflow-hidden">
-                              <img src={`https://api.dicebear.com/7.x/notionists/svg?seed=${user.name}`} alt={user.name}/>
+                              <img loading="lazy" src={`https://api.dicebear.com/7.x/notionists/svg?seed=${user.name}`} alt={user.name}/>
                             </div>
                             <span className={`font-bold ${user.me ? 'text-primary' : 'text-main'}`}>{user.name} {user.me && "(You)"}</span>
                           </div>
@@ -447,3 +447,4 @@ const Certificates = () => {
 };
 
 export default Certificates;
+

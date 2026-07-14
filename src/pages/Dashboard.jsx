@@ -162,7 +162,7 @@ const Dashboard = () => {
           
           <div className="flex items-center gap-2 ml-2 cursor-pointer hover:bg-slate-50 p-1 pr-2 rounded-full border border-transparent hover:border-slate-200 transition-all">
             <div className="w-8 h-8 rounded-full bg-slate-200 overflow-hidden">
-              <img src="https://api.dicebear.com/7.x/notionists/svg?seed=NidhimaUser" alt="Profile" className="w-full h-full object-cover"/>
+              <img loading="lazy" src="https://api.dicebear.com/7.x/notionists/svg?seed=NidhimaUser" alt="Profile" className="w-full h-full object-cover"/>
             </div>
             <span className="text-sm font-bold hidden xl:block">Nidhima V.</span>
             <ChevronDown size={16} className="text-slate-400 hidden xl:block"/>
@@ -425,3 +425,4 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
+

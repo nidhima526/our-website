@@ -20,7 +20,7 @@ const TeamSection = () => {
           <div className="team-card founder-card premium-card">
             <div className="team-avatar-wrapper">
               <div className="team-avatar founder-avatar overflow-hidden">
-                <img src="https://api.dicebear.com/7.x/notionists/svg?seed=Nidhima" alt="Nidhima" className="w-full h-full object-cover" />
+                <img loading="lazy" src="https://api.dicebear.com/7.x/notionists/svg?seed=Nidhima" alt="Nidhima" className="w-full h-full object-cover" />
               </div>
             </div>
             <div className="team-info">
@@ -41,7 +41,7 @@ const TeamSection = () => {
           <div className="team-card premium-card">
             <div className="team-avatar-wrapper">
               <div className="team-avatar overflow-hidden">
-                <img src="https://api.dicebear.com/7.x/notionists/svg?seed=Priya" alt="Priya Desai" className="w-full h-full object-cover" />
+                <img loading="lazy" src="https://api.dicebear.com/7.x/notionists/svg?seed=Priya" alt="Priya Desai" className="w-full h-full object-cover" />
               </div>
             </div>
             <div className="team-info">
@@ -57,7 +57,7 @@ const TeamSection = () => {
           <div className="team-card premium-card">
             <div className="team-avatar-wrapper">
               <div className="team-avatar overflow-hidden">
-                <img src="https://api.dicebear.com/7.x/notionists/svg?seed=Rohan" alt="Rohan Sharma" className="w-full h-full object-cover" />
+                <img loading="lazy" src="https://api.dicebear.com/7.x/notionists/svg?seed=Rohan" alt="Rohan Sharma" className="w-full h-full object-cover" />
               </div>
             </div>
             <div className="team-info">
@@ -75,3 +75,4 @@ const TeamSection = () => {
 };
 
 export default TeamSection;
+

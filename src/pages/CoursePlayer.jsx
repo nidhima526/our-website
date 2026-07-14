@@ -97,7 +97,7 @@ const CoursePlayer = () => {
             <span className="absolute -top-1 -right-1 w-2 h-2 bg-red-500 rounded-full"></span>
           </button>
           <div className="w-8 h-8 rounded-full bg-slate-700 overflow-hidden cursor-pointer border border-slate-600 hover:border-slate-400 transition-colors">
-            <img src="https://api.dicebear.com/7.x/notionists/svg?seed=StudentOne" alt="Profile" className="w-full h-full object-cover"/>
+            <img loading="lazy" src="https://api.dicebear.com/7.x/notionists/svg?seed=StudentOne" alt="Profile" className="w-full h-full object-cover"/>
           </div>
         </div>
       </div>
@@ -150,7 +150,7 @@ const CoursePlayer = () => {
   const VideoPlayer = () => (
     <div className="video-container group">
       {/* Mock Video Placeholder */}
-      <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=1200&q=80" alt="Video frame" className="video-placeholder" />
+      <img loading="lazy" src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=1200&q=80" alt="Video frame" className="video-placeholder" />
       
       {/* Large Center Play Button */}
       <div className="video-overlay-play" onClick={() => setIsPlaying(!isPlaying)}>
@@ -211,7 +211,7 @@ const CoursePlayer = () => {
             
             <div className="flex items-center gap-6 p-6 rounded-xl bg-slate-800/50 border border-slate-700/50">
               <div className="w-16 h-16 rounded-full overflow-hidden bg-slate-700">
-                <img src={courseData.instructor.avatar} alt="Instructor" className="w-full h-full object-cover"/>
+                <img loading="lazy" src={courseData.instructor.avatar} alt="Instructor" className="w-full h-full object-cover"/>
               </div>
               <div className="flex-1">
                 <div className="text-xs font-bold text-primary uppercase tracking-wider mb-1">Instructor</div>
@@ -292,7 +292,7 @@ const CoursePlayer = () => {
                 <div key={i} className="player-card">
                   <div className="flex gap-4">
                     <div className="w-10 h-10 rounded-full bg-slate-700 flex-shrink-0 overflow-hidden">
-                      <img src={`https://api.dicebear.com/7.x/notionists/svg?seed=User${i}`} alt="User"/>
+                      <img loading="lazy" src={`https://api.dicebear.com/7.x/notionists/svg?seed=User${i}`} alt="User"/>
                     </div>
                     <div>
                       <div className="flex items-center gap-2 mb-1">
@@ -406,3 +406,4 @@ const CoursePlayer = () => {
 };
 
 export default CoursePlayer;
+

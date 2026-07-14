@@ -9,7 +9,7 @@ const Footer = () => {
       
       {/* 4K HD Golden Wave Background */}
       <div className="absolute inset-0 z-0 pointer-events-none">
-        <img 
+        <img loading="lazy" 
           src="/footer_bg.png" 
           alt="Golden Wave Background" 
           className="w-full h-full object-cover opacity-15 mix-blend-screen blur-md"
@@ -24,7 +24,7 @@ const Footer = () => {
           {/* Company Info */}
           <div className="lg:col-span-2">
             <Link to="/" className="flex items-center group mb-6">
-              <img src="/ashervisionlogo.png" alt="ASHERVISION Logo" className="h-16 md:h-20 object-contain shrink-0" />
+              <img loading="lazy" src="/ashervisionlogo.png" alt="ASHERVISION Logo" className="h-16 md:h-20 object-contain shrink-0" />
             </Link>
             <p className="text-sm text-gray-400 mb-8 max-w-sm leading-relaxed">
               ASHERVISION is a multi-service professional firm providing Legal Services, Technology Solutions, Professional Training, Internships, Digital Marketing, and Business Consulting through one trusted platform.
@@ -103,4 +103,5 @@ const Footer = () => {
 };
 
 export default Footer;
+
 

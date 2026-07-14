@@ -297,7 +297,7 @@ const Courses = () => {
                 >
                   {/* Cinematic Header Image */}
                   <div className="relative w-full h-[300px] overflow-hidden shrink-0">
-                    <img 
+                    <img loading="lazy" 
                       src={activeCategory.image} 
                       alt={activeCategory.title} 
                       className="w-full h-full object-cover"
@@ -363,7 +363,7 @@ const Courses = () => {
                 className="rounded-3xl p-10 min-h-[300px] border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] hover:border-yellow-500/50 hover:shadow-[0_20px_50px_rgba(202,138,4,0.15)] transition-all duration-500 relative overflow-hidden group cursor-pointer"
               >
                 <div className="absolute inset-0 z-0 bg-black/40 backdrop-blur-sm">
-                  <img src={path.image} alt={path.title} className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-all duration-700 group-hover:scale-110 mix-blend-overlay" />
+                  <img loading="lazy" src={path.image} alt={path.title} className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-all duration-700 group-hover:scale-110 mix-blend-overlay" />
                   <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-black/80"></div>
                 </div>
                 
@@ -414,6 +414,7 @@ const Courses = () => {
 };
 
 export default Courses;
+
 
 
 
