@@ -43,15 +43,21 @@ const SplashScreen = ({ onComplete }) => (
     transition={{ duration: 0.8, ease: "easeInOut" }}
     className="fixed inset-0 z-[9999] bg-black flex flex-col items-center justify-center overflow-hidden"
   >
-    <video
-      autoPlay
-      muted
-      playsInline
-      onEnded={onComplete}
-      className="w-full h-full object-cover"
-    >
-      <source src="/opening_vedio.mp4" type="video/mp4" />
-    </video>
+    <div className="relative w-full h-full flex items-center justify-center pointer-events-none">
+      <video
+        autoPlay
+        muted
+        playsInline
+        onEnded={onComplete}
+        className="w-full max-w-[1200px] h-full object-cover md:object-contain scale-125 md:scale-150"
+        style={{
+          WebkitMaskImage: 'radial-gradient(circle at center, black 35%, transparent 65%)',
+          maskImage: 'radial-gradient(circle at center, black 35%, transparent 65%)'
+        }}
+      >
+        <source src="/opening_vedio.mp4" type="video/mp4" />
+      </video>
+    </div>
   </motion.div>
 );
 
