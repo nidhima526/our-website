@@ -121,15 +121,17 @@ const Home = () => {
             >
               {heroSlides[currentSlide].bgVideo ? (
                 heroSlides[currentSlide].bgVideo.endsWith('.m3u8') ? (
-                  <>
-                    <HlsVideo src={heroSlides[currentSlide].bgVideo} className="absolute inset-0 w-full h-full object-cover blur-3xl opacity-40 scale-110" />
-                    <HlsVideo src={heroSlides[currentSlide].bgVideo} className="absolute inset-0 w-full h-full object-contain" />
-                  </>
+                  <HlsVideo src={heroSlides[currentSlide].bgVideo} className="absolute inset-0 w-full h-full object-contain" />
                 ) : (
-                  <>
-                    <video src={heroSlides[currentSlide].bgVideo} autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover blur-3xl opacity-40 scale-110" />
-                    <video src={heroSlides[currentSlide].bgVideo} autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-contain z-10" />
-                  </>
+                  <video 
+                    key={heroSlides[currentSlide].bgVideo}
+                    src={heroSlides[currentSlide].bgVideo} 
+                    autoPlay 
+                    loop 
+                    muted 
+                    playsInline 
+                    className="absolute inset-0 w-full h-full object-contain z-10" 
+                  />
                 )
               ) : (
                 <img loading="lazy" 
@@ -261,15 +263,9 @@ const Home = () => {
                       <div className="w-full h-48 overflow-hidden relative">
                         {service.video ? (
                           service.video.endsWith('.m3u8') ? (
-                            <>
-                              <HlsVideo src={service.video} className="absolute inset-0 w-full h-full object-cover blur-xl opacity-50 scale-110" />
-                              <HlsVideo src={service.video} className="absolute inset-0 w-full h-full object-contain group-hover:scale-110 transition-transform duration-700 ease-out z-10" />
-                            </>
+                            <HlsVideo src={service.video} className="absolute inset-0 w-full h-full object-contain group-hover:scale-110 transition-transform duration-700 ease-out z-10" />
                           ) : (
-                            <>
-                              <video src={service.video} autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover blur-xl opacity-50 scale-110" />
-                              <video src={service.video} autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-contain group-hover:scale-110 transition-transform duration-700 ease-out z-10" />
-                            </>
+                            <video src={service.video} autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-contain group-hover:scale-110 transition-transform duration-700 ease-out z-10" />
                           )
                         ) : (
                           <img loading="lazy" src={service.image} alt={service.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out" />
