@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import CorporateLayout from './CorporateLayout';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
@@ -154,7 +154,7 @@ const LegalServices = () => {
         {/* SECTION 2: PRACTICE AREAS */}
         <section className="relative py-24 px-4 sm:px-6 lg:px-8 overflow-hidden border-y border-white/5">
           <div className="absolute inset-0 z-0 bg-black">
-            <video 
+            <video webkit-playsinline='true' preload='auto' 
               autoPlay 
               loop 
               muted 
@@ -201,7 +201,7 @@ const LegalServices = () => {
                   <ul className="space-y-3 flex-grow">
                     {area.items.map((item, i) => (
                       <li key={i} className="flex items-start text-gray-400 text-sm leading-relaxed">
-                        <span className="text-orange-500 mr-2 mt-1">•</span> {item}
+                        <span className="text-orange-500 mr-2 mt-1">â€¢</span> {item}
                       </li>
                     ))}
                   </ul>
@@ -362,4 +362,5 @@ const LegalServices = () => {
 };
 
 export default LegalServices;
+
 

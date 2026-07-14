@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import SuccessStories from '../components/SuccessStories';
@@ -46,7 +46,7 @@ const About = () => {
     { title: "Custom Software", icon: <Monitor size={24}/> },
     { title: "AI Solutions", icon: <Zap size={24}/> },
     { title: "Graphic Design", icon: <PenTool size={24}/> },
-    { title: "Video Editing", icon: <Video size={24}/> },
+    { title: "Video Editing", icon: <video webkit-playsinline='true' preload='auto' size={24}/> },
     { title: "Podcast Editing", icon: <MicIcon size={24}/> },
     { title: "Digital Marketing", icon: <TrendingUp size={24}/> },
     { title: "Career Guidance", icon: <Target size={24}/> },
@@ -370,4 +370,5 @@ const About = () => {
 };
 
 export default About;
+
 

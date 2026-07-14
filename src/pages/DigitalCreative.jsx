@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
+﻿import React, { useRef, useState, useEffect } from 'react';
 import CorporateLayout from './CorporateLayout';
 import MagneticButton from '../components/MagneticButton';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -81,7 +81,7 @@ const PortfolioVideoCard = ({ video, isHorizontal, isRotated, className }) => {
       className={`group relative overflow-hidden bg-black cursor-pointer ${className || (isHorizontal ? 'sm:col-span-2 lg:col-span-3 aspect-video rounded-2xl border border-white/5 shadow-2xl' : 'aspect-[9/16] rounded-2xl border border-white/5 shadow-2xl')}`}
       onClick={handleTogglePlay}
     >
-      <video 
+      <video webkit-playsinline='true' preload='auto' 
         ref={videoRef}
         src={video.src}
         autoPlay loop muted playsInline
@@ -124,7 +124,7 @@ const PortfolioVideoCard = ({ video, isHorizontal, isRotated, className }) => {
 };
 
 const servicesData = [
-  { id: 'video', icon: <Video size={32} />, title: "Video Editing", desc: "Cinematic precision for YouTube, Reels, and Commercials.", color: "from-blue-500 to-indigo-600", shadow: "shadow-blue-500/20", bgImage: "/video-editing.jpg", bgVideo: "/video_editing_bg.mp4", includes: ["High-retention YouTube Long-form Edits", "Viral-optimized Reels & TikToks", "Color Grading & Cinematic Audio Mixing", "Advanced Motion Graphics & VFX", "Corporate Commercials & Ads"] },
+  { id: 'video', icon: <video webkit-playsinline='true' preload='auto' size={32} />, title: "Video Editing", desc: "Cinematic precision for YouTube, Reels, and Commercials.", color: "from-blue-500 to-indigo-600", shadow: "shadow-blue-500/20", bgImage: "/video-editing.jpg", bgVideo: "/video_editing_bg.mp4", includes: ["High-retention YouTube Long-form Edits", "Viral-optimized Reels & TikToks", "Color Grading & Cinematic Audio Mixing", "Advanced Motion Graphics & VFX", "Corporate Commercials & Ads"] },
   { id: 'podcast', icon: <Mic size={32} />, title: "Podcast Production", desc: "Studio-quality audio & video multi-cam setups.", color: "from-slate-400 to-slate-600", shadow: "shadow-slate-500/20", bgImage: "/podcast_bg.png", includes: ["Multi-cam Video Switching & Editing", "Professional Audio Mastering & Noise Reduction", "Podcast Studio Setup Consultation", "Short-form Clip Extraction (Shorts/Reels)", "Show Notes & Transcript Generation"] },
   { id: 'graphic', icon: <PenTool size={32} />, title: "Graphic Design", desc: "Logos, brand identity, and stunning visual media.", color: "from-teal-400 to-emerald-600", shadow: "shadow-teal-500/20", bgImage: "/graphic_design_bg.png", includes: ["Brand Identity & Custom Logos", "UI/UX App & Web Interface Design", "Social Media Post Graphics & Carousels", "High-CTR Thumbnail Design", "Marketing Collateral & Pitch Decks"] },
   { id: 'social', icon: <Smartphone size={32} />, title: "Social Media", desc: "Dominating feeds with viral strategies and daily content.", color: "from-cyan-400 to-blue-500", shadow: "shadow-cyan-500/20", bgImage: "/social_media_bg.png", includes: ["Full Social Media Account Management", "Viral Content Strategy & Calendar", "Community Engagement & Growth", "Influencer Marketing & Outreach", "Trend Analysis & Rapid Adapting"] },
@@ -316,7 +316,7 @@ const DigitalCreative = () => {
           <section key={idx} ref={(el) => setPanelRef(el, idx)} className="relative w-full h-screen overflow-hidden bg-[#000510]">
             <div className="absolute inset-0 z-0">
               {service.bgVideo ? (
-                <video 
+                <video webkit-playsinline='true' preload='auto' 
                   src={service.bgVideo} 
                   autoPlay loop muted playsInline
                   className="bg-media w-full h-full object-cover origin-center opacity-70"
@@ -398,7 +398,7 @@ const DigitalCreative = () => {
           <div className="flex animate-marquee whitespace-nowrap">
             {[...tools, ...tools, ...tools].map((tool, idx) => (
               <div key={idx} className="mx-12 text-3xl font-heading text-white/10 uppercase tracking-widest hover:text-white/30 transition-colors duration-300 cursor-default">
-                {tool} <span className="mx-12 text-blue-500/20 font-sans">•</span>
+                {tool} <span className="mx-12 text-blue-500/20 font-sans">â€¢</span>
               </div>
             ))}
           </div>
@@ -524,4 +524,5 @@ const DigitalCreative = () => {
 };
 
 export default DigitalCreative;
+
 

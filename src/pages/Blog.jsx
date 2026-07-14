@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import FaqAccordion from '../components/FaqAccordion';
@@ -28,7 +28,7 @@ const Blog = () => {
     { name: "Artificial Intelligence", icon: <Zap size={18}/>, count: 56 },
     { name: "Business Growth", icon: <Building size={18}/>, count: 91 },
     { name: "Graphic Design", icon: <PenTool size={18}/>, count: 47 },
-    { name: "Video Editing", icon: <Video size={18}/>, count: 32 },
+    { name: "Video Editing", icon: <video webkit-playsinline='true' preload='auto' size={18}/>, count: 32 },
     { name: "Podcasting", icon: <Mic size={18}/>, count: 18 },
     { name: "Career Development", icon: <Target size={18}/>, count: 104 },
     { name: "Internships", icon: <Briefcase size={18}/>, count: 27 }
@@ -354,4 +354,5 @@ const Blog = () => {
 };
 
 export default Blog;
+
 

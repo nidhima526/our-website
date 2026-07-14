@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { 
   LayoutDashboard, BookOpen, Video, FileEdit, HelpCircle, Book, 
@@ -47,7 +47,7 @@ const StudentDashboard = () => {
     { id: 'dash', icon: <LayoutDashboard size={18}/>, label: 'Dashboard', active: true, link: '/dashboard/student' },
     { id: 'courses', icon: <BookOpen size={18}/>, label: 'My Courses', link: '/dashboard/courses' },
     { id: 'assignments', icon: <FileEdit size={18}/>, label: 'Assignments & Quizzes', badge: 2, link: '/dashboard/assignments' },
-    { id: 'live', icon: <Video size={18}/>, label: 'Live Classes', badge: 1, link: '/dashboard/live' },
+    { id: 'live', icon: <video webkit-playsinline='true' preload='auto' size={18}/>, label: 'Live Classes', badge: 1, link: '/dashboard/live' },
     { id: 'quizzes', icon: <HelpCircle size={18}/>, label: 'Quizzes & Tests', link: '#' },
     { id: 'study', icon: <Book size={18}/>, label: 'Study Materials', link: '/dashboard/materials' },
     { id: 'internships', icon: <Briefcase size={18}/>, label: 'Internships', link: '/dashboard/internships' },
@@ -103,7 +103,7 @@ const StudentDashboard = () => {
 
       <div className="flex items-center gap-4">
         <div className="hidden lg:flex items-center gap-2 bg-red-50 text-red-600 px-3 py-1.5 rounded-full text-xs font-bold border border-red-100 animate-pulse">
-          <Video size={14}/> React Live Class in 15m
+          <video webkit-playsinline='true' preload='auto' size={14}/> React Live Class in 15m
         </div>
         
         <div className="flex items-center gap-1 border-l border-slate-200 pl-4 ml-2">
@@ -138,7 +138,7 @@ const StudentDashboard = () => {
             
             {/* Welcome Section */}
             <div className="mb-8">
-              <h1 className="text-2xl lg:text-3xl font-bold text-main mb-1">{greeting}, Student 👋</h1>
+              <h1 className="text-2xl lg:text-3xl font-bold text-main mb-1">{greeting}, Student ðŸ‘‹</h1>
               <p className="text-muted text-sm lg:text-base">Continue your learning journey and achieve your academic goals.</p>
             </div>
 
@@ -238,7 +238,7 @@ const StudentDashboard = () => {
                         <div className="font-bold text-main">Advanced React Patterns</div>
                         <div className="text-xs text-muted">Tutor: Rahul Sharma</div>
                       </div>
-                      <div className="bg-white p-2 rounded shadow-sm"><Video size={16} className="text-red-500"/></div>
+                      <div className="bg-white p-2 rounded shadow-sm"><video webkit-playsinline='true' preload='auto' size={16} className="text-red-500"/></div>
                     </div>
                     <button className="w-full py-2 bg-red-500 hover:bg-red-600 text-white text-xs font-bold rounded-lg transition-colors">Join Class Now</button>
                   </div>
@@ -251,7 +251,7 @@ const StudentDashboard = () => {
                         <div className="font-bold text-main">Doubt Clearing Session</div>
                         <div className="text-xs text-muted">Tutor: Nidhima V.</div>
                       </div>
-                      <div className="bg-slate-50 p-2 rounded"><Video size={16} className="text-slate-400"/></div>
+                      <div className="bg-slate-50 p-2 rounded"><video webkit-playsinline='true' preload='auto' size={16} className="text-slate-400"/></div>
                     </div>
                     <button className="w-full py-2 bg-slate-50 hover:bg-slate-100 text-primary text-xs font-bold rounded-lg transition-colors border border-slate-200">Scheduled</button>
                   </div>
@@ -269,7 +269,7 @@ const StudentDashboard = () => {
                     <div className="w-10 h-10 rounded-lg bg-amber-50 text-amber-500 flex items-center justify-center flex-shrink-0"><FileEdit size={18}/></div>
                     <div className="flex-1">
                       <div className="font-bold text-sm text-main mb-1">Build a Weather App</div>
-                      <div className="text-xs text-muted mb-2">React Course • Due Tomorrow</div>
+                      <div className="text-xs text-muted mb-2">React Course â€¢ Due Tomorrow</div>
                       <div className="flex items-center gap-2">
                         <span className="text-[10px] font-bold bg-amber-100 text-amber-700 px-2 py-0.5 rounded">Pending</span>
                         <button className="text-[10px] font-bold text-primary hover:underline flex items-center gap-1"><Upload size={10}/> Upload Work</button>
@@ -281,7 +281,7 @@ const StudentDashboard = () => {
                     <div className="w-10 h-10 rounded-lg bg-emerald-50 text-emerald-500 flex items-center justify-center flex-shrink-0"><CheckCircle2 size={18}/></div>
                     <div className="flex-1">
                       <div className="font-bold text-sm text-main mb-1">Figma Prototype</div>
-                      <div className="text-xs text-muted mb-2">UI/UX Course • Graded</div>
+                      <div className="text-xs text-muted mb-2">UI/UX Course â€¢ Graded</div>
                       <div className="flex items-center gap-2">
                         <span className="text-[10px] font-bold bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded">Score: 95/100</span>
                       </div>
@@ -322,17 +322,17 @@ const StudentDashboard = () => {
                       <div className="w-8 h-8 rounded bg-red-50 text-red-500 flex items-center justify-center"><FileText size={14}/></div>
                       <div>
                         <div className="text-sm font-bold text-main group-hover:text-primary transition-colors">React_Hooks_Cheatsheet.pdf</div>
-                        <div className="text-[10px] text-muted">Added today • 2.4 MB</div>
+                        <div className="text-[10px] text-muted">Added today â€¢ 2.4 MB</div>
                       </div>
                     </div>
                     <Download size={16} className="text-slate-400 group-hover:text-primary"/>
                   </div>
                   <div className="flex items-center justify-between p-3 border border-slate-100 rounded-lg hover:border-primary transition-colors cursor-pointer group">
                     <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 rounded bg-blue-50 text-blue-500 flex items-center justify-center"><Video size={14}/></div>
+                      <div className="w-8 h-8 rounded bg-blue-50 text-blue-500 flex items-center justify-center"><video webkit-playsinline='true' preload='auto' size={14}/></div>
                       <div>
                         <div className="text-sm font-bold text-main group-hover:text-primary transition-colors">Lec 12: Context API Recording</div>
-                        <div className="text-[10px] text-muted">Added yesterday • 45 Mins</div>
+                        <div className="text-[10px] text-muted">Added yesterday â€¢ 45 Mins</div>
                       </div>
                     </div>
                     <PlayCircle size={16} className="text-slate-400 group-hover:text-primary"/>
@@ -431,4 +431,5 @@ function ChevronLeft({size}) { return <svg width={size} height={size} viewBox="0
 function ChevronRight({size}) { return <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>; }
 
 export default StudentDashboard;
+
 

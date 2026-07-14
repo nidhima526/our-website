@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+﻿import React, { useState, useEffect, useRef } from 'react';
 import CorporateLayout from './CorporateLayout';
 import { motion } from 'framer-motion';
 import gsap from 'gsap';
@@ -218,7 +218,7 @@ const TechnologyServices = () => {
                   {/* Top Media Section (Video/Image with 100% Opacity) */}
                   <div className="relative h-56 sm:h-64 w-full overflow-hidden shrink-0 border-b border-white/5">
                     {category.video ? (
-                      <video autoPlay loop muted playsInline className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                      <video webkit-playsinline='true' preload='auto' autoPlay loop muted playsInline className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                         <source src={category.video} type="video/mp4" />
                       </video>
                     ) : (
@@ -267,4 +267,5 @@ const TechnologyServices = () => {
 };
 
 export default TechnologyServices;
+
 

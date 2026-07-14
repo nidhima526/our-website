@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+﻿import React, { useEffect, useRef } from 'react';
 import Hls from 'hls.js';
 
 const HlsVideo = ({ src, className, ...props }) => {
@@ -31,7 +31,7 @@ const HlsVideo = ({ src, className, ...props }) => {
   }, [src]);
 
   return (
-    <video
+    <video webkit-playsinline='true' preload='auto'
       ref={videoRef}
       className={className}
       autoPlay
@@ -44,3 +44,4 @@ const HlsVideo = ({ src, className, ...props }) => {
 };
 
 export default HlsVideo;
+

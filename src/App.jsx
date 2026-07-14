@@ -2,9 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import Lenis from 'lenis';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaWhatsapp, FaShareAlt } from 'react-icons/fa';
-import { Share } from '@capacitor/share';
-import { AdMob, BannerAdSize, BannerAdPosition } from '@capacitor-community/admob';
+import { FaWhatsapp } from 'react-icons/fa';
 import Home from './pages/Home';
 import LegalServices from './pages/LegalServices';
 import TechnologyServices from './pages/TechnologyServices';
@@ -181,37 +179,7 @@ function App() {
     };
   }, []);
 
-  // Initialize AdMob & Show Banner
-  useEffect(() => {
-    const initAdMob = async () => {
-      try {
-        await AdMob.initialize({});
-        await AdMob.showBanner({
-          adId: 'ca-app-pub-3940256099942544/6300978111', // Google Test Banner ID
-          adSize: BannerAdSize.ADAPTIVE_BANNER,
-          position: BannerAdPosition.BOTTOM_CENTER,
-          margin: 0,
-        });
-      } catch (err) {
-        console.log("AdMob runs only on native mobile device.", err);
-      }
-    };
-    initAdMob();
-  }, []);
 
-  // Viral Share Function
-  const handleShareApp = async () => {
-    try {
-      await Share.share({
-        title: 'Ashervision App',
-        text: '🔥 Check out the brand new Ashervision App! It is absolutely amazing! Explore premium services in Tech, Law, Interior Design, and Digital Marketing.',
-        url: 'https://ashervision.in',
-        dialogTitle: 'Share Ashervision with Friends',
-      });
-    } catch (err) {
-      console.log('Sharing only available on native device', err);
-    }
-  };
 
   return (
     <>
@@ -253,14 +221,7 @@ function App() {
         <FaWhatsapp size={32} />
       </a>
 
-      {/* Viral Share Floating Button */}
-      <button 
-        onClick={handleShareApp}
-        className="fixed bottom-[110px] left-6 z-[100] w-14 h-14 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white shadow-lg hover:scale-110 transition-transform duration-300 hover:shadow-[0_0_20px_rgba(168,85,247,0.6)] cursor-pointer"
-        aria-label="Share App"
-      >
-        <FaShareAlt size={24} />
-      </button>
+
 
       {/* Global Scroll to Top Button */}
       <ScrollToTop />

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import CorporateLayout from './CorporateLayout';
 import { motion } from 'framer-motion';
 import { 
@@ -85,7 +85,7 @@ const ContactPage = () => {
         {/* Cinematic Video Background (As requested by user) */}
         <div className="absolute inset-0 bg-black/40 z-0 pointer-events-none"></div>
         <div className="absolute inset-0 z-0 pointer-events-none">
-          <video 
+          <video webkit-playsinline='true' preload='auto' 
             src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260622_204221_5339e40b-e73d-4ab0-9c65-79c18c66fd50.mp4"
             autoPlay 
             muted 
@@ -297,3 +297,4 @@ const ContactPage = () => {
 };
 
 export default ContactPage;
+

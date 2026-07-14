@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { 
   LayoutDashboard, BookOpen, Video, FileEdit, Book, 
@@ -19,7 +19,7 @@ const Profile = () => {
     { id: 'assignments', icon: <FileEdit size={18}/>, label: 'Assignments & Quizzes', badge: 2, link: '/dashboard/assignments' },
     { id: 'study', icon: <Book size={18}/>, label: 'Study Materials', link: '/dashboard/materials' },
     { id: 'certificates', icon: <Award size={18}/>, label: 'Certificates & Achievements', link: '/dashboard/certificates' },
-    { id: 'live', icon: <Video size={18}/>, label: 'Live Classes', badge: 1, link: '/dashboard/live' },
+    { id: 'live', icon: <video webkit-playsinline='true' preload='auto' size={18}/>, label: 'Live Classes', badge: 1, link: '/dashboard/live' },
     { id: 'internships', icon: <Briefcase size={18}/>, label: 'Internships', link: '/dashboard/internships' },
     { id: 'messages', icon: <MessageSquare size={18}/>, label: 'Messages', badge: 5, link: '/dashboard/messages' },
     { id: 'profile', icon: <User size={18}/>, label: 'Profile', active: true, link: '/dashboard/profile' }
@@ -201,7 +201,7 @@ const Profile = () => {
             <div className="pt-16 pb-6 px-8 flex justify-between items-end">
               <div>
                 <h1 className="text-2xl font-bold text-main">Alex Doe</h1>
-                <p className="text-slate-500">alex.doe@example.com • Student</p>
+                <p className="text-slate-500">alex.doe@example.com â€¢ Student</p>
               </div>
             </div>
           </div>
@@ -254,4 +254,5 @@ const Profile = () => {
 };
 
 export default Profile;
+
 

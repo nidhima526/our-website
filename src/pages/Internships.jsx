@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react';
+﻿import React, { useRef, useEffect, useState } from 'react';
 import CorporateLayout from './CorporateLayout';
 import { motion } from 'framer-motion';
 import Hls from 'hls.js';
@@ -121,7 +121,7 @@ const Internships = () => {
         
         {/* HLS Background Video */}
         <div className="fixed inset-0 overflow-hidden z-[-2] pointer-events-none bg-black">
-          <video 
+          <video webkit-playsinline='true' preload='auto' 
             ref={videoRef}
             autoPlay 
             muted 
@@ -317,4 +317,5 @@ const Internships = () => {
 };
 
 export default Internships;
+
 

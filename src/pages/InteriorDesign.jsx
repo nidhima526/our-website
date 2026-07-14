@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import CorporateLayout from './CorporateLayout';
 import { motion } from 'framer-motion';
 import { 
@@ -26,7 +26,7 @@ const servicesData = [
     icon: <Building2 size={32} className="text-orange-500 mb-4" />,
     items: [
       'Office Interior Design', 'Corporate Office Interiors', 'Retail Store Interiors', 
-      'Showroom Interiors', 'Restaurant & Café Interiors', 'Hotel & Resort Interiors', 
+      'Showroom Interiors', 'Restaurant & CafÃ© Interiors', 'Hotel & Resort Interiors', 
       'Clinic & Hospital Interiors', 'School & College Interiors', 'Salon & Spa Interiors', 'Co-working Space Design'
     ]
   },
@@ -60,7 +60,7 @@ const servicesData = [
     items: [
       'Space Planning', 'Furniture Layout', 'Color Consultation', 
       'Material Selection', 'Lighting Planning', 'Interior Styling', 
-      'Home Décor Consultation', 'Vastu-Based Layout'
+      'Home DÃ©cor Consultation', 'Vastu-Based Layout'
     ]
   },
   {
@@ -224,7 +224,7 @@ const InteriorDesign = () => {
             >
               {/* Background Video */}
               <div className="absolute inset-0 z-0">
-                <video src="https://v1.pinimg.com/videos/iht/expMp4/a2/5c/88/a25c88c051d1e6404123b2f7ed5f45be_720w.mp4" autoPlay loop muted playsInline className="w-full h-full object-cover opacity-60" />
+                <video webkit-playsinline='true' preload='auto' src="https://v1.pinimg.com/videos/iht/expMp4/a2/5c/88/a25c88c051d1e6404123b2f7ed5f45be_720w.mp4" autoPlay loop muted playsInline className="w-full h-full object-cover opacity-60" />
               </div>
               
               {/* Gradient Overlay for Text Readability */}
@@ -293,7 +293,7 @@ const InteriorDesign = () => {
                     className={`shrink-0 mx-4 whitespace-normal rounded-2xl overflow-hidden border border-white/10 bg-[#111] relative group/card transition-all duration-300 hover:border-orange-500/50 hover:shadow-[0_0_30px_rgba(249,115,22,0.3)] hover:-translate-y-2 w-[400px] md:w-[500px]`} 
                     style={{ height: '350px' }}
                   >
-                    <video 
+                    <video webkit-playsinline='true' preload='auto' 
                       src={video.src}
                       autoPlay 
                       loop 
@@ -357,6 +357,7 @@ const InteriorDesign = () => {
 };
 
 export default InteriorDesign;
+
 
 
 

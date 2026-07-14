@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import SuccessStories from '../components/SuccessStories';
@@ -14,30 +14,30 @@ const EducationServices = () => {
   const quickActions = [
     { title: 'Find Your Class', icon: <Search size={24}/> },
     { title: 'Browse Courses', icon: <BookOpen size={24}/> },
-    { title: 'Book Free Demo', icon: <Video size={24}/> },
+    { title: 'Book Free Demo', icon: <video webkit-playsinline='true' preload='auto' size={24}/> },
     { title: 'Programming Training', icon: <Code size={24}/> },
     { title: 'Competitive Exams', icon: <Target size={24}/> },
     { title: 'Career Guidance', icon: <Users size={24}/> }
   ];
 
   const tuitions = [
-    "Class 1–5", "Class 6–8", "Class 9–10", "Intermediate", "Degree", "B.Tech"
+    "Class 1â€“5", "Class 6â€“8", "Class 9â€“10", "Intermediate", "Degree", "B.Tech"
   ];
 
   const programmingCourses = [
-    { title: "Python", level: "Beginner", duration: "8 Weeks", price: "₹4,999" },
-    { title: "Java", level: "Intermediate", duration: "10 Weeks", price: "₹5,999" },
-    { title: "C Programming", level: "Beginner", duration: "6 Weeks", price: "₹3,499" },
-    { title: "C++", level: "Intermediate", duration: "8 Weeks", price: "₹4,499" },
-    { title: "HTML", level: "Beginner", duration: "3 Weeks", price: "₹1,999" },
-    { title: "CSS", level: "Beginner", duration: "4 Weeks", price: "₹2,499" },
-    { title: "JavaScript", level: "Intermediate", duration: "8 Weeks", price: "₹5,499" },
-    { title: "React", level: "Advanced", duration: "10 Weeks", price: "₹6,999" },
-    { title: "Node.js", level: "Advanced", duration: "8 Weeks", price: "₹6,499" },
-    { title: "SQL", level: "Beginner", duration: "5 Weeks", price: "₹3,999" },
-    { title: "Data Structures", level: "Advanced", duration: "12 Weeks", price: "₹7,999" },
-    { title: "AI Basics", level: "Beginner", duration: "6 Weeks", price: "₹4,999" },
-    { title: "Machine Learning", level: "Advanced", duration: "14 Weeks", price: "₹9,999" }
+    { title: "Python", level: "Beginner", duration: "8 Weeks", price: "â‚¹4,999" },
+    { title: "Java", level: "Intermediate", duration: "10 Weeks", price: "â‚¹5,999" },
+    { title: "C Programming", level: "Beginner", duration: "6 Weeks", price: "â‚¹3,499" },
+    { title: "C++", level: "Intermediate", duration: "8 Weeks", price: "â‚¹4,499" },
+    { title: "HTML", level: "Beginner", duration: "3 Weeks", price: "â‚¹1,999" },
+    { title: "CSS", level: "Beginner", duration: "4 Weeks", price: "â‚¹2,499" },
+    { title: "JavaScript", level: "Intermediate", duration: "8 Weeks", price: "â‚¹5,499" },
+    { title: "React", level: "Advanced", duration: "10 Weeks", price: "â‚¹6,999" },
+    { title: "Node.js", level: "Advanced", duration: "8 Weeks", price: "â‚¹6,499" },
+    { title: "SQL", level: "Beginner", duration: "5 Weeks", price: "â‚¹3,999" },
+    { title: "Data Structures", level: "Advanced", duration: "12 Weeks", price: "â‚¹7,999" },
+    { title: "AI Basics", level: "Beginner", duration: "6 Weeks", price: "â‚¹4,999" },
+    { title: "Machine Learning", level: "Advanced", duration: "14 Weeks", price: "â‚¹9,999" }
   ];
 
   const competitiveExams = [
@@ -92,7 +92,7 @@ const EducationServices = () => {
               <p className="hero-subtitle mb-8 text-muted">ASHERVISION offers expert online tutoring, professional courses, programming training, career guidance, competitive exam coaching, and skill development for students from Class 1 to B.Tech.</p>
               <div className="flex flex-wrap gap-4">
                 <button className="btn btn-primary">Enroll Now</button>
-                <button className="btn btn-secondary flex items-center gap-2"><Video size={18}/> Book Free Demo</button>
+                <button className="btn btn-secondary flex items-center gap-2"><video webkit-playsinline='true' preload='auto' size={18}/> Book Free Demo</button>
                 <button className="btn btn-outline flex items-center gap-2"><PlayCircle size={18}/> Watch Intro</button>
               </div>
             </div>
@@ -225,8 +225,8 @@ const EducationServices = () => {
                     <div key={idx} className="premium-card p-4 flex flex-col justify-between hover:-translate-y-1 transition-transform">
                       <h4 className="font-bold text-sm mb-3">{exam}</h4>
                       <div className="text-xs text-muted flex flex-col gap-1 mb-4">
-                        <span>• Practice Tests</span>
-                        <span>• Mentorship</span>
+                        <span>â€¢ Practice Tests</span>
+                        <span>â€¢ Mentorship</span>
                       </div>
                       <button className="text-primary text-xs font-bold text-left">View Details <ChevronRight size={12} className="inline"/></button>
                     </div>
@@ -242,8 +242,8 @@ const EducationServices = () => {
                     <div key={idx} className="premium-card p-4 flex flex-col justify-between hover:-translate-y-1 transition-transform">
                       <h4 className="font-bold text-sm mb-3">{skill}</h4>
                       <div className="text-xs text-muted flex flex-col gap-1 mb-4">
-                        <span>• Practical Projects</span>
-                        <span>• Certificate</span>
+                        <span>â€¢ Practical Projects</span>
+                        <span>â€¢ Certificate</span>
                       </div>
                       <button className="text-primary text-xs font-bold text-left">View Details <ChevronRight size={12} className="inline"/></button>
                     </div>
@@ -418,3 +418,4 @@ const EducationServices = () => {
 };
 
 export default EducationServices;
+

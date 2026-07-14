@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircle2, DollarSign, Zap, Clock, Shield, Users, Video, Briefcase, Award } from 'lucide-react';
 import './WhyChooseUs.css';
@@ -11,7 +11,7 @@ const WhyChooseUs = () => {
     { title: '24x7 Support', icon: <Clock size={24} color="#8B5CF6"/> },
     { title: 'Secure Payments', icon: <Shield size={24} color="#EF4444"/> },
     { title: 'Industry Experts', icon: <Award size={24} color="#D4AF37"/> },
-    { title: 'Live Training', icon: <Video size={24} color="#0B57D0"/> },
+    { title: 'Live Training', icon: <video webkit-playsinline='true' preload='auto' size={24} color="#0B57D0"/> },
     { title: 'Real Projects', icon: <Briefcase size={24} color="#22C55E"/> },
     { title: 'Premium Certificates', icon: <CheckCircle2 size={24} color="#D4AF37"/> }
   ];
@@ -46,3 +46,4 @@ const WhyChooseUs = () => {
 };
 
 export default WhyChooseUs;
+

@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+﻿import React, { useRef, useEffect } from 'react';
 
 const FadingVideo = ({ src, className, style }) => {
   const videoRef = useRef(null);
@@ -74,7 +74,7 @@ const FadingVideo = ({ src, className, style }) => {
   }, []);
 
   return (
-    <video 
+    <video webkit-playsinline='true' preload='auto' 
       ref={videoRef}
       src={src}
       className={className}
@@ -88,3 +88,4 @@ const FadingVideo = ({ src, className, style }) => {
 };
 
 export default FadingVideo;
+

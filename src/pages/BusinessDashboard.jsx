@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { 
   LayoutDashboard, Briefcase, GitMerge, Flag, FolderOpen, CreditCard, 
@@ -108,7 +108,7 @@ const BusinessDashboard = () => {
             
             {/* Welcome Section */}
             <div className="mb-8">
-              <h1 className="text-2xl lg:text-3xl font-bold text-main mb-1">Welcome back, Acme Corp 👋</h1>
+              <h1 className="text-2xl lg:text-3xl font-bold text-main mb-1">Welcome back, Acme Corp ðŸ‘‹</h1>
               <p className="text-muted text-sm lg:text-base">Track your active projects, approve deliverables, and manage billing in one place.</p>
             </div>
 
@@ -229,7 +229,7 @@ const BusinessDashboard = () => {
                       <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></div>
                     </div>
                     <div className="text-sm font-bold text-primary">Core Development</div>
-                    <div className="text-xs text-muted mb-2">In Progress • Estimated Oct 30</div>
+                    <div className="text-xs text-muted mb-2">In Progress â€¢ Estimated Oct 30</div>
                     <div className="bg-slate-50 p-3 rounded-lg text-xs border border-slate-100">
                       Backend APIs deployed to staging. Frontend integration at 40%.
                     </div>
@@ -258,7 +258,7 @@ const BusinessDashboard = () => {
                         <div className="w-10 h-10 rounded bg-amber-100 text-amber-600 flex items-center justify-center"><FileText size={18}/></div>
                         <div>
                           <div className="font-bold text-main text-sm">Privacy Policy v2.pdf</div>
-                          <div className="text-xs text-muted">Legal • Sent 2 days ago</div>
+                          <div className="text-xs text-muted">Legal â€¢ Sent 2 days ago</div>
                         </div>
                       </div>
                     </div>
@@ -271,10 +271,10 @@ const BusinessDashboard = () => {
                   <div className="border border-slate-100 hover:border-amber-200 rounded-xl p-4 transition-colors">
                     <div className="flex justify-between items-start mb-3">
                       <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded bg-blue-50 text-primary flex items-center justify-center"><Video size={18}/></div>
+                        <div className="w-10 h-10 rounded bg-blue-50 text-primary flex items-center justify-center"><video webkit-playsinline='true' preload='auto' size={18}/></div>
                         <div>
                           <div className="font-bold text-main text-sm">Homepage Hero Animation.mp4</div>
-                          <div className="text-xs text-muted">Design • Sent yesterday</div>
+                          <div className="text-xs text-muted">Design â€¢ Sent yesterday</div>
                         </div>
                       </div>
                     </div>
@@ -310,7 +310,7 @@ const BusinessDashboard = () => {
                     <tr className="border-b border-slate-50 hover:bg-slate-50 transition-colors">
                       <td className="py-3 font-bold text-main">INV-2026-892</td>
                       <td className="py-3 text-muted">Legal Retainer Oct</td>
-                      <td className="py-3 font-medium">₹15,000</td>
+                      <td className="py-3 font-medium">â‚¹15,000</td>
                       <td className="py-3"><span className="text-[10px] font-bold bg-red-50 text-red-600 px-2 py-1 rounded">Overdue</span></td>
                       <td className="py-3 text-red-500 text-xs font-medium">Oct 10, 2026</td>
                       <td className="py-3 text-right">
@@ -321,7 +321,7 @@ const BusinessDashboard = () => {
                     <tr className="border-b border-slate-50 hover:bg-slate-50 transition-colors">
                       <td className="py-3 font-bold text-main">INV-2026-891</td>
                       <td className="py-3 text-muted">E-Commerce Milestone 2</td>
-                      <td className="py-3 font-medium">₹75,000</td>
+                      <td className="py-3 font-medium">â‚¹75,000</td>
                       <td className="py-3"><span className="text-[10px] font-bold bg-amber-50 text-amber-600 px-2 py-1 rounded">Pending</span></td>
                       <td className="py-3 text-slate-500 text-xs">Oct 30, 2026</td>
                       <td className="py-3 text-right">
@@ -332,7 +332,7 @@ const BusinessDashboard = () => {
                     <tr className="hover:bg-slate-50 transition-colors">
                       <td className="py-3 font-bold text-main">INV-2026-890</td>
                       <td className="py-3 text-muted">E-Commerce Milestone 1</td>
-                      <td className="py-3 font-medium">₹75,000</td>
+                      <td className="py-3 font-medium">â‚¹75,000</td>
                       <td className="py-3"><span className="text-[10px] font-bold bg-emerald-50 text-emerald-600 px-2 py-1 rounded">Paid</span></td>
                       <td className="py-3 text-slate-500 text-xs">Sep 01, 2026</td>
                       <td className="py-3 text-right">
@@ -416,7 +416,7 @@ const BusinessDashboard = () => {
               <h3 className="font-bold text-sm uppercase text-slate-400 tracking-wider mb-4">ASHERVISION Tips</h3>
               <div className="bg-amber-50 border border-amber-100 rounded-xl p-4 text-amber-900">
                 <div className="flex items-center gap-2 mb-2 font-bold text-sm">
-                  <span className="text-lg">💡</span> Speed up approvals!
+                  <span className="text-lg">ðŸ’¡</span> Speed up approvals!
                 </div>
                 <p className="text-xs leading-relaxed opacity-80">
                   Did you know you can leave inline comments directly on video deliverables? Try it on the Homepage Animation asset to request specific frame edits.
@@ -433,4 +433,5 @@ const BusinessDashboard = () => {
 };
 
 export default BusinessDashboard;
+
 

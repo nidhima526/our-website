@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { 
   LayoutDashboard, BookOpen, Video, FileEdit, HelpCircle, Book, 
@@ -20,7 +20,7 @@ const Assignments = () => {
     { id: 'dash', icon: <LayoutDashboard size={18}/>, label: 'Dashboard', link: '/dashboard/student' },
     { id: 'courses', icon: <BookOpen size={18}/>, label: 'My Courses', link: '/dashboard/courses' },
     { id: 'assignments', icon: <FileEdit size={18}/>, label: 'Assignments & Quizzes', active: true, link: '/dashboard/assignments' },
-    { id: 'live', icon: <Video size={18}/>, label: 'Live Classes', badge: 1, link: '/dashboard/live' },
+    { id: 'live', icon: <video webkit-playsinline='true' preload='auto' size={18}/>, label: 'Live Classes', badge: 1, link: '/dashboard/live' },
     { id: 'study', icon: <Book size={18}/>, label: 'Study Materials', link: '/dashboard/materials' },
     { id: 'internships', icon: <Briefcase size={18}/>, label: 'Internships', link: '/dashboard/internships' },
     { id: 'certificates', icon: <Award size={18}/>, label: 'Certificates & Achievements', link: '/dashboard/certificates' },
@@ -150,7 +150,7 @@ const Assignments = () => {
                       <div className="text-xs text-muted mb-2">{assgn.course}</div>
                       <div className="flex items-center justify-between">
                         <span className={`text-[10px] font-bold px-2 py-0.5 rounded ${assgn.status === 'Graded' ? 'bg-emerald-100 text-emerald-700' : 'bg-blue-100 text-blue-700'}`}>
-                          {assgn.status} {assgn.status === 'Graded' && `• ${assgn.marks}`}
+                          {assgn.status} {assgn.status === 'Graded' && `â€¢ ${assgn.marks}`}
                         </span>
                         <button className="text-xs font-bold text-primary hover:underline">View Feedback</button>
                       </div>
@@ -483,4 +483,5 @@ var twoSum = function(nums, target) {
 };
 
 export default Assignments;
+
 

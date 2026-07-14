@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import SuccessStories from '../components/SuccessStories';
@@ -15,7 +15,7 @@ const DigitalServices = () => {
   const [activeFilter, setActiveFilter] = useState('All');
 
   const quickServices = [
-    { title: "Video Editing", icon: <Video size={24}/>, time: "24-48 Hrs" },
+    { title: "Video Editing", icon: <video webkit-playsinline='true' preload='auto' size={24}/>, time: "24-48 Hrs" },
     { title: "Podcast Editing", icon: <Mic size={24}/>, time: "24 Hrs" },
     { title: "Graphic Design", icon: <Palette size={24}/>, time: "Same Day" },
     { title: "Logo Design", icon: <PenTool size={24}/>, time: "3-5 Days" },
@@ -50,8 +50,8 @@ const DigitalServices = () => {
     { title: "Facebook Management", icon: <Users size={20}/> },
     { title: "LinkedIn Branding", icon: <Layout size={20}/> },
     { title: "Content Calendar", icon: <Clock size={20}/> },
-    { title: "Reel Editing", icon: <Video size={20}/> },
-    { title: "Shorts Editing", icon: <Video size={20}/> },
+    { title: "Reel Editing", icon: <video webkit-playsinline='true' preload='auto' size={20}/> },
+    { title: "Shorts Editing", icon: <video webkit-playsinline='true' preload='auto' size={20}/> },
     { title: "Thumbnail Design", icon: <ImageIcon size={20}/> },
     { title: "SEO Optimization", icon: <SearchIcon size={20}/> },
     { title: "Channel Branding", icon: <Palette size={20}/> }
@@ -87,9 +87,9 @@ const DigitalServices = () => {
   ];
 
   const pricingPlans = [
-    { name: "Starter", price: "₹2,999", desc: "Perfect for single projects.", features: ["1 Video/Design", "2 Revisions", "48h Delivery", "Email Support"] },
-    { name: "Professional", price: "₹9,999", desc: "For growing creators.", features: ["4 Videos/Designs", "Unlimited Revisions", "24h Delivery", "Priority Support"] },
-    { name: "Business", price: "₹24,999", desc: "Full social media management.", features: ["15 Assets/Month", "Dedicated Manager", "Custom Strategy", "Analytics Report"] },
+    { name: "Starter", price: "â‚¹2,999", desc: "Perfect for single projects.", features: ["1 Video/Design", "2 Revisions", "48h Delivery", "Email Support"] },
+    { name: "Professional", price: "â‚¹9,999", desc: "For growing creators.", features: ["4 Videos/Designs", "Unlimited Revisions", "24h Delivery", "Priority Support"] },
+    { name: "Business", price: "â‚¹24,999", desc: "Full social media management.", features: ["15 Assets/Month", "Dedicated Manager", "Custom Strategy", "Analytics Report"] },
     { name: "Enterprise", price: "Custom", desc: "Large scale production.", features: ["Unlimited Assets", "On-demand Team", "Brand Identity", "24/7 Support"] }
   ];
 
@@ -125,7 +125,7 @@ const DigitalServices = () => {
                 
                 {/* Simulated Video Timeline */}
                 <div className="mb-6">
-                  <div className="text-xs font-bold text-muted mb-2 flex items-center gap-1"><Video size={14}/> Video Timeline</div>
+                  <div className="text-xs font-bold text-muted mb-2 flex items-center gap-1"><video webkit-playsinline='true' preload='auto' size={14}/> Video Timeline</div>
                   <div className="h-24 bg-slate-100 rounded-lg border border-slate-200 relative overflow-hidden flex flex-col justify-between p-1">
                     <div className="flex gap-1 h-8"><div className="w-1/3 bg-blue-400 rounded"></div><div className="w-1/2 bg-blue-500 rounded"></div></div>
                     <div className="flex gap-1 h-6"><div className="w-1/4 bg-purple-400 rounded"></div><div className="w-1/3 bg-purple-500 rounded ml-4"></div></div>
@@ -178,7 +178,7 @@ const DigitalServices = () => {
           <div className="container">
             <div className="section-header text-center mb-12">
               <div className="w-16 h-16 bg-primary-light text-primary rounded-2xl flex items-center justify-center mx-auto mb-4">
-                <Video size={32} />
+                <video webkit-playsinline='true' preload='auto' size={32} />
               </div>
               <h2 className="text-3xl font-bold">Premium Video Editing</h2>
               <p className="text-muted mt-4 max-w-2xl mx-auto">High-retention editing for YouTubers, engaging Reels for Instagram, and cinematic corporate videos.</p>
@@ -362,9 +362,9 @@ const DigitalServices = () => {
 
                   <select className="ds-input text-muted" required>
                     <option value="" disabled selected>Estimated Budget</option>
-                    <option>₹5,000 - ₹15,000</option>
-                    <option>₹15,000 - ₹50,000</option>
-                    <option>₹50,000+</option>
+                    <option>â‚¹5,000 - â‚¹15,000</option>
+                    <option>â‚¹15,000 - â‚¹50,000</option>
+                    <option>â‚¹50,000+</option>
                   </select>
                 </div>
 
@@ -406,3 +406,4 @@ const DigitalServices = () => {
 };
 
 export default DigitalServices;
+

@@ -130,6 +130,8 @@ const Home = () => {
                     loop 
                     muted 
                     playsInline 
+                    webkit-playsinline="true"
+                    preload="auto"
                     className="absolute inset-0 w-full h-full object-contain z-10" 
                   />
                 )
@@ -265,7 +267,7 @@ const Home = () => {
                           service.video.endsWith('.m3u8') ? (
                             <HlsVideo src={service.video} className="absolute inset-0 w-full h-full object-contain group-hover:scale-110 transition-transform duration-700 ease-out z-10" />
                           ) : (
-                            <video src={service.video} autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-contain group-hover:scale-110 transition-transform duration-700 ease-out z-10" />
+                            <video src={service.video} autoPlay loop muted playsInline webkit-playsinline="true" preload="auto" className="absolute inset-0 w-full h-full object-contain group-hover:scale-110 transition-transform duration-700 ease-out z-10" />
                           )
                         ) : (
                           <img loading="lazy" src={service.image} alt={service.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out" />

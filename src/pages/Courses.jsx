@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import CorporateLayout from './CorporateLayout';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
@@ -61,7 +61,7 @@ const courseCategories = [
   { 
     id: "video",
     title: "Video Editing & Content Creation", 
-    icon: <Video size={24} />,
+    icon: <video webkit-playsinline='true' preload='auto' size={24} />,
     image: "/video-editing.jpg",
     iconColor: "text-red-500",
     courses: ["Video Editing", "Premiere Pro", "CapCut", "DaVinci Resolve", "Podcast Editing", "Motion Graphics Basics", "Thumbnail Design", "YouTube Content Creation"] 
@@ -144,7 +144,7 @@ const Courses = () => {
         
         {/* FIXED BACKGROUND VIDEO FOR THE REMAINING PAGE */}
         <div className="fixed inset-0 z-[-1] bg-[#050505]">
-          <video 
+          <video webkit-playsinline='true' preload='auto' 
             src="https://v1.pinimg.com/videos/iht/expMp4/b1/2d/f7/b12df7408333d98039bb7b0fa7e03d93_720w.mp4" 
             autoPlay 
             loop 
@@ -157,7 +157,7 @@ const Courses = () => {
         {/* 1. Hero Section */}
         <div className="relative w-full min-h-[90vh] flex flex-col items-center justify-center text-center px-4 overflow-hidden mb-16 rounded-b-[4rem] shadow-[0_20px_50px_rgba(0,0,0,0.8)]">
           <div className="absolute inset-0 z-0">
-            <video 
+            <video webkit-playsinline='true' preload='auto' 
               src="https://v1.pinimg.com/videos/iht/720p/00/b7/1a/00b71ac95a485aac1af1fc72f3415c6a.mp4" 
               autoPlay 
               loop 
@@ -414,6 +414,7 @@ const Courses = () => {
 };
 
 export default Courses;
+
 
 
 

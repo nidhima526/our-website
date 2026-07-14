@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { 
   Menu, Search, Bell, User, X, Play, Pause, Maximize, Settings, 
@@ -265,7 +265,7 @@ const CoursePlayer = () => {
                   </div>
                   <div>
                     <div className="font-bold text-sm text-white group-hover:text-primary transition-colors">{res.name}</div>
-                    <div className="text-xs text-slate-400">{res.type} • {res.size}</div>
+                    <div className="text-xs text-slate-400">{res.type} â€¢ {res.size}</div>
                   </div>
                 </div>
                 <button className="text-slate-400 group-hover:text-white transition-colors"><Download size={20}/></button>
@@ -406,4 +406,5 @@ const CoursePlayer = () => {
 };
 
 export default CoursePlayer;
+
 

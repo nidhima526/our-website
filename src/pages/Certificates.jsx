@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { 
   LayoutDashboard, BookOpen, Video, FileEdit, HelpCircle, Book, 
@@ -22,7 +22,7 @@ const Certificates = () => {
     { id: 'courses', icon: <BookOpen size={18}/>, label: 'My Courses', link: '/dashboard/courses' },
     { id: 'assignments', icon: <FileEdit size={18}/>, label: 'Assignments & Quizzes', badge: 2, link: '/dashboard/assignments' },
     { id: 'certificates', icon: <Award size={18}/>, label: 'Certificates & Achievements', active: true, link: '/dashboard/certificates' },
-    { id: 'live', icon: <Video size={18}/>, label: 'Live Classes', badge: 1, link: '/dashboard/live' },
+    { id: 'live', icon: <video webkit-playsinline='true' preload='auto' size={18}/>, label: 'Live Classes', badge: 1, link: '/dashboard/live' },
     { id: 'study', icon: <Book size={18}/>, label: 'Study Materials', link: '/dashboard/materials' },
     { id: 'internships', icon: <Briefcase size={18}/>, label: 'Internships', link: '/dashboard/internships' },
     { id: 'messages', icon: <MessageSquare size={18}/>, label: 'Messages', badge: 5, link: '/dashboard/messages' },
@@ -447,4 +447,5 @@ const Certificates = () => {
 };
 
 export default Certificates;
+
 

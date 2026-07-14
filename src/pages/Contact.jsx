@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { Mail, MapPin, Phone, ArrowRight, CheckCircle2 } from 'lucide-react';
@@ -18,7 +18,7 @@ const Contact = () => {
       
       {/* Global Background Video (Fixed) */}
       <div className="fixed inset-0 z-0 pointer-events-none">
-        <video 
+        <video webkit-playsinline='true' preload='auto' 
           autoPlay 
           loop 
           muted 
@@ -160,3 +160,4 @@ const Contact = () => {
 };
 
 export default Contact;
+
