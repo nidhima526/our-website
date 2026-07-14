@@ -65,7 +65,7 @@ const Home = () => {
     {
       title: "Technology Solutions",
       desc: "Enterprise software, AI integration, and secure cloud infrastructure.",
-      video: "/home_tech_bg.mp4",
+      image: "/tech_hero_bg_ai.png",
       link: "/technology",
       color: "from-blue-600/20 to-blue-900/20",
       border: "hover:border-blue-500/50"
@@ -81,7 +81,7 @@ const Home = () => {
     {
       title: "Creative & Marketing",
       desc: "Brand strategy, SEO, and premium digital presence that commands attention.",
-      video: "/creative_hero_new.mp4",
+      image: "/video_editing_bg_ai.png",
       link: "/contact", 
       color: "from-yellow-600/20 to-yellow-900/20",
       border: "hover:border-yellow-500/50"
