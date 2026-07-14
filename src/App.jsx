@@ -52,13 +52,6 @@ const SplashScreen = ({ onComplete }) => (
     >
       <source src="/opening_vedio.mp4" type="video/mp4" />
     </video>
-    
-    <button 
-      onClick={onComplete}
-      className="absolute bottom-8 right-8 text-white/50 hover:text-white border border-white/20 hover:bg-white/10 px-4 py-2 rounded-full backdrop-blur-md transition-all text-sm tracking-widest uppercase z-10"
-    >
-      Skip
-    </button>
   </motion.div>
 );
 
