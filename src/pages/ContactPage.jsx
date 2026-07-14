@@ -14,12 +14,17 @@ const divisions = [
   { id: 'academy', label: 'Academy (Courses/Internships)', icon: <GraduationCap size={16} /> },
 ];
 
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import { db } from '../firebase';
+
 const ContactPage = () => {
   const [selectedDivision, setSelectedDivision] = useState('tech');
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsSubmitting(true);
     
     const form = e.target;
     const firstName = form.firstName.value;
@@ -29,12 +34,46 @@ const ContactPage = () => {
     
     const divisionLabel = divisions.find(d => d.id === selectedDivision)?.label || selectedDivision;
 
-    const whatsappMessage = `*New Inquiry via Website*\n*Division:* ${divisionLabel}\n*Name:* ${firstName} ${lastName}\n*Email:* ${email}\n*Message:* ${message}`;
+    // Fetch automatic location
+    let location = 'Unknown';
+    try {
+      const res = await fetch('https://ipapi.co/json/');
+      const data = await res.json();
+      location = `${data.city}, ${data.region}, ${data.country_name}`;
+    } catch (err) {
+      console.error('Could not fetch location:', err);
+    }
+
+    // Format Date & Time for display
+    const now = new Date();
+    const date = now.toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric' });
+    const time = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+
+    // Save to Firebase Database
+    try {
+      await addDoc(collection(db, "inquiries"), {
+        date,
+        time,
+        timestamp: serverTimestamp(),
+        name: `${firstName} ${lastName}`,
+        email,
+        phone: 'Not provided', // Contact form doesn't have phone
+        service: divisionLabel,
+        location,
+        message
+      });
+    } catch (err) {
+      console.error('Error saving to DB:', err);
+    }
+
+    // Redirect to WhatsApp
+    const whatsappMessage = `*New Inquiry via Website*\n*Division:* ${divisionLabel}\n*Name:* ${firstName} ${lastName}\n*Email:* ${email}\n*Location:* ${location}\n*Message:* ${message}`;
     const encodedMessage = encodeURIComponent(whatsappMessage);
     const whatsappUrl = `https://wa.me/918184801842?text=${encodedMessage}`;
     
     window.open(whatsappUrl, '_blank');
     
+    setIsSubmitting(false);
     setIsSubmitted(true);
     form.reset();
     setTimeout(() => setIsSubmitted(false), 4000);

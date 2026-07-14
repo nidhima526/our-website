@@ -16,6 +16,7 @@ import RefundPolicy from './pages/RefundPolicy';
 import InteriorDesign from './pages/InteriorDesign';
 import StudentDashboard from './pages/StudentDashboard';
 import BusinessDashboard from './pages/BusinessDashboard';
+import AdminDashboard from './pages/AdminDashboard';
 import AIChatbot from './components/AIChatbot';
 import CookieConsent from './components/CookieConsent';
 import ScrollToTop from './components/ScrollToTop';
@@ -232,6 +233,8 @@ function App() {
           <Route path="/privacy" element={<PageWrapper title="Privacy Policy"><PrivacyPolicy /></PageWrapper>} />
           <Route path="/terms" element={<PageWrapper title="Terms & Conditions"><TermsConditions /></PageWrapper>} />
           <Route path="/refund" element={<PageWrapper title="Refund Policy"><RefundPolicy /></PageWrapper>} />
+          
+          <Route path="/admin" element={<PageWrapper title="Admin Dashboard"><AdminDashboard /></PageWrapper>} />
           
           {/* Fallback route */}
           <Route path="*" element={<PageWrapper title="Home"><Home /></PageWrapper>} />

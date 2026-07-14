@@ -7,12 +7,17 @@ import {
   CheckCircle2, FileText, Award, ArrowRight, Target, Users
 } from 'lucide-react';
 
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import { db } from '../firebase';
+
 const Internships = () => {
   const videoRef = useRef(null);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsSubmitting(true);
     const form = e.target;
     const name = form.intName.value;
     const email = form.intEmail.value;
@@ -20,12 +25,45 @@ const Internships = () => {
     const program = form.program.value;
     const college = form.intCollege.value;
 
-    const whatsappMessage = `*New Internship Application*\n*Name:* ${name}\n*Email:* ${email}\n*Phone:* ${phone}\n*Program:* ${program}\n*College:* ${college}`;
+    // Fetch automatic location
+    let location = 'Unknown';
+    try {
+      const res = await fetch('https://ipapi.co/json/');
+      const data = await res.json();
+      location = `${data.city}, ${data.region}, ${data.country_name}`;
+    } catch (err) {
+      console.error('Could not fetch location:', err);
+    }
+
+    // Format Date & Time for display
+    const now = new Date();
+    const date = now.toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric' });
+    const time = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+
+    // Save to Firebase Database
+    try {
+      await addDoc(collection(db, "inquiries"), {
+        date,
+        time,
+        timestamp: serverTimestamp(),
+        name,
+        email,
+        phone,
+        service: `Internship: ${program}`,
+        location,
+        message: `College: ${college}`
+      });
+    } catch (err) {
+      console.error('Error saving to DB:', err);
+    }
+
+    const whatsappMessage = `*New Internship Application*\n*Name:* ${name}\n*Email:* ${email}\n*Phone:* ${phone}\n*Program:* ${program}\n*College:* ${college}\n*Location:* ${location}`;
     const encodedMessage = encodeURIComponent(whatsappMessage);
     const whatsappUrl = `https://wa.me/918184801842?text=${encodedMessage}`;
     
     window.open(whatsappUrl, '_blank');
     
+    setIsSubmitting(false);
     setIsSubmitted(true);
     form.reset();
     setTimeout(() => setIsSubmitted(false), 4000);
