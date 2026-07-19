@@ -266,12 +266,40 @@ const DigitalCreative = () => {
             <p className="text-gray-400 max-w-2xl mx-auto text-lg font-sans font-light">Browse our latest viral edits and cinematic productions.</p>
           </div>
 
-          <div className="relative flex overflow-x-hidden group">
+          <div 
+            className={`relative flex overflow-x-auto group cursor-none [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] snap-x snap-mandatory ${selectedVideo ? '' : ''}`}
+            onMouseEnter={() => {
+              if (!selectedVideo) document.getElementById('custom-scroll-cursor').style.opacity = '1';
+            }}
+            onMouseLeave={() => {
+              const cursor = document.getElementById('custom-scroll-cursor');
+              if (cursor) cursor.style.opacity = '0';
+            }}
+            onMouseMove={(e) => {
+              const cursor = document.getElementById('custom-scroll-cursor');
+              if (cursor) {
+                cursor.style.transform = `translate(${e.clientX - 48}px, ${e.clientY - 48}px)`;
+                if (selectedVideo) {
+                  cursor.style.opacity = '0';
+                } else {
+                  cursor.style.opacity = '1';
+                }
+              }
+            }}
+          >
+            {/* Custom Follow Cursor */}
+            <div 
+              id="custom-scroll-cursor"
+              className="fixed top-0 left-0 w-24 h-24 rounded-full bg-white/10 backdrop-blur-md border border-white/30 text-white flex items-center justify-center pointer-events-none z-[60] text-xs font-bold tracking-widest shadow-[0_0_30px_rgba(255,255,255,0.2)] transition-opacity duration-300 opacity-0"
+              style={{ transform: 'translate(-100px, -100px)' }}
+            >
+              SCROLL
+            </div>
+
             {/* Gradient Fades for Smooth Scroll Edges */}
-            <div className="absolute left-0 top-0 bottom-0 w-20 md:w-40 bg-gradient-to-r from-[#000510] to-transparent z-10 pointer-events-none"></div>
-            <div className="absolute right-0 top-0 bottom-0 w-20 md:w-40 bg-gradient-to-l from-[#000510] to-transparent z-10 pointer-events-none"></div>
+            <div className="sticky left-0 top-0 bottom-0 w-12 md:w-32 bg-gradient-to-r from-[#000510] to-transparent z-10 pointer-events-none shrink-0"></div>
             
-            <div className="flex animate-marquee-testimonials whitespace-nowrap group-hover:[animation-play-state:paused] py-4 items-center">
+            <div className="flex whitespace-nowrap py-4 items-center">
               {[
                 "ug6oueoqbmI", 
                 "KGYqKhlGI6Y", 
@@ -279,18 +307,13 @@ const DigitalCreative = () => {
                 "me3sFZCXxlg", 
                 "C-yZlQXN3rQ", 
                 "DLND-0I2FmM",
-                // Duplicated for seamless loop
                 "ug6oueoqbmI", 
                 "KGYqKhlGI6Y", 
-                "DiH9Pek312c", 
-                "me3sFZCXxlg", 
-                "C-yZlQXN3rQ", 
-                "DLND-0I2FmM"
               ].map((videoId, idx) => (
                 <div 
                   key={idx} 
                   onClick={() => setSelectedVideo(videoId)}
-                  className="w-[280px] md:w-[320px] aspect-[9/16] shrink-0 mx-4 md:mx-6 rounded-2xl overflow-hidden border border-white/10 shadow-[0_0_20px_rgba(0,0,0,0.5)] transition-all duration-500 hover:scale-[1.05] hover:border-white/30 hover:shadow-[0_0_40px_rgba(59,130,246,0.3)] bg-black relative flex items-center justify-center cursor-pointer group/card"
+                  className="snap-center w-[280px] md:w-[320px] aspect-[9/16] shrink-0 mx-4 md:mx-6 rounded-2xl overflow-hidden border border-white/10 shadow-[0_0_20px_rgba(0,0,0,0.5)] transition-all duration-500 hover:scale-[1.05] hover:border-white/30 hover:shadow-[0_0_40px_rgba(59,130,246,0.3)] bg-black relative flex items-center justify-center cursor-none group/card"
                 >
                   <div className="absolute inset-0 z-20 pointer-events-none bg-black/20 group-hover/card:bg-transparent transition-colors"></div>
                   {/* Play Button Overlay */}
@@ -309,6 +332,8 @@ const DigitalCreative = () => {
                 </div>
               ))}
             </div>
+
+            <div className="sticky right-0 top-0 bottom-0 w-12 md:w-32 bg-gradient-to-l from-[#000510] to-transparent z-10 pointer-events-none shrink-0"></div>
           </div>
         </section>
 
