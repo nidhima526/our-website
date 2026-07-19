@@ -26,9 +26,17 @@ const AdminDashboard = () => {
 
   const fetchData = async () => {
     try {
-      const q = query(collection(db, "inquiries"), orderBy("timestamp", "desc"));
+      const q = query(collection(db, "inquiries"));
       const querySnapshot = await getDocs(q);
       const data = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+      
+      // Sort on client side to avoid Firebase indexing issues or missing timestamp fields
+      data.sort((a, b) => {
+        const timeA = a.timestamp?.toMillis ? a.timestamp.toMillis() : (a.timestamp || 0);
+        const timeB = b.timestamp?.toMillis ? b.timestamp.toMillis() : (b.timestamp || 0);
+        return timeB - timeA;
+      });
+      
       setInquiries(data);
     } catch (err) {
       console.error("Error fetching data:", err);

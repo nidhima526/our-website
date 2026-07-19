@@ -1,4 +1,4 @@
-﻿import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import CorporateLayout from './CorporateLayout';
 import { motion } from 'framer-motion';
 import Hls from 'hls.js';
@@ -60,6 +60,8 @@ const Internships = () => {
     const whatsappMessage = `*New Internship Application*\n*Name:* ${name}\n*Email:* ${email}\n*Phone:* ${phone}\n*Program:* ${program}\n*College:* ${college}\n*Location:* ${location}`;
     const encodedMessage = encodeURIComponent(whatsappMessage);
     const whatsappUrl = `https://wa.me/918184801842?text=${encodedMessage}`;
+    
+    alert("Successfully submitted!");
     
     window.open(whatsappUrl, '_blank');
     

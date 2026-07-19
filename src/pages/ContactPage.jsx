@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import CorporateLayout from './CorporateLayout';
 import { motion } from 'framer-motion';
 import { 
@@ -69,6 +69,8 @@ const ContactPage = () => {
     const whatsappMessage = `*New Inquiry via Website*\n*Division:* ${divisionLabel}\n*Name:* ${firstName} ${lastName}\n*Email:* ${email}\n*Location:* ${location}\n*Message:* ${message}`;
     const encodedMessage = encodeURIComponent(whatsappMessage);
     const whatsappUrl = `https://wa.me/918184801842?text=${encodedMessage}`;
+    
+    alert("Successfully submitted!");
     
     window.open(whatsappUrl, '_blank');
     
