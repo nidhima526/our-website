@@ -309,28 +309,41 @@ const DigitalCreative = () => {
                 "DLND-0I2FmM",
                 "ug6oueoqbmI", 
                 "KGYqKhlGI6Y", 
-              ].map((videoId, idx) => (
-                <div 
-                  key={idx} 
-                  onClick={() => setSelectedVideo(videoId)}
-                  className="snap-center w-[280px] md:w-[320px] aspect-[9/16] shrink-0 mx-4 md:mx-6 rounded-2xl overflow-hidden border border-white/10 shadow-[0_0_20px_rgba(0,0,0,0.5)] transition-all duration-500 hover:scale-[1.05] hover:border-white/30 hover:shadow-[0_0_40px_rgba(59,130,246,0.3)] bg-black relative flex items-center justify-center cursor-none group/card"
-                >
-                  <div className="absolute inset-0 z-20 pointer-events-none bg-black/20 group-hover/card:bg-transparent transition-colors"></div>
-                  {/* Play Button Overlay */}
-                  <div className="absolute inset-0 z-30 flex items-center justify-center opacity-0 group-hover/card:opacity-100 transition-opacity pointer-events-none">
-                    <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center shadow-[0_0_30px_rgba(255,255,255,0.3)]">
-                      <Play className="text-white w-8 h-8 ml-1" fill="currentColor" />
+              ].map((videoId, idx) => {
+                const isSelected = selectedVideo === videoId;
+                return (
+                  <div 
+                    key={idx} 
+                    onClick={() => setSelectedVideo(isSelected ? null : videoId)}
+                    className={`snap-center aspect-[9/16] shrink-0 mx-4 md:mx-6 rounded-2xl overflow-hidden border transition-all duration-700 bg-black relative flex items-center justify-center cursor-none group/card
+                      ${isSelected 
+                        ? 'w-[320px] md:w-[380px] scale-[1.15] z-50 border-white/50 shadow-[0_0_60px_rgba(255,255,255,0.2)]' 
+                        : 'w-[280px] md:w-[320px] border-white/10 shadow-[0_0_20px_rgba(0,0,0,0.5)] hover:scale-[1.05] hover:border-white/30 hover:shadow-[0_0_40px_rgba(59,130,246,0.3)] z-10'
+                      }
+                    `}
+                  >
+                    <div className={`absolute inset-0 z-20 pointer-events-none transition-colors ${isSelected ? 'bg-transparent' : 'bg-black/40 group-hover/card:bg-transparent'}`}></div>
+                    
+                    {/* Play Button Overlay (hides when selected) */}
+                    <div className={`absolute inset-0 z-30 flex items-center justify-center pointer-events-none transition-opacity duration-300 ${isSelected ? 'opacity-0' : 'opacity-0 group-hover/card:opacity-100'}`}>
+                      <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center shadow-[0_0_30px_rgba(255,255,255,0.3)]">
+                        <Play className="text-white w-8 h-8 ml-1" fill="currentColor" />
+                      </div>
                     </div>
+
+                    <iframe 
+                      src={`https://www.youtube.com/embed/${videoId}?autoplay=1&mute=${isSelected ? '0' : '1'}&controls=${isSelected ? '1' : '0'}&loop=1&playlist=${videoId}&modestbranding=1&showinfo=0&rel=0&disablekb=1&iv_load_policy=3`} 
+                      title={`YouTube Short ${idx}`}
+                      frameBorder="0" 
+                      allow="autoplay; encrypted-media" 
+                      className="w-[150%] h-[150%] scale-[1.1] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+                    ></iframe>
+                    
+                    {/* Invisible overlay to catch clicks if NOT selected, but allow youtube controls if selected */}
+                    {!isSelected && <div className="absolute inset-0 z-40 pointer-events-auto"></div>}
                   </div>
-                  <iframe 
-                    src={`https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&controls=0&loop=1&playlist=${videoId}&modestbranding=1&showinfo=0&rel=0&disablekb=1&iv_load_policy=3`} 
-                    title={`YouTube Short ${idx}`}
-                    frameBorder="0" 
-                    allow="autoplay; encrypted-media" 
-                    className="w-[150%] h-[150%] scale-[1.1] pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-                  ></iframe>
-                </div>
-              ))}
+                );
+              })}
             </div>
 
             <div className="sticky right-0 top-0 bottom-0 w-12 md:w-32 bg-gradient-to-l from-[#000510] to-transparent z-10 pointer-events-none shrink-0"></div>
@@ -556,42 +569,6 @@ const DigitalCreative = () => {
         }
       `}} />
 
-      {/* Full Screen Video Modal */}
-      <AnimatePresence>
-        {selectedVideo && (
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-lg p-4 md:p-10"
-            onClick={() => setSelectedVideo(null)}
-          >
-            <button 
-              className="absolute top-6 right-6 w-12 h-12 bg-white/10 hover:bg-white/20 border border-white/20 rounded-full flex items-center justify-center text-white transition-all z-50"
-              onClick={() => setSelectedVideo(null)}
-            >
-              <X size={24} />
-            </button>
-            <motion.div 
-              initial={{ scale: 0.9, y: 20 }}
-              animate={{ scale: 1, y: 0 }}
-              exit={{ scale: 0.9, y: 20 }}
-              transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="relative w-full max-w-sm h-full max-h-[85vh] aspect-[9/16] rounded-3xl overflow-hidden shadow-[0_0_100px_rgba(255,255,255,0.1)] bg-black"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <iframe 
-                src={`https://www.youtube.com/embed/${selectedVideo}?autoplay=1&controls=1&rel=0`} 
-                title="Selected Video"
-                frameBorder="0" 
-                allow="autoplay; encrypted-media; fullscreen" 
-                className="w-full h-full"
-                allowFullScreen
-              ></iframe>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </CorporateLayout>
   );
 };
