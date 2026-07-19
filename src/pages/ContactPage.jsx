@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { FaWhatsapp } from 'react-icons/fa';
 import CorporateLayout from './CorporateLayout';
 import { motion } from 'framer-motion';
 import { 
@@ -155,8 +156,8 @@ const ContactPage = () => {
               initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6, delay: 0.3 }}
               className="liquid-glass p-8 md:p-12 rounded-[32px] relative overflow-hidden"
             >
-              <h2 className="text-3xl font-extrabold text-white mb-2 relative z-10">Send an Inquiry</h2>
-              <p className="text-gray-300 mb-8 font-medium relative z-10">Select a division and tell us how we can help you today.</p>
+              <h2 className="text-3xl font-extrabold text-white mb-2 relative z-10">Direct WhatsApp Inquiry</h2>
+              <p className="text-gray-300 mb-8 font-medium relative z-10">Select a division and chat directly with our experts instantly.</p>
               
               {isSubmitted ? (
                 <div className="bg-green-500/10 border border-green-500/30 rounded-2xl p-10 text-center relative z-10">
@@ -205,8 +206,8 @@ const ContactPage = () => {
                     </div>
 
                     <div className="relative group">
-                      <input type="email" id="email" name="email" className="block w-full px-5 py-4 text-white bg-black/30 border border-white/10 rounded-xl appearance-none focus:outline-none focus:ring-0 focus:border-orange-500 focus:bg-black/50 peer transition-all placeholder-transparent" placeholder="Email Address" required />
-                      <label htmlFor="email" className="absolute text-sm text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-black/80 px-2 peer-focus:px-2 peer-focus:text-orange-400 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-placeholder-shown:bg-transparent peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 peer-focus:bg-black/80 left-3 rounded-md">Corporate Email Address</label>
+                      <input type="email" id="email" name="email" className="block w-full px-5 py-4 text-white bg-black/30 border border-white/10 rounded-xl appearance-none focus:outline-none focus:ring-0 focus:border-orange-500 focus:bg-black/50 peer transition-all placeholder-transparent" placeholder="Email Address (Optional)" />
+                      <label htmlFor="email" className="absolute text-sm text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-black/80 px-2 peer-focus:px-2 peer-focus:text-orange-400 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-placeholder-shown:bg-transparent peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 peer-focus:bg-black/80 left-3 rounded-md">Email Address (Optional)</label>
                     </div>
 
                     <div className="relative group">
@@ -215,8 +216,8 @@ const ContactPage = () => {
                     </div>
                   </div>
 
-                  <button type="submit" className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white font-bold py-4 px-8 rounded-xl shadow-[0_10px_20px_rgba(37,99,235,0.3)] hover:shadow-[0_15px_30px_rgba(37,99,235,0.5)] hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-3 text-lg">
-                    Submit Inquiry <ArrowRight size={22} />
+                  <button type="submit" className="w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-400 hover:to-green-500 text-white font-bold py-4 px-8 rounded-xl shadow-[0_10px_20px_rgba(34,197,94,0.3)] hover:shadow-[0_15px_30px_rgba(34,197,94,0.5)] hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-3 text-lg">
+                    Chat on WhatsApp <FaWhatsapp size={22} />
                   </button>
                   
                   <p className="text-xs text-gray-500 text-center font-medium">
