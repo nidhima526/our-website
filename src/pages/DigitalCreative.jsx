@@ -4,7 +4,7 @@ import MagneticButton from '../components/MagneticButton';
 import { motion, AnimatePresence } from 'framer-motion';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Video, PenTool, Smartphone, TrendingUp, Mic, MonitorPlay, ArrowRight, PlayCircle, Play, Pause, Volume2, VolumeX, CheckCircle2 } from 'lucide-react';
+import { Video, PenTool, Smartphone, TrendingUp, Mic, MonitorPlay, ArrowRight, PlayCircle, Play, Pause, Volume2, VolumeX, CheckCircle2, X } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -170,6 +170,7 @@ const testimonials = [
 const DigitalCreative = () => {
   const containerRef = useRef(null);
   const panelsRef = useRef([]);
+  const [selectedVideo, setSelectedVideo] = useState(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -265,30 +266,12 @@ const DigitalCreative = () => {
             <p className="text-gray-400 max-w-2xl mx-auto text-lg font-sans font-light">Browse our latest viral edits and cinematic productions.</p>
           </div>
 
-          <div 
-            className="relative flex overflow-x-auto group cursor-none [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] snap-x snap-mandatory"
-            onMouseEnter={() => document.getElementById('custom-scroll-cursor').style.opacity = '1'}
-            onMouseLeave={() => document.getElementById('custom-scroll-cursor').style.opacity = '0'}
-            onMouseMove={(e) => {
-              const cursor = document.getElementById('custom-scroll-cursor');
-              if (cursor) {
-                cursor.style.transform = `translate(${e.clientX - 48}px, ${e.clientY - 48}px)`;
-              }
-            }}
-          >
-            {/* Custom Follow Cursor */}
-            <div 
-              id="custom-scroll-cursor"
-              className="fixed top-0 left-0 w-24 h-24 rounded-full bg-white/10 backdrop-blur-md border border-white/30 text-white flex items-center justify-center pointer-events-none z-50 text-xs font-bold tracking-widest shadow-[0_0_30px_rgba(255,255,255,0.2)] transition-opacity duration-300 opacity-0"
-              style={{ transform: 'translate(-100px, -100px)' }}
-            >
-              SCROLL
-            </div>
-
+          <div className="relative flex overflow-x-hidden group">
             {/* Gradient Fades for Smooth Scroll Edges */}
-            <div className="sticky left-0 top-0 bottom-0 w-12 md:w-32 bg-gradient-to-r from-[#000510] to-transparent z-10 pointer-events-none shrink-0"></div>
+            <div className="absolute left-0 top-0 bottom-0 w-20 md:w-40 bg-gradient-to-r from-[#000510] to-transparent z-10 pointer-events-none"></div>
+            <div className="absolute right-0 top-0 bottom-0 w-20 md:w-40 bg-gradient-to-l from-[#000510] to-transparent z-10 pointer-events-none"></div>
             
-            <div className="flex whitespace-nowrap py-4 items-center">
+            <div className="flex animate-marquee-testimonials whitespace-nowrap group-hover:[animation-play-state:paused] py-4 items-center">
               {[
                 "ug6oueoqbmI", 
                 "KGYqKhlGI6Y", 
@@ -296,11 +279,26 @@ const DigitalCreative = () => {
                 "me3sFZCXxlg", 
                 "C-yZlQXN3rQ", 
                 "DLND-0I2FmM",
+                // Duplicated for seamless loop
                 "ug6oueoqbmI", 
                 "KGYqKhlGI6Y", 
+                "DiH9Pek312c", 
+                "me3sFZCXxlg", 
+                "C-yZlQXN3rQ", 
+                "DLND-0I2FmM"
               ].map((videoId, idx) => (
-                <div key={idx} className="snap-center w-[280px] md:w-[320px] aspect-[9/16] shrink-0 mx-4 md:mx-6 rounded-2xl overflow-hidden border border-white/10 shadow-[0_0_20px_rgba(0,0,0,0.5)] transition-all duration-500 hover:scale-[1.05] hover:border-white/30 hover:shadow-[0_0_40px_rgba(59,130,246,0.3)] bg-black relative flex items-center justify-center group/card cursor-none">
-                  <div className="absolute inset-0 z-20 pointer-events-none bg-transparent"></div>
+                <div 
+                  key={idx} 
+                  onClick={() => setSelectedVideo(videoId)}
+                  className="w-[280px] md:w-[320px] aspect-[9/16] shrink-0 mx-4 md:mx-6 rounded-2xl overflow-hidden border border-white/10 shadow-[0_0_20px_rgba(0,0,0,0.5)] transition-all duration-500 hover:scale-[1.05] hover:border-white/30 hover:shadow-[0_0_40px_rgba(59,130,246,0.3)] bg-black relative flex items-center justify-center cursor-pointer group/card"
+                >
+                  <div className="absolute inset-0 z-20 pointer-events-none bg-black/20 group-hover/card:bg-transparent transition-colors"></div>
+                  {/* Play Button Overlay */}
+                  <div className="absolute inset-0 z-30 flex items-center justify-center opacity-0 group-hover/card:opacity-100 transition-opacity pointer-events-none">
+                    <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center shadow-[0_0_30px_rgba(255,255,255,0.3)]">
+                      <Play className="text-white w-8 h-8 ml-1" fill="currentColor" />
+                    </div>
+                  </div>
                   <iframe 
                     src={`https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&controls=0&loop=1&playlist=${videoId}&modestbranding=1&showinfo=0&rel=0&disablekb=1&iv_load_policy=3`} 
                     title={`YouTube Short ${idx}`}
@@ -311,8 +309,6 @@ const DigitalCreative = () => {
                 </div>
               ))}
             </div>
-
-            <div className="sticky right-0 top-0 bottom-0 w-12 md:w-32 bg-gradient-to-l from-[#000510] to-transparent z-10 pointer-events-none shrink-0"></div>
           </div>
         </section>
 
@@ -534,6 +530,43 @@ const DigitalCreative = () => {
           scrollbar-width: none;
         }
       `}} />
+
+      {/* Full Screen Video Modal */}
+      <AnimatePresence>
+        {selectedVideo && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-lg p-4 md:p-10"
+            onClick={() => setSelectedVideo(null)}
+          >
+            <button 
+              className="absolute top-6 right-6 w-12 h-12 bg-white/10 hover:bg-white/20 border border-white/20 rounded-full flex items-center justify-center text-white transition-all z-50"
+              onClick={() => setSelectedVideo(null)}
+            >
+              <X size={24} />
+            </button>
+            <motion.div 
+              initial={{ scale: 0.9, y: 20 }}
+              animate={{ scale: 1, y: 0 }}
+              exit={{ scale: 0.9, y: 20 }}
+              transition={{ type: "spring", damping: 25, stiffness: 300 }}
+              className="relative w-full max-w-sm h-full max-h-[85vh] aspect-[9/16] rounded-3xl overflow-hidden shadow-[0_0_100px_rgba(255,255,255,0.1)] bg-black"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <iframe 
+                src={`https://www.youtube.com/embed/${selectedVideo}?autoplay=1&controls=1&rel=0`} 
+                title="Selected Video"
+                frameBorder="0" 
+                allow="autoplay; encrypted-media; fullscreen" 
+                className="w-full h-full"
+                allowFullScreen
+              ></iframe>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </CorporateLayout>
   );
 };
