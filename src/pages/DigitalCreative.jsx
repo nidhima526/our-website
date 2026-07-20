@@ -171,6 +171,23 @@ const DigitalCreative = () => {
   const containerRef = useRef(null);
   const panelsRef = useRef([]);
   const [selectedVideo, setSelectedVideo] = useState(null);
+  const heroVideoRef = useRef(null);
+
+  useEffect(() => {
+    const video = heroVideoRef.current;
+    if (!video) return;
+
+    const interval = setInterval(() => {
+      if (video.duration && !isNaN(video.duration)) {
+        if (video.currentTime >= video.duration - 7) {
+          video.currentTime = 0;
+          video.play().catch(e => console.log(e));
+        }
+      }
+    }, 200);
+
+    return () => clearInterval(interval);
+  }, []);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -221,6 +238,7 @@ const DigitalCreative = () => {
           {/* BACKGROUND VIDEO */}
           <div className="absolute inset-0 z-0">
             <video 
+              ref={heroVideoRef}
               autoPlay 
               loop 
               muted 
