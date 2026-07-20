@@ -1,9 +1,11 @@
-﻿import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import CorporateLayout from './CorporateLayout';
 import { motion } from 'framer-motion';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Monitor, Code } from 'lucide-react';
+import ThreeCubesBackground from '../components/ThreeCubesBackground';
+import ParticleSeaCTA from '../components/ParticleSeaCTA';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -52,6 +54,26 @@ const additionalServices = [
   { title: "Technical Support", image: "/tech_support_new.png", items: ["Website Maintenance", "Bug Fixing", "Feature Enhancement", "Performance Monitoring", "Server Support", "Database Maintenance", "Technical Consultation", "Annual Maintenance Contract (AMC)"] },
   { title: "Business Solutions", image: "/tech_business.png", video: "https://v1.pinimg.com/videos/iht/expMp4/aa/78/a8/aa78a8838f4e1247daa1c7c19a905880_720w.mp4", items: ["Digital Transformation", "Business Automation", "IT Consulting", "Startup Technology Consulting", "Software Architecture", "Technology Audit", "Process Optimization", "Enterprise Solutions"] },
   { title: "Featured Tech Packages", image: "/tech_packages.png", video: "https://v1.pinimg.com/videos/iht/hevcMp4V3/78/b2/85/78b285c37a01da169b21ba2e008f8aa4_540w.mp4", items: ["Startup Website Package", "Business Growth Package", "E-Commerce Package", "Educational Package", "Law Firm Package"] }
+];
+
+const galleryItems = [
+  { type: 'image', src: 'https://i.pinimg.com/736x/fb/7a/e5/fb7ae5100b2aae1fee97fc8ccc728fb8.jpg' },
+  { type: 'video', src: 'https://v1.pinimg.com/videos/mc/720p/89/cf/5d/89cf5d6281adf96583ce91e06b638d9c.mp4' },
+  { type: 'image', src: 'https://i.pinimg.com/736x/e3/4b/18/e34b186a77359cfaa9bb7c8d5d62adb2.jpg' },
+  { type: 'video', src: 'https://v1.pinimg.com/videos/iht/expMp4/34/57/7a/34577a9e29e27a121f2bef08764fd548_720w.mp4' },
+  { type: 'image', src: 'https://i.pinimg.com/736x/39/ff/53/39ff53b0b27b17ddc5b82cc3e9542e79.jpg' },
+  { type: 'image', src: 'https://i.pinimg.com/736x/b5/c0/27/b5c02701f6478fbcf630974a733bc256.jpg' }
+];
+
+const uiDesignItems = [
+  { type: 'video', src: 'https://v1.pinimg.com/videos/iht/expMp4/ac/f2/42/acf24286e0985646aab8ca22b70e2663_720w.mp4', title: 'Genie Marketplace' },
+  { type: 'image', src: '/media__1784561114860.png', title: 'Genie Marketplace Image' },
+  { type: 'video', src: 'https://v1.pinimg.com/videos/iht/expMp4/bc/ad/3a/bcad3aae274830ec0fb4b67507120807_720w.mp4', title: 'AI Skin & Hair Analysis' },
+  { type: 'image', src: '/media__1784561125146.png', title: 'AI Skin Image' },
+  { type: 'video', src: 'https://v1.pinimg.com/videos/mc/720p/5e/45/c5/5e45c57ce725bcd0b21c923671e4e8f9.mp4', title: 'Consultation App' },
+  { type: 'image', src: '/media__1784561132818.png', title: 'Consultation App Image' },
+  { type: 'video', src: 'https://v1.pinimg.com/videos/mc/720p/f8/93/e8/f893e81539209285abd6b301a9896f52.mp4', title: 'Balaji Electricals' },
+  { type: 'image', src: '/media__1784561142400.png', title: 'Balaji Electricals Image' }
 ];
 
 const TechnologyServices = () => {
@@ -135,7 +157,8 @@ const TechnologyServices = () => {
         
         {/* HERO SECTION */}
         <div className="relative min-h-[80vh] flex flex-col items-center justify-center text-center px-4 pt-32 pb-20 overflow-hidden">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-yellow-500/10 rounded-full blur-[150px] pointer-events-none"></div>
+          <ThreeCubesBackground />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-yellow-500/10 rounded-full blur-[150px] pointer-events-none z-0"></div>
           
           <motion.h2 
             initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}
@@ -260,6 +283,70 @@ const TechnologyServices = () => {
             </div>
           </div>
         </section>
+
+        {/* WORK GALLERY SECTION */}
+        <section className="w-full bg-white py-32 z-30 relative overflow-hidden border-t border-gray-200">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(202,138,4,0.1)_0%,#ffffff_80%)] pointer-events-none"></div>
+
+          <div className="max-w-[95rem] mx-auto px-6 md:px-12 relative z-10">
+            <div className="text-center mb-20">
+              <h2 className="text-4xl md:text-6xl lg:text-7xl font-sans font-black text-gray-900 uppercase tracking-tighter mb-6">Work <span className="text-yellow-500">Gallery</span></h2>
+              <div className="w-32 h-[2px] bg-gradient-to-r from-transparent via-yellow-500 to-transparent mx-auto"></div>
+              <p className="mt-8 text-gray-600 max-w-2xl mx-auto text-lg md:text-xl font-light">
+                A showcase of our recent technology projects, blending elegant code with premium design.
+              </p>
+            </div>
+
+            <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6 max-w-7xl mx-auto">
+              {galleryItems.map((item, idx) => (
+                <div key={idx} className="relative group rounded-[2rem] overflow-hidden border border-gray-200 hover:border-yellow-500/50 shadow-lg hover:shadow-2xl transition-all duration-700 break-inside-avoid w-full">
+                  {item.type === 'video' ? (
+                    <video autoPlay loop muted playsInline className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700">
+                      <source src={item.src} type="video/mp4" />
+                    </video>
+                  ) : (
+                    <img loading="lazy" src={item.src} alt="Gallery item" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" />
+                  )}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* UI DESIGNS FOR PROJECTS SECTION */}
+        <section className="w-full bg-[#0a0a0a] py-32 z-30 relative overflow-hidden border-t border-white/10">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(202,138,4,0.05)_0%,#0a0a0a_80%)] pointer-events-none"></div>
+
+          <div className="max-w-[95rem] mx-auto px-6 md:px-12 relative z-10">
+            <div className="text-center mb-20">
+              <h2 className="text-4xl md:text-6xl lg:text-7xl font-sans font-black text-white uppercase tracking-tighter mb-6">UI Designs <span className="text-yellow-500">For Projects</span></h2>
+              <div className="w-32 h-[2px] bg-gradient-to-r from-transparent via-yellow-500 to-transparent mx-auto"></div>
+              <p className="mt-8 text-gray-400 max-w-2xl mx-auto text-lg md:text-xl font-light">
+                Explore our meticulously crafted user interfaces designed specifically for modern enterprise and academic projects.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {uiDesignItems.map((item, idx) => (
+                <div key={idx} className="group relative rounded-[2rem] overflow-hidden border border-white/10 hover:border-yellow-500/50 shadow-lg hover:shadow-[0_0_30px_rgba(202,138,4,0.15)] transition-all duration-700 bg-white/5 aspect-square flex items-center justify-center">
+                  {item.type === 'video' ? (
+                    <video autoPlay loop muted playsInline src={item.src} className="w-full h-full object-cover transform group-hover:scale-105 transition-all duration-700 opacity-90 group-hover:opacity-100" />
+                  ) : (
+                    <img loading="lazy" src={item.src} alt={item.title} className="w-full h-full object-cover object-top group-hover:object-bottom transition-all duration-[10000ms] ease-in-out opacity-80 group-hover:opacity-100" />
+                  )}
+                  
+                  {/* Decorative Elements */}
+                  <div className="absolute top-4 right-4 w-10 h-10 rounded-full bg-black/40 backdrop-blur-md flex items-center justify-center border border-white/10 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0 pointer-events-none">
+                    <Monitor size={18} className="text-yellow-500" />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <ParticleSeaCTA />
 
       </div>
     </CorporateLayout>

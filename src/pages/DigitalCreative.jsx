@@ -217,8 +217,21 @@ const DigitalCreative = () => {
       <div ref={containerRef} className="w-full min-h-screen relative selection:bg-blue-600 selection:text-white">
 
         {/* 1. HERO SECTION */}
-        <section className="relative w-full min-h-screen flex items-center justify-center pt-20 px-4 overflow-hidden z-10">
-          <div className="text-center max-w-5xl mx-auto">
+        <section className="relative w-full min-h-screen flex items-center justify-center pt-[208px] pb-16 px-4 overflow-hidden z-10 -mt-[80px]">
+          {/* BACKGROUND VIDEO */}
+          <div className="absolute inset-0 z-0">
+            <video 
+              autoPlay 
+              loop 
+              muted 
+              playsInline 
+              className="w-full h-full object-cover opacity-60"
+              src="https://v1.pinimg.com/videos/mc/720p/e0/e5/50/e0e5504b09b22881608031623a28830d.mp4" 
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-[#000510]/80 via-[#000510]/30 to-[#000510]"></div>
+          </div>
+
+          <div className="relative z-10 text-center max-w-5xl mx-auto mt-12">
             <motion.div initial="hidden" animate="visible" variants={staggerContainer} className="flex flex-col items-center">
               
               <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-6 py-2 rounded-full border border-[#D4AF37]/30 bg-[#D4AF37]/10 backdrop-blur-md mb-8 text-[#D4AF37] font-sans tracking-widest text-xs uppercase">
@@ -252,7 +265,6 @@ const DigitalCreative = () => {
                 </MagneticButton>
               </motion.div>
 
-              {/* Removed Hiring Section */}\n
             </motion.div>
           </div>
         </section>

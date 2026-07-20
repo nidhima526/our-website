@@ -17,6 +17,7 @@ import InteriorDesign from './pages/InteriorDesign';
 import StudentDashboard from './pages/StudentDashboard';
 import BusinessDashboard from './pages/BusinessDashboard';
 import AdminDashboard from './pages/AdminDashboard';
+
 import AIChatbot from './components/AIChatbot';
 import CookieConsent from './components/CookieConsent';
 import ScrollToTop from './components/ScrollToTop';

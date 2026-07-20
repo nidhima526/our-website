@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ChevronDown, Shield } from 'lucide-react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Menu, X, Home, Scale, Cpu, BookOpen, Palette, Box, Briefcase, Phone } from 'lucide-react';
+import { MagnificationDock } from './MagnificationDock';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,17 +18,27 @@ const Header = () => {
   }, []);
 
   const navLinks = [
-    { name: 'Home', path: '/' },
-    { name: 'Legal', path: '/legal' },
-    { name: 'Tech', path: '/technology' },
-    { name: 'Courses', path: '/courses' },
-    { name: 'Creative', path: '/creative' },
-    { name: 'Interior Design', path: '/interior-design' },
-    { name: 'Internships', path: '/internships' },
-    { name: 'Contact', path: '/contact' }
+    { name: 'Home', path: '/', icon: <Home size={20} /> },
+    { name: 'Legal', path: '/legal', icon: <Scale size={20} /> },
+    { name: 'Tech', path: '/technology', icon: <Cpu size={20} /> },
+    { name: 'Courses', path: '/courses', icon: <BookOpen size={20} /> },
+    { name: 'Creative', path: '/creative', icon: <Palette size={20} /> },
+    { name: 'Interior Design', path: '/interior-design', icon: <Box size={20} /> },
+    { name: 'Internships', path: '/internships', icon: <Briefcase size={20} /> },
+    { name: 'Contact', path: '/contact', icon: <Phone size={20} /> }
   ];
 
   const isActive = (path) => location.pathname === path;
+
+  const dockItems = navLinks.map(link => {
+    const active = isActive(link.path);
+    return {
+      label: link.name,
+      icon: link.icon,
+      onClick: () => navigate(link.path),
+      className: active ? 'bg-orange-500/20 border-orange-500/50 text-orange-400' : ''
+    };
+  });
 
   return (
     <header 
@@ -43,22 +55,30 @@ const Header = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden xl:flex items-center justify-end gap-1 2xl:gap-3 flex-1 flex-wrap">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                to={link.path}
-                className={`text-[13px] 2xl:text-sm font-bold px-3 py-2 rounded-full transition-all duration-300 whitespace-nowrap ${
-                  link.name === 'Contact'
-                    ? 'bg-orange-500 text-white hover:bg-orange-600 shadow-md ml-2'
-                    : isActive(link.path) 
-                      ? 'text-white bg-white/10 border border-white/20 shadow-inner' 
+          <nav className="hidden xl:flex items-center justify-end gap-1 flex-1">
+            {navLinks.map((link) => {
+              if (link.name === 'Contact') return null; // Rendered separately
+              return (
+                <Link
+                  key={link.name}
+                  to={link.path}
+                  className={`text-sm font-bold px-4 py-2 rounded-full transition-all duration-300 ${
+                    isActive(link.path) 
+                      ? 'bg-white/10 text-white' 
                       : 'text-gray-300 hover:text-white hover:bg-white/5'
-                }`}
-              >
-                {link.name}
-              </Link>
-            ))}
+                  }`}
+                >
+                  {link.name}
+                </Link>
+              );
+            })}
+            
+            <Link
+              to="/contact"
+              className="text-sm font-bold px-6 py-2.5 ml-2 rounded-full transition-all duration-300 bg-orange-500 text-white hover:bg-orange-600 shadow-[0_0_15px_rgba(249,115,22,0.4)] shrink-0"
+            >
+              Get in Touch
+            </Link>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -79,14 +99,14 @@ const Header = () => {
               key={link.name}
               to={link.path}
               onClick={() => setMobileMenuOpen(false)}
-              className={`block px-4 py-3 rounded-xl font-bold transition-colors ${
+              className={`flex items-center gap-3 px-4 py-3 rounded-xl font-bold transition-colors ${
                 isActive(link.path) ? 'bg-gradient-to-r from-orange-500 to-orange-600 text-white shadow-md' : 'text-gray-300 hover:bg-white/10 hover:text-white'
               }`}
             >
+              {link.icon}
               {link.name}
             </Link>
           ))}
-          {/* Mobile CTA removed */}
         </div>
       )}
     </header>
@@ -94,5 +114,3 @@ const Header = () => {
 };
 
 export default Header;
-
-
